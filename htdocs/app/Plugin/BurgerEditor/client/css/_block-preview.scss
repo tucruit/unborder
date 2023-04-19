@@ -1,0 +1,128 @@
+[data-bgb] {
+	$_main: #9DD525;
+	$_light: #F9FEF0;
+	position: relative;
+	outline-offset: 2px;
+	z-index: 0;
+
+	&:hover {
+		z-index: 10;
+		outline: 1px dotted $_main;
+		box-shadow: 0 0 10px $_main;
+	}
+
+	&::before {
+		@include bge-icon-fa;
+		color: $lightest-color;
+		font-size: 24px;
+		line-height: 28px;
+		text-align: center;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		width: 34px;
+		height: 34px;
+		padding: 3px;
+		box-sizing: border-box;
+	}
+
+	&.tv-only,
+	&.tv_only {
+		$_color: #606893;
+		outline: 1px solid $_color;
+
+		&::before {
+			content: "\f26c";
+			display: block;
+			background: $_color;
+		}
+	}
+
+	&.pc-only,
+	&.pc_only {
+		$_color: #287B83;
+		outline: 1px solid $_color;
+
+		&::before {
+			content: "\f108";
+			display: block;
+			background: $_color;
+		}
+	}
+
+	&.tablet-only,
+	&.tablet_only {
+		$_color: #1E2883;
+		outline: 1px solid $_color;
+
+		&::before {
+			content: "\f10a";
+			display: block;
+			background: $_color;
+		}
+	}
+
+	&.sp-only,
+	&.sp_only {
+		$_color: #AF5018;
+		outline: 1px solid $_color;
+
+		&::before {
+			content: '\f10b';
+			display: block;
+			background: $_color;
+		}
+	}
+
+	&[data-bgb-publish-datetime-range]::before {
+		left: calc(34px + 2px);
+	}
+
+	&[data-bgb-publish-datetime-range]::after {
+		@include bge-icon-fa;
+		color: $lightest-color;
+		font-size: 24px;
+		line-height: 28px;
+		text-align: center;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		width: 34px;
+		height: 34px;
+		padding: 3px;
+		box-sizing: border-box;
+	}
+
+	&[data-bgb-publish-datetime-range='true'] {
+		$_color: rgb(4, 93, 4);
+		outline: 5px solid $_color;
+
+		&::after {
+			content: '\f017';
+			display: block;
+			background: $_color;
+		}
+	}
+
+	&[data-bgb-publish-datetime-range='false'] {
+		$_color: #000000;
+		outline: 5px solid $_color;
+		opacity: 0.2;
+
+		&::after {
+			content: '\f017';
+			display: block;
+			background: $_color;
+		}
+	}
+}
+
+// 入れ替えアニメーション時に一時的に現れる要素
+.-bge-animation-replacement {
+	width: calc(100% - 10px * 2); // 10px is magic number
+	box-sizing: border-box;
+}

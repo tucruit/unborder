@@ -1,0 +1,32 @@
+@charset "utf-8";
+/**
+ * CuCustomField : baserCMS Custom Field
+ * Copyright (c) Catchup, Inc. <https://catchup.co.jp>
+ *
+ * @copyright        Copyright (c) Catchup, Inc.
+ * @link             https://catchup.co.jp
+ * @package          CuCustomField.css
+ * @license          MIT LICENSE
+ */
+
+/**
+ * [ADMIN] PetitCustomField
+ *
+ * カスタムフィールド用のスタイル
+ */
+
+.googlemaps-input-box span {
+	margin-right: 10px;
+}
+
+/* 利用中フィールド一覧表示
+-------------------------------- */
+#FieldNameList {
+	position: absolute;
+	right: 45px;
+}
+
+/*  Font Awesome */
+#ListTable .fa {
+	color: #999999;
+}

@@ -1,0 +1,223 @@
+// stylelint-disable declaration-no-important
+
+/*
+# 下余白
+*/
+.bgb-opt--mb-large {
+	margin-bottom: 4em !important;
+}
+
+.bgb-opt--mb-small {
+	margin-bottom: 1em !important;
+}
+
+.bgb-opt--mb-none {
+	margin-bottom: 0 !important;
+}
+
+/*
+# 背景色
+*/
+.bgb-opt--bg-gray {
+	background-color: #efefef !important;
+}
+
+.bgb-opt--bg-blue {
+	background-color: #d8f4ff !important;
+}
+
+.bgb-opt--bg-pink {
+	background-color: #fee !important;
+}
+
+/*
+# 枠線 - スタイル
+*/
+.bgb-opt--border-none {
+	border-width: 0 !important;
+	border-style: none;
+}
+
+.bgb-opt--border-bold {
+	border-width: 5px !important;
+	border-style: solid;
+}
+
+.bgb-opt--border-thin {
+	border-width: 1px !important;
+	border-style: solid;
+}
+
+.bgb-opt--border-dotted {
+	border-width: 1px !important;
+	border-style: dotted;
+}
+
+/*
+# 枠線 - 適用箇所
+*/
+.bgb-opt--border-trbl {
+	//
+}
+
+.bgb-opt--border-tb,
+.bgb-opt--border-td {
+	border-left-width: 0 !important;
+	border-right-width: 0 !important;
+}
+
+.bgb-opt--border-lr {
+	border-top-width: 0 !important;
+	border-bottom-width: 0 !important;
+}
+
+.bgb-opt--border-trl {
+	border-bottom-width: 0 !important;
+}
+
+.bgb-opt--border-rbl {
+	border-top-width: 0 !important;
+}
+
+[data-bgb] {
+	/*
+	# 2カラムの幅調整用のグリッドシステム
+	*/
+	.bgt-grid1 {
+		width: $span1;
+	}
+
+	.bgt-grid2 {
+		width: $span2;
+	}
+
+	.bgt-grid3 {
+		width: $span3;
+	}
+
+	.bgt-grid4 {
+		width: $span4;
+	}
+
+	.bgt-grid5 {
+		width: $span5;
+	}
+
+	.bgt-grid6 {
+		width: $span6;
+	}
+
+	.bgt-grid7 {
+		width: $span7;
+	}
+
+	.bgt-grid8 {
+		width: $span8;
+	}
+
+	.bgt-grid9 {
+		width: $span9;
+	}
+
+	.bgt-grid10 {
+		width: $span10;
+	}
+
+	.bgt-grid11 {
+		width: $span11;
+	}
+
+	.bgt-grid12 {
+		width: $span12;
+	}
+
+	// stylelint-disable-next-line order/order
+	@media screen and (max-width: $breakPoint) {
+		.bgt-grid1,
+		.bgt-grid2,
+		.bgt-grid3,
+		.bgt-grid4,
+		.bgt-grid5,
+		.bgt-grid6,
+		.bgt-grid7,
+		.bgt-grid8,
+		.bgt-grid9,
+		.bgt-grid10,
+		.bgt-grid11,
+		.bgt-grid12 {
+			width: 100%;
+		}
+
+		.bgt-sp-grid2,
+		.bgt-sp-grid3,
+		.bgt-sp-grid4,
+		.bgt-sp-grid5,
+		.bgt-sp-grid6,
+		.bgt-sp-grid7,
+		.bgt-sp-grid8,
+		.bgt-sp-grid9,
+		.bgt-sp-grid10,
+		.bgt-sp-grid11,
+		.bgt-sp-grid12 {
+			&.bgt-grid--first {
+				float: left !important;
+				padding-right: ($multiColumnGridMargin / 2) !important;
+			}
+
+			&.bgt-grid--last {
+				float: right !important;
+				padding-left: ($multiColumnGridMargin / 2) !important;
+			}
+		}
+
+		.bgt-sp-grid1 {
+			width: $span1 !important;
+		}
+
+		.bgt-sp-grid2 {
+			width: $span2 !important;
+		}
+
+		.bgt-sp-grid3 {
+			width: $span3 !important;
+		}
+
+		.bgt-sp-grid4 {
+			width: $span4 !important;
+		}
+
+		.bgt-sp-grid5 {
+			width: $span5 !important;
+		}
+
+		.bgt-sp-grid6 {
+			width: $span6 !important;
+		}
+
+		.bgt-sp-grid7 {
+			width: $span7 !important;
+		}
+
+		.bgt-sp-grid8 {
+			width: $span8 !important;
+		}
+
+		.bgt-sp-grid9 {
+			width: $span9 !important;
+		}
+
+		.bgt-sp-grid10 {
+			width: $span10 !important;
+		}
+
+		.bgt-sp-grid11 {
+			width: $span11 !important;
+		}
+
+		.bgt-sp-grid12 {
+			width: $span12 !important;
+		}
+	}
+}
+
+// stylelint-enable declaration-no-important

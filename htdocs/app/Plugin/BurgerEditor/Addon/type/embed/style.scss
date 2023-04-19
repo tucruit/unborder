@@ -1,0 +1,18 @@
+.bge-embed-code {
+	display: none;
+}
+
+.bge-embed-label {
+	display: block;
+	color: #999;
+	font-weight: bold;
+	padding: 20px;
+	text-align: center;
+
+	&::after {
+		content: "埋め込みタグはエディタ上ではプレビューできません";
+		display: block;
+		font-size: .92em;
+		font-weight: normal;
+	}
+}

@@ -1,0 +1,7 @@
+_notes
+_compareTemp
+nbproject
+doc
+Doxyfile
+# カスタム設定ファイル
+Config/setting_customize.php

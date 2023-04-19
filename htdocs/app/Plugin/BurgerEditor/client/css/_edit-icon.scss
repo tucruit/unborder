@@ -1,0 +1,18 @@
+.edit-inner {
+	$w: 34px;
+	$h: 40px;
+	color: $lightest-color;
+	display: none;
+	text-indent: -9999px;
+	position: absolute;
+	overflow: visible;
+	z-index: 20000;
+	width: $w;
+	height: $h;
+	margin: 0;
+	margin-top: (-1 * $h * 2);
+	margin-left: (-1 * $w / 2);
+	background: url(../../img/edit.png) no-repeat scroll 0 0;
+	border: none;
+	pointer-events: none;
+}

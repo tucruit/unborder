@@ -1,0 +1,91 @@
+//
+// 管理画面上のタイプのプレビュー
+//
+// 公開側でJSなどを利用するケースなど、
+// 公開側と異なる表示が必要な場合などもここに定義する
+//
+//
+[data-bgt] {
+	outline: 1px #A6A6A6 dotted;
+
+	// クリックできるならないように最低限の高さを保つ
+	min-height: 20px;
+
+	&:hover {
+		cursor: pointer;
+		outline: 1px solid $type-outline-heighlight-color;
+		background-color: $type-background-heighlight-color;
+
+		img {
+			opacity: .8;
+		}
+	}
+
+	// iframe内でのイベント発火禁止
+	iframe {
+		pointer-events: none;
+	}
+
+	//
+	// gallery
+	//
+	&[data-bgt="gallery"] {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		height: auto;
+
+		&::before {
+			display: block;
+			text-align: center;
+			content: "スライドショー";
+			color: #999;
+			font-weight: bold;
+			order: 1;
+		}
+
+		&::after {
+			display: block;
+			text-align: center;
+			content: "スライドショーはエディタ上ではプレビューできません";
+			color: #999;
+			order: 2;
+		}
+
+		.bgt-gallery {
+			order: 100;
+			text-align: center;
+			margin-top: 20px;
+			position: static;
+			width: auto;
+			height: auto;
+			padding: 0;
+
+			&__group {
+				position: static;
+				width: auto;
+				height: auto;
+				padding: 0;
+			}
+
+			&__item {
+				position: static;
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				overflow: hidden;
+				margin: 0 10px;
+				padding: 0;
+			}
+
+			&__img {
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}

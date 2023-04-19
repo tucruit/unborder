@@ -1,0 +1,22 @@
+.nodata-button {
+	button.insert_after {
+		display: block;
+		margin: 0 auto;
+		padding: 13px 30px;
+		line-height: 1;
+		border: none;
+		cursor: pointer;
+		color: $lightest-color;
+		background: #86BE0D;
+		appearance: none;
+		border-radius: 2px;
+		&:hover,
+		&:focus {
+			background: #67B416;
+			outline: none;
+		}
+		&:active {
+			background: #3f9222;
+		}
+	}
+}

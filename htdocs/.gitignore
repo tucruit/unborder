@@ -1,0 +1,60 @@
+## Configuration and Temporary files
+#app/Config/database.php
+#app/Config/install.php
+app/tmp/*
+!app/tmp/empty
+!app/Plugin/empty
+app/View/Pages/*
+!app/View/Pages/templates
+app/webroot/files/*
+!app/webroot/files/empty
+files/*
+!files/empty
+!files/mail/
+files/mail/*
+!files/mail/limited/
+files/mail/limited/*
+!files/mail/limited/.htaccess
+!files/editor/
+files/editor/*
+!files/editor/template1.gif
+!files/editor/template2.gif
+!files/editor/template3.gif
+!files/optionallink/
+files/optionallink/*
+!files/optionallink/limited/
+files/optionallink/limited/*
+!files/optionallink/limited/.htaccess
+!files/bgeditor/
+files/bgeditor/*
+!files/bgeditor/bg-noimage.gif
+!files/bgeditor/bg-sample.pdf
+!files/bgeditor/bg-sample.png
+!files/uploads/
+files/uploads/*
+!files/uploads/limited/
+files/uploads/limited/*
+!files/uploads/limited/.htaccess
+
+## exclude sitemap file
+sitemap-index.xml
+
+## IDE files and folders
+.cache
+.project
+.settings
+nbproject
+.idea
+.DS_Store
+_notes
+.svn
+
+## sqlファイルは個別に許可
+*.sql
+
+## Allow 'empty' files
+!empty
+
+## Theme baserCMS 3系では、theme/｛プロジェクト名｝/Pages/をignoreする
+#theme/instant-page/Pages/*
+#!theme/instant-page/Pages/empty

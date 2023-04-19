@@ -1,0 +1,5 @@
+.bca-icon--banner::before {
+    content: "\f1c5";
+    font-weight: 400;
+}
+

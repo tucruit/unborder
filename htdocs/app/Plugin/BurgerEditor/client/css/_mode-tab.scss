@@ -1,0 +1,61 @@
+.draft-btn {
+	height: 35px;
+
+	a {
+		display: inline-block;
+		border: $border-primary-color solid 1px;
+		background-color: $background-color01;
+		padding: 3px 5px;
+		color: #333;
+		text-decoration: none;
+	}
+
+	.draft-tab-btn {
+		float: left;
+		text-align: left;
+
+		a {
+			&.on {
+				color: $lightest-color !important;
+				background-color: $background-color02 !important;
+				border-color: $background-color02 !important;
+			}
+
+			&:hover {
+				cursor: pointer;
+				background-color: $border-primary-color;
+			}
+
+			span {
+				font-size: .8em;
+				margin-left: .5em;
+
+				&::before {
+					content: "(";
+				}
+
+				&::after {
+					content: ")";
+				}
+			}
+		}
+	}
+
+	.draft-copy-btn {
+		float: right;
+		text-align: right;
+
+		a {
+			display: none;
+
+			&.on {
+				display: inline-block;
+			}
+
+			&:hover {
+				cursor: pointer;
+				background-color: $border-primary-color;
+			}
+		}
+	}
+}
