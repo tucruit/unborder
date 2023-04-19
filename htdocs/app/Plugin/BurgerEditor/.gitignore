@@ -2,7 +2,7 @@
 /.idea
 # カスタム設定ファイル
 bgeconfig.json
-Config/setting_customize.php
+#Config/setting_customize.php
 
 # フロントエンド開発
 node_modules
