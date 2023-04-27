@@ -51,6 +51,7 @@
 				<?php $this->BcBaser->content() ?>
 			</div>
 		</div>
+		<?php $this->BcBaser->element('contact') ?>
 	</main>
 	<!-- /MAIN -->
 

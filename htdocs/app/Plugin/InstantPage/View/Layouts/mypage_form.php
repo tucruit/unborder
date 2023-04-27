@@ -91,22 +91,30 @@
 		</script>
 		<?php $this->BcBaser->scripts() ?>
 		<style>
-			body {
-				font-size: 16px!important;
-			}
-		</style>
+		body {
+			font-size: 16px!important;
+		}
+	</style>
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<?php $this->BcBaser->scripts() ?>
 </head>
 
 <body>
 	<?php  $this->BcBaser->element('google_tag_manger_body') ?>
-	<div class="l-wrapper">
-		<?php $this->BcBaser->header() ?>
-		<main class="l-main">
+	<?php $this->BcBaser->header() ?>
+	<div id="Wrap" class="bca-container">
+		<?php
+		// ログインしている場合はサイドバーを表示
+		$InstantPageUser = $this->Session->read('Auth.InstantPageUser');
+		p($InstantPageUser);
+		if (strpos($this->request->url, 'login') === false){
+			$this->BcBaser->element('sidebar');
+		}
+		?>
+		<main id="Contents" class="bca-main">
 			<div class="c-mv c-mv--lower c-mv--account"><span class="c-mv__bg"></span><span class="c-mv__img"></span>
 				<div class="c-mv__inr">
-					<h2 class="c-mv__ttl">会員情報</h2>
+					<h2 class="c-mv__ttl"><?php h($this->BcBaser->contentsTitle()) ?></h2>
 				</div>
 			</div>
 			<div class="l-contents l-contents--lower"><span class="l-contents__bg"></span>
@@ -120,6 +128,7 @@
 					</div>
 				</div>
 			</div>
+			<?php $this->BcBaser->element('contact') ?>
 		</main>
 		<?php $this->BcBaser->footer() ?>
 		<script src="/js/main.js"></script>

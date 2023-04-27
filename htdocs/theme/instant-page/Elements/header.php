@@ -1,3 +1,10 @@
+<?php
+/*
+ *
+ */
+// ログインユーザーの取得
+$InstantPageUser = $this->Session->read('Auth.InstantPageUser');
+?>
 <!-- HEADER -->
 <header role="banner" class="header" id="is-headerFixed">
 	<div class="headerInner">
@@ -21,8 +28,18 @@
 			<div class="gNavInner">
 				<div class="gNav-btnGroup">
 					<div class="gNav-btn gNav-btn__login">
-						<span class="btnInner">ログイン</span>
-						<button type="submit" data-bca-btn-type="login" id="BtnLogin" onclick="location.href='/instant_pages/'">ログイン</button>
+						<?php
+						$text = 'ログイン';
+						$href = '/instant_pages/';
+						if (!empty($InstantPageUser)) {
+							$text = 'ログアウト';
+							$href = '/mypage/instant_page/instant_page_users/logout';
+							// $user = BcUtil::loginUser(); システムユーザー
+							// '/users/back_agent', '元のユーザーに戻る'
+						}
+						?>
+						<span class="btnInner"><?php echo $text ?></span>
+						<button type="submit" data-bca-btn-type="login" id="BtnLogin" onclick="location.href='<?php echo $href ?>'"><?php echo $text ?></button>
 					</div>
 					<a href="#" class="gNav-btn gNav-btn__signUp">
 						<span class="btnInner">新規登録</span>

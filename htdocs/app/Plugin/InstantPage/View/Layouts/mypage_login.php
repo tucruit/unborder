@@ -6,6 +6,16 @@
 	<meta name="robots" content="noindex,nofollow" />
 	<?php $this->BcBaser->title() ?>
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+ <!-- FAVICON -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="shortcut icon" href="img/common/favicon_180.png">
+  <link rel="apple-touch-icon" href="img/common/favicon_180.png">
+  <!-- /FAVICON -->
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- /FONTS -->
 	<?php
 	$this->BcBaser->css([
 		'../js/admin/vendors/bootstrap-4.1.3/bootstrap.min',
@@ -104,29 +114,39 @@
 <body>
 	<?php $this->BcBaser->header() ?>
 	<div id="Wrap" class="bca-container">
-		<?php
-		if (strpos($this->request->url, 'login') === false){
-			$this->BcBaser->element('sidebar');
-		}
-		?>
-
 		<main id="Contents" class="bca-main">
-			<article id="ContentsBody" class="contents-body bca-main__body">
-				<div class="bca-main__header">
-					<h1 class="bca-main__header-title"><?php h($this->BcBaser->contentsTitle()) ?></h1>
+
+			<div role="main">
+				<!-- BREAD CRUMBS -->
+				<div class="sub-breadcrumbs">
+					<div class="l-subContentsContainer sub-breadcrumbsInner">
+						<ol class="sub-breadcrumbs-list">
+							<li><a href="/">トップページ</a></li>
+							<li>ログイン</li>
+						</ol>
+					</div>
 				</div>
+				<!-- /BREAD CRUMBS -->
+				<!-- SUB H1 -->
+				<div class="sub-h1">
+					<div class="l-subContentsContainer sub-h1Inner">
+						<h1 class="sub-h1-hl"><?php h($this->BcBaser->contentsTitle()) ?></h1>
+					</div>
+				</div>
+				<!-- /SUB H1 -->
 
-				<?php $this->BcBaser->flash() ?>
-
-				<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
-
-				<div class="bca-main__contents clearfix">
+				<!-- PAGE CONTENTS -->
+				<div class="users usersLogin">
+					<?php $this->BcBaser->flash() ?>
+					<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
 					<?php echo $this->BcLayout->dispatchContentsHeader() ?>
 					<?php $this->BcBaser->content() ?>
 					<?php echo $this->BcLayout->dispatchContentsFooter() ?>
 				</div>
+				<!-- /PAGE CONTENTS -->
+			</div>
 
-			</article>
+			<?php $this->BcBaser->element('contact') ?>
 		</main>
 	</div>
 	<?php $bcUtilLoginUser = BcUtil::loginUser(); ?>

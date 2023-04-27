@@ -435,7 +435,7 @@ class InstantPageUsersController extends UsersController {
 			$this->BcMessage->setError(__d('baser', '現在ログイン中です。'));
 			$this->redirect(['action' => 'edit_password']);
 		}
-		$this->pageTitle = __d('baser', 'パスワードのリセット');
+		$this->pageTitle = __d('baser', 'パスワードの再設定');
 		$userModel = $this->BcAuth->authenticate['Form']['userModel'];
 		if(strpos($userModel, '.') !== false) {
 			list(, $userModel) = explode('.', $userModel);
