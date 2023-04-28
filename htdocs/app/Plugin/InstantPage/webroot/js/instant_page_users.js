@@ -3,14 +3,14 @@
  */
 $(function () {
 	// メールアドレス（ID）チェック
-	$('.nameCheck').after('<input type="button" class="button bca-btn bca-actions__item" id="nameCheck" name="" required="" value="アカウント重複チェック"></input>');
-	$("#nameCheck").click(function(){
+	//$('.nameCheck').after('<input type="button" class="button bca-btn bca-actions__item" id="nameCheck" name="" required="" value="アカウント重複チェック"></input>');
+	$('.nameCheck').keyup(function(){
 		var checkId = $(".nameCheck").val();
 		var regexp = /^[a-zA-Z0-9\-+.@_]+$/;
 		if (!checkId.match(regexp)) {
-            $('#nameCheck').parent().children('.notice-message').remove();
-            $('#nameCheck').parent().children('.error-message').remove();
-			$('#nameCheck').parent().append('<div class="error-message"><small>半角英数字とハイフン、アンダースコアのみで入力してください。</small></div>');
+            $('.nameCheck').parent().children('.notice-message').remove();
+            $('.nameCheck').parent().children('.error-message').remove();
+			$('.nameCheck').parent().append('<div class="error-message"><small>半角英数字とハイフン、アンダースコアのみで入力してください。</small></div>');
 		} else {
  			var url = '/instant_page/register_message/ajax_id_check';
 			ajaxCheck(url, checkId);
