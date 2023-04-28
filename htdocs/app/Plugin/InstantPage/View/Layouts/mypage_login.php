@@ -113,8 +113,7 @@
 
 <body>
 	<?php $this->BcBaser->header() ?>
-	<div id="Wrap" class="bca-container">
-		<main id="Contents" class="bca-main">
+		<main id="Contents">
 
 			<div role="main">
 				<!-- BREAD CRUMBS -->
@@ -122,7 +121,7 @@
 					<div class="l-subContentsContainer sub-breadcrumbsInner">
 						<ol class="sub-breadcrumbs-list">
 							<li><a href="/">トップページ</a></li>
-							<li>ログイン</li>
+							<li><?php h($this->BcBaser->contentsTitle()) ?></li>
 						</ol>
 					</div>
 				</div>
@@ -148,7 +147,6 @@
 
 			<?php $this->BcBaser->element('contact') ?>
 		</main>
-	</div>
 	<?php $bcUtilLoginUser = BcUtil::loginUser(); ?>
 	<?php if (!empty($bcUtilLoginUser)): ?>
 		<?php $this->BcBaser->footer([], ['cache' => ['key' => '_admin_footer']]) ?>
