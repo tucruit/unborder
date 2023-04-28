@@ -74,11 +74,15 @@ $(window).on('scroll', function () {
       $('#pageTop').fadeOut('fast');
     }
     
-    let footHeight = $('.footer').innerHeight(); //停止位置
-    if (scrollHeight - scrollPosition <= footHeight + 200) { //ページの高さと現在地の差がfooterの高さ以下になったら
+    // let footHeight = $('.footer').innerHeight(); //停止位置
+    let stopPosition = 30;
+    if (isMobile) {
+      stopPosition = 16;
+    }
+    if (scrollHeight - scrollPosition <= stopPosition - 10) { //ページの高さと現在地の差がfooterの高さ以下になったら
       $('#pageTop').css({
         'position': 'absolute',
-        'bottom': footHeight + 60
+        'bottom': stopPosition
       });
     } else {
       $('#pageTop').css({
