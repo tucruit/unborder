@@ -6,10 +6,10 @@
 				<span class="isSentence">さぁ、サクッと作って</span><span class="isSentence">ビシッと集客しましょう！</span>
 			</p>
 			<div class="contents-linkBtnContainer">
-				<a href="#" class="linkBtn linkBtn__contact">
-					<span class="btnInner">インスタントページに関する<br>お問い合せはこちら</span>
+				<a href="/contact/" class="linkBtn linkBtn__contact">
+					<span class="btnInner"><span class="noWrap"><span class="noWrap">インスタントページ</span><span class="noWrap">に関する</span></span><span class="noWrap">お問い合せはこちら</span></span>
 				</a>
-				<a href="#" class="linkBtn linkBtn__signUp">
+				<a href="/signup/" class="linkBtn linkBtn__signUp">
 					<span class="btnInner">新規登録はこちら</span>
 				</a>
 			</div>

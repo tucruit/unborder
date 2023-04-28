@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>ランディングページ制作支援ツール インスタントページ</title>
+	<?php $this->BcBaser->title() ?>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
@@ -30,8 +30,8 @@
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="ja_JP">
 	<meta property="og:image" content="img/common/ogp_logo.png">
-	<meta property="og:url" content="">
-	<meta property="og:title" content="ランディングページ制作支援ツール インスタントページ">
+	<meta property="og:url" content="[ページURL]">
+	<meta property="og:title" content="[ページ名]｜ランディングページ制作支援ツール インスタントページ">
 	<meta property="og:description" content="[ページディスクリプション]">
 	<meta property="og:site_name" content="ランディングページ制作支援ツール インスタントページ">
 	<!-- /SHARE -->

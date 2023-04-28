@@ -24,34 +24,66 @@ $InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 		</div>
 		<!-- /MOBILE MENU BUTTON -->
 		<!-- NAVIGATION -->
-		<nav role="navigation" class="gNav isUnder isSlide isTop">
+		<nav role="navigation" class="gNav isUnder">
 			<div class="gNavInner">
 				<div class="gNav-btnGroup">
-					<div class="gNav-btn gNav-btn__login">
-						<?php
-						$text = 'ログイン';
-						$href = '/instant_pages/';
-						if (!empty($InstantPageUser)) {
-							$text = 'ログアウト';
-							$href = '/mypage/instant_page/instant_page_users/logout';
-							// $user = BcUtil::loginUser(); システムユーザー
-							// '/users/back_agent', '元のユーザーに戻る'
-						}
-						?>
+					<!-- CMS実装時用 -->
+					<!-- <div class="gNav-btn gNav-btn__login">
+					<span class="btnInner">ログイン</span>
+					<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin">ログイン</button>
+					</div> -->
+					<!-- /CMS実装時用 -->
+					<!-- Static閲覧用 -->
+					<?php
+					$text = 'ログイン';
+					$href = '/instant_pages/';
+					if (!empty($InstantPageUser)) {
+						$text = 'ログアウト';
+						$href = '/mypage/instant_page/instant_page_users/logout';
+						// $user = BcUtil::loginUser(); システムユーザー
+						// '/users/back_agent', '元のユーザーに戻る'
+					}
+					?>
+					<a href="<?php echo $href ?>" class="gNav-btn gNav-btn__login">
 						<span class="btnInner"><?php echo $text ?></span>
-						<button type="submit" data-bca-btn-type="login" id="BtnLogin" onclick="location.href='<?php echo $href ?>'"><?php echo $text ?></button>
-					</div>
-					<a href="#" class="gNav-btn gNav-btn__signUp">
+						<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin"><?php echo $text ?></button>
+					</a>
+					<!-- /Static閲覧用 -->
+					<a href="signup.html" class="gNav-btn gNav-btn__signUp">
 						<span class="btnInner">新規登録</span>
 					</a>
 				</div>
 				<ol class="gNav-list">
-					<li><a href="#" class="menuTitle">サービス紹介</a></li>
-					<li><a href="#" class="menuTitle">機能紹介</a></li>
-					<li><a href="#" class="menuTitle">プラン紹介</a></li>
-					<li><a href="#" class="menuTitle">お知らせ</a></li>
-					<li class="dn-pc"><a href="#" class="menuTitle">プライバシーポリシー</a></li>
-					<li><a href="#" class="menuTitle">お問い合わせ</a></li>
+					<li>
+						<a href="#" class="menuTitle">
+							サービス紹介
+						</a>
+					</li>
+					<li>
+						<a href="/index#top-features" class="menuTitle">
+							機能紹介
+						</a>
+					</li>
+					<li>
+						<a href="/index#top-plan" class="menuTitle">
+							プラン紹介
+						</a>
+					</li>
+					<li>
+						<a href="news.html" class="menuTitle">
+							お知らせ
+						</a>
+					</li>
+					<li class="dn-pc">
+						<a href="#" class="menuTitle">
+							プライバシーポリシー
+						</a>
+					</li>
+					<li>
+						<a href="/contact/" class="menuTitle">
+							お問い合わせ
+						</a>
+					</li>
 				</ol>
 				<div class="gNav-footerImg dn-pc">
 					<img src="/img/common/character.svg" alt="" class="">
@@ -61,3 +93,4 @@ $InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 		<!-- /NAVIGATION -->
 	</div>
 </header>
+<!-- /HEADER -->
