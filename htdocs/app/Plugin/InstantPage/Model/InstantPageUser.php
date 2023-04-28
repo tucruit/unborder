@@ -29,15 +29,28 @@ class InstantPageUser extends User {
 				'duplicate' => ['rule' => ['duplicate', 'name'], 'message' => __d('baser', '既に登録のあるアカウント名です。')],
 				'maxLength' => ['rule' => ['maxLength', 255], 'message' => __d('baser', 'アカウント名は255文字以内で入力してください。')]
 			],
+			// 会社名
+			'company' => [
+				'notBlank' => ['rule'=> ['notBlank'], 'message'	=> '必須入力です。'],
+			],
 			'real_name_1' => [
-				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'お名前を入力してください')],
+				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'お名前（姓）を入力してください')],
 				'maxLength' => ['rule' => ['maxLength', 50], 'message' => __d('baser', 'お名前は50文字以内で入力してください。')]
 			],
-			// 'real_name_2' => [
-			// 	'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'ご担当者名[カナ]を入力してください。')],
-			// 	'zenkakuKatakana' => ['rule' => ['zenkakuKatakana'], 'message' => __d('baser', 'ご担当者名[カナ]は全角カタカナのみで入力してください。')],
-			// 	'maxLength' => ['rule' => ['maxLength', 50], 'message' => __d('baser', 'ご担当者名[カナ]は50文字以内で入力してください。')]
-			// ],
+			'real_name_2' => [
+				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'お名前（名）を入力してください')],
+				'maxLength' => ['rule' => ['maxLength', 50], 'message' => __d('baser', 'お名前は50文字以内で入力してください。')]
+			],
+			'kana_1' => [
+				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'フリガナ（セイ）を入力してください。')],
+				'zenkakuKatakana' => ['rule' => ['zenkakuKatakana'], 'message' => __d('baser', 'フリガナ（セイ）は全角カタカナのみで入力してください。')],
+				'maxLength' => ['rule' => ['maxLength', 50], 'message' => __d('baser', 'フリガナ（セイ）は50文字以内で入力してください。')]
+			],
+			'kana_2' => [
+				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'フリガナ（メイ）を入力してください。')],
+				'zenkakuKatakana' => ['rule' => ['zenkakuKatakana'], 'message' => __d('baser', 'フリガナ（メイ）は全角カタカナのみで入力してください。')],
+				'maxLength' => ['rule' => ['maxLength', 50], 'message' => __d('baser', 'フリガナ（メイ）は50文字以内で入力してください。')]
+			],
 			'password' => [
 				'minLength' => ['rule' => ['minLength', 6], 'allowEmpty' => false, 'message' => __d('baser', 'パスワードは6文字以上で入力してください。')],
 				'maxLength' => ['rule' => ['maxLength', 255], 'message' => __d('baser', 'パスワードは255文字以内で入力してください。')],
@@ -57,11 +70,11 @@ class InstantPageUser extends User {
 					'rule'		=> ['notBlank'],
 					'message'	=> '必須入力です。'
 				],
-				// 'numeric' => [
-				// 	'rule'			=> ['numeric'],
-				// 	'message'		=> '数値でご入力ください。',
-				// 	'allowEmpty'	=> true
-				// ]
+				'numeric' => [
+					'rule'			=> ['numeric'],
+					'message'		=> '数値でご入力ください。',
+					'allowEmpty'	=> true
+				]
 			],
 			// 都道府県
 			'prefecture_id' => [
@@ -80,7 +93,7 @@ class InstantPageUser extends User {
 			// 電話番号
 			'tel' => [
 				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', '電話番号を入力してください。')],
-				'alphaNumericPlus' => ['rule' => 'alphaNumericPlus', 'message' => __d('baser', '電話番号は半角英数字とハイフン、アンダースコアのみで入力してください。')],
+				'alphaNumericPlus' => ['rule' => 'alphaNumericPlus', 'message' => __d('baser', '電話番号は半角数字で入力してください。')],
 				'maxLength' => ['rule' => ['maxLength', 20], 'message' => __d('baser', '電話番号は20文字以内で入力してください。')]
 			],
 

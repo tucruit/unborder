@@ -15,14 +15,14 @@
 	</span>
 	<span>
 		<?php
-		echo $this->BcForm->label('InstantPageUser.company', '企業名');
+		echo $this->BcForm->label('InstantPageUser.company', '会社名');
 		echo "&nbsp;";
 		echo $this->BcForm->input('InstantPageUser.company', ['type' => 'text', 'size' => '30']);
 		?>
 	</span>
 
 	<span>
-		<?php echo $this->BcForm->label('InstantPageUser.real_name_1', 'お名前') ?>
+		<?php echo $this->BcForm->label('InstantPageUser.real_name_1', 'お名前（姓）') ?>
 		<?php echo $this->BcForm->input('InstantPageUser.real_name_1', ['type' => 'text', 'size' => '30']) ?>
 	</span>　
 </p>

@@ -34,8 +34,8 @@ $this->BcListTable->setColumnNumber(11);
 		<th class="bca-table-listup__thead-th">
 			<?php echo $this->Paginator->sort('company',
 				[
-					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '企業名'),
-					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', '企業名')
+					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '会社名'),
+					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', '会社名')
 				],
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>

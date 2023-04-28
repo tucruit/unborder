@@ -52,7 +52,7 @@ class RegisterMessageController extends AppController {
 	}
 
 	/*
-	 * e-mail チェック
+	 * id チェック
 	 */
 
 	public function ajax_id_check($id = null) {
@@ -65,18 +65,15 @@ class RegisterMessageController extends AppController {
 		}
 		if (!Validation::alphaNumeric($id)) {
 			$id = false;
-			$errParams = array(
-				'status' => false,
-				'message' => '形式が無効です。',
-			);
+			$errParams = ['status' => false, 'message' => '形式が無効です。'];
 		}
 
 		if ($id) {
 			$InstantPageUser = ClassRegistry::init('InstantPage.InstantPageUser');
 			$users = $InstantPageUser->find('all', array(
-				'conditions' => array(
+				'conditions' => [
 					'InstantPageUser.name' => $id,
-				),
+				],
 				'recursive' => -1
 			));
 			// $registerMessage = $this->{$this->modelClass}->find('all', array(
@@ -89,21 +86,67 @@ class RegisterMessageController extends AppController {
 
 			//if ($users || $registerMessage) {
 			if ($users) {
-				$errParams = array(
+				$errParams = [
 					'status' => false,
 					'message' => '既に登録されているIDです。別のIDをご入力ください。',
-				);
+				];
 			} else {
-				$errParams = array(
+				$errParams = [
 					'status' => true,
 					'message' => '利用可能なIDです。',
-				);
+				];
 			}
 		} elseif(empty($errParams)) {
-			$errParams = array(
+			$errParams = [
 				'status' => false,
 				'message' => 'ログインIDが入力されていません。ログインIDをご入力ください。',
-			);
+			];
+		}
+		$errParams['field'] = '.nameCheck';
+		return json_encode($errParams);
+	}
+
+	/*
+	 * e-mail チェック
+	 */
+	public function ajax_email_check($email = null) {
+
+		$this->layout = false;
+		$this->autoRender = false;
+		$errParams = array();
+		if (!$email && $this->request->data('email')) {
+			$email = $this->request->data('email');
+		}
+		if (!Validation::email($email)) {
+			$email = false;
+			$errParams = ['status' => false, 'message' => '形式が無効です。'];
+		}
+
+		if ($email) {
+			$InstantPageUser = ClassRegistry::init('InstantPage.InstantPageUser');
+			$users = $InstantPageUser->find('all', array(
+				'conditions' => [
+					'InstantPageUser.email' => $email
+				],
+				'recursive' => -1
+			));
+
+			if ($users) {
+				$errParams = [
+					'status' => false,
+					'message' => '既に登録されているメールアドレスです。別のメールアドレスをご入力ください。',
+				];
+			} else {
+				$errParams = [
+					'status' => true,
+					'message' => '利用可能なメールアドレスです。',
+				];
+			}
+		} elseif(empty($errParams)) {
+			$errParams = [
+				'status' => false,
+				'message' => 'メールアドレスが入力されていません。メールアドレスをご入力ください。',
+			];
 		}
 		$errParams['field'] = '.nameCheck';
 		return json_encode($errParams);

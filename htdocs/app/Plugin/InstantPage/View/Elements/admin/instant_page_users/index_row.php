@@ -19,7 +19,7 @@ if(!isset($data['InstantPageUser'])) {
 	<td class="bca-table-listup__tbody-td"><?php echo $data['InstantPageUser']['id'] ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo $data['InstantPageUser']['company'] ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo h($data['InstantPageUser']['name']) ?></td>
-	<td class="bca-table-listup__tbody-td"><?php $this->BcBaser->link($data['InstantPageUser']['real_name_1'], ['action' => 'edit', $data['InstantPageUser']['id']], ['escape' => true]) ?></td>
+	<td class="bca-table-listup__tbody-td"><?php $this->BcBaser->link($data['InstantPageUser']['real_name_1']. ' '. $data['InstantPageUser']['real_name_2'], ['action' => 'edit', $data['InstantPageUser']['id']], ['escape' => true]) ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo h($data['InstantPageUser']['email']) ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo $this->BcText->arrayValue($data['InstantPageUser']['prefecture_id'], $this->BcText->prefList()) ?></td>
 	<?php echo $this->BcListTable->dispatchShowRow($data) ?>
