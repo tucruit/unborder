@@ -140,6 +140,15 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 				<?php echo $this->BcForm->error('InstantPageUser.address') ?>
 			</td>
 		</tr>
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.building', '建物名') ?>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.building', ['type' => 'text', 'size' => 80, 'maxlength' => 255, 'counter' => true]) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.building') ?>
+			</td>
+		</tr>
 
 		<tr>
 			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.tel', '電話番号') ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>

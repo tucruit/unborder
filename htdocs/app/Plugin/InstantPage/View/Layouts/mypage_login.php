@@ -5,17 +5,20 @@
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex,nofollow" />
 	<?php $this->BcBaser->title() ?>
-	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
- <!-- FAVICON -->
-  <link rel="icon" href="favicon.ico">
-  <link rel="shortcut icon" href="img/common/favicon_180.png">
-  <link rel="apple-touch-icon" href="img/common/favicon_180.png">
-  <!-- /FAVICON -->
-  <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <!-- /FONTS -->
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<!-- FAVICON -->
+	<link rel="icon" href="favicon.ico">
+	<link rel="shortcut icon" href="/img/common/favicon_180.png">
+	<link rel="apple-touch-icon" href="/img/common/favicon_180.png">
+	<!-- /FAVICON -->
+	<!-- FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+	<!-- /FONTS -->
 	<?php
 	$this->BcBaser->css([
 		'../js/admin/vendors/bootstrap-4.1.3/bootstrap.min',
@@ -63,6 +66,9 @@
 		'favoriteAlertMessage2'         => __d('baser', 'よく使う項目の追加に失敗しました。'),
 	], ['inline' => true]);
 	?>
+	<!-- JS LIBRARY -->
+	<script src="/js/lib/jquery-3.6.0.min.js"></script>
+	<!-- /JS LIBRARY -->
 	<?php
 	$this->BcBaser->js([
 		'admin/vue.min',
@@ -88,7 +94,7 @@
 		'admin/permission',
 		'admin/vendors/jquery.timepicker',
 		'common_navigation',
-		'common'
+		'common',
 	])
 	?>
 	<script>
@@ -102,9 +108,9 @@
 	<meta name="twitter:card" content="summary">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="ja_JP">
-	<meta property="og:image" content="/img/common/ogp_logo.png">
-	<meta property="og:url" content="">
-	<meta property="og:title" content="ランディングページ制作支援ツール インスタントページ">
+	<meta property="og:image" content="img/common/ogp_logo.png">
+	<meta property="og:url" content="[ページURL]">
+	<meta property="og:title" content="[ページ名]｜ランディングページ制作支援ツール インスタントページ">
 	<meta property="og:description" content="[ページディスクリプション]">
 	<meta property="og:site_name" content="ランディングページ制作支援ツール インスタントページ">
 	<!-- /SHARE -->
@@ -121,7 +127,7 @@
 					<div class="l-subContentsContainer sub-breadcrumbsInner">
 						<ol class="sub-breadcrumbs-list">
 							<li><a href="/">トップページ</a></li>
-							<li><?php h($this->BcBaser->contentsTitle()) ?></li>
+							<li><?php $this->BcBaser->contentsTitle() ?></li>
 						</ol>
 					</div>
 				</div>

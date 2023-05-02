@@ -11,6 +11,7 @@ $(function () {
             $('.nameCheck').parent().children('.notice-message').remove();
             $('.nameCheck').parent().children('.error-message').remove();
 			$('.nameCheck').parent().append('<div class="error-message"><small>半角英数字とハイフン、アンダースコアのみで入力してください。</small></div>');
+            $('.error-message').css('color','#f20014');
 		} else {
  			var url = '/instant_page/register_message/ajax_id_check';
 			ajaxCheck(url, checkId);
@@ -36,6 +37,7 @@ $(function () {
             } else {
                 $(data.field).parent().append('<div class="error-message"><small>' + data.message + '</small></div>');
             }
+            $('.error-message').css('color','#f20014');
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
            $(data.field).parent().children('.notice-message').remove();

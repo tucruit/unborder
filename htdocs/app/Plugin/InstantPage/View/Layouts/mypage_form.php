@@ -11,7 +11,6 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
 	<link rel="shortcut icon" href="/img/favicons/favicon.ico">
-	<link rel="stylesheet" href="/css/style.css">
 	<?php
 	$this->BcBaser->css([
 		'/js/admin/vendors/bootstrap-4.1.3/bootstrap.min',
@@ -114,7 +113,7 @@
 		<main id="Contents" class="bca-main">
 			<div class="c-mv c-mv--lower c-mv--account"><span class="c-mv__bg"></span><span class="c-mv__img"></span>
 				<div class="c-mv__inr">
-					<h2 class="c-mv__ttl"><?php h($this->BcBaser->contentsTitle()) ?></h2>
+					<h2 class="c-mv__ttl"><?php $this->BcBaser->contentsTitle() ?></h2>
 				</div>
 			</div>
 			<div class="l-contents l-contents--lower"><span class="l-contents__bg"></span>

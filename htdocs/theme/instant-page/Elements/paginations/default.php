@@ -1,16 +1,5 @@
 <?php
 /**
- * baserCMS :  Based Website Development Project <https://basercms.net>
- * Copyright (c) baserCMS Users Community <https://basercms.net/community/>
- *
- * @copyright       Copyright (c) baserCMS Users Community
- * @link			https://basercms.net baserCMS Project
- * @package         Baser.View
- * @since           baserCMS v 4.4.0
- * @license         https://basercms.net/license/index.html
- */
-
-/**
  * ページネーション
  * 呼出箇所：サイト内検索結果一覧、ブログトップ、カテゴリ別ブログ記事一覧、タグ別ブログ記事一覧、年別ブログ記事一覧、月別ブログ記事一覧、日別ブログ記事一覧
  *

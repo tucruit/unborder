@@ -88,18 +88,18 @@ class RegisterMessageController extends AppController {
 			if ($users) {
 				$errParams = [
 					'status' => false,
-					'message' => '既に登録されているIDです。別のIDをご入力ください。',
+					'message' => '既に登録されているアカウント名です。別のアカウント名をご入力ください。',
 				];
 			} else {
 				$errParams = [
 					'status' => true,
-					'message' => '利用可能なIDです。',
+					'message' => '利用可能なアカウント名です。',
 				];
 			}
 		} elseif(empty($errParams)) {
 			$errParams = [
 				'status' => false,
-				'message' => 'ログインIDが入力されていません。ログインIDをご入力ください。',
+				'message' => 'ログインアカウント名が入力されていません。ログインアカウント名をご入力ください。',
 			];
 		}
 		$errParams['field'] = '.nameCheck';

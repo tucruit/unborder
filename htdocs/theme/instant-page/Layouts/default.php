@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php $this->BcBaser->docType('html5') ?>
 <html lang="ja">
 
 <head>
@@ -10,8 +10,8 @@
 	<meta name="format-detection" content="telephone=no">
 	<!-- FAVICON -->
 	<link rel="icon" href="favicon.ico">
-	<link rel="shortcut icon" href="img/common/favicon_180.png">
-	<link rel="apple-touch-icon" href="img/common/favicon_180.png">
+	<link rel="shortcut icon" href="/img/common/favicon_180.png">
+	<link rel="apple-touch-icon" href="/img/common/favicon_180.png">
 	<!-- /FAVICON -->
 	<!-- FONTS -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
 	<meta property="og:description" content="[ページディスクリプション]">
 	<meta property="og:site_name" content="ランディングページ制作支援ツール インスタントページ">
 	<!-- /SHARE -->
-	<?php $this->BcBaser->script(); ?>
+	<?php $this->BcBaser->scripts(); ?>
 </head>
 
 <body>
@@ -45,11 +45,17 @@
 	<!-- MAIN -->
 	<main>
 		<div role="main" class="top">
-			<div class="l-smallContainer">
-				<!-- //コンテンツ -->
-				<?php $this->BcBaser->flash() ?>
-				<?php $this->BcBaser->content() ?>
+			<?php $this->BcBaser->crumbsList(); ?>
+			<!-- SUB H1 -->
+			<div class="sub-h1">
+				<div class="l-subContentsContainer sub-h1Inner">
+					<h1 class="sub-h1-hl"><?php $this->BcBaser->contentsTitle(); ?></h1>
+				</div>
 			</div>
+			<!-- /SUB H1 -->
+			<!-- //コンテンツ -->
+			<?php $this->BcBaser->flash() ?>
+			<?php $this->BcBaser->content() ?>
 		</div>
 		<?php $this->BcBaser->element('contact') ?>
 	</main>
