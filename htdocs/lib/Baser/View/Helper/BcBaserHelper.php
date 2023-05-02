@@ -1537,8 +1537,8 @@ class BcBaserHelper extends AppHelper
 		$out = [];
 		if (!$onSchema) {
 			foreach($crumbs as $crumb) {
-				if (!empty($crumb[1])) {
-					$out[] = $this->getLink($crumb[0], $crumb[1], @$crumb[2]);
+				if (!empty($crumb[1]) && !empty($crumb[2])) {
+					$out[] = $this->getLink($crumb[0], $crumb[1], $crumb[2]);
 				} else {
 					$out[] = $crumb[0];
 				}
