@@ -49,7 +49,7 @@ $InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 						<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin"><?php echo $text ?></button>
 					</a>
 					<!-- /Static閲覧用 -->
-					<a href="signup.html" class="gNav-btn gNav-btn__signUp">
+					<a href="/signup/" class="gNav-btn gNav-btn__signUp">
 						<span class="btnInner">新規登録</span>
 					</a>
 				</div>

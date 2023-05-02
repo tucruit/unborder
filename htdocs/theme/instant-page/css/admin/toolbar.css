@@ -4,8 +4,8 @@
   font-style: normal;
   font-weight: 900;
   font-display: auto;
-  src: url("../../fonts/admin/fa-solid-900.eot");
-  src: url("../../fonts/admin/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../fonts/admin/fa-solid-900.woff2") format("woff2"), url("../../fonts/admin/fa-solid-900.woff") format("woff"), url("../../fonts/admin/fa-solid-900.ttf") format("truetype"), url("../../fonts/admin/fa-solid-900.svg#fontawesome") format("svg");
+  src: url("../../../admin-third/fonts/admin/fa-solid-900.eot");
+  src: url("../../../admin-third/fonts/admin/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../../admin-third/fonts/admin/fa-solid-900.woff2") format("woff2"), url("../../../admin-third/fonts/admin/fa-solid-900.woff") format("woff"), url("../../../admin-third/fonts/admin/fa-solid-900.ttf") format("truetype"), url("../../../admin-third/fonts/admin/fa-solid-900.svg#fontawesome") format("svg");
 }
 /* body {
   margin-top: 40px !important;

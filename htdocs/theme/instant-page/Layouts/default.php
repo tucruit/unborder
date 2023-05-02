@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<!-- FAVICON -->
-	<link rel="icon" href="favicon.ico">
+	<link rel="icon" href="/favicon.ico">
 	<link rel="shortcut icon" href="/img/common/favicon_180.png">
 	<link rel="apple-touch-icon" href="/img/common/favicon_180.png">
 	<!-- /FAVICON -->
@@ -29,7 +29,7 @@
 	<meta name="twitter:card" content="summary">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="ja_JP">
-	<meta property="og:image" content="img/common/ogp_logo.png">
+	<meta property="og:image" content="/img/common/ogp_logo.png">
 	<meta property="og:url" content="[ページURL]">
 	<meta property="og:title" content="[ページ名]｜ランディングページ制作支援ツール インスタントページ">
 	<meta property="og:description" content="[ページディスクリプション]">
