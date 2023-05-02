@@ -96,6 +96,7 @@
 	</style>
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<?php $this->BcBaser->scripts() ?>
+	<?php $this->BcBaser->css('admin/admin_style') ?>
 </head>
 
 <body>

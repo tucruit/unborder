@@ -27,6 +27,7 @@ Configure::write('Asset.timestamp', 'force');
 if (!empty($_SERVER['HTTP_HOST'])) {
 	// デモ環境
 	if (strpos($_SERVER['HTTP_HOST'], '.demo2022.e-catchup.jp') !== false) {
+		Configure::write('ToolbarColorChanger.background', '#A79B8E');
 		Configure::write('BcEnv.siteUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
@@ -34,6 +35,7 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 	}
 	// ローカル環境
 	if (strpos($_SERVER['HTTP_HOST'], '.localhost') !== false) {
+		Configure::write('ToolbarColorChanger.background', '#3F51B5');
 		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');

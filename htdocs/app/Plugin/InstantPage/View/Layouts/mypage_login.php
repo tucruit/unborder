@@ -115,6 +115,7 @@
 	<meta property="og:site_name" content="ランディングページ制作支援ツール インスタントページ">
 	<!-- /SHARE -->
 	<?php $this->BcBaser->scripts() ?>
+	<?php $this->BcBaser->css('admin/admin_style') ?>
 </head>
 
 <body>
