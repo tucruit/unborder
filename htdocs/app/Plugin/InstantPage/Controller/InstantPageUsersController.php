@@ -460,7 +460,7 @@ class InstantPageUsersController extends UsersController {
 			$token = $Token->generate(array('InstantPageUser' => $user[$userModel]));
 
 			$body = ['email' => $email, 'token' => $token, 'user' => $user];
-			if (!$this->sendMail($email, __d('baser', 'パスワードを編集してください。'), $body, ['template' => 'instant_pages_reset_password'])) {
+			if (!$this->sendMail($email, __d('baser', 'パスワードを編集してください。'), $body, ['template' => 'InstantPage.instant_pages_reset_password'])) {
 				$this->BcMessage->setError('メール送信時にエラーが発生しました。');
 				return;
 			}
@@ -538,7 +538,7 @@ class InstantPageUsersController extends UsersController {
 		if ($res) {
 			//$data = $res;
 			$this->data = $res;
-			$this->set(compact('data'));
+			//$this->set(compact('data'));
 			$this->redirect(array(
 				'controller' => 'instant_page_users',
 				'action' => 'mypage_edit_password',
