@@ -1,6 +1,6 @@
 <?php
 /**
- * [MJ] config
+ * [InstantPage] config
  *
  */
 $title = 'インスタントページプラグイン';
