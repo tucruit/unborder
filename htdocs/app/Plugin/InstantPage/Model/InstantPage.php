@@ -13,7 +13,7 @@ class InstantPage extends AppModel {
 	public $belongsTo = [
 		'InstantPageUser' => [
 			'className' => 'InstantPage.InstantPageUser',
-			'foreignKey' => 'author_id',
+			'foreignKey' => 'instant_page_users_id',
 			'order' => 'InstantPageUser.name ASC',
 		],
 	];

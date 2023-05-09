@@ -231,10 +231,10 @@ class ThemeMailHelper extends AppHelper {
 			}
 
 			// フィールドがhiddenだったらテンプレートを適応しない
-			if($data['fields'][0]['type'] == 'hidden'){
-				echo '<span style="display:none;">' . $data['fields'][0]['control'] . '</span>';
-				continue;
-			}
+			// if($data['fields'][0]['type'] == 'hidden'){
+			// 	echo '<span style="display:none;">' . $data['fields'][0]['control'] . '</span>';
+			// 	continue;
+			// }
 
 			// 標準テンプレートで初期化
 			$template = $options['templates']['default'];

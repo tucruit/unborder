@@ -761,7 +761,7 @@ class InstantPageUsersController extends UsersController {
 			}
 
 		// 表示設定
-		$this->_setAdminIndexViewData();
+		// $this->_setAdminIndexViewData();
 
 		$this->subMenuElements = array();
 		$this->pageTitle = 'CSVダウンロード';
@@ -916,11 +916,11 @@ class InstantPageUsersController extends UsersController {
 			$data['InstantPage'] = $activate;
 
 			// インスタントページユーザーが登録完了した通知を、インスタントページユーザーにメールを送信する
-			if (!$this->sendMail($email, 'ミロク情報サービスインスタントページユーザー登録完了のお知らせ', $data, $options)) {
+			if (!$this->sendMail($email, 'インスタントページユーザー登録完了のお知らせ', $data, $options)) {
 				$this->setMessage('登録完了メールを送信できませんでした。', true);
 			}
 			$MailContents = ClassRegistry::init('Mail.MailContents');
-			$registerMailContents = $MailContents->find('first', array('conditions' => array('id' => 3)));
+			$registerMailContents = $MailContents->find('first', array('conditions' => array('id' => 1)));
 
 			// 管理者メール、または、メールプラグインで指定したメールアドレスを取得
 			$emails = array();
@@ -942,7 +942,7 @@ class InstantPageUsersController extends UsersController {
 			$data['InstantPage']['Admin'] = true;
 
 			// インスタントページユーザーが登録完了した通知を、管理者にメールを送信する
-			if (!$this->sendMail($emailAddresses, 'ミロク情報サービスインスタントページユーザー登録完了の通知', $data, $options)) {
+			if (!$this->sendMail($emailAddresses, 'インスタントページユーザー登録完了の通知', $data, $options)) {
 				$this->setMessage('登録完了メールを送信できませんでした。', true);
 			}
 
@@ -966,6 +966,13 @@ class InstantPageUsersController extends UsersController {
 	public function registerUser($userInfo) {
 // $this->log('本登録');
 // $this->log($userInfo['password_1']);
+		// 県名がテキストだった場合、idで保存する
+		if (isset($userInfo['prefecture_id'])) {
+			$prefIds =Configure::read('InstantPage.pref');
+			if (array_key_exists($userInfo['prefecture_id'], $prefIds)) {
+				$userInfo['prefecture_id'] = $prefIds[$userInfo['prefecture_id']];
+			}
+		}
 		$data = array();
 		$data['InstantPageUser'] = $userInfo;
 		$data['InstantPageUser']['password'] = $userInfo['password_1'];

@@ -55,4 +55,20 @@ class InstantPageUtil extends CakeObject {
 	}
 
 
+	/**
+	 * パスワードチェック
+	 *
+	 * @param array $check チェック対象文字列
+	 * @return boolean
+	 */
+	public static function prefToId($pref) {
+		$prefIds =Configure::read('InstantPage.pref');
+		if (array_key_exists($pref, $prefIds)) {
+			return $prefIds[$pref];
+		}
+		return $pref;
+
+	}
+
+
 }

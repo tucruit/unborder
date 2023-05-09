@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<?php  $this->BcBaser->element('google_tag_manger') ?>
+	<?php //$this->BcBaser->element('google_tag_manger') ?>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<?php $this->BcBaser->element('meta') ?>
+	<?php //$this->BcBaser->element('meta') ?>
 	<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
@@ -18,7 +18,9 @@
 		'/js/admin/vendors/jquery.jstree-3.3.8/themes/proton/style.min',
 		'/js/admin/vendors/jquery-contextMenu-2.2.0/jquery.contextMenu.min',
 		'admin/colorbox/colorbox-1.6.1',
-		'style.css'
+		'style.css',
+		'common',
+		'import'
 	]);
 	?>
 
@@ -100,9 +102,9 @@
 </head>
 
 <body>
-	<?php  $this->BcBaser->element('google_tag_manger_body') ?>
+	<?php //$this->BcBaser->element('google_tag_manger_body') ?>
 	<?php $this->BcBaser->header() ?>
-	<div id="Wrap" class="bca-container">
+	<!-- <div id="Wrap" class="bca-container"> -->
 		<?php
 		// ログインしている場合はサイドバーを表示
 		$InstantPageUser = $this->Session->read('Auth.InstantPageUser');
@@ -111,7 +113,7 @@
 			$this->BcBaser->element('sidebar');
 		}
 		?>
-		<main id="Contents" class="bca-main">
+		<main id="Contents">
 			<div class="c-mv c-mv--lower c-mv--account"><span class="c-mv__bg"></span><span class="c-mv__img"></span>
 				<div class="c-mv__inr">
 					<h2 class="c-mv__ttl"><?php $this->BcBaser->contentsTitle() ?></h2>
@@ -130,10 +132,15 @@
 			</div>
 			<?php $this->BcBaser->element('contact') ?>
 		</main>
-		<?php $this->BcBaser->footer() ?>
+		<?php $bcUtilLoginUser = BcUtil::loginUser(); ?>
+		<?php if (!empty($bcUtilLoginUser)): ?>
+			<?php $this->BcBaser->footer([], ['cache' => ['key' => '_admin_footer']]) ?>
+		<?php else: ?>
+			<?php $this->BcBaser->footer() ?>
+		<?php endif ?>
 		<script src="/js/main.js"></script>
 		<script src="/assets/js/func.js"></script>
-	</div>
+	<!-- </div> -->
 	<?php $this->BcBaser->func() ?>
 </body>
 

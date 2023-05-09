@@ -152,8 +152,8 @@
 				<!-- /PAGE CONTENTS -->
 			</div>
 
-			<?php $this->BcBaser->element('contact') ?>
 		</main>
+			<?php $this->BcBaser->element('contact') ?>
 	<?php $bcUtilLoginUser = BcUtil::loginUser(); ?>
 	<?php if (!empty($bcUtilLoginUser)): ?>
 		<?php $this->BcBaser->footer([], ['cache' => ['key' => '_admin_footer']]) ?>

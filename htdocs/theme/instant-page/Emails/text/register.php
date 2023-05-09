@@ -18,11 +18,12 @@
 	$config = Configure::read('Product');
 	$configBcEnv = Configure::read('BcEnv');
 	$token = $message['token'];
+	$config['activateMaxTime'] = Configure::read('InstantPage.activateMaxTime');
 ?>
 　お申込みを完了させるには、下記URLをクリックしてください。
 　開かない場合はブラウザのアドレスにURLをコピー&ペーストし、開いてください。
 　
-　<?php echo Router::url(array('prefix' => 'mypage', 'plugin'=>'mj','controller' => 'mj_partner_users', 'action' => 'mypage_activate', $token), true); ?>
+　<?php echo Router::url(array('prefix' => 'mypage', 'plugin'=>'instant_page','controller' => 'instant_page_users', 'action' => 'mypage_activate', $token), true); ?>
 <?php /*echo $configBcEnv['siteUrl']; ?>member/activate/<?php echo $token; */?>
 
 　
@@ -38,16 +39,10 @@
 <?php endif; ?>
 
 
-━━━━◇◆━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-　◆ 送信内容
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◆◇━━━━
-<?php echo $this->element('../Emails/text/data/register_data') ?>
-
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-　<?php echo $mailConfig['site_name']; ?>　
-　<?php echo $mailConfig['site_url'] ?>　<?php echo $mailConfig['site_email']; ?>　
+　<?php echo $mailConfig['site_name'] ? h($mailConfig['site_name']) : ''; ?>　
+　<?php echo $mailConfig['site_url'] ? h($mailConfig['site_url']) : '' ?>　<?php echo $mailConfig['site_email'] ? h($mailConfig['site_email']) : ''; ?>　
 　<?php if ($mailConfig['site_tel']): ?>TEL　<?php echo $mailConfig['site_tel']; ?><?php endif; ?><?php if ($mailConfig['site_fax']): ?>　FAX　<?php echo $mailConfig['site_fax']; ?><?php endif; ?>　
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

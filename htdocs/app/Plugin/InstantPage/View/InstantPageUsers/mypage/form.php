@@ -18,9 +18,11 @@ $this->BcBaser->i18nScript([
 <?php echo $this->BcForm->create('InstantPageUser') ?>
 <?php echo $this->BcFormTable->dispatchBefore() ?>
 <?php echo $this->BcForm->hidden('InstantPageUser.id') ?>
-<table cellpadding="0" cellspacing="0" id="FormTable" class="form-table bca-form-table p-account__table">
+<?php echo $this->BcForm->hidden('InstantPageUser.id') ?>
+<div class="l-contents__inr section">
+	<table cellpadding="0" cellspacing="0" id="FormTable" class="form-table bca-form-table">
 		<?php if ($this->request->action == 'admin_edit'): ?>
-			<tr hiden>
+			<tr>
 				<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.id', 'No') ?></th>
 				<td class="col-input bca-form-table__input">
 					<?php echo $this->BcForm->value('InstantPageUser.id') ?>
@@ -30,57 +32,166 @@ $this->BcBaser->i18nScript([
 			</tr>
 		<?php endif ?>
 		<tr>
-			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.name', __d('baser', 'ログインID')) ?></th>
-			<td class="col-input bca-form-table__input confilm">
+			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.name', __d('baser', 'ログインID')) ?>
+				&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php if ($this->request->action == 'admin_add' && $editable): ?>
+				<?php echo $this->BcForm->input('InstantPageUser.name', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'class' => 'bca-textbox__input nameCheck']) ?>
+				<i class="bca-icon--question-circle btn help bca-help"></i>
+				<!-- <input type="button" class="check_button" id="nameCheck" name="" required="" value="アカウント重複チェック"> -->
+				<?php echo $this->BcForm->error('InstantPageUser.name') ?>
+				<div id="helptextName"
+					 class="helptext"><?php echo __d('baser', '半角英数字とハイフン、アンダースコアのみで入力してください。') ?></div>
+				<?php else: ?>
 					<?php echo h($this->request->data['InstantPageUser']['name']) ?>
 					<?php echo $this->BcForm->input('InstantPageUser.name', ['type' => 'hidden']) ?>
+				<?php endif ?>
+			</td>
+		</tr>
+
+		<tr>
+			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.company', '会社名') ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.company', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '例：インスタント株式会社']) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.company') ?>
 			</td>
 		</tr>
 		<tr>
-			<th class="col-head bca-form-table__label p-account__required"><?php echo $this->BcForm->label('InstantPageUser.real_name_1', 'お名前') ?></th>
+			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.real_name_1', 'お名前') ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>
 			<td class="col-input bca-form-table__input">
-				<?php echo $this->BcForm->input('InstantPageUser.real_name_1', ['type' => 'text', 'size' => 20, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '例：インスタント太郎', 'class' => 'c-input']) ?>
+				<?php echo $this->BcForm->input('InstantPageUser.real_name_1', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '姓']) ?>
 				<?php echo $this->BcForm->error('InstantPageUser.real_name_1') ?>
-			</td>
-		</tr>
-		<?php echo $this->BcForm->input('InstantPageUser.real_name_2', ['type' => 'hidden', 'size' => 40, 'maxlength' => 255]) ?>
-		<?php echo $this->BcForm->input('InstantPageUser.nickname', ['type' => 'hidden', 'size' => 40, 'maxlength' => 255]) ?>
-		<?php echo $this->BcForm->input('InstantPageUser.user_group_id', ['type' => 'hidden', 'options' => $userGroups, 'value' => 4]) ?>
-		<tr>
-			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.partner_id',  '企業名') ?></th>
-			<td class="col-input bca-form-table__input confilm">
-					<p><?php echo $this->BcText->arrayValue($this->request->data['InstantPageUser']['partner_id'], $partners) ?></p>
-					<?php echo $this->BcForm->input('InstantPageUser.partner_id', ['type' => 'hidden']) ?>
+				<?php echo $this->BcForm->input('InstantPageUser.real_name_2', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '名']) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.real_name_2') ?>
 			</td>
 		</tr>
 		<tr>
-			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.email', __d('baser', 'メールアドレス')) ?></th>
-			<td class="col-input bca-form-table__input confilm">
-					<?php echo h($this->request->data['InstantPageUser']['email']) ?>
-					<?php echo $this->BcForm->input('InstantPageUser.email', ['type' => 'hidden']) ?>
-			</td>
-		</tr>
-		<tr>
-			<th class="col-head bca-form-table__label p-account__required"><?php echo $this->BcForm->label('InstantPageUser.tel', '電話番号') ?></th>
+			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.kana_1', 'フリガナ') ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>
 			<td class="col-input bca-form-table__input">
-				<?php echo $this->BcForm->input('InstantPageUser.tel', ['type' => 'text', 'size' => 20, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '03-5326-0360', 'class' => 'c-input']) ?>
+				<?php echo $this->BcForm->input('InstantPageUser.kana_1', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => 'セイ']) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.kana_1') ?>
+				<?php echo $this->BcForm->input('InstantPageUser.kana_2', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'placeholder' => 'メイ']) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.kana_2') ?>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.email', __d('baser', 'メールアドレス')) ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>
+			<td class="col-input bca-form-table__input">
+					<?php echo $this->BcForm->input('InstantPageUser.email', ['type' => 'text', 'size' => 40, 'maxlength' => 255, 'class' => 'bca-textbox__input mailCheck']) ?>
+					<i class="bca-icon--question-circle btn help bca-help"></i>
+					<?php echo $this->BcForm->error('InstantPageUser.email') ?>
+					<div id="helptextEmail" class="helptext">
+						<?php echo __d('baser', '連絡用メールアドレスを入力します。') ?>
+						<br><small>※ <?php echo __d('baser', 'パスワードを忘れた場合の新パスワードの通知先等') ?></small>
+					</div>
+				<?php echo $this->BcForm->error('InstantPageUser.email', '必須入力です') ?>
+			</td>
+		</tr>
+		<?php echo $this->BcForm->input('InstantPageUser.nickname', ['type' => 'hidden', 'size' => 40, 'maxlength' => 255]) ?>
+ 		<?php echo $this->BcForm->input('InstantPageUser.user_group_id', ['type' => 'hidden', 'options' => $userGroups, 'value' => 4]) ?>
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.zip_code', '郵便番号') ?>&nbsp;<span class="required bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<script>
+					function onkeyup(event) {
+				  AjaxZip3.zip2addr(this, '', 'data[InstantPageUser][prefecture_id]', 'data[InstantPageUser][address]')
+				}
+				</script>
+				<?php echo $this->BcForm->input('InstantPageUser.zip_code', [
+					'type' => 'text',
+					'size' => 20,
+					'maxlength' => 15,
+					'onkeyup' => "AjaxZip3.zip2addr(this,'','data[InstantPageUser][prefecture_id]','data[InstantPageUser][address]')"
+				]) ?>
+				<i class="bca-icon--question-circle btn help bca-help"></i>
+				<div id="helptextPrefectureId" class="helptext">
+					<ul>
+						<li>〒郵便番号をハイフン抜きで入力してください</li>
+					</ul>
+				</div>
+				<?php echo $this->BcForm->error('InstantPageUser.zip_code') ?>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.prefecture_id', '都道府県') ?>&nbsp;<span class="required bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.prefecture_id', [
+					'type' => 'select',
+					'options' => $this->BcText->prefList(),
+					'escape' => true,
+				]) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.prefecture_id') ?>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.address', '住所') ?>&nbsp;<span class="required bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.address', ['type' => 'text', 'size' => 80, 'maxlength' => 255, 'counter' => true]) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.address') ?>
+			</td>
+		</tr>
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.building', '建物名') ?>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.building', ['type' => 'text', 'size' => 80, 'maxlength' => 255, 'counter' => true]) ?>
+				<?php echo $this->BcForm->error('InstantPageUser.building') ?>
+			</td>
+		</tr>
+
+		<tr>
+			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.tel', '電話番号') ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.tel', ['type' => 'text', 'size' => 30, 'maxlength' => 20, 'autofocus' => true, 'placeholder' => 'ハイフン抜きで入力してください']) ?>
 				<?php echo $this->BcForm->error('InstantPageUser.tel') ?>
 			</td>
 		</tr>
-			<tr hidden>
-				<th class="col-head bca-form-table__label">
-					<?php echo $this->BcForm->label('InstantPageUser.password_1', __d('baser', 'パスワード')) ?>
-				</th>
-				<?php echo $this->BcForm->input('InstantPageUser.password_1', ['type' => 'hidden', 'size' => 20, 'maxlength' => 255]) ?>
-				<?php echo $this->BcForm->input('InstantPageUser.password_2', ['type' => 'hidden', 'size' => 20, 'maxlength' => 255]) ?>
-			</tr>
+
+			<?php /*
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.password_1', __d('baser', 'パスワード')) ?>
+				<?php if ($this->request->action == 'admin_add'): ?>
+					<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>&nbsp;
+				<?php endif; ?>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php if ($this->request->action == "admin_edit"): ?><small>[<?php echo __d('baser', 'パスワードは変更する場合のみ入力してください') ?>]</small><br /><?php endif ?>
+				<!-- ↓↓↓自動入力を防止する為のダミーフィールド↓↓↓ -->
+				<input type="password" name="dummypass" style="top:-100px;left:-100px;position:fixed;" />
+				<?php echo $this->BcForm->input('InstantPageUser.password_1', ['type' => 'password', 'size' => 20, 'maxlength' => 255]) ?>
+				<?php echo $this->BcForm->input('InstantPageUser.password_2', ['type' => 'password', 'size' => 20, 'maxlength' => 255]) ?>
+				<i class="bca-icon--question-circle btn help bca-help"></i>
+				<?php echo $this->BcForm->error('InstantPageUser.password') ?>
+				<div id="helptextPassword" class="helptext">
+					<ul>
+						<li>
+							<?php if ($this->request->action == "admin_edit"): ?>
+								<?php echo __d('baser', 'パスワードの変更をする場合は、') ?>
+							<?php endif; ?>
+							<?php echo __d('baser', '確認の為２回入力してください。') ?></li>
+						<li><?php echo __d('baser', '半角英数字(英字は大文字小文字を区別)とスペース、記号(._-:/()#,@[]+=&;{}!$*)のみで入力してください') ?></li>
+						<li><?php echo __d('baser', '最低６文字以上で入力してください') ?></li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+		<*/?>
 		<?php echo $this->BcForm->dispatchAfterForm() ?>
 	</table>
 
 
-	<p class="u-text-left u-text u-mt-2 u-text-caption">※企業名の変更の場合は、弊社担当営業までご連絡ください。</p>
-	<div class="c-btn c-btn--input c-btn--sm2 u-ml-auto u-mr-auto u-mt-6 u-mt-md-9 u-mb-2">
-		<?php echo $this->BcForm->submit(__d('baser', '内容を保存する'), ['div' => false, 'class' => 'button bca-btn bca-actions__item', 'data-bca-btn-type' => 'save', 'data-bca-btn-size' => 'lg', 'data-bca-btn-width' => 'lg','id' => 'BtnSave']) ?><i class="c-icon c-icon--arrow"></i>
+	<div class="mod-btn-01 signup-form-submit-send">
+		<span class="btnInner">保存</span>
+		<?php echo $this->BcForm->submit(__d('baser', '内容を保存する'), ['div' => false, 'class' => 'button bca-btn bca-actions__item', 'data-bca-btn-type' => 'save', 'data-bca-btn-size' => 'lg', 'data-bca-btn-width' => 'lg','id' => 'BtnSave']) ?>
 	</div>
 <?php echo $this->BcForm->end() ?>
 <p class="u-text-center u-text u-text--fz16 u-mt-2">パスワードを変更されたい方は<a class="c-link-underline" href="/mypage/instant_page/instant_page_users/edit_password/<?php echo $user['id']?>">こちら</a></p>

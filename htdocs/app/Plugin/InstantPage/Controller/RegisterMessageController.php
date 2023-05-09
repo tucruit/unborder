@@ -76,16 +76,16 @@ class RegisterMessageController extends AppController {
 				],
 				'recursive' => -1
 			));
-			// $registerMessage = $this->{$this->modelClass}->find('all', array(
-			// 	'conditions' => array(
-			// 		'RegisterMessage.name' => $id,
-			// 		'RegisterMessage.token_limit >=' => date('Y-m-d H:i:s'),
-			// 	),
-			// 	'recursive' => -1
-			// ));
+			$registerMessage = $this->{$this->modelClass}->find('all', array(
+				'conditions' => array(
+					'RegisterMessage.name' => $id,
+					'RegisterMessage.token_limit >=' => date('Y-m-d H:i:s'),
+				),
+				'recursive' => -1
+			));
 
-			//if ($users || $registerMessage) {
-			if ($users) {
+			if ($users || $registerMessage) {
+			//if ($users) {
 				$errParams = [
 					'status' => false,
 					'message' => '既に登録されているアカウント名です。別のアカウント名をご入力ください。',

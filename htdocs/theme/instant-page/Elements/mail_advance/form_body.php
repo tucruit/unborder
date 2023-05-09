@@ -48,12 +48,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	$this->Mailform->unlockField('MailMessage.token');
 	$this->Mailform->unlockField('MailMessage.token_limit');
 	$this->Mailform->unlockField('MailMessage.token_access');
+	$this->Mailform->unlockField('MailMessage.referer');
 	?>
 	<table class="mod-table-form signup-form-table">
 		<tbody>
 			<?php
 			$options['blockStart'] = 1;
-			$options['blockEnd'] = 6;
+			// $options['blockEnd'] = 6;
 			$options = [
 					'templates' => [
 					'default' => 'mail_advance/field_default', 		// default : 標準テンプレート

@@ -31,7 +31,7 @@ class InstantPagesSchema extends CakeSchema {
 		'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary', 'comment' => 'ID'],
 		'title' => ['type' => 'string', 'null' => true, 'default' => null, 'comment' => 'ページタイトル'],
 		'url' => ['type' => 'string', 'null' => true, 'default' => null, 'comment' => 'url'],
-		'author_id' => ['type' => 'integer', 'null' => true, 'default' => null, 'length' => 8, 'comment' => 'インスタントページユーザーID'],
+		'instant_page_users_id' => ['type' => 'integer', 'null' => true, 'default' => null, 'length' => 11, 'comment' => 'インスタントページユーザーID'],
 		'template' => ['type' => 'string', 'null' => true, 'default' => null, 'comment' => 'テンプレート'],
 		'contents' => ['type' => 'string', 'null' => true, 'default' => null, 'comment' => '詳細'],
 		'status' => ['type' => 'boolean', 'null' => false, 'default' => '0', 'comment' => '公開'],

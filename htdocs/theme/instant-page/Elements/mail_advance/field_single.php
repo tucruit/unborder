@@ -1,5 +1,5 @@
 <?php foreach($data['fields'] as $field): ?>
-	<?php if($field['class'] == 'hidden') :  ?>
+	<?php if($field['type'] == 'hidden') :  ?>
 		<tr style="display: none;"><th></th><td><?php echo $field['control'] ?></td></tr>
 	<?php else:?>
 		<tr>

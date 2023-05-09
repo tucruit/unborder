@@ -13,7 +13,7 @@ class InstantPageUser extends User {
 	public $hasmany = [
 		'InstantPage' => [
 			'className'	=> 'InstantPage.InstantPage',
-			'foreignKey' => 'author_id'
+			'foreignKey' => 'instant_page_users_id'
 			]
 		];
 
@@ -201,7 +201,16 @@ class InstantPageUser extends User {
 			App::uses('AuthComponent', 'Controller/Component');
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 		}
+		// 県名がテキストだった場合、idで保存する
+		if (isset($this->data[$this->alias]['prefecture_id'])) {
+			$prefIds =Configure::read('InstantPage.pref');
+			if (array_key_exists($this->data[$this->alias]['prefecture_id'], $prefIds)) {
+				$this->data[$this->alias]['prefecture_id'] = $prefIds[$this->data[$this->alias]['prefecture_id']];
+			}
+		}
+
 		return true;
+
 	}
 
 }

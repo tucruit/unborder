@@ -116,8 +116,8 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 			$event->subject->Security->disabledFields,
 			array(
 				'agree',
-				'MailMessage.email_check',
-				'MailMessage.partner_id_name_check',
+				// 'MailMessage.email_check',
+				// 'MailMessage.name_check',
 				'MailMessage.token',
 				'MailMessage.token_limit',
 				'MailMessage.token_access',
@@ -127,7 +127,7 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 		);
 
 		//baserCMS４系ではmail_contentテーブルにnameが無い
-		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 3 && $Controller->action == 'submit') {
+		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 1 && $Controller->action == 'submit') {
 
 			foreach ($event->subject->dbDatas['mailFields'] as $key => $item) {
 				if ($item['MailField']['field_name'] == 'token') {
