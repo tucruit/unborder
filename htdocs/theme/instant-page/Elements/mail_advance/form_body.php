@@ -43,6 +43,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 	$this->Mailform->unlockField('MailMessage.mode');
 	echo $this->Mailform->hidden('MailMessage.mode');
+	$this->Mailform->unlockField('MailMessage.password_1');
+	$this->Mailform->unlockField('MailMessage.password_2');
+	$this->Mailform->unlockField('MailMessage.token');
+	$this->Mailform->unlockField('MailMessage.token_limit');
+	$this->Mailform->unlockField('MailMessage.token_access');
 	?>
 	<table class="mod-table-form signup-form-table">
 		<tbody>
@@ -67,10 +72,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
 				<?php echo $this->Mailform->submit('入力内容を確認する', ['div' => false, 'id' => 'BtnMessageConfirm', 'class' => 'bgt-btn form-submit button']); ?>
 			</div>
 		<?php  else: // 確認画面?>
+			<div class="mod-btn-01 signup-form-submit-send">
+				<span class="btnInner">内容を修正する</span>
 			<?php
-			echo $this->Mailform->submit('内容を修正する', ['type' => 'button', 'div' => false, 'id' => 'BtnMessageBack', 'class' => 'form-submit hback']);
-			echo $this->Mailform->submit('送信', ['div' => false, 'id' => 'BtnMessageSubmit', 'class' => 'form-submit']);
+			echo $this->Mailform->submit('内容を修正する', ['type' => 'button', 'div' => false, 'id' => 'BtnMessageBack', 'class' => 'form-submit hback button']);
+			?>
+		</div>
+			<div class="mod-btn-01 signup-form-submit-send">
+			<span class="btnInner">送信する</span>
+			<?php
+			echo $this->Mailform->submit('送信', ['div' => false, 'id' => 'BtnMessageSubmit', 'class' => 'form-submit button']);
 			?><br>
+		</div>
 		<?php endif;  //確認画面:end?>
 	</div><!-- /btn -->
 <?php  echo $this->Mailform->end(); ?>

@@ -1,3 +1,5 @@
+php_value "error_reporting" "E_ALL & ~E_NOTICE & ~E_DEPRECATED"
+
 Allow from all
 RewriteEngine on
 #RewriteBase /

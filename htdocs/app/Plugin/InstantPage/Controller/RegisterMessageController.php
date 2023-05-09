@@ -46,7 +46,7 @@ class RegisterMessageController extends AppController {
 	 */
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->BcAuth->allow('ajax_id_check');
+		$this->BcAuth->allow('ajax_id_check','ajax_email_check');
 		$this->Security->validatePost = false;
 		$this->Security->csrfCheck = false;
 	}
@@ -114,12 +114,13 @@ class RegisterMessageController extends AppController {
 		$this->layout = false;
 		$this->autoRender = false;
 		$errParams = array();
-		if (!$email && $this->request->data('email')) {
-			$email = $this->request->data('email');
+		if (!$email && $this->request->data('id')) {
+			$email = $this->request->data('id');
 		}
 		if (!Validation::email($email)) {
+			$text = $email. 'E-mailの形式が無効です。';
 			$email = false;
-			$errParams = ['status' => false, 'message' => '形式が無効です。'];
+			$errParams = ['status' => false, 'message' => $text];
 		}
 
 		if ($email) {
@@ -148,7 +149,7 @@ class RegisterMessageController extends AppController {
 				'message' => 'メールアドレスが入力されていません。メールアドレスをご入力ください。',
 			];
 		}
-		$errParams['field'] = '.nameCheck';
+		$errParams['field'] = '.mailCheck';
 		return json_encode($errParams);
 	}
 

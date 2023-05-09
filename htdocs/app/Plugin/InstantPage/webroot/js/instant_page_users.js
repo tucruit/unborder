@@ -1,9 +1,9 @@
 /**
- * baserAjaxDataList プラグイン
+ * id email check プラグイン
  */
 $(function () {
 	// メールアドレス（ID）チェック
-	//$('.nameCheck').after('<input type="button" class="button bca-btn bca-actions__item" id="nameCheck" name="" required="" value="アカウント重複チェック"></input>');
+	//$('.mailCheck').after('<input type="button" class="button bca-btn bca-actions__item" id="nameCheck" name="" required="" value="アカウント重複チェック"></input>');
 	$('.nameCheck').keyup(function(){
 		var checkId = $(".nameCheck").val();
 		var regexp = /^[a-zA-Z0-9\-+.@_]+$/;
@@ -19,8 +19,25 @@ $(function () {
 		return false;
 	});
 
+    $('.mailCheck').keyup(function(){
+        var checkMail = $(".mailCheck").val();
+        var regexp = /^[a-zA-Z0-9\-+.@_]+$/;
+        if (!checkMail.match(regexp)) {
+            $('.mailCheck').parent().children('.notice-message').remove();
+            $('.mailCheck').parent().children('.error-message').remove();
+            $('.mailCheck').parent().append('<div class="error-message"><small>半角英数字とハイフン、アンダースコアのみで入力してください。</small></div>');
+            $('.error-message').css('color','#f20014');
+        } else {
+            var url = '/instant_page/register_message/ajax_email_check';
+            ajaxCheck(url, checkMail);
+        }
+        return false;
+    });
+
     // Ajax チェック
     function ajaxCheck(url, checkId) {
+            console.log(url);
+            console.log(checkId);
         $.ajax({
             url: url,
             type: 'POST',
@@ -38,8 +55,7 @@ $(function () {
                 $(data.field).parent().append('<div class="error-message"><small>' + data.message + '</small></div>');
             }
             $('.error-message').css('color','#f20014');
-        })
-        .fail(function( jqXHR, textStatus, errorThrown ) {
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
            $(data.field).parent().children('.notice-message').remove();
            $(data.field).parent().children('.error-message').remove();
             $(data.field).parent().append('<div class="error-message">' + errorThrown + '</div>');

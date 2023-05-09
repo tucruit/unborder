@@ -6,11 +6,12 @@
 <!-- PAGE CONTENTS -->
 <div class="signup signupIndex">
 	<div class="l-subContentsContainer sub-container signupInner">
-		<h2 class="mod-hl-01 signup-hl"><?php $this->BcBaser->contentsTitle(); ?>フォーム</h2>
-		<?php if ($freezed):?>
-			<p class="signup-lead">
-				<?php echo nl2br(strip_tags($this->Mail->getDescription())) ?>
-			</p>
+		<?php if (!$freezed):?>
+			<h2 class="mod-hl-01 signup-hl"><?php $this->BcBaser->contentsTitle(); ?>フォーム</h2>
+			<p class="signup-lead"><?php echo nl2br(strip_tags($this->Mail->getDescription())) ?></p>
+		<?php else:?>
+			<h2 class="mod-hl-01 signup-hl"><?php $this->BcBaser->contentsTitle(); ?> 確認</h2>
+			<p class="signup-lead"><?php echo __('入力した内容に間違いがなければ「送信する」ボタンをクリックしてください。') ?></p>
 		<?php endif;?>
 		<?php $this->BcBaser->flash() ?>
 		<?php

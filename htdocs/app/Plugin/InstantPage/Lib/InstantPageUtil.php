@@ -10,8 +10,24 @@ class InstantPageUtil extends CakeObject {
 	 */
 	public static $extensionAuthExpires = 60;
 
+
 	/**
-	 * パスワードドメインチェック
+	 * 不許可ドメインチェック
+	 *
+	 * @param array $check チェック対象文字列
+	 * @return boolean
+	 */
+	public static function domain($check) {
+		$mailDomain = explode('@', $check);
+			$disapprovalDomain = Configure::read('disapproval_domain');
+			return in_array($mailDomain[1], $disapprovalDomain, true);
+		}
+
+	}
+
+
+	/**
+	 * パスワードチェック
 	 *
 	 * @param array $check チェック対象文字列
 	 * @return boolean

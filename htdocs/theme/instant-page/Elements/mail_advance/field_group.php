@@ -11,7 +11,14 @@
 		?>
 		<div class="<?php echo $groupClass ?>">
 		<?php foreach($data['fields'] as $field): ?>
-			<?php echo $freezed ? ''. $field['control']. '' : $field['control'] ; ?>
+			<?php
+			if (!$freezed) {
+				echo $field['control'];
+			} else {
+				echo !$field['raw']['no_send'] ? $field['control'] : '<span style="display: none;">'.  $field['control']. '</span>';
+			}
+			?>
+			<?php //echo $freezed ? ''. $field['control']. '' : $field['control'] ; ?>
 			<?php if($field['error']): ?>
 				<?php
 				switch ($field['name']) {
@@ -23,7 +30,7 @@
 						break;
 
 					default:
-						echo '<p class="error">'. h($field['name']).'をご入力ください</p>';
+						echo '<p class="error">'. h($field['error']).'</p>';
 						# code...
 						break;
 				}

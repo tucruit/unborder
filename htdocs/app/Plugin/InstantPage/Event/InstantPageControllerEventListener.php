@@ -104,7 +104,7 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 
 		$Controller = $event->subject();
 		//baserCMS４系ではmail_contentテーブルにnameが無い
-		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 2 && $Controller->action == 'index') {
+		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 1 && $Controller->action == 'index') {
 			$refererSession = $event->subject->Session->read("InstantPage.Register.referer");
 			if (!$refererSession) {
 				$referer = env('HTTP_REFERER');

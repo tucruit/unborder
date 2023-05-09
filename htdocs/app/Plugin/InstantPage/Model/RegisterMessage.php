@@ -14,8 +14,8 @@ class RegisterMessage extends AppModel {
  * @var		string
  * @access	public
  */
-	public $name = 'mail_message_3';
-	public $useTable = 'mail_message_3';
+	public $name = 'mail_message_1';
+	public $useTable = 'mail_message_1';
 	// public $model = 'Mail.MailMessage';
 
 // /**
