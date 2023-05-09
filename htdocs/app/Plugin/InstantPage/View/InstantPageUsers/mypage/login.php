@@ -42,6 +42,6 @@ $userController = Inflector::tableize($userModel);
 	<?php echo $this->BcForm->end() ?>
 	<div class="usersLogin-signup">
 		<h2 class="users-sectionHl usersLogin-signup-hl">まだご登録がお済みでない方</h2>
-		<?php $this->BcBaser->link('<span class="btnInner">新規登録</span>', '/register/', ['class' => 'mod-btn-03 usersLogin-signup-btn']) ?>
+		<?php $this->BcBaser->link('<span class="btnInner">新規登録</span>', '/signup/', ['class' => 'mod-btn-03 usersLogin-signup-btn']) ?>
 	</div>
 </div>
