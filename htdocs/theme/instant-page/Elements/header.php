@@ -49,9 +49,13 @@ $InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 						<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin"><?php echo $text ?></button>
 					</a>
 					<!-- /Static閲覧用 -->
-					<a href="/signup/" class="gNav-btn gNav-btn__signUp">
-						<span class="btnInner">新規登録</span>
-					</a>
+					<?php
+					if (!empty($InstantPageUser)) {
+						$this->BcBaser->link('<span class="btnInner">登録情報編集</span>', '/mypage/instant_page/instant_page_users/edit/'. $InstantPageUser['id'], ['class' => 'gNav-btn gNav-btn__signUp']);
+					} else {
+						$this->BcBaser->link('<span class="btnInner">新規登録</span>', '/signup/', ['class' => 'gNav-btn gNav-btn__signUp']);
+					}
+					?>
 				</div>
 				<ol class="gNav-list">
 					<li>

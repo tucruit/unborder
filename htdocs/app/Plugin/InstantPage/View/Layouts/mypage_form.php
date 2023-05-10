@@ -18,7 +18,7 @@
 		'/js/admin/vendors/jquery.jstree-3.3.8/themes/proton/style.min',
 		'/js/admin/vendors/jquery-contextMenu-2.2.0/jquery.contextMenu.min',
 		'admin/colorbox/colorbox-1.6.1',
-		'style.css',
+		'admin/jquery.timepicker',
 		'common',
 		'import'
 	]);
@@ -81,7 +81,11 @@
 		'admin/sidebar',
 		'admin/startup',
 		'admin/favorite',
-		'admin/permission'])
+		'admin/permission',
+		'admin/vendors/jquery.timepicker',
+		'common_navigation',
+		'common',
+	]);
 		?>
 		<script>
 			$.bcUtil.init({
@@ -109,9 +113,9 @@
 		// ログインしている場合はサイドバーを表示
 		$InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 		p($InstantPageUser);
-		if (strpos($this->request->url, 'login') === false){
-			$this->BcBaser->element('sidebar');
-		}
+		// if (strpos($this->request->url, 'login') === false){
+		// 	$this->BcBaser->element('sidebar');
+		// }
 		?>
 		<main id="Contents">
 			<div class="c-mv c-mv--lower c-mv--account"><span class="c-mv__bg"></span><span class="c-mv__img"></span>
@@ -119,7 +123,8 @@
 					<h2 class="c-mv__ttl"><?php $this->BcBaser->contentsTitle() ?></h2>
 				</div>
 			</div>
-			<div class="l-contents l-contents--lower"><span class="l-contents__bg"></span>
+			<div role="main" class="l-contents l-contents--lower">
+				<span class="l-contents__bg"></span>
 				<div class="l-contents__inr">
 					<div class="c-section">
 						<div class="c-box c-box--a c-box--bg p-account">

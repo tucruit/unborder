@@ -13,8 +13,10 @@ $this->BcBaser->i18nScript([
 ?>
 <div id="SelfUpdate" style="display: none"><?php echo $selfUpdate ?></div>
 <div id="AlertMessage" style="display: none"></div>
-<div id="UserGroupSetDefaultFavoritesUrl" style="display:none"><?php $this->BcBaser->url(['plugin' => null, 'controller' => 'user_groups', 'action' => 'set_default_favorites', @$this->request->data['UserGroup']['id']]) ?></div>
-<p class="u-text-left u-text u-text--fz16 u-text-attention u-mb-5">ご契約時の情報（担当者等）が変更になった場合はこちらから変更を行ってください。</p>
+<div id="UserGroupSetDefaultFavoritesUrl" style="display:none">
+	<?php $this->BcBaser->url(['plugin' => null, 'controller' => 'user_groups', 'action' => 'set_default_favorites', @$this->request->data['UserGroup']['id']]) ?>
+</div>
+<h2 class="users-sectionHl users-form-hl">ご契約時の情報が変更になった場合はこちらから変更を行ってください。</h2>
 <?php echo $this->BcForm->create('InstantPageUser') ?>
 <?php echo $this->BcFormTable->dispatchBefore() ?>
 <?php echo $this->BcForm->hidden('InstantPageUser.id') ?>
@@ -33,16 +35,16 @@ $this->BcBaser->i18nScript([
 		<?php endif ?>
 		<tr>
 			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.name', __d('baser', 'ログインID')) ?>
-				&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
-			</th>
-			<td class="col-input bca-form-table__input">
-				<?php if ($this->request->action == 'admin_add' && $editable): ?>
+			&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
+		</th>
+		<td class="col-input bca-form-table__input">
+			<?php if ($this->request->action == 'admin_add' && $editable): ?>
 				<?php echo $this->BcForm->input('InstantPageUser.name', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'class' => 'bca-textbox__input nameCheck']) ?>
 				<i class="bca-icon--question-circle btn help bca-help"></i>
 				<!-- <input type="button" class="check_button" id="nameCheck" name="" required="" value="アカウント重複チェック"> -->
 				<?php echo $this->BcForm->error('InstantPageUser.name') ?>
 				<div id="helptextName"
-					 class="helptext"><?php echo __d('baser', '半角英数字とハイフン、アンダースコアのみで入力してください。') ?></div>
+				class="helptext"><?php echo __d('baser', '半角英数字とハイフン、アンダースコアのみで入力してください。') ?></div>
 				<?php else: ?>
 					<?php echo h($this->request->data['InstantPageUser']['name']) ?>
 					<?php echo $this->BcForm->input('InstantPageUser.name', ['type' => 'hidden']) ?>
@@ -78,18 +80,18 @@ $this->BcBaser->i18nScript([
 		<tr>
 			<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.email', __d('baser', 'メールアドレス')) ?>&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span></th>
 			<td class="col-input bca-form-table__input">
-					<?php echo $this->BcForm->input('InstantPageUser.email', ['type' => 'text', 'size' => 40, 'maxlength' => 255, 'class' => 'bca-textbox__input mailCheck']) ?>
-					<i class="bca-icon--question-circle btn help bca-help"></i>
-					<?php echo $this->BcForm->error('InstantPageUser.email') ?>
-					<div id="helptextEmail" class="helptext">
-						<?php echo __d('baser', '連絡用メールアドレスを入力します。') ?>
-						<br><small>※ <?php echo __d('baser', 'パスワードを忘れた場合の新パスワードの通知先等') ?></small>
-					</div>
+				<?php echo $this->BcForm->input('InstantPageUser.email', ['type' => 'text', 'size' => 40, 'maxlength' => 255, 'class' => 'bca-textbox__input mailCheck']) ?>
+				<i class="bca-icon--question-circle btn help bca-help"></i>
+				<?php echo $this->BcForm->error('InstantPageUser.email') ?>
+				<div id="helptextEmail" class="helptext">
+					<?php echo __d('baser', '連絡用メールアドレスを入力します。') ?>
+					<br><small>※ <?php echo __d('baser', 'パスワードを忘れた場合の新パスワードの通知先等') ?></small>
+				</div>
 				<?php echo $this->BcForm->error('InstantPageUser.email', '必須入力です') ?>
 			</td>
 		</tr>
 		<?php echo $this->BcForm->input('InstantPageUser.nickname', ['type' => 'hidden', 'size' => 40, 'maxlength' => 255]) ?>
- 		<?php echo $this->BcForm->input('InstantPageUser.user_group_id', ['type' => 'hidden', 'options' => $userGroups, 'value' => 4]) ?>
+		<?php echo $this->BcForm->input('InstantPageUser.user_group_id', ['type' => 'hidden', 'options' => $userGroups, 'value' => 4]) ?>
 		<tr>
 			<th class="col-head bca-form-table__label">
 				<?php echo $this->BcForm->label('InstantPageUser.zip_code', '郵便番号') ?>&nbsp;<span class="required bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
@@ -97,8 +99,8 @@ $this->BcBaser->i18nScript([
 			<td class="col-input bca-form-table__input">
 				<script>
 					function onkeyup(event) {
-				  AjaxZip3.zip2addr(this, '', 'data[InstantPageUser][prefecture_id]', 'data[InstantPageUser][address]')
-				}
+						AjaxZip3.zip2addr(this, '', 'data[InstantPageUser][prefecture_id]', 'data[InstantPageUser][address]')
+					}
 				</script>
 				<?php echo $this->BcForm->input('InstantPageUser.zip_code', [
 					'type' => 'text',
@@ -187,11 +189,11 @@ $this->BcBaser->i18nScript([
 		<*/?>
 		<?php echo $this->BcForm->dispatchAfterForm() ?>
 	</table>
+</div>
 
-
-	<div class="mod-btn-01 signup-form-submit-send">
-		<span class="btnInner">保存</span>
-		<?php echo $this->BcForm->submit(__d('baser', '内容を保存する'), ['div' => false, 'class' => 'button bca-btn bca-actions__item', 'data-bca-btn-type' => 'save', 'data-bca-btn-size' => 'lg', 'data-bca-btn-width' => 'lg','id' => 'BtnSave']) ?>
-	</div>
+<div class="mod-btn-01 signup-form-submit-send">
+	<span class="btnInner">保存</span>
+	<?php echo $this->BcForm->submit(__d('baser', '内容を保存する'), ['div' => false, 'class' => 'button bca-btn bca-actions__item', 'data-bca-btn-type' => 'save', 'data-bca-btn-size' => 'lg', 'data-bca-btn-width' => 'lg','id' => 'BtnSave']) ?>
+</div>
 <?php echo $this->BcForm->end() ?>
 <p class="u-text-center u-text u-text--fz16 u-mt-2">パスワードを変更されたい方は<a class="c-link-underline" href="/mypage/instant_page/instant_page_users/edit_password/<?php echo $user['id']?>">こちら</a></p>
