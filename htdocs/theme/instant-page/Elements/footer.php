@@ -1,22 +1,25 @@
-<!-- FOOTER -->
 <footer role="contentinfo" class="footer">
 	<div class="l-smallContainer footerInner">
 		<div class="footer-contents">
 			<a href="/" class="footer-contents-logo">
-				<img src="/img/common/logo.svg" alt="" class="imgFit">
+				<img src="<?php $this->BcBaser->themeUrl(); ?>img/common/logo.svg" alt="" class="imgFit">
 			</a>
 			<ul class="footer-contents-menu">
+				<?php
+				/*
+					<li class="listItem">
+						<a href="#" class="listItemInner">サービス紹介</a>
+					</li>
+				*/
+				?>
 				<li class="listItem">
-					<a href="#" class="listItemInner">サービス紹介</a>
+					<a href="/#top-features" class="listItemInner">機能紹介</a>
 				</li>
 				<li class="listItem">
-					<a href="/index#top-features" class="listItemInner">機能紹介</a>
+					<a href="/#top-plan" class="listItemInner">プラン紹介</a>
 				</li>
 				<li class="listItem">
-					<a href="/index#top-plan" class="listItemInner">プラン紹介</a>
-				</li>
-				<li class="listItem">
-					<a href="news.html" class="listItemInner">お知らせ</a>
+					<a href="/news/" class="listItemInner">お知らせ</a>
 				</li>
 				<li class="listItem">
 					<a href="#" class="listItemInner">プライバシーポリシー</a>
@@ -29,12 +32,3 @@
 		<small class="footer-copyright">© UNBORDER ltd.</small>
 	</div>
 </footer>
-<!-- /FOOTER -->
-
-<!-- PAGE TOP BTN -->
-<div class="pageTop-box">
-	<div id="pageTop" class="pageTop">
-		<img src="/img/common/btn_pgtop.svg" alt="ページトップに戻る" class="imgFit">
-	</div>
-</div>
-<!-- /PAGE TOP BTN -->

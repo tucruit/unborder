@@ -154,7 +154,7 @@
 				<!-- /PAGE CONTENTS -->
 			</div>
 
-			<?php $this->BcBaser->element('contact') ?>
+			<?php $this->BcBaser->element('mod_contact'); ?>
 		</main>
 		<?php $this->BcBaser->footer() ?>
 	<?php $this->BcBaser->func() ?>

@@ -1,5 +1,4 @@
 <?php
-$title = 'instant-page';
-$description = '「ランディングページ制作支援ツール インスタントページ」専用テーマ';
-$author = '';
-$url = 'https://instant-page.jp/';
+$title = 'UNBORDER様 インスタントページ';
+$author = '株式会社 ヒニアラタ';
+$url = 'https://hiniarata.jp/';

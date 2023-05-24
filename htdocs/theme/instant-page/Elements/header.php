@@ -6,13 +6,14 @@
 $user = $this->Session->read('Auth');
 $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
 ?>
-<!-- HEADER -->
 <header role="banner" class="header" id="is-headerFixed">
 	<div class="headerInner">
 		<!-- LOGO -->
 		<a href="/" class="header-Logo">
-			<h1 class="hdnTxt">ランディングページ制作支援ツール インスタントページ</h1>
-			<img src="/img/common/logo.svg" alt="ランディングページ制作支援ツール インスタントページ" class="imgFit">
+			<?php if($this->BcBaser->isHome() || $this->BcBaser->getContentsName() == "Home"): ?>
+				<h1 class="hdnTxt">ランディングページ制作支援ツール インスタントページ</h1>
+			<?php endif; ?>
+			<img src="<?php $this->BcBaser->themeUrl(); ?>img/common/logo.svg" alt="ランディングページ制作支援ツール インスタントページ" class="imgFit">
 		</a>
 		<!-- /LOGO -->
 		<!-- MOBILE MENU BUTTON -->
@@ -28,13 +29,6 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 		<nav role="navigation" class="gNav isUnder">
 			<div class="gNavInner">
 				<div class="gNav-btnGroup">
-					<!-- CMS実装時用 -->
-					<!-- <div class="gNav-btn gNav-btn__login">
-					<span class="btnInner">ログイン</span>
-					<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin">ログイン</button>
-					</div> -->
-					<!-- /CMS実装時用 -->
-					<!-- Static閲覧用 -->
 					<?php
 					$text = 'ログイン';
 					$href = '/instant_page/instant_page_users/login';
@@ -49,7 +43,6 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 						<span class="btnInner"><?php echo $text ?></span>
 						<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin"><?php echo $text ?></button>
 					</a>
-					<!-- /Static閲覧用 -->
 					<?php
 					if (!empty($instantPageUser)) {
 						$this->BcBaser->link('<span class="btnInner">ページ一覧</span>', '/cmsadmin/instant_page/instant_pages/', ['class' => 'gNav-btn gNav-btn__signUp']);
@@ -60,23 +53,27 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 					?>
 				</div>
 				<ol class="gNav-list">
+					<?php
+					/*
 					<li>
 						<a href="#" class="menuTitle">
 							サービス紹介
 						</a>
 					</li>
+					*/
+					?>
 					<li>
-						<a href="/index#top-features" class="menuTitle">
+						<a href="/#top-features" class="menuTitle">
 							機能紹介
 						</a>
 					</li>
 					<li>
-						<a href="/index#top-plan" class="menuTitle">
+						<a href="/#top-plan" class="menuTitle">
 							プラン紹介
 						</a>
 					</li>
 					<li>
-						<a href="news.html" class="menuTitle">
+						<a href="/news/" class="menuTitle">
 							お知らせ
 						</a>
 					</li>
@@ -92,11 +89,10 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 					</li>
 				</ol>
 				<div class="gNav-footerImg dn-pc">
-					<img src="/img/common/character.svg" alt="" class="">
+					<img src="<?php $this->BcBaser->themeUrl(); ?>img/common/character.svg" alt="" class="">
 				</div>
 			</div>
 		</nav>
 		<!-- /NAVIGATION -->
 	</div>
 </header>
-<!-- /HEADER -->

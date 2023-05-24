@@ -1,20 +1,41 @@
 <?php
+
+/**
+ * baserCMS :  Based Website Development Project <https://basercms.net>
+ * Copyright (c) baserCMS Users Community <https://basercms.net/community/>
+ *
+ * @copyright        Copyright (c) baserCMS Users Community
+ * @link            https://basercms.net baserCMS Project
+ * @package            Baser.View
+ * @since            baserCMS v 4.4.0
+ * @license            https://basercms.net/license/index.html
+ */
+
 /**
  * メールフォーム
+ * 呼出箇所：メールフォーム
+ *
+ * @var BcAppView $this
  */
-$this->BcBaser->css('admin/jquery-ui/jquery-ui.min', array('inline' => true));
-$this->BcBaser->js(array('admin/vendors/jquery-ui-1.11.4.min', 'admin/vendors/i18n/ui.datepicker-ja'), false);
 ?>
-<section>
-	<div class="c-page-sub__content-detail">
-		<div class="c-content-main">
-			<div class="cc-form-description">
-				<?php $this->Mail->description() ?>
-			</div>
+<!-- BREAD CRUMBS -->
+<?php $this->BcBaser->crumbsList(['onSchema' => true]); ?>
+<!-- /BREAD CRUMBS -->
+<!-- SUB H1 -->
+<?php $this->BcBaser->element('sub_categoryheader'); ?>
+<!-- /SUB H1 -->
 
+<!-- PAGE CONTENTS -->
+<div class="contact contactIndex">
+	<div class="l-subContentsContainer sub-container contactInner">
+		<h2 class="mod-hl-01 contact-hl">お問い合わせフォーム</h2>
+		<p class="contact-lead">
+			こちらのフォームよりお気軽にお問い合わせください。担当者より返答させていただきます。
+		</p>
+		<div class="contact-form">
 			<?php $this->BcBaser->flash() ?>
 			<?php $this->BcBaser->element('mail_form') ?>
-
 		</div>
 	</div>
-</section>
+</div>
+<!-- /PAGE CONTENTS -->

@@ -135,7 +135,7 @@
 					</div>
 				</div>
 			</div>
-			<?php $this->BcBaser->element('contact') ?>
+			<?php $this->BcBaser->element('mod_contact'); ?>
 		</main>
 		<?php $bcUtilLoginUser = BcUtil::loginUser(); ?>
 		<?php if (!empty($bcUtilLoginUser)): ?>
