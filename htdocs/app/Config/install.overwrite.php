@@ -31,7 +31,7 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 		Configure::write('BcEnv.siteUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 0);
+		Configure::write('debug', 2);
 	}
 	// ローカル環境
 	if (strpos($_SERVER['HTTP_HOST'], '.localhost') !== false) {
@@ -39,6 +39,6 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 2);
+		Configure::write('debug', 0);
 	}
 }
