@@ -24,7 +24,7 @@
 					<?php if (isset($activate['InstantPageUser']['referer']) && $activate['InstantPageUser']['referer']): ?>
 						<p><?php $this->BcBaser->link('引き続きダウンロード画面へ', $activate['InstantPageUser']['referer'], array('class' => 'button')); ?></p>
 					<?php else: ?>
-						<p><?php $this->BcBaser->link('ユーザー専用サイト', '/mypage/instant_pages/', array('class' => 'button')); ?></p>
+						<p><?php $this->BcBaser->link('ユーザー専用サイト', '/instant_pages/', array('class' => 'button')); ?></p>
 					<?php endif ?>
 				</div>
 			</div>

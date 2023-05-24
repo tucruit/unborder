@@ -19,9 +19,9 @@ if (!$userModel) {
 	<div class="l-subContentsContainer sub-container usersInner">
 		<?php
 		if ($currentPrefix == 'front') {
-			echo $this->BcForm->create($userModel, ['url' => ['action' => 'reset_password'], 'class' => 'users-form']);
+			echo $this->BcForm->create($userModel, ['url' => ['controller' => 'instant_page_users', 'action' => 'reset_password'], 'class' => 'users-form']);
 		} else {
-			echo $this->BcForm->create($userModel, ['url' => ['action' => 'reset_password', $this->request->params['prefix'] => true], 'class' => 'users-form']);
+			echo $this->BcForm->create($userModel, ['url' => ['controller' => 'instant_page_users', 'action' => 'reset_password', $this->request->params['prefix'] => true], 'class' => 'users-form']);
 		}
 		?>
 			<h2 class="users-sectionHl users-form-hl">

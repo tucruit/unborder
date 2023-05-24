@@ -1,6 +1,7 @@
 <?php
 App::uses('UsersController', 'Controller');
-class InstantPageUsersController extends UsersController {
+App::uses('User', 'Model');
+class InstantPageUsersController extends AppController {
 	public $uses = ['InstantPage.InstantPageUser'];
 	public function mypage_index() {
 		$this->viewPath = 'InstantPageUsers';
@@ -11,6 +12,16 @@ class InstantPageUsersController extends UsersController {
 	 * @var string
 	 */
 	public $name = 'InstantPageUsers';
+
+	/* コンポーネント */
+	public $components = [
+		'RequestHandler',
+		'BcReplacePrefix',
+		'BcAuth',
+		'Cookie',
+		'BcAuthConfigure',
+		'BcEmail'
+	];
 
 	/**
 	 * 管理画面タイトル
@@ -45,8 +56,10 @@ class InstantPageUsersController extends UsersController {
 	 */
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->BcAuth->allow('mypage_verify');
-		$this->BcAuth->allow('mypage_edit_password');
+		$this->BcAuth->allow('verify');
+		$this->BcAuth->allow('edit_password');
+		$this->BcAuth->allow('reset_password');
+		$this->BcAuth->allow('admin_login');
 		$this->BcAuth->allow('activate');
 		$this->BcAuth->allow('ajax_id_check');
 		$this->BcAuth->allow('ajax__check');
@@ -95,13 +108,14 @@ class InstantPageUsersController extends UsersController {
 		if (empty($this->request->data)) {
 			$this->request->data = $this->{$this->modelClass}->getDefaultValue();
 		} else {
+
 			// 入力補助用データのunset
 			if (isset($this->request->data['InstantPage'])) {
 				unset($this->request->data['InstantPage']);
 			}
 
 			/* 登録処理 */
-			$this->request->data['InstantPageUser']['password'] = $this->request->data['InstantPageUser']['password_1'];
+			$this->request->data['User']['password'] = $this->request->data['User']['password_1'];
 			$this->{$this->modelClass}->create($this->request->data);
 
 			if ($this->InstantPageUser->save()) {
@@ -111,7 +125,7 @@ class InstantPageUsersController extends UsersController {
 					'InstantPageUser' => $this->request->data
 				]));
 
-				$this->BcMessage->setSuccess('インスタントページユーザー「' . $this->request->data['InstantPageUser']['name'] . '」を追加しました。');
+				$this->BcMessage->setSuccess('インスタントページユーザー「' . $this->request->data['User']['name'] . '」を追加しました。');
 				$this->redirect(['action' => 'edit', $this->{$this->modelClass}->getInsertID()]);
 			} else {
 				$this->BcMessage->setError(__d('baser', '入力エラーです。内容を修正してください。'));
@@ -124,15 +138,8 @@ class InstantPageUsersController extends UsersController {
 		if ($user['user_group_id'] != Configure::read('BcApp.adminGroupId')) {
 			unset($userGroups[1]);
 		}
-		// // パートナー企業を読み込む
-		// $s = $this->{$this->modelClass}->getControlSource('_id');
-		// $query = $this->request->query;
-		// if (isset($query['_id'])) {
-		// 	$this->request->data['InstantPageUser']['_id'] = $query['_id'];
-		// }
 
 		$this->set('userGroups', $userGroups);
-		// $this->set('s', $s);
 		$this->set('editable', true);
 		$this->set('selfUpdate', false);
 		$this->subMenuElements = ['site_configs', 'instant_page_users'];
@@ -147,30 +154,44 @@ class InstantPageUsersController extends UsersController {
  * @param int user_id
  * @return void
  */
+	public function edit($id) {
+		$this->admin_edit($id);
+	}
+
+
+/**
+ * [ADMIN] ユーザー情報編集
+ *
+ * @param int user_id
+ * @return void
+ */
 	public function admin_edit($id) {
 		/* 除外処理 */
 		if (!$id && empty($this->request->data)) {
-			$this->BcMessage->setError(__d('baser', '無効なIDです。'));
-			$this->redirect(['action' => 'index']);
+			$this->setMessage('無効な処理です。', true);
+			$this->redirect(array('action' => 'index'));
 		}
 
 		$selfUpdate = false;
 		$updatable = true;
 		$user = $this->BcAuth->user();
 		if (empty($this->request->data)) {
-			$this->request->data = $this->{$this->modelClass}->read(null, $id);
+			$this->request->data = $this->{$this->modelClass}->getDefaultValue();
+			$this->request->data = $this->{$this->modelClass}->find('first', array(
+				'conditions' => array($this->modelClass . '.id' => $id),
+			));
 		} else {
 
 			// パスワードがない場合は更新しない
-			if ($this->request->data['InstantPageUser']['password_1'] || $this->request->data['InstantPageUser']['password_2']) {
-				$this->request->data['InstantPageUser']['password'] = $this->request->data['InstantPageUser']['password_1'];
+			if ($this->request->data['User']['password_1'] || $this->request->data['User']['password_2']) {
+				$this->request->data['User']['password'] = $this->request->data['User']['password_1'];
 			}
 
 			// 権限確認
 			if (!$updatable) {
 				$this->BcMessage->setError(__d('baser', '指定されたページへのアクセスは許可されていません。'));
 			// 自身のアカウントは変更出来ないようにチェック
-			} elseif ($selfUpdate && $user['user_group_id'] != $this->request->data['InstantPageUser']['user_group_id']) {
+			} elseif ($selfUpdate && $user['user_group_id'] != $this->request->data['User']['user_group_id']) {
 				$this->BcMessage->setError(__d('baser', '自分のアカウントのグループは変更できません。'));
 			} else {
 				$this->{$this->modelClass}->set($this->request->data);
@@ -181,7 +202,7 @@ class InstantPageUsersController extends UsersController {
 					if ($selfUpdate) {
 						$this->admin_logout();
 					}
-					$this->BcMessage->setSuccess('ユーザー「' . $this->request->data['InstantPageUser']['real_name_1'] . '」を更新しました。');
+					$this->BcMessage->setSuccess('ユーザー「' . $this->request->data['User']['real_name_1'] . '」を更新しました。');
 					$this->redirect(['action' => 'edit', $id]);
 				} else {
 					$this->BcMessage->setError(__d('baser', '保存できませんでした。'));
@@ -214,128 +235,7 @@ class InstantPageUsersController extends UsersController {
 	}
 
 /**
- * [MYPAGE] ユーザー情報編集
- *
- * @param int user_id
- * @return void
- */
-	public function mypage_edit() {
-		$id = $_SESSION['Auth']['InstantPageUser']['id'];
-		/* 除外処理 */
-		if (!$id && empty($this->request->data)) {
-			$this->BcMessage->setError(__d('baser', '無効なIDです。'));
-			$this->redirect(['action' => 'index']);
-		}
-
-		$selfUpdate = false;
-		$updatable = true;
-		$user = $this->BcAuth->user();
-		if (empty($this->request->data)) {
-			$this->request->data = $this->{$this->modelClass}->read(null, $id);
-		} else {
-			// 入力補助用データのunset
-			if (isset($this->request->data['InstantPage'])) {
-				unset($this->request->data['InstantPage']);
-			}
-
-			// パスワードがない場合は更新しない
-			if ($this->request->data['InstantPageUser']['password_1'] || $this->request->data['InstantPageUser']['password_2']) {
-				$this->request->data['InstantPageUser']['password'] = $this->request->data['InstantPageUser']['password_1'];
-				//パスワードを変更した場合はリセット期限も変更する
-				$this->request->data['InstantPageUser']['password_date'] = date('Y-m-d H:i:s', strtotime('+90 day')); //今日から90日後
-			}
-				//独自バリデート
-				$realName1 = $this->request->data['InstantPageUser']['real_name_1'];
-				$realName2 = $this->request->data['InstantPageUser']['real_name_2'];
-				$tel = $this->request->data['InstantPageUser']['tel'];
-				$valdate = true;
-				switch ($realName1) {
-					case strlen($realName1) == '':
-						$this->BcMessage->setError(__d('baser', 'ご担当者名を入力してください'));
-						$valdate = false;
-						break;
-					case strlen($realName1) >= 50:
-						$this->BcMessage->setError(__d('baser', 'ご担当者名は50文字以内で入力してください。'));
-						$valdate = false;
-						break;
-					case $realName2 == '':
-						$this->BcMessage->setError(__d('baser', 'ご担当者名[カナ]を入力してください。'));
-						$valdate = false;
-						break;
-					case strlen($realName1) >= 50:
-						$this->BcMessage->setError(__d('baser', 'ご担当者名[カナ]は50文字以内で入力してください。'));
-						$valdate = false;
-						break;
-					case preg_match("/^(|[ァ-ヾ 　]+)$/u", $realName2) == false;
-						$this->BcMessage->setError(__d('baser', 'ご担当者名[カナ]は全角カタカナのみで入力してください。'));
-						$valdate = false;
-						break;
-					case $tel == '':
-						$this->BcMessage->setError(__d('baser', '電話番号を入力してください。'));
-						$valdate = false;
-						break;
-					case strlen($tel) >= 20:
-						$this->BcMessage->setError(__d('baser', '電話番号は20文字以内で入力してください。'));
-						$valdate = false;
-						break;
-					case preg_match("/^[a-zA-Z0-9\-_" . "]+$/", $tel) == false;
-						$this->BcMessage->setError(__d('baser', '電話番号は半角英数字とハイフン、アンダースコアのみで入力してください。'));
-						$valdate = false;
-						break;
-
-					default:
-						break;
-				}
-				 // if ($valdate == false){
-					// 	//$this->redirect(['action' => 'mypage_edit']);
-				 // 	return false;
-				 // }
-
-			// 権限確認
-			if (!$updatable) {
-				$this->BcMessage->setError(__d('baser', '指定されたページへのアクセスは許可されていません。'));
-
-			// 自身のアカウントは変更出来ないようにチェック
-			} elseif ($selfUpdate && $user['user_group_id'] != $this->request->data['InstantPageUser']['user_group_id']) {
-				$this->BcMessage->setError(__d('baser', '自分のアカウントのグループは変更できません。'));
-			} else {
-				$this->{$this->modelClass}->set($this->request->data);
-				if ($valdate && $this->{$this->modelClass}->save()) {
-					$this->getEventManager()->dispatch(new CakeEvent('Controller.Users.afterEdit', $this, [
-						'user' => $this->request->data
-					]));
-					if ($selfUpdate) {
-						$this->admin_logout();
-					}
-					$this->BcMessage->setSuccess('ユーザー「' . $this->request->data['InstantPageUser']['real_name_1'] . '」を更新しました。');
-					$this->redirect(['action' => 'edit', $id]);
-				} else {
-					$this->BcMessage->setError(__d('baser', '保存できませんでした。'));
-				}
-			}
-		}
-
-		/* 表示設定 */
-		$userGroups = $this->User->getControlSource('user_group_id');
-		$editable = true;
-		$deletable = true;
-
-		if (@$user['user_group_id'] != Configure::read('BcApp.adminGroupId') && Configure::read('debug') !== -1) {
-			$editable = false;
-		} elseif ($selfUpdate && @$user['user_group_id'] == Configure::read('BcApp.adminGroupId')) {
-			$deletable = false;
-		}
-
-		$this->set(compact('userGroups', 'editable', 'selfUpdate', 'deletable'));
-		$this->subMenuElements = ['site_configs', 'users'];
-		$this->pageTitle = __d('baser', 'インスタントページユーザー情報編集');
-		$this->help = 'instant_page_users_form';
-		$this->render('form');
-		// $this->admin_edit($id);
-	}
-
-/**
- * [ADMIN] インスタントページユーザー情報削除　(ajax)
+ * [ADMIN] インスタントページユーザー情報削除 (ajax)
  *
  * @param int id
  * @return void
@@ -412,7 +312,7 @@ class InstantPageUsersController extends UsersController {
 
 		/* 削除処理 */
 		if ($this->{$this->modelClass}->delete($id)) {
-			$this->BcMessage->setSuccess('担当者「: ' . $user['InstantPageUser']['real_name_1'] . ' を削除しました。');
+			$this->BcMessage->setSuccess('担当者「: ' . $user['User']['real_name_1'] . ' を削除しました。');
 		} else {
 			$this->BcMessage->setError(__d('baser', 'データベース処理中にエラーが発生しました。'));
 		}
@@ -421,12 +321,17 @@ class InstantPageUsersController extends UsersController {
 	}
 
 
-/**
- * ログインパスワードをリセットする
- * 新しいパスワードを生成し、指定したメールアドレス宛に送信する
- *
- * @return void
- */
+
+	public function reset_password() {
+		$this->admin_reset_password();
+	}
+
+	/**
+	 * ログインパスワードをリセットする
+	 * 新しいパスワードを生成し、指定したメールアドレス宛に送信する
+	 *
+	 * @return void
+	 */
 	public function admin_reset_password() {
 		if ((empty($this->params['prefix']) && !Configure::read('BcAuthPrefix.front'))) {
 			$this->notFound();
@@ -447,9 +352,10 @@ class InstantPageUsersController extends UsersController {
 				$this->BcMessage->setError('メールアドレスを入力してください。');
 				return;
 			}
-			$user = $this->{$userModel}->findByEmail($email);
+			$UserModel = InstantPageUtil::users();
+			$user = $UserModel->findByEmail($email);
 			if ($user) {
-				$email = $user[$userModel]['email'];
+				$email = $user['User']['email'];
 			}
 			if (!$user || mb_strlen($email) === 0) {
 				$this->BcMessage->setError('送信されたメールアドレスは登録されていません。');
@@ -469,22 +375,54 @@ class InstantPageUsersController extends UsersController {
 		}
 	}
 
-/**
- * [ADMIN] 管理者ログイン画面
- *
- * @return void
- */
+
+	/**
+	 * [MyPage] ログイン画面
+	 *
+	 * @return void
+	 */
+	public function mypage_login() {
+		$user = BcUtil::loginUser();
+		if (!empty($user)) {
+			$this->redirect('/cmsadmin/instant_page/instant_pages/');
+		} else {
+			$this->admin_login();
+		}
+	}
+	/**
+	 * [PUBLIC] ログイン画面
+	 *
+	 * @return void
+	 */
+	public function login() {
+		$user = BcUtil::loginUser();
+		if (!empty($user)) {
+			$this->redirect('/cmsadmin/instant_page/instant_pages/');
+		} else {
+			$this->admin_login();
+		}
+	}
+
+
+	/**
+	 * [ADMIN] 管理者ログイン画面
+	 *
+	 * @return void
+	 */
 	public function admin_login() {
 		if ($this->BcAuth->loginAction != ('/' . $this->request->url)) {
 			$this->notFound();
 		}
 		if ($this->request->data) {
-			$loginLog = [];
-			$loginUser = $this->InstantPageUser->find('first', ['conditions' => ['InstantPageUser.name' => $this->request->data['InstantPageUser' ]['name']]]);
-			$this->BcAuth->login();
+			//ログイン実行
+			if ($this->request->is('post')) {
+				$this->BcAuth->login();
+			}
+			// ログインユーザー取得
 			$user = $this->BcAuth->user();
 			$userModel = $this->BcAuth->authenticate['Form']['userModel'];
 			if ($user && $this->isAuthorized($user)) {
+				//ログイン成功時
 				if (!empty($this->request->data[$userModel]['saved'])) {
 					if (!$this->request->is('mobile')) {
 						$this->setAuthCookie($this->request->data);
@@ -497,23 +435,27 @@ class InstantPageUsersController extends UsersController {
 				}
 				App::uses('BcBaserHelper', 'View/Helper');
 				$BcBaser = new BcBaserHelper(new View());
-				$this->BcMessage->setInfo(sprintf(__d('baser', 'ようこそ、%s さん。'), h($loginUser['InstantPageUser']['real_name_1'])));
-				$this->redirect($this->BcAuth->redirect());
+				$this->BcMessage->setInfo(sprintf(__d('baser', 'ようこそ、%s さん。'), h($user['real_name_1'])));
+				// インスタントページ一覧へリダイレクト
+				$this->redirect('/cmsadmin/instant_page/instant_pages/');
+				//$this->redirect($this->BcAuth->redirect());
 			} else {
+				// 失敗時
 				$this->BcMessage->setError(__d('baser', 'アカウント名、パスワードが間違っています。'));
 			}
 		} else {
 			$user = $this->BcAuth->user();
 			if ($user && $this->isAuthorized($user)) {
-				$this->redirect($this->BcAuth->redirectUrl());
+				//$this->redirect($this->BcAuth->redirectUrl());
+				$this->redirect('/cmsadmin/instant_page/instant_pages/');
 			}
 		}
 
 		$pageTitle = __d('baser', 'ログイン');
-		$prefixAuth = Configure::read('BcAuthPrefix.' . $this->request->params['prefix']);
-		if ($prefixAuth && isset($prefixAuth['loginTitle'])) {
-			$pageTitle = $prefixAuth['loginTitle'];
-		}
+		// $prefixAuth = Configure::read('BcAuthPrefix.' . $this->request->params['prefix']);
+		// if ($prefixAuth && isset($prefixAuth['loginTitle'])) {
+		// 	$pageTitle = $prefixAuth['loginTitle'];
+		// }
 
 		/* 表示設定 */
 		$this->crumbs = [];
@@ -522,13 +464,41 @@ class InstantPageUsersController extends UsersController {
 	}
 
 
+	public function mypage_logout() {
+		$this->redirect('/cmsadmin/users/logout');
+		$this->logout();
+	}
+	public function logout() {
+		$this->redirect('/cmsadmin/users/logout');
+		$user = BcUtil::loginUser();
+	}
+	/**
+	 * [ADMIN] 管理者ログアウト画面
+	 *
+	 * @return void
+	 */
+	public function admin_logout() {
+		$this->redirect('/cmsadmin/users/logout');
+		$user = BcUtil::loginUser();
+		// $this->request->data['User'] = $user;
+		// $UserModel = InstantPageUtil::users();
+		// $loginUser = $UserModel->find('first', ['conditions' => ['User.name' => $this->request->data['User']['name']]]);
+		if (!empty($user)) {
+			if ($this->BcAuth->logout()) {
+				$this->redirect('/cmsadmin/instant_page/instant_pages/');
+			}
+		} else {
+			$this->admin_logout();
+		}
+	}
+
 /**
  * ログインパスワード編集前のトークンチェック
  * 新しいパスワードを生成し、指定したメールアドレス宛に送信する
  *
  * @return void
  */
-	public function mypage_verify($token_str = null) {
+	public function verify($token_str = null) {
 		if ($this->BcAuth->user()) {
 			$this->BcMessage->setError(__d('baser', '現在ログイン中です。'));
 			$this->redirect(array('controller' => 'instant_page_users', 'action' => 'edit_password'));
@@ -541,22 +511,23 @@ class InstantPageUsersController extends UsersController {
 			//$this->set(compact('data'));
 			$this->redirect(array(
 				'controller' => 'instant_page_users',
-				'action' => 'mypage_edit_password',
+				'action' => 'edit_password',
 				'data' => $res
 			));
-			$this->mypage_edit_password($res);
+			$this->edit_password($res);
 		} else {
 			$this->BcMessage->setError(__d('baser', '指定されたページを開くにはログインする必要があります。'));
 			$this->redirect(array('controller' => 'instant_page_users', 'action' => 'login'));
 		}
 	}
-/**
- * ログインパスワードを編集する
- * 新しいパスワードを生成し、指定したメールアドレス宛に送信する
- *
- * @return void
- */
-	public function mypage_edit_password($data = []) {
+
+	/**
+	 * ログインパスワードを編集する
+	 * 新しいパスワードを生成し、指定したメールアドレス宛に送信する
+	 *
+	 * @return void
+	 */
+	public function edit_password($data = []) {
 		if (isset($this->request->params['named']['data'])) {
 			$data = $this->request->params['named']['data'];
 		} else {
@@ -569,27 +540,29 @@ class InstantPageUsersController extends UsersController {
 		// }
 
 		if($this->request->data) {
-			$id = $this->request->data['InstantPageUser']['id'];
+			$id = $this->request->data['User']['id'];
 			$selfUpdate = false;
 			$updatable = true;
-			$user = $this->BcAuth->user();
+			// 保存先はユーザーモデルになる
+			$UserModel = InstantPageUtil::users();
 			if (empty($this->request->data)) {
-				$this->request->data = $this->{$this->modelClass}->read(null, $id);
+				$this->request->data = $UserModel->read(null, $id);
 			} else {
 				// 入力補助用データのunset
-				if (isset($this->request->data['InstantPage'])) {
-					unset($this->request->data['InstantPage']);
+				if (isset($this->request->data['InstantPageUser'])) {
+					unset($this->request->data['InstantPageUser']);
 				}
+				if (isset($this->request->data['dummypass'])) unset($this->request->data['dummypass']);
 
 				// パスワードがない場合は更新しない
-				if ($this->request->data['InstantPageUser']['password_1'] || $this->request->data['InstantPageUser']['password_2']) {
-					$this->request->data['InstantPageUser']['password'] = $this->request->data['InstantPageUser']['password_1'];
-					//パスワードを変更した場合はリセット期限も変更する
-					$this->request->data['InstantPageUser']['password_date'] = date('Y-m-d H:i:s', strtotime('+90 day')); //今日から90日後
+				if ($this->request->data['User']['password_1'] || $this->request->data['User']['password_2']) {
+					$this->request->data['User']['password'] = $this->request->data['User']['password_1'];
 				}
 				//独自バリデート
-				$password1 = $this->request->data['InstantPageUser']['password_1'];
-				$password2 = $this->request->data['InstantPageUser']['password_2'];
+				$password1 = $this->request->data['User']['password_1'];
+				if ($password1) unset($this->request->data['User']['password_1']);
+				$password2 = $this->request->data['User']['password_2'];
+				if ($password2) unset($this->request->data['User']['password_2']);
 				$valdate = true;
 				switch ($password1) {
 					case strlen($password1) == '':
@@ -624,38 +597,51 @@ class InstantPageUsersController extends UsersController {
 					return false;
 				}
 
-
-
-				// 管理画面内ではないので、パスワードのハッシュ化が必要
-				$this->request->data['InstantPageUser']['password'] = $this->BcAuth->password($this->data['InstantPageUser']['password']);
-				$this->InstantPageUser->create($this->request->data);
-
 				// 権限確認
 				if (!$updatable) {
 					$this->BcMessage->setError(__d('baser', '指定されたページへのアクセスは許可されていません。'));
 
 				// 自身のアカウントは変更出来ないようにチェック
-				} elseif ($selfUpdate && $user['user_group_id'] != $this->request->data['InstantPageUser']['user_group_id']) {
+				} elseif ($selfUpdate && $user['user_group_id'] != $this->request->data['User']['user_group_id']) {
 					$this->BcMessage->setError(__d('baser', '自分のアカウントのグループは変更できません。'));
 				} else {
-					$this->{$this->modelClass}->set($this->request->data);
-					if ($this->{$this->modelClass}->save()) {
+					$saveData['User']['id'] = $this->request->data['User']['id'];
+					$saveData = $UserModel->findById($saveData['User']['id']);
+					// 管理画面内扱いなので、パスワードのハッシュ化は不要
+					$saveData['User']['password'] = $this->request->data['User']['password'];
+					$saveData['User']['user_group_id'] = $this->request->data['User']['user_group_id'];
+					$UserModel->set($saveData['User'], ['calback' => false]);
+					if ($UserModel->save()) {
 						$this->getEventManager()->dispatch(new CakeEvent('Controller.Users.afterEdit', $this, [
 							'user' => $this->request->data
 						]));
 						if ($selfUpdate) {
 							$this->admin_logout();
 						}
-						$this->BcMessage->setSuccess('ユーザー「' . $this->request->data['InstantPageUser']['real_name_1'] . '」を更新しました。');
-						$this->redirect(['action' => 'edit', $id]);
+						$this->BcMessage->setSuccess('ユーザー「' . $this->request->data['User']['real_name_1'] . '」を更新しました。');
+						$this->redirect(['controller' => 'instant_page_users', 'action' => 'login', $id]);
 					} else {
-						$this->BcMessage->setError(__d('baser', '保存できませんでした。'));
+						$this->BcMessage->setError($this->request->data['User']['real_name_1'] . '様のパスワードを'. __d('baser', '保存できませんでした。'));
+						$this->redirect(['controller' => 'instant_page_users', 'action' => 'login', $id]);
 					}
 				}
 			}
 
 			exit;
 		}
+		// 入力用にユーザーデータもセットしておく
+		if (!empty($data['InstantPageUser']['user_id'])) {
+			$userData = $UserModel->findById($data['InstantPageUser']['user_id']);
+			if (!empty($userData)) {
+				$data['User'] = $userData['User'];
+			}
+		} else {
+			// インスタントページユーザーにユーザーデータがセットされているので、入れ替える
+			$data['User'] = $data['InstantPageUser'];
+			$InstantPageUser = $this->{$this->modelClass}->find('first', ['conditions' => ['InstantPageUser.user_id' => $data['User']['id']]]);
+			$data['InstantPageUser'] = $InstantPageUser['InstantPageUser'];
+		}
+
 		$this->data = $data;
 		$this->set(compact('data'));
 		$this->render('edit_password');
@@ -706,9 +692,9 @@ class InstantPageUsersController extends UsersController {
 			$line = [
 			// 担当者情報
 				'id' => $data['InstantPageUser']['id'],
-				'name' => $data['InstantPageUser']['name'],
-				'real_name_1' => $data['InstantPageUser']['real_name_1'],
-				'email' => $data['InstantPageUser']['email'],
+				'name' => $data['User']['name'],
+				'real_name_1' => $data['User']['real_name_1'],
+				'email' => $data['User']['email'],
 				'company' => $data['InstantPageUser']['company'],
 				'prefecture_id' => $data['InstantPageUser']['prefecture_id'],
 				'address' => $data['InstantPageUser']['address'],
@@ -804,31 +790,39 @@ class InstantPageUsersController extends UsersController {
 	 * @return array $conditions
 	 */
 	protected function _createAdminIndexConditions($data) {
-		//p($data);
-		// exit;
 		$conditions = array();
 		$name = '';
-		$type = '';
+		$company = '';
+		$real_name_1 = '';
 		$prefectureId = '';
-		$areaId = '';
-
-		if (isset($data['InstantPageUser']['real_name_1'])) {
-			$name = $data['InstantPageUser']['real_name_1'];
+		$email = '';
+		// ユーザーname
+		if (isset($data['User']['name'])) {
+			$name = $data['User']['name'];
 		}
-		if (isset($data['InstantPage'])) {
-			// 県名をセット
-			if (isset($data['InstantPage']['prefecture_id'])) {
-				$prefectureId = $data['InstantPage']['prefecture_id'];
-			}
-			// エリア名をセット
-			if (isset($data['InstantPage']['area_id'])) {
-				$areaId = $data['InstantPage']['area_id'];
-			}
-			unset($data['InstantPage']);
+		// ユーザー姓
+		if (isset($data['User']['real_name_1'])) {
+			$real_name_1 = $data['User']['real_name_1'];
+		}
+		// ユーザーemail
+		if (isset($data['User']['email'])) {
+			$email = $data['User']['email'];
+		}
+		// インスタントページユーザー会社名
+		if (isset($data['InstantPageUser']['company'])) {
+			$company = $data['InstantPageUser']['company'];
+		}
+		// インスタントページユーザー県名
+		if (isset($data['InstantPageUser']['prefecture_id'])) {
+			$prefectureId = $data['InstantPageUser']['prefecture_id'];
 		}
 
+		//$dataに残すと完全一致となるため、unset
 		unset($data['_Token']);
-		unset($data['InstantPageUser']['real_name_1']);
+		unset($data['User']['name']);
+		unset($data['User']['real_name_1']);
+		unset($data['User']['email']);
+		unset($data['InstantPageUser']['company']);
 
 		// 条件指定のないフィールドを解除
 		if (isset($data['InstantPageUser'])) {
@@ -843,23 +837,27 @@ class InstantPageUsersController extends UsersController {
 			$conditions = $this->postConditions($data);
 		}
 		if ($name) {
-			$conditions['InstantPageUser.real_name_1 LIKE'] = '%'.$name.'%';
+			$conditions['User.name LIKE'] = '%'.$name.'%';
+		}
+		if ($real_name_1) {
+			$conditions['User.real_name_1 LIKE'] = '%'.$real_name_1.'%';
+		}
+		if ($email) {
+			$conditions['User.email LIKE'] = '%'.$email.'%';
+		}
+		if ($company) {
+			$conditions['InstantPageUser.company LIKE'] = '%'.$company.'%';
 		}
 		// JOIN 県名をセット
 		if ($prefectureId) {
-			$conditions['InstantPage.prefecture_id ='] = $prefectureId;
-		}
-		// JOIN エリア名をセット
-		if ($areaId) {
-			$conditions['InstantPage.area_id ='] = $areaId;
+			$conditions['InstantPageUser.prefecture_id ='] = $prefectureId;
 		}
 		if(isset($data['InstantPageUser']['_id']) && $data['InstantPageUser']['_id'] == 'NULL') {
-			//$conditions['InstantPage.name'] = NULL;
 			$conditions['InstantPageUser._id'] = NULL;
-		p($conditions);
-		exit;
 		}
 
+		// p($conditions);
+		// exit;
 		if ($conditions) {
 			return $conditions;
 		} else {
@@ -945,9 +943,15 @@ class InstantPageUsersController extends UsersController {
 			if (!$this->sendMail($emailAddresses, 'インスタントページユーザー登録完了の通知', $data, $options)) {
 				$this->setMessage('登録完了メールを送信できませんでした。', true);
 			}
+			// メールに保存されているパスワードのハッシュ化
+			App::uses('AuthComponent', 'Controller/Component');
+			$mailSaveData['id'] = $userInfo['RegisterMessage']['id'];
+			$mailSaveData['password_1'] = AuthComponent::password($userInfo['RegisterMessage']['password_1']);
+			$mailSaveData['password_2'] = AuthComponent::password($userInfo['RegisterMessage']['password_2']);
+			$RegisterMessage->save($mailSaveData);
 
 			// ログイン状態にする
-			$this->BcAuth->login($activate['InstantPageUser']);
+			$this->BcAuth->login($activate['User']);
 
 		} else {
 			$this->setMessage('データベース処理中にエラーが発生しました。', true);
@@ -975,25 +979,36 @@ class InstantPageUsersController extends UsersController {
 		}
 		$data = array();
 		$data['InstantPageUser'] = $userInfo;
-		$data['InstantPageUser']['password'] = $userInfo['password_1'];
-		$data['InstantPageUser']['user_group_id'] = 4;
-		$data['InstantPageUser']['from'] = 'active_action';
+		$data['User']['name'] = $userInfo['name'];
+		$data['User']['real_name_1'] = $userInfo['real_name_1'];
+		$data['User']['real_name_2'] = $userInfo['real_name_2'];
+		$data['User']['email'] = $userInfo['email'];
+		$data['User']['password'] = $userInfo['password_1'];
+		$data['User']['user_group_id'] = 4;
+		//$data['InstantPageUser']['from'] = 'active_action';
 		unset($data['InstantPageUser']['mode']);
 		unset($data['InstantPageUser']['id']);
 		unset($data['InstantPageUser']['referer']);
 		unset($data['InstantPageUser']['_id_name']);
+		unset($data['InstantPageUser']['name']);
+		unset($data['InstantPageUser']['real_name_1']);
+		unset($data['InstantPageUser']['real_name_2']);
+		//unset($data['InstantPageUser']['email']);
 		unset($data['InstantPageUser']['password_1']);
 		unset($data['InstantPageUser']['password_2']);
 		unset($data['InstantPageUser']['token_limit']);
 		unset($data['InstantPageUser']['token_access']);
 
-		$this->InstantPageUser->create($data['InstantPageUser']);
-		if (!$this->InstantPageUser->save($data['InstantPageUser'], false)) {
+		$this->User->create($data);
+		if (!$this->User->save($data, false)) {
 //			return false;
 		} else {
+			$this->getEventManager()->dispatch(new CakeEvent('Model.User.AfterSave', $this, [
+					'InstantPageUser' => $data['InstantPageUser']
+				]));
 			clearAllCache();
 		}
-		$data['InstantPageUser']['id'] = $this->InstantPageUser->getLastInsertId();
+		$data['User']['id'] = $this->User->getLastInsertId();
 
 		$this->Session->delete("InstantPage.Register.referer");
 

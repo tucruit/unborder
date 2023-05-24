@@ -2,11 +2,22 @@
 /**
  * [InstantPage] インスタントページユーザー管理
  */
-class InstantPageUser extends User {
+class InstantPageUser extends AppModel {
 	public $useTable = 'instant_page_users';
 
 	/**
 	 * belongsTo
+	 *
+	 * @var array
+	 */
+	public $belongsTo = array(
+		'User' => array(
+			'className'	 => 'User',
+			'foreignKey' => 'user_id'
+		),
+	);
+	/**
+	 * hasmany
 	 *
 	 * @var array
 	 */
@@ -100,6 +111,20 @@ class InstantPageUser extends User {
 		];
 	}
 
+	/**
+	 * 初期値を取得する
+	 *
+	 * @return array
+	 */
+	public function getDefaultValue() {
+		$data = array(
+			$this->name => array(
+				'status' => 1,
+				'password' => '',
+			)
+		);
+		return $data;
+	}
 	/**
 	 * コントロールソースを取得する
 	 *
@@ -195,11 +220,9 @@ class InstantPageUser extends User {
 		// Active Actionからのユーザー登録の場合、二重にパスワードが暗号化されないようにリターンする
 		if (isset($this->data[$this->alias]['from']) && $this->data[$this->alias]['from'] == 'active_action') {
 			return true;
-		}
-
-		if (isset($this->data[$this->alias]['password'])) {
+		} elseif (isset($this->data['User']['password'])) {
 			App::uses('AuthComponent', 'Controller/Component');
-			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+			$this->data['User']['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 		}
 		// 県名がテキストだった場合、idで保存する
 		if (isset($this->data[$this->alias]['prefecture_id'])) {

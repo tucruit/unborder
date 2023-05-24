@@ -146,20 +146,17 @@
 					<?php $this->BcBaser->flash() ?>
 					<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
 					<?php echo $this->BcLayout->dispatchContentsHeader() ?>
-					<?php $this->BcBaser->content() ?>
+					<div class="l-subContentsContainer sub-container usersInner">
+						<?php $this->BcBaser->content() ?>
+					</div>
 					<?php echo $this->BcLayout->dispatchContentsFooter() ?>
 				</div>
 				<!-- /PAGE CONTENTS -->
 			</div>
 
-		</main>
 			<?php $this->BcBaser->element('contact') ?>
-	<?php $bcUtilLoginUser = BcUtil::loginUser(); ?>
-	<?php if (!empty($bcUtilLoginUser)): ?>
-		<?php $this->BcBaser->footer([], ['cache' => ['key' => '_admin_footer']]) ?>
-	<?php else: ?>
+		</main>
 		<?php $this->BcBaser->footer() ?>
-	<?php endif ?>
 	<?php $this->BcBaser->func() ?>
 </body>
 

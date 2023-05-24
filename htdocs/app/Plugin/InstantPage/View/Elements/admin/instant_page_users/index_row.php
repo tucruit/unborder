@@ -18,9 +18,9 @@ if(!isset($data['InstantPageUser'])) {
 
 	<td class="bca-table-listup__tbody-td"><?php echo $data['InstantPageUser']['id'] ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo $data['InstantPageUser']['company'] ?></td>
-	<td class="bca-table-listup__tbody-td"><?php echo h($data['InstantPageUser']['name']) ?></td>
-	<td class="bca-table-listup__tbody-td"><?php $this->BcBaser->link($data['InstantPageUser']['real_name_1']. ' '. $data['InstantPageUser']['real_name_2'], ['action' => 'edit', $data['InstantPageUser']['id']], ['escape' => true]) ?></td>
-	<td class="bca-table-listup__tbody-td"><?php echo h($data['InstantPageUser']['email']) ?></td>
+	<td class="bca-table-listup__tbody-td"><?php echo h($data['User']['name']) ?></td>
+	<td class="bca-table-listup__tbody-td"><?php $this->BcBaser->link($data['User']['real_name_1']. ' '. $data['User']['real_name_2'], ['action' => 'edit', $data['InstantPageUser']['id']], ['escape' => true]) ?></td>
+	<td class="bca-table-listup__tbody-td"><?php echo h($data['User']['email']) ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo $this->BcText->arrayValue($data['InstantPageUser']['prefecture_id'], $this->BcText->prefList()) ?></td>
 	<?php echo $this->BcListTable->dispatchShowRow($data) ?>
 	<td class="bca-table-listup__tbody-td"><?php echo $this->BcTime->format('Y-m-d', $data['InstantPageUser']['created']) ?><br>
@@ -29,11 +29,11 @@ if(!isset($data['InstantPageUser'])) {
 			<?php $this->BcBaser->link('', ['action' => 'edit', $data['InstantPageUser']['id']], ['title' => __d('baser', '編集'), 'class' => ' bca-btn-icon', 'data-bca-btn-type' => 'edit', 'data-bca-btn-size' => 'lg']) ?>
 			<?php $this->BcBaser->link('', ['action' => 'ajax_delete', $data['InstantPageUser']['id']], ['title' => __d('baser', '削除'), 'class' => 'btn-delete bca-btn-icon', 'data-bca-btn-type' => 'delete', 'data-bca-btn-size' => 'lg']) ?>
 		<?php // 代理ログイン
-		if (!$this->BcBaser->isAdminUser($data['InstantPageUser']['user_group_id'])) {
+		if (!$this->BcBaser->isAdminUser($data['User']['user_group_id'])) {
 			$this->BcBaser->link('',
 				[
 					'action' => 'ajax_agent_login',
-					$data['InstantPageUser']['id']
+					$data['User']['id']
 				],
 				[
 					'title' => __d('baser', 'ログイン'),

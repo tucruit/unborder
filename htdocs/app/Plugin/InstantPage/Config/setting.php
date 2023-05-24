@@ -3,32 +3,31 @@
  * InstantPage アプリケーション設定
  *
  */
+App::uses('InstantPageUtil', 'InstantPage.Lib');
+
 // フロント認証
 $config['BcAuthPrefix'] = [
 	// フロント（例）
  'front' => [
-	  'name'			=> __d('baser', 'フロント'),
-	  'loginRedirect'	=> '/instant_pages/',
-	  'userModel'		=> 'InstantPageUser',
+	  'name' => __d('baser', 'インスタントページ'),
+	  'loginRedirect' => '/cmsadmin/instant_page/instant_pages/',
+	  'userModel' => 'User',
 	  'loginAction'	=> '/mypage/instant_page/instant_page_users/login',
-	  'logoutAction'=> '/mypage/instant_page/instant_page_users/logout',
-	  'toolbar'		=> true,
-	  'sessionKey'	=> 'InstantPageUser'
+	  'toolbar' => true,
+	   'sessionKey' => 'User'
 	],
 	// マイページ（例）
  'mypage' => [
 	  'name'			=> __d('baser', 'マイページ'),
 	  'alias'			=> 'mypage',
-	  'loginRedirect'	=> '/instant_pages/',
+	  'loginRedirect'	=> '/cmsadmin/instant_page/instant_pages/',
 	  'loginTitle'	=> __d('baser', 'ログイン'),
-	  'userModel'		=> 'InstantPageUser',
+	  'userModel'		=> 'User',
 	  'loginAction'	=> '/mypage/instant_page/instant_page_users/login',
-	  'logoutAction'=> '/mypage/instant_page/instant_page_users/logout',
 	  'toolbar'		=> true,
-	  'sessionKey'	=> 'InstantPageUser'
+	  // 'sessionKey'	=> 'User'
 	]
 ];
-
 
 // システムナビ
 $config['BcApp.adminNavigation'] = [
@@ -101,6 +100,7 @@ $config['InstantPage'] = [
 	],
 		// ダウンロードユーザー新規登録URLの有効期限 ( 単位: 時間 )
 	'activateMaxTime' => 24,
+	'enableGroup' => [4],
 ];
 
 include __DIR__ . DS . 'disapproval_domain.php';

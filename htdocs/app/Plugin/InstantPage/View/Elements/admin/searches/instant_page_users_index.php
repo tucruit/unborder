@@ -8,9 +8,9 @@
 <p>
 	<span>
 		<?php
-		echo $this->BcForm->label('InstantPageUser.name', 'ログインID');
+		echo $this->BcForm->label('User.name', 'ログインID');
 		echo "&nbsp;";
-		echo $this->BcForm->input('InstantPageUser.name', ['type' => 'text', 'size' => '30']);
+		echo $this->BcForm->input('User.name', ['type' => 'text', 'size' => '30']);
 		?>
 	</span>
 	<span>
@@ -22,14 +22,14 @@
 	</span>
 
 	<span>
-		<?php echo $this->BcForm->label('InstantPageUser.real_name_1', 'お名前（姓）') ?>
-		<?php echo $this->BcForm->input('InstantPageUser.real_name_1', ['type' => 'text', 'size' => '30']) ?>
+		<?php echo $this->BcForm->label('User.real_name_1', 'お名前（姓）') ?>
+		<?php echo $this->BcForm->input('User.real_name_1', ['type' => 'text', 'size' => '30']) ?>
 	</span>　
 </p>
 <p>
 	<span>
-		<?php echo $this->BcForm->label('InstantPageUser.email', 'メールアドレス') ?>
-		<?php echo $this->BcForm->input('InstantPageUser.email', ['type' => 'text', 'size' => '30']) ?>
+		<?php echo $this->BcForm->label('User.email', 'メールアドレス') ?>
+		<?php echo $this->BcForm->input('User.email', ['type' => 'text', 'size' => '30']) ?>
 	</span>　
 	<span>
 		<?php echo $this->BcForm->label('InstantPageUser.prefecture_id', '都道府県') ?>

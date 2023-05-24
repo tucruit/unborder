@@ -6,7 +6,7 @@ class InstantPageViewEventListener extends BcControllerEventListener {
 
 	public function beforeRender(CakeEvent $event) {
 		$View = $event->subject();
-		if ($View->request->here === '/mypage/instant_page/instant_page_users/login') {
+		if ($View->request->here === '/instant_page/instant_page_users/login') {
 			$View->layout = 'mypage_login';
 		}
 	}

@@ -3,7 +3,8 @@
  *
  */
 // ログインユーザーの取得
-$InstantPageUser = $this->Session->read('Auth.InstantPageUser');
+$user = $this->Session->read('Auth');
+$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
 ?>
 <!-- HEADER -->
 <header role="banner" class="header" id="is-headerFixed">
@@ -36,10 +37,10 @@ $InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 					<!-- Static閲覧用 -->
 					<?php
 					$text = 'ログイン';
-					$href = '/instant_pages/';
-					if (!empty($InstantPageUser)) {
+					$href = '/instant_page/instant_page_users/login';
+					if (!empty($instantPageUser)) {
 						$text = 'ログアウト';
-						$href = '/mypage/instant_page/instant_page_users/logout';
+						$href = '/cmsadmin/users/logout';
 						// $user = BcUtil::loginUser(); システムユーザー
 						// '/users/back_agent', '元のユーザーに戻る'
 					}
@@ -50,8 +51,9 @@ $InstantPageUser = $this->Session->read('Auth.InstantPageUser');
 					</a>
 					<!-- /Static閲覧用 -->
 					<?php
-					if (!empty($InstantPageUser)) {
-						$this->BcBaser->link('<span class="btnInner">登録情報編集</span>', '/mypage/instant_page/instant_page_users/edit/'. $InstantPageUser['id'], ['class' => 'gNav-btn gNav-btn__signUp']);
+					if (!empty($instantPageUser)) {
+						$this->BcBaser->link('<span class="btnInner">ページ一覧</span>', '/cmsadmin/instant_page/instant_pages/', ['class' => 'gNav-btn gNav-btn__signUp']);
+						$this->BcBaser->link('<span class="btnInner">登録情報編集</span>', '/cmsadmin/instant_page/instant_page_users/edit/'. $instantPageUser['id'], ['class' => 'gNav-btn gNav-btn__signUp']);
 					} else {
 						$this->BcBaser->link('<span class="btnInner">新規登録</span>', '/signup/', ['class' => 'gNav-btn gNav-btn__signUp']);
 					}

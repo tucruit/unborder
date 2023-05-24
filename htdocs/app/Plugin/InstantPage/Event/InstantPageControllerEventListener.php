@@ -1,9 +1,11 @@
 <?php
 class InstantPageControllerEventListener extends BcControllerEventListener {
 	public $events = array(
-			'startup',
-			'initialize',
-			'Mail.Mail.startup',
+		'startup',
+		'initialize',
+		'beforeRender',
+		'Users.beforeRender',
+		'Mail.Mail.startup',
 		);
 
 	/**
@@ -34,7 +36,7 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 			return;
 		}
 		// パスワードリセット画面の場合はスルー
-		if(($Controller->request->url) == 'mypage/instant_page/instant_page_users/edit_password') {
+		if(($Controller->request->url) == 'mypage/instant_page/instant_page_users/reset_password') {
 			return;
 		}
 		// パスワード編集画面の場合はスルー
@@ -50,14 +52,14 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 			return;
 		}
 		// 認証されていない場合はログイン画面にリダイレクト
-		if(preg_match('/^partner\//', $Controller->request->url) && !$Controller->BcAuth->user()) {
+		if(preg_match('/^instant_pages\//', $Controller->request->url) && !$Controller->BcAuth->user()) {
 			/** 管理画面にログインしている場合は除外 **/
-			if (!BcUtil::isAdminUser()) {
+			//if (!BcUtil::isAdminUser()) {
 				// /partner/** に未ログイン状態でアクセス後、ログインした後に /partner/** へ遷移させる。
-				$current_path = $Controller->request->url;
-				$Controller->Session->write('Auth.redirect', '/'. $current_path);
+				// $current_path = $Controller->request->url;
+				// $Controller->Session->write('Auth.redirect', '/'. $current_path);
 				$Controller->redirect($Controller->BcAuth->loginAction);
-			}
+			//}
 		}
 	}
 
@@ -99,6 +101,64 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 			}
 		}
 	}
+
+	public function beforeRender(CakeEvent $event) {
+		if (!BcUtil::isAdminSystem()) {
+			return;
+		}
+		$Controller = $event->subject();
+		$user = BcUtil::loginUser();
+		if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+			$Controller->layout = 'InstantPage.mypage_login';
+			$current_path = $Controller->request->url;
+			$InstantPageUserModel = ClassRegistry::init('InstantPage.InstantPageUser');
+			$instantPageUser = $InstantPageUserModel->find('first', [
+				'conditions' => ['InstantPageUser.user_id = ' => $user['id']],
+				'recursive'	 => -1
+			]);
+			// インスタントページユーザーは自分のアカウント設定ページにリダイレクト
+			if (strpos($current_path, 'cmsadmin/instant_page/instant_page_users/') !== false &&
+				$current_path !== 'cmsadmin/instant_page/instant_page_users/edit/'. $instantPageUser['InstantPageUser']['id']) {
+				$Controller->redirect('/cmsadmin/instant_page/instant_page_users/edit/'. $instantPageUser['InstantPageUser']['id']);
+			} elseif (strpos($current_path, 'cmsadmin/users/edit/') !== false) {
+				$Controller->redirect('/cmsadmin/instant_page/instant_page_users/edit/'. $instantPageUser['InstantPageUser']['id']);
+			}
+		}
+	}
+
+	/**
+	 * usersBeforeRender
+	 * ユーザー情報追加画面で実行し、InstantPageUserの初期値を設定する
+	 *
+	 * @param CakeEvent $event
+	 */
+	public function usersBeforeRender(CakeEvent $event) {
+		if (!BcUtil::isAdminSystem()) {
+			return;
+		}
+
+		$Controller = $event->subject();
+		if (in_array($Controller->request->params['action'], array('admin_edit', 'admin_add'))) {
+			if ($Controller->request->params['action'] === 'admin_add') {
+				App::uses('InstantPageUser', 'InstantPage.Model');
+				$InstantPageUserModel = new InstantPageUser();
+				$default = $InstantPageUserModel->getDefaultValue();
+				$Controller->request->data['InstantPageUser'] = $default['InstantPageUser'];
+				return;
+			}
+
+			if (empty($Controller->request->data['InstantPageUser']['id'])) {
+				App::uses('InstantPageUser', 'InstantPage.Model');
+				$InstantPageUserModel = new InstantPageUser();
+				$default = $InstantPageUserModel->getDefaultValue();
+				$Controller->request->data['InstantPageUser'] = $default['InstantPageUser'];
+			}
+		}
+
+		return;
+	}
+
+
 
 	public function mailMailStartup(CakeEvent $event) {
 

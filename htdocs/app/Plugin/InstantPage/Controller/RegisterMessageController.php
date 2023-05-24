@@ -69,10 +69,10 @@ class RegisterMessageController extends AppController {
 		}
 
 		if ($id) {
-			$InstantPageUser = ClassRegistry::init('InstantPage.InstantPageUser');
+			$InstantPageUser = ClassRegistry::init('User');
 			$users = $InstantPageUser->find('all', array(
 				'conditions' => [
-					'InstantPageUser.name' => $id,
+					'User.name' => $id,
 				],
 				'recursive' => -1
 			));
@@ -124,10 +124,10 @@ class RegisterMessageController extends AppController {
 		}
 
 		if ($email) {
-			$InstantPageUser = ClassRegistry::init('InstantPage.InstantPageUser');
+			$InstantPageUser = ClassRegistry::init('User');
 			$users = $InstantPageUser->find('all', array(
 				'conditions' => [
-					'InstantPageUser.email' => $email
+					'User.email' => $email
 				],
 				'recursive' => -1
 			));

@@ -141,6 +141,12 @@ class BcAppModel extends Model
 		} else {
 			$data['modified'] = null;
 		}
+		// echo '<pre>';
+		// var_dump($data);
+		// var_dump($validate);
+		// var_dump($fieldList);
+		// echo '</pre>';
+		// exit;
 
 		return parent::save($data, $validate, $fieldList);
 	}

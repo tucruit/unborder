@@ -14,7 +14,7 @@ class InstantPage extends AppModel {
 		'InstantPageUser' => [
 			'className' => 'InstantPage.InstantPageUser',
 			'foreignKey' => 'instant_page_users_id',
-			'order' => 'InstantPageUser.name ASC',
+			'order' => 'InstantPageUser.kana_1 ASC',
 		],
 	];
 
@@ -244,8 +244,8 @@ class InstantPage extends AppModel {
  */
 	public function getControlSource($field) {
 		switch ($field) {
-			case 'partner_id':
-				$controlSources['partner_id'] = $this->find('list');
+			case 'user_id':
+				$controlSources['user_id'] = $this->find('list');
 				break;
 		}
 

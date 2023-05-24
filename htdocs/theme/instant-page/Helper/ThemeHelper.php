@@ -14,6 +14,7 @@ class ThemeHelper extends AppHelper {
 		'BcBaser',
 		'Blog',
 		'CuCustomField.CuCustomField',
+		'InstantPage.InstantPage',
 	);
 
 	/**
@@ -206,5 +207,15 @@ class ThemeHelper extends AppHelper {
 
 	}
 
+
+	/**
+	* サイトデータを返す
+	*
+	* @param array post
+	* @return $content
+	*/
+	public function getInstantPageUser($id = null) {
+		return $this->InstantPage->getInstantPageUser($id);
+	}
 
 }

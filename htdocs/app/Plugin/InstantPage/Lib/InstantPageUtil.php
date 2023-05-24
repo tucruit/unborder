@@ -21,7 +21,6 @@ class InstantPageUtil extends CakeObject {
 		$mailDomain = explode('@', $check);
 			$disapprovalDomain = Configure::read('disapproval_domain');
 			return in_array($mailDomain[1], $disapprovalDomain, true);
-		}
 
 	}
 
@@ -55,20 +54,63 @@ class InstantPageUtil extends CakeObject {
 	}
 
 
+	/* ユーザーモデル */
+	public static function users() {
+		if (ClassRegistry::isKeySet('User')) {
+			$Users = ClassRegistry::getObject('User');
+		} else {
+			$Users = ClassRegistry::init('User');
+		}
+		return $Users;
+	}
+
 	/**
-	 * パスワードチェック
+	 * 会員かどうかを判定する
 	 *
-	 * @param array $check チェック対象文字列
+	 * @param int $userGroupId
 	 * @return boolean
 	 */
-	public static function prefToId($pref) {
-		$prefIds =Configure::read('InstantPage.pref');
-		if (array_key_exists($pref, $prefIds)) {
-			return $prefIds[$pref];
+	public static function isMemberGroup($userGroupId) {
+		if (in_array($userGroupId, Configure::read('InstantPage.enableGroup'))) {
+			return true;
 		}
-		return $pref;
-
+		return false;
 	}
+
+	/**
+	 * 最新の会員のデータを取得する
+	 *
+	 * @param array $user
+	 * @return array|boolean
+	 */
+	public static function getRecentMemberData($user) {
+		$InstantPageUserModel = ClassRegistry::init('InstantPage.InstantPageUser');
+
+		$data = $InstantPageUserModel->find('first', array(
+			'conditions' => array('InstantPageUser.user_id' => $user['id']),
+			'recursive'	 => -1,
+			'callbacks'	 => false,
+		));
+
+		return $data;
+	}
+
+
+	// /**
+	//  * 状態を取得する
+	//  *
+	//  * @param array $data 会員データ
+	//  * @return boolean 状態
+	//  */
+	// public static function allowPublish($data) {
+	// 	if (isset($data['InstantPageUser'])) {
+	// 		$data = $data['InstantPageUser'];
+	// 	}
+	// 	$allowPublish = (int) $data['status'];
+
+	// 	return $allowPublish;
+	// }
+
 
 
 }

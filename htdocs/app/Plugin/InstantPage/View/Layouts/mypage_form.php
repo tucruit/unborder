@@ -85,16 +85,16 @@
 		'admin/vendors/jquery.timepicker',
 		'common_navigation',
 		'common',
-	]);
+	]);/*
 		?>
-		<script>
+		<!-- <script>
 			$.bcUtil.init({
 				baseUrl: '<?php echo $this->request->base ?>',
 				adminPrefix: '<?php echo BcUtil::getAdminPrefix() ?>',
 				frontFullUrl: '<?php echo (!empty($publishLink))? $publishLink : '' ?>'
 			});
-		</script>
-		<?php $this->BcBaser->scripts() ?>
+		</script> -->
+		<?php */ $this->BcBaser->scripts() ?>
 		<style>
 		body {
 			font-size: 16px!important;

@@ -32,6 +32,13 @@ class InstantPagesController extends AppController {
 	public $adminTitle = 'インスタントページ';
 
 	/**
+	 * メッセージ用機能名
+	 *
+	 * @var string
+	 */
+	public $controlName = 'インスタントページ';
+
+	/**
 	 * beforeFilter
 	 *
 	 */
@@ -40,7 +47,7 @@ class InstantPagesController extends AppController {
 	}
 
 	/**
-	 * バナー一覧を表示する
+	 * インスタントページ一覧を表示する
 	 *
 	 * @param int $bannerArea
 	 */
@@ -49,10 +56,11 @@ class InstantPagesController extends AppController {
 	}
 
 	/**
-	 * [ADMIN] インスタントページユーザー一覧管理
+	 * [ADMIN] インスタントページ一覧管理
 	 *
 	 */
 	public function admin_index() {
+		$this->pageTitle = $this->controlName . '一覧';
 		$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
 	}
 
