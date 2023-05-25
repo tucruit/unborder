@@ -147,6 +147,9 @@
 					<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
 					<?php echo $this->BcLayout->dispatchContentsHeader() ?>
 					<div class="l-subContentsContainer sub-container usersInner">
+					<div class="bca-main__header-actions">
+						<?php $this->BcBaser->element('main_body_header_links'); ?>
+					</div>
 						<?php $this->BcBaser->content() ?>
 					</div>
 					<?php echo $this->BcLayout->dispatchContentsFooter() ?>

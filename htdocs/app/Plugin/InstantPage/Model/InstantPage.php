@@ -121,7 +121,7 @@ class InstantPage extends AppModel {
 		parent::__construct();
 		$this->validate = [
 			// 契約状態
-			'type' => [
+			'name' => [
 				'validNotUnchecked' => ['rule' => ['validNotUnchecked', 'value'], 'message'	=> '必須入力です。'],
 			],
 			// 契約状態
@@ -236,6 +236,59 @@ class InstantPage extends AppModel {
 		}
 		return true;
 	}
+
+	/**
+	 * 一意の name 値を取得する
+	 *
+	 * @param string $name name フィールドの値
+	 * @return string
+	 */
+	public function getUniqueName($name, $InstantPageId = null)
+	{
+
+		// 先頭が同じ名前のリストを取得し、後方プレフィックス付きのフィールド名を取得する
+		$conditions = [
+			'InstantPage.name LIKE' => $name . '%',
+		];
+		if ($InstantPageId) {
+			$conditions['InstantPage.id <>'] = $InstantPageId;
+		}
+		$datas = $this->find('all', ['conditions' => $conditions, 'fields' => ['name'], 'order' => "InstantPage.name", 'recursive' => -1]);
+		$datas = Hash::extract($datas, "{n}.InstantPage.name");
+		$numbers = [];
+
+		if ($datas) {
+			foreach($datas as $data) {
+				if ($name === $data) {
+					$numbers[1] = 1;
+				} elseif (preg_match("/^" . preg_quote($name, '/') . "_([0-9]+)$/s", $data, $matches)) {
+					$numbers[$matches[1]] = true;
+				}
+			}
+			if ($numbers) {
+				$prefixNo = 1;
+				while(true) {
+					if (!isset($numbers[$prefixNo])) {
+						break;
+					}
+					$prefixNo++;
+				}
+				if ($prefixNo == 1) {
+					return $name;
+				} else {
+					return $name . '_' . ($prefixNo);
+				}
+			} else {
+				return $name;
+			}
+		} else {
+			return $name;
+		}
+
+	}
+
+
+
 	/**
  * コントロールソースを取得する
  *
@@ -245,7 +298,8 @@ class InstantPage extends AppModel {
 	public function getControlSource($field) {
 		switch ($field) {
 			case 'user_id':
-				$controlSources['user_id'] = $this->find('list');
+			$UsersModel = InstantPageUtill::users;
+				$controlSources['user_id'] = $UsersModel->find('list');
 				break;
 		}
 

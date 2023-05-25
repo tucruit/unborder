@@ -145,6 +145,26 @@ class InstantPageUser extends AppModel {
 		}
 	}
 
+
+	/**
+	 * ユーザーリストを取得する
+	 * 条件を指定する場合は引数を指定する
+	 *
+	 * @param array $conditions 取得条件
+	 * @return array
+	 */
+	public function getUserList($conditions = [])
+	{
+		$users = $this->find("all", [
+			//'fields' => ['id', 'user_id'],
+			'conditions' => $conditions,
+			'recursive' => 0
+		]);
+		$list = Hash::combine($users, '{n}.InstantPageUser.id', '{n}.User.real_name_1');
+		return $list;
+	}
+
+
 	/**
 	 * 全角カタカナチェック
 	 *

@@ -27,6 +27,7 @@ $(document).ready(function(){
 	});
 });
 </script>
+<?php /*
 <div class="panel-box bca-panel-box" id="FunctionBox">
 	<?php echo $this->BcForm->create('Function', ['type' => 'get', 'url' => ['controller' => 'instant_pages', 'action' => 'download_csv', ]]) ?>
 	<?php echo $this->BcForm->input('Function.encoding', ['type' => 'radio', 'options' => ['UTF-8' => 'UTF-8', 'SJIS-win' => 'SJIS'], 'value' => 'UTF-8']) ?>&nbsp;&nbsp;
@@ -34,7 +35,7 @@ $(document).ready(function(){
 	<?php echo $this->BcForm->submit(__d('baser', 'CSVダウンロード'), ['div' => false, 'class' => 'button-small', 'id' => 'SearchMerge']) ?>
 	<?php echo $this->BcForm->end() ?>
 </div>
-
+*/?>
 <div id="AjaxBatchUrl" style="display:none"><?php $this->BcBaser->url(array('controller' => 'instant_pages', 'action' => 'ajax_batch')); ?></div>
 <div id="AlertMessage" class="message" style="display:none"></div>
 <div id="DataList" class="bca-data-list"><?php $this->BcBaser->element('instant_pages/index_list') ?></div>
