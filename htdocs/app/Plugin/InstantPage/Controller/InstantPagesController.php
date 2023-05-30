@@ -95,7 +95,9 @@ class InstantPagesController extends AppController {
 		$this->pageTitle = $this->controlName . '一覧';
 		//$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
 		$users = $this->InstantPageUser->find('all');
+		$userDatas = Hash::combine($users, '{n}.InstantPageUser.id', '{n}.User');
 		$this->set('users',$users);
+		$this->set('userDatas',$userDatas);
 		$this->search = 'instant_pages_index';
 		$default = [
 			'named' => [
@@ -127,7 +129,7 @@ class InstantPagesController extends AppController {
 
 		$this->pageTitle = $this->controlName . '一覧';
 		if ($this->RequestHandler->isAjax() || !empty($this->request->query['ajax'])) {
-			$this->render('instant_page_users_ajax_index');
+			$this->render('ajax_index');
 			return;
 		}
 	}
@@ -137,16 +139,17 @@ class InstantPagesController extends AppController {
 	 *
 	 * @param int $id
 	 */
-	public function detail($id = null) {
-		if (!$id) {
+	public function detail($instantPageUsersName = '', $name = null) {
+		if (!$name) {
 			$this->notFound();
 		}
 
 		$conditions = $this->InstantPage->getConditionAllowPublish();
-		$conditions['InstantPage.id'] = $id;
+		$conditions['InstantPage.name'] = $name;
 
 		$data = $this->InstantPage->find('first', [
 			'conditions' => $conditions,
+			'recursive' => 2 //作成者ユーザー情報まで取得
 		]);
 		if (!$data) {
 			$this->notFound();

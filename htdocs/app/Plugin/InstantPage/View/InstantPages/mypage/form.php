@@ -3,9 +3,11 @@
  * [InstantInstantPage] InstantInstantPage 追加／編集
  */
 $this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
-//$this->BcBaser->js('admin/Instantpages/edit', false);
+$this->BcBaser->js('InstantPage.admin/edit', false);
+$users = isset($users) ? $users : $this->InstantPageUser->getUserList();
+$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : ['default', 'pop'];
 $editorOptions = [];
-$layoutTemplates =[];
+$templates =[];
 if (isset($user['InstantPageUser'])) {
 	$this->request->data['InstantPage']['instant_page_user_id'] = $user['InstantPageUser']['id'];
 }

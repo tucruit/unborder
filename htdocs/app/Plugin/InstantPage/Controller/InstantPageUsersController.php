@@ -94,7 +94,7 @@ class InstantPageUsersController extends AppController {
 
 		$this->pageTitle = $this->controlName . '一覧';
 		if ($this->RequestHandler->isAjax() || !empty($this->request->query['ajax'])) {
-			$this->render('instant_page_users_ajax_index');
+			$this->render('ajax_index');
 			return;
 		}
 	}

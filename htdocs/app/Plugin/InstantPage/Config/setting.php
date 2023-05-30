@@ -47,7 +47,7 @@ $config['BcApp.adminNavigation'] = [
 		]
 	],
 ];
-
+$config['pageRoutes'] = '/lp/';
 $config['InstantPage'] = [
 	'pref' => [
 		'北海道' => 	1 ,
