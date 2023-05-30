@@ -13,6 +13,7 @@ if (!empty($server['HTTP_REFERER']) && strpos($server['HTTP_REFERER'], 'admin/in
 	// if (in_array($server['REMOTE_ADDR'], $enableIp)) {
 	// 	include __DIR__ . DS . '../../../admin-third/Users/admin/login.php';
 	// } else {
+		$this->BcBaser->setTitle('ログイン');
 		include __DIR__ . DS . '../../../../app/Plugin/InstantPage/View/InstantPageUsers/admin/login.php';
 	// }
 }
