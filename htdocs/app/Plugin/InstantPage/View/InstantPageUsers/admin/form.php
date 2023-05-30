@@ -2,6 +2,9 @@
 /**
  * [ADMIN] インスタントページユーザー 設定 追加／編集
  */
+if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+	include __DIR__ . DS . '../mypage/form.php';
+} else {
 $this->BcBaser->i18nScript([
 	'alertMessage1' => __d('baser', '処理に失敗しました。'),
 	'alertMessage2' => __d('baser', '送信先のプログラムが見つかりません。'),
@@ -214,3 +217,5 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 <?php echo $this->BcForm->end() ?>
 <?php if ($this->request->action == 'admin_edit' && $deletable): ?>
 <?php endif; ?>
+<?php
+}

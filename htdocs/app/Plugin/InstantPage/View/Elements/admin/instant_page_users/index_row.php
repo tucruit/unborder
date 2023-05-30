@@ -28,13 +28,11 @@ if(!isset($data['InstantPageUser'])) {
 		<td class="row-tools bca-table-listup__tbody-td bca-table-listup__tbody-td--actions">
 			<?php $this->BcBaser->link('', ['action' => 'edit', $data['InstantPageUser']['id']], ['title' => __d('baser', '編集'), 'class' => ' bca-btn-icon', 'data-bca-btn-type' => 'edit', 'data-bca-btn-size' => 'lg']) ?>
 			<?php $this->BcBaser->link('', ['action' => 'ajax_delete', $data['InstantPageUser']['id']], ['title' => __d('baser', '削除'), 'class' => 'btn-delete bca-btn-icon', 'data-bca-btn-type' => 'delete', 'data-bca-btn-size' => 'lg']) ?>
-		<?php // 代理ログイン
+		<?php /*// 代理ログイン
+		// http://instant-page.localhost:8888/cmsadmin/users/ajax_agent_login/4
+		// http://instant-page.localhost:8888/cmsadmin/users/ajax_agent_login/4
 		if (!$this->BcBaser->isAdminUser($data['User']['user_group_id'])) {
-			$this->BcBaser->link('',
-				[
-					'action' => 'ajax_agent_login',
-					$data['User']['id']
-				],
+			$this->BcBaser->link('', '/cmsadmin/users/ajax_agent_login/'. $data['User']['id'],
 				[
 					'title' => __d('baser', 'ログイン'),
 					'class' => 'btn-login bca-btn-icon',
@@ -42,6 +40,6 @@ if(!isset($data['InstantPageUser'])) {
 					'data-bca-btn-size' => 'lg'
 				]);
 		}
-		?>
+		*/?>
 	</td>
 </tr>

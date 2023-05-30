@@ -78,7 +78,7 @@ class InstantPageUsersController extends AppController {
 			'named' => array(
 				'num' => $this->siteConfigs['admin_list_num'],
 				'sortmode' => 0));
-		$this->setViewConditions([$this->modelClass, 'InstantPage'], array('default' => $default));
+		$this->setViewConditions([$this->modelClass, 'InstantPageUser'], array('default' => $default));
 
 		$conditions = $this->_createAdminIndexConditions($this->request->data);
 		$this->paginate = array(

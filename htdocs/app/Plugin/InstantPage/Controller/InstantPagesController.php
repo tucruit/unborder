@@ -1,5 +1,7 @@
-
 <?php
+/*
+ * [Contoller] InstantPages
+ */
 class InstantPagesController extends AppController {
 	/**
 	 * ControllerName
@@ -39,8 +41,8 @@ class InstantPagesController extends AppController {
 		'BcAuth',
 		'Cookie',
 		'BcAuthConfigure',
-		'BcEmail',
-		'BcContents' => ['useForm' => true, 'useViewCache' => false]
+		//'BcEmail',
+		//'BcContents' => ['useForm' => true, 'useViewCache' => false]
 	];
 
 	/**
@@ -68,6 +70,7 @@ class InstantPagesController extends AppController {
 
 		// 認証設定
 		$this->BcAuth->allow('display');
+		$this->BcAuth->allow('detail');
 
 		if (empty($this->siteConfigs['editor']) || $this->siteConfigs['editor'] === 'none') {
 			return;
@@ -78,7 +81,7 @@ class InstantPagesController extends AppController {
 	/**
 	 * インスタントページ一覧を表示する
 	 *
-	 * @param int $bannerArea
+	 * @param int id
 	 */
 	public function index($id = null) {
 		$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
@@ -90,8 +93,67 @@ class InstantPagesController extends AppController {
 	 */
 	public function admin_index() {
 		$this->pageTitle = $this->controlName . '一覧';
-		$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
+		//$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
+		$users = $this->InstantPageUser->find('all');
+		$this->set('users',$users);
+		$this->search = 'instant_pages_index';
+		$default = [
+			'named' => [
+				'num' => $this->siteConfigs['admin_list_num'],
+				'sortmode' => 0
+			]
+		];
+		$this->setViewConditions([$this->modelClass, 'InstantPage'], ['default' => $default]);
+
+		$conditions = $this->_createAdminIndexConditions($this->request->data);
+
+		// インスタントページユーザーでログイン中は自分の作成ページのみ参照
+		$user = BcUtil::loginUser();
+		if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
+			$conditions['InstantPage.instant_page_users_id'] = $user['InstantPageUser']['id'];
+		}
+
+		$this->paginate = array(
+			'conditions'	=> $conditions,
+			'fields'		=> array(),
+			'limit'			=> $this->passedArgs['num'],
+			'order'			=> ['InstantPage.created' => 'DESC'],
+		);
+
+		$datas = $this->paginate();
+		if ($datas) {
+			$this->set('datas',$datas);
+		}
+
+		$this->pageTitle = $this->controlName . '一覧';
+		if ($this->RequestHandler->isAjax() || !empty($this->request->query['ajax'])) {
+			$this->render('instant_page_users_ajax_index');
+			return;
+		}
 	}
+
+	/**
+	 * [PUBLISH]
+	 *
+	 * @param int $id
+	 */
+	public function detail($id = null) {
+		if (!$id) {
+			$this->notFound();
+		}
+
+		$conditions = $this->InstantPage->getConditionAllowPublish();
+		$conditions['InstantPage.id'] = $id;
+
+		$data = $this->InstantPage->find('first', [
+			'conditions' => $conditions,
+		]);
+		if (!$data) {
+			$this->notFound();
+		}
+		$this->set('data', $data);
+	}
+
 
 	/**
 	 * [ADMIN] 追加
@@ -99,6 +161,8 @@ class InstantPagesController extends AppController {
 	 */
 	public function admin_add() {
 		if ($this->request->data) {
+			// p($this->request->data);
+			// exit;
 			$this->{$this->modelClass}->create($this->request->data);
 			if ($this->{$this->modelClass}->save()) {
 				$message = $this->controlName . '「'.$this->request->data[$this->modelClass]['name'] . '」を追加しました。';
@@ -111,6 +175,7 @@ class InstantPagesController extends AppController {
 		}
 
 		// ユーザー一覧
+		$this->set('InstantpageTemplateList', ['default', 'pop']);
 		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '新規登録';
 		$this->render('form');
@@ -121,10 +186,12 @@ class InstantPagesController extends AppController {
 	 * @param int $id
 	 */
 	public function admin_edit($id = null) {
-		if (!$id) {
+		$user = BcUtil::loginUser();
+		if (!$id || empty($user)) {
 			$this->setMessage('無効な処理です。', true);
 			$this->redirect(array('action' => 'index'));
 		}
+
 		if (empty($this->request->data)) {
 			$this->{$this->modelClass}->id = $id;
 			$this->request->data = $this->{$this->modelClass}->read();
@@ -134,12 +201,21 @@ class InstantPagesController extends AppController {
 				$message = $this->controlName . ' NO.' . $id . ' を更新しました。';
 				$this->setMessage($message, false, true);
 				clearAllCache();
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
 			} else {
 				$this->setMessage('入力エラーです。内容を修正して下さい。', true);
 			}
 		}
+		// インスタントページユーザーでログイン中は自分の作成ページのみ編集可能
+		if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
+			if ($this->request->data['InstantPage']['instant_page_users_id'] !== $user['InstantPageUser']['id']) {
+				$this->setMessage('無効な処理です。', true);
+				$this->redirect(array('action' => 'index'));
+			}
+		}
 
+		// ユーザー一覧
+		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '編集';
 		$this->render('form');
 	}
@@ -183,6 +259,192 @@ class InstantPagesController extends AppController {
 			exit(true);
 		}
 		exit();
+	}
+	/**
+	 * [ADMIN] 削除処理 (ajax)
+	 *
+	 * @param int $id
+	 */
+	public function admin_ajax_unpublish($id) {
+		$this->_checkSubmitToken();
+		if (!$id) {
+			$this->ajaxError(500, __d('baser', '無効な処理です。'));
+		}
+		if ($this->_changeStatus($id, false)) {
+			clearViewCache();
+			exit(true);
+		} else {
+			$this->ajaxError(500, $this->InstantPage->validationErrors);
+		}
+		exit();
+
+	}
+
+	/**
+	 * [ADMIN] 削除処理 (ajax)
+	 *
+	 * @param int $id
+	 */
+	public function admin_ajax_publish($id) {
+		$this->_checkSubmitToken();
+		if (!$id) {
+			$this->ajaxError(500, __d('baser', '無効な処理です。'));
+		}
+		if ($this->_changeStatus($id, true)) {
+			clearViewCache();
+			exit(true);
+		} else {
+			$this->ajaxError(500, $this->InstantPage->validationErrors);
+		}
+		exit();
+	}
+
+	/**
+	 * 一括公開
+	 *
+	 * @param array $ids
+	 * @return boolean
+	 * @access protected
+	 */
+	protected function _batch_publish($ids)
+	{
+		if ($ids) {
+			foreach($ids as $id) {
+				$this->_changeStatus($id, true);
+			}
+		}
+		clearViewCache();
+		return true;
+	}
+
+	/**
+	 * 一括非公開
+	 *
+	 * @param array $ids
+	 * @return boolean
+	 * @access protected
+	 */
+	protected function _batch_unpublish($ids)
+	{
+		if ($ids) {
+			foreach($ids as $id) {
+				$this->_changeStatus($id, false);
+			}
+		}
+		clearViewCache();
+		return true;
+	}
+
+	/**
+	 * ステータスを変更する
+	 *
+	 * @param int $id
+	 * @param boolean $status
+	 * @return boolean
+	 */
+	protected function _changeStatus($id, $status)
+	{
+		$statusTexts = [0 => __d('baser', '非公開状態'), 1 => __d('baser', '公開状態')];
+		$data = $this->InstantPage->find('first', ['conditions' => ['InstantPage.id' => $id], 'recursive' => -1]);
+		$data['InstantPage']['status'] = $status;
+		$data['InstantPage']['publish_begin'] = '';
+		$data['InstantPage']['publish_end'] = '';
+		unset($data['InstantPage']['eye_catch']);
+		$this->InstantPage->set($data);
+
+		if ($this->InstantPage->save()) {
+			$statusText = $statusTexts[$status];
+			$this->InstantPage->saveDbLog(sprintf(__d('baser', 'インスタントページ「%s」 を %s に設定しました。'), $data['InstantPage']['name'], $statusText));
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
+
+	/**
+	 * 一覧用の検索条件を生成する
+	 *
+	 * @param array $data
+	 * @return array $conditions
+	 */
+	protected function _createAdminIndexConditions($data) {
+		$conditions = array();
+		$instant_page_users_id = '';
+		// $company = '';
+		// $real_name_1 = '';
+		$prefectureId = '';
+		// $email = '';
+		// ユーザーname
+		if (isset($data['InstantPageUser']['id'])) {
+			$instant_page_users_id = $data['InstantPageUser']['id'];
+			unset($data['InstantPageUser']['id']);
+		}
+		// // ユーザー姓
+		// if (isset($data['User']['real_name_1'])) {
+		// 	$real_name_1 = $data['User']['real_name_1'];
+		// }
+		// // ユーザーemail
+		// if (isset($data['User']['email'])) {
+		// 	$email = $data['User']['email'];
+		// }
+		// // インスタントページユーザー会社名
+		// if (isset($data['InstantPageUser']['company'])) {
+		// 	$company = $data['InstantPageUser']['company'];
+		// }
+		// インスタントページユーザー県名
+		if (isset($data['InstantPage']['prefecture_id'])) {
+			$prefectureId = $data['InstantPage']['prefecture_id'];
+			unset($data['InstantPage']['prefecture_id']);
+		}
+		//$dataに残すと完全一致となるため、unset
+		unset($data['_Token']);
+
+		// unset($data['User']['name']);
+		// unset($data['User']['real_name_1']);
+		// unset($data['User']['email']);
+		// unset($data['InstantPageUser']['company']);
+
+		// 条件指定のないフィールドを解除
+		// if (isset($data['InstantPageUser'])) {
+		// 	foreach ($data['InstantPageUser'] as $key => $value) {
+		// 		if ($value === '') {
+		// 			unset($data['InstantPageUser'][$key]);
+		// 		}
+		// 	}
+		// }
+
+		if (isset($data['InstantPageUser']) && $data['InstantPageUser'])  {
+			$conditions = $this->postConditions($data);
+		}
+		if ($instant_page_users_id) {
+			$conditions['InstantPage.instant_page_users_id'] = $instant_page_users_id;
+		}
+		// if ($real_name_1) {
+		// 	$conditions['User.real_name_1 LIKE'] = '%'.$real_name_1.'%';
+		// }
+		// if ($email) {
+		// 	$conditions['User.email LIKE'] = '%'.$email.'%';
+		// }
+		// if ($company) {
+		// 	$conditions['InstantPageUser.company LIKE'] = '%'.$company.'%';
+		//}
+		// // JOIN 県名をセット
+		// if ($prefectureId) {
+		// 	$conditions['InstantPageUser.prefecture_id ='] = $prefectureId;
+		// }
+		if(isset($data['InstantPageUser']['_id']) && $data['InstantPageUser']['_id'] == 'NULL') {
+			$conditions['InstantPageUser._id'] = NULL;
+		}
+
+		// p($conditions);
+		// exit;
+		if ($conditions) {
+			return $conditions;
+		} else {
+			return array();
+		}
 	}
 
 }

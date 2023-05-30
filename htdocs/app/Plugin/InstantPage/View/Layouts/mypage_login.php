@@ -148,7 +148,7 @@
 					<?php echo $this->BcLayout->dispatchContentsHeader() ?>
 					<div class="l-subContentsContainer sub-container usersInner">
 					<div class="bca-main__header-actions">
-						<?php $this->BcBaser->element('main_body_header_links'); ?>
+						<?php if(!empty($user)) $this->BcBaser->element('main_body_header_links'); ?>
 					</div>
 						<?php $this->BcBaser->content() ?>
 					</div>

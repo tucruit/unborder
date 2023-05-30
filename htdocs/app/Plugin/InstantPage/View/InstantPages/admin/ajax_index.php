@@ -6,4 +6,4 @@
  * @link			https://catchup.co.jp
  * @package			OptionalLink
  */
-$this->BcBaser->element('instant_page_partners/index_list');
+$this->BcBaser->element('instant_pages/index_list');

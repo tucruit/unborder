@@ -14,7 +14,7 @@
 $customize_config = array(
 	'Bge' => array(
 		// ログインユーザに関わらずアップロードファイルを共有する
-		'fileShare'	=> true,
+		'fileShare'	=> false,
 		// 自動的に bge-contentsクラスを付与する
 		'autoWrapper' => false,
 		// 画像タイプのポップアップ選択設定を初期値onにする

@@ -23,6 +23,10 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 		if(preg_match('/^feed\//', $Controller->request->url)) {
 			return;
 		}
+		// フィードの場合はスルー（管理画面のダッシュボードで読み込まれているため）
+		if(preg_match('/^lp\//', $Controller->request->url)) {
+			return;
+		}
 		// 認証クラスがない場合はスルー
 		if(!isset($Controller->BcAuth)) {
 			return;
@@ -109,7 +113,7 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 		$Controller = $event->subject();
 		$user = BcUtil::loginUser();
 		if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
-			$Controller->layout = 'InstantPage.mypage_login';
+			$Controller->layout = 'InstantPage.mypage';
 			$current_path = $Controller->request->url;
 			$InstantPageUserModel = ClassRegistry::init('InstantPage.InstantPageUser');
 			$instantPageUser = $InstantPageUserModel->find('first', [

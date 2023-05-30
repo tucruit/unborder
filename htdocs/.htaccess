@@ -1,7 +1,15 @@
-# php_value "error_reporting" "E_ALL & ~E_NOTICE & ~E_DEPRECATED"
+# SetEnvIf Request_URI ".*" Ngx_Cache_NoCacheMode=off
+# SetEnvIf Request_URI ".*" Ngx_Cache_StaticMode
 
 Allow from all
 RewriteEngine on
+
+## 全SSL化用
+# RewriteCond %{HTTPS} !on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
+# RewriteCond %{HTTP_HOST} ^www\.instantpage\.jp$
+# RewriteRule ^(.*)$ https://instantpage.jp/$1 [R=302,L]
+
 #RewriteBase /
 RewriteRule \.(ico|map)$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-d

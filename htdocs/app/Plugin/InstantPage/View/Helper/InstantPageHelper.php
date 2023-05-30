@@ -41,5 +41,20 @@ class InstantPageHelper extends AppHelper {
 		return $instantPageUser ? $instantPageUser['InstantPageUser'] : [];
 	}
 
+	/**
+	 * 公開状態を取得する
+	 *
+	 * @param array $data ブログ記事
+	 * @return boolean 公開状態
+	 */
+	public function allowPublish($data)
+	{
+		if (ClassRegistry::isKeySet('InstantPage.InstantPage')) {
+			$InstantPage = ClassRegistry::getObject('InstantPage.InstantPage');
+		} else {
+			$InstantPage = ClassRegistry::init('InstantPage.InstantPage');
+		}
+		return $InstantPage->allowPublish($data);
+	}
 
 }

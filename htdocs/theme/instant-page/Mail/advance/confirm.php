@@ -3,6 +3,9 @@
  * メールフォーム confirm
  */
 ?>
+<!-- SUB H1 -->
+<?php $this->BcBaser->element('sub_categoryheader'); ?>
+<!-- /SUB H1 -->
 <!-- PAGE CONTENTS -->
 <div class="signup signupIndex">
 	<div class="l-subContentsContainer sub-container signupInner">

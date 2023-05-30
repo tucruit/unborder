@@ -61,6 +61,7 @@ $coreVersion = getVersion();
 $version = 4;
 $confNameDefault = "default";
 $confNamePlugin  = "default";
+$confNameInstantPage  = "default";
 // 3系
 if (strpos($coreVersion, "3.") === 0) {
 	$version = 3;
@@ -98,6 +99,23 @@ if (!empty($dbConf->{$confNamePlugin}['datasource']) && $dbConf->{$confNamePlugi
 	foreach($targetColumns as $targetColumn) {
 		if (isset($columns[$targetColumn]) && $columns[$targetColumn] == $targetType) {
 			$model->query("ALTER TABLE {$tableName} MODIFY {$targetColumn} {$modifyType}");
+		}
+	}
+	unset($model);
+	clearAllCache();
+}
+// インスタントページ用追加カスタマイズ
+if (!empty($dbConf->{$confNameInstantPage}['datasource']) && $dbConf->{$confNameInstantPage}['datasource'] == 'Database/BcMysql') {
+	$InstantPageModel = ClassRegistry::init('InstantPage.InstantPage');			// モデル
+	$tableName = $dbConf->{$confNameInstantPage}['prefix'] . $InstantPageModel->table;	// テーブル名
+	$targetColumns = array('content', 'draft');	// カラム名
+	$targetType = 'text';									// データ型
+	$modifyType = 'longtext';
+
+	$columns = $InstantPageModel->getColumnTypes();
+	foreach($targetColumns as $targetColumn) {
+		if (isset($columns[$targetColumn]) && $columns[$targetColumn] == $targetType) {
+			$InstantPageModel->query("ALTER TABLE {$tableName} MODIFY {$targetColumn} {$modifyType}");
 		}
 	}
 	unset($model);

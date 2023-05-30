@@ -2,12 +2,12 @@
 /**
  * [ADMIN] インスタントページユーザー 設定一覧
  */
-$this->BcBaser->js(array(
+$this->BcBaser->js([
 	'admin/libs/jquery.baser_ajax_data_list',
 	'admin/libs/jquery.baser_ajax_batch',
 	'admin/libs/baser_ajax_data_list_config',
 	'admin/libs/baser_ajax_batch_config'
-));
+]);
 // 新規作成ボタン
 $this->BcAdmin->addAdminMainBodyHeaderLinks([
 	'url' => ['action' => 'add'],
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	<?php echo $this->BcForm->create('Function', ['type' => 'get', 'url' => ['controller' => 'instant_page_users', 'action' => 'download_csv', ]]) ?>
 	<?php echo $this->BcForm->input('Function.encoding', ['type' => 'radio', 'options' => ['UTF-8' => 'UTF-8', 'SJIS-win' => 'SJIS'], 'value' => 'UTF-8']) ?>&nbsp;&nbsp;
 	<?php echo $this->BcForm->input('Function.conditions', ['type' => 'hidden']) ?>
-	<?php echo $this->BcForm->submit(__d('baser', 'CSVダウンロード'), ['div' => false, 'class' => 'button-small', 'id' => 'SearchMerge']) ?>
+	<?php //echo $this->BcForm->submit(__d('baser', 'CSVダウンロード'), ['div' => false, 'class' => 'button-small', 'id' => 'SearchMerge']) ?>
 	<?php echo $this->BcForm->end() ?>
 </div>
 

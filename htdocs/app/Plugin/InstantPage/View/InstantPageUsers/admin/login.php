@@ -2,7 +2,7 @@
 /**
  * [MYPAGE] ログイン
  */
-$this->layout = 'mypage_login';
+$this->layout = 'InstantPage.mypage_login';
 $userModel = Configure::read('BcAuthPrefix.' . $currentPrefix . '.userModel');
 if (!$userModel) {
 	$userModel = 'User';
@@ -13,7 +13,14 @@ $userController = Inflector::tableize($userModel);
 <div id="UserModel" hidden><?php echo $userModel ?></div>
 <div class="l-subContentsContainer sub-container usersInner">
 	<?php $this->BcBaser->flash() ?>
-	<?php echo $this->BcForm->create($userModel, ['url' => ['controller' => 'instant_page_users', 'action' => 'login'], 'class' => 'users-form']) ?>
+	<?php
+	if ($this->request->here == '/cmsadmin/users/login') {
+		$url = ['action' => 'login'];
+	} else {
+		$url = ['controller' => 'instant_page_users', 'action' => 'login'];
+	}
+	echo $this->BcForm->create($userModel, ['url' => $url, 'class' => 'users-form']);
+	?>
 		<h2 class="users-sectionHl users-form-hl">
 			<span class="noWrap">メールアドレスとパスワードを</span><span class="noWrap">入力して、ログインしてください。</span>
 		</h2>
