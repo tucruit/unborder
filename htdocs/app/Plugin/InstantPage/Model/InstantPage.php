@@ -202,6 +202,16 @@ class InstantPage extends AppModel {
 		return $datas;
 	}
 
+	/**
+	 * 初期値を取得する
+	 *
+	 * @return array
+	 */
+	public function getDefaultValue() {
+		$data[$this->name]['status'] = 0;
+		$data[$this->name]['template'] = 0;
+		return $data;
+	}
 
 
 

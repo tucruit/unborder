@@ -14,7 +14,13 @@ if (isset($user['InstantPageUser'])) {
 	<div id="Action"><?php echo $this->request->action ?></div>
 </div>
 
-<?php echo $this->BcForm->create('InstantPage') ?>
+<?php
+if ($this->action == 'admin_add') {
+	echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['action' => 'add'], 'id' => 'InstantPageForm']);
+}  elseif ($this->action == 'admin_edit') {
+	echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['action' => 'edit', $this->BcForm->value('InstantPage.id'), 'id' => false], 'id' => 'InstantPageForm']);
+}
+?>
 <?php echo $this->BcForm->input('InstantPage.mode', ['type' => 'hidden']) ?>
 <?php echo $this->BcForm->input('InstantPage.id', ['type' => 'hidden']) ?>
 
@@ -46,7 +52,7 @@ if (isset($user['InstantPageUser'])) {
 				<?php echo $this->BcFormTable->dispatchBefore() ?>
 				<div class="bca-section bca-section-editor-area">
 					<?php echo $this->BcForm->editor('InstantPage.contents', array_merge([
-						'editor' => @$siteConfig['editor'],
+						'editor' => 'ckeditor',//$siteConfig['editor'],
 						'editorUseDraft' => true,
 						'editorDraftField' => 'draft',
 						'editorWidth' => 'auto',
@@ -75,12 +81,42 @@ if (isset($user['InstantPageUser'])) {
 						<div class="mod-btn-square-02 edit-sub-menu-status-btn">
 							<span class="btnInner"><span class="isMainTxt">公開する</span><small class="isSubTxt">（現在下書中）</small></span>
 						</div>
-						<input type="hidden" class="edit-sub-menu-status-value" id="selfStatusValue" name="selfStatusValue" value="0">
+						<?php echo $this->BcForm->label('InstantPage.status', __d('baser', '公開状態'), ['style' => 'display:none;']) ?>
+						<?php echo $this->BcForm->input('InstantPage.status', [
+							'type' => 'hidden', 'class' => 'edit-sub-menu-status-value']) //#InstantPageStatus ?>
+						<?php echo $this->BcForm->error('InstantPage.status') ?>
 					</div>
 					<!-- /STATUS -->
 					<!-- MENU BOX GROUP (PAGE CONFIG) -->
 					<div class="edit-sub-menu-menuGroup" id="subMenuGroupPageConfig">
 						<span class="edit-sub-menu-menuGroup-title">基本設定</span>
+						<!-- MENU BOX -->
+						<div class="subMenuBox" id="subMenuGroupPageConfig-title">
+							<span class="subMenuBox-title">このページのUrl用name</span>
+							<div class="subMenuBox-inputBlock">
+								<div class="subMenuBox-inputBlock-inputSet">
+									<div class="inputSet-header withHelp">
+										<?php
+										echo $this->BcForm->label('InstantPage.name', 'Url名（name）', ['class' => 'inputSet-header-name']);
+										?>
+										<!-- HELP -->
+										<i class="subMenuBox-header-helpIcon">&thinsp;</i>
+										<div class="subMenuBox-header-help">
+											<ul class="mod-li-disc subMenuBox-header-help-list">
+												<li>半角英数のみで入力してください</li>
+												<li>同じ名前は仕様できません</li>
+											</ul>
+										</div>
+										<!-- /HELP -->
+									</div>
+									<?php echo $this->BcForm->input('InstantPage.name', ['type' => 'textarea', 'div' => '', 'maxlength' => 5, 'class' => 'mod-form-input-textArea inputSet-input inputSet-input__textArea']) ?>　
+									<span class="inputSet-inputLength"><span class="nowLength">0</span><span class="maxLength">0</span></span>
+									<?php echo $this->BcForm->error('InstantPage.name') ?>
+								</div>
+							</div>
+						</div>
+						<!-- /MENU BOX -->
+
 						<!-- MENU BOX -->
 						<div class="subMenuBox" id="subMenuGroupPageConfig-title">
 							<span class="subMenuBox-title">このページのタイトル</span>
@@ -195,6 +231,19 @@ if (isset($user['InstantPageUser'])) {
 							<?php echo $this->BcHtml->link('マイページに戻る', ['controller' => 'instant_pages', 'action' => 'index'], [
 								'class' => 'subMenuBox-title isLinkBtn'
 							]) ?>
+						</div>
+						<!-- /MENU BOX -->
+						<!-- MENU BOX -->
+						<div class="subMenuBox" id="subMenuGroupLink-myEdit">
+							<?php
+							$userName = h($this->BcText->arrayValue($this->BcForm->value('InstantPage.instant_page_users_id'), $users, ['class' => 'subMenuBox-title isLinkBtn']));
+							echo $this->BcForm->hidden('InstantPage.instant_page_users_id');
+							echo $this->BcHtml->link($userName. ' の登録情報', [
+								'controller' => 'instant_page_users',
+								'action' => 'edit',
+								$user['InstantPageUser']['id']
+							], ['class' => 'subMenuBox-title isLinkBtn']);
+							?>
 						</div>
 						<!-- /MENU BOX -->
 					</div>

@@ -161,8 +161,6 @@ class InstantPagesController extends AppController {
 	 */
 	public function admin_add() {
 		if ($this->request->data) {
-			// p($this->request->data);
-			// exit;
 			$this->{$this->modelClass}->create($this->request->data);
 			if ($this->{$this->modelClass}->save()) {
 				$message = $this->controlName . '「'.$this->request->data[$this->modelClass]['name'] . '」を追加しました。';
@@ -171,6 +169,12 @@ class InstantPagesController extends AppController {
 			} else {
 				$message = '入力エラーです。内容を修正してください。';
 				$this->setMessage($message, true);
+			}
+		} else {
+			$this->request->data = $this->InstantPage->getDefaultValue();
+			$user = BcUtil::loginUser();
+			if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
+				$this->request->data['InstantPage']['instant_page_users_id'] = $user['InstantPageUser']['id'];
 			}
 		}
 

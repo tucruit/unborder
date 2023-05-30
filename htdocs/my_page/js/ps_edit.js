@@ -72,7 +72,8 @@ $('.edit-sub-menu-status-btn').on('click', function(){
 });
 
 function changeStatusValue() {
-  let selfStatusValue = $('#selfStatusValue');
+  //let selfStatusValue = $('#selfStatusValue');
+  let selfStatusValue = $('#InstantPageStatus');
   if (selfStatusValue.val() == 0) {
     selfStatusValue.val('1');
   }
@@ -81,7 +82,8 @@ function changeStatusValue() {
   }
 }
 function setStatusBtnStyle(targetBtnObj) {
-  let selfStatusValue = $('#selfStatusValue');
+  //let selfStatusValue = $('#selfStatusValue');
+  let selfStatusValue = $('#InstantPageStatus');
   let mainTxt = '';
   let subTxt = '';
   if (selfStatusValue.val() == 0) {
