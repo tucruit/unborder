@@ -1,0 +1,221 @@
+
+[data-bge="bgb-menu"] {
+	position: absolute;
+	z-index: 100000;
+	width: calc(100% - 10px * 2);
+
+	.bgb-menu-btns {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 100000;
+		width: 100%;
+		.noitem & {
+			margin: 0px;
+			height: 24px;
+			background-color: #DFDFDF;
+			border-left: 1px #CCC solid;
+			border-right: 1px #CCC solid;
+			border-bottom: 1px #CCC solid;
+			display: none;
+		}
+		.bgb-menu-btn-area-move {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 3px 3px 0 0;
+			background-color: fade($primary-color, 100);
+			border-radius: 0 0 0 0;
+			height: 100%;
+			button {
+				float: none;
+				margin-bottom: 3px;
+				z-index: 100;
+			}
+			&::after {
+				content: "";
+				display: block;
+				$width: 34px;
+				position: fixed;
+				top: 0;
+				left: auto;
+				z-index: 1;
+				background: rgba(#000, 0);
+				width: $width;
+				height: 100vh;
+				z-index: 0;
+			}
+		}
+		.bgb-menu-btn-area-command {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 3px 3px 3px 0;
+			background-color: fade($lightest-color, 80);
+			border-radius: 0 0 0 4px;
+		}
+		button {
+			$size: 28px;
+			position: relative;
+			display: block;
+			appearance: none;
+			width: $size;
+			height: $size;
+			margin: 0 0 0 3px;
+			padding: 0;
+			float: left;
+			border: none;
+			border-radius: 2px;
+			cursor: pointer;
+			background: no-repeat scroll center center;
+			span {
+				font-size: 10px;
+				display: none;
+				color: $lightest-color;
+				position: absolute;
+				top: 30px;
+				left: 50%;
+				transform: translate(-50%, 0);
+				z-index: 1000;
+				background: #333;
+				width: 100px;
+				padding: 2px 5px;
+				pointer-events: none;
+			}
+			&:hover {
+				z-index: 1000;
+				span {
+					display: block;
+				}
+			}
+			&:active,
+			&:focus {
+				outline: none;
+			}
+			&.bgb-menu-move-up,
+			&.bgb-menu-move-down,
+			&.bgb-menu-insert-before,
+			&.bgb-menu-insert-after,
+			&.bgb-menu-block-copy,
+			&.bgb-menu-block-config,
+			&.bgb-menu-delete {
+				&::before {
+					@extend %iconfonts;
+					color: inherit;
+					font-size: $size;
+					line-height: $size;
+					text-align: center;
+					text-indent: 0;
+					font-family: 'bge-ui-icons';
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 0;
+					width: 100%;
+					height: 100%;
+				}
+				:disabled,
+				:disabled:hover {
+					cursor: default !important;
+				}
+			}
+			&.bgb-menu-move-up {
+				color: #F2FFCE;
+				background: $primary-color;
+				&::before {
+					content: "\e130";
+				}
+				&:hover {
+					background-color: #67b416;
+				}
+				&:disabled,
+				&:disabled:hover {
+					color: #333;
+					opacity: 0.3;
+					background: #d5d5d5;
+					cursor: default;
+				}
+			}
+			&.bgb-menu-move-down {
+				color: #F2FFCE;
+				background: $primary-color;
+				&::before {
+					content: "\e131";
+				}
+				&:hover {
+					background-color: #67b416;
+				}
+				&:disabled,
+				&:disabled:hover {
+					color: #333;
+					opacity: 0.3;
+					background: #d5d5d5;
+					cursor: default;
+				}
+			}
+			&.bgb-menu-move-up,
+			&.bgb-menu-move-down {
+				span {
+					left: 0;
+					transform: translate(0, 0);
+				}
+			}
+			&.bgb-menu-insert-before {
+				color: #F2FFCE;
+				background: #86be0d;
+				&::before {
+					content: "\e100";
+				}
+				&:hover {
+					background-color: #67B416;
+				}
+			}
+			&.bgb-menu-insert-after {
+				color: #F2FFCE;
+				background: #86be0d;
+				&::before {
+					content: "\e101";
+				}
+				&:hover {
+					background-color: #67B416;
+				}
+			}
+			&.bgb-menu-block-config {
+				color: #DDDDDD;
+				background: $background-color02;
+				&::before {
+					content: "\e102";
+				}
+				&:hover {
+					background-color: #000;
+				}
+			}
+			&.bgb-menu-block-copy {
+				color: #DDDDDD;
+				background: $background-color02;
+				&::before {
+					content: "\e103";
+				}
+				&:hover {
+					background-color: #099177;
+				}
+			}
+			&.bgb-menu-delete {
+				color: #DDDDDD;
+				background: $background-color02 ;
+				&::before {
+					content: "\e111";
+				}
+				&:hover {
+					background-color: #B62D38;
+				}
+				span {
+					left: auto;
+					right: 0;
+					transform: translate(0, 0);
+				}
+			}
+		}
+	}
+}

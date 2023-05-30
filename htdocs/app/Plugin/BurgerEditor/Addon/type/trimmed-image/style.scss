@@ -1,0 +1,43 @@
+.bgt-image__link,
+.bgt-trimmed-image__link {
+	display: block;
+	color: #333;
+	text-decoration: none;
+
+	&[href*='bg-noimage'] {
+		pointer-events: none;
+		cursor: default;
+	}
+
+	&.bgt-colorbox--larger {
+		pointer-events: none;
+		cursor: default;
+	}
+
+	.bgt-link__box {
+		margin: 0;
+	}
+
+	.bgt-box__image {
+		width: 100%;
+		padding-top: 100% * $trimImageAspectRatio;
+		height: 0;
+		overflow: hidden;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		// 空画像
+		[data-bge-empty='1'] & {
+			@media screen and (max-width: $breakPoint) {
+				display: none;
+			}
+		}
+	}
+
+	.bgt-box__caption {
+		&:empty {
+			display: none;
+		}
+	}
+}

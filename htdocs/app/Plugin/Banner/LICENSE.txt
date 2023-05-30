@@ -1,0 +1,6 @@
+Banner : baserCMS Plugin
+Copyright 2014 - 2018, D-ZERO Co.,LTD. <http://www.d-zero.co.jp/>
+
+About License
+Licensed under the MIT License
+http://opensource.org/licenses/mit-license.php

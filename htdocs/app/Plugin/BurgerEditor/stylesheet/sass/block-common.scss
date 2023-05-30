@@ -1,0 +1,20 @@
+[data-bgb] {
+	margin: 0 0 1.5em;
+
+	&,
+	* {
+		&,
+		&::after,
+		&::before {
+			/* ボックスサイジングの統一 */
+			box-sizing: border-box;
+		}
+	}
+
+	&::after {
+		/* 全ブロック共通 クリアフィックス */
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

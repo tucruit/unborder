@@ -1,0 +1,14 @@
+{
+	"extends": "../../.eslintrc",
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": false,
+		"jest": true,
+		"jquery": true
+	},
+	"globals": {
+		"google": true,
+		"YT": true
+	}
+}

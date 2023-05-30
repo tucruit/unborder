@@ -1,0 +1,6 @@
+BurgerEditor : baserCMS Plugin
+Copyright 2017, D-ZERO Co.,LTD. <http://www.d-zero.co.jp/>
+
+About License
+baser マーケット標準販売ライセンスに準拠するものとします。
+https://market.basercms.net/files/baser_market_license.pdf

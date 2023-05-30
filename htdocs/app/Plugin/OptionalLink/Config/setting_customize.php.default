@@ -1,0 +1,25 @@
+<?php
+/**
+ * OptionalLink <baserCMS plugin>
+ *
+ * @copyright		Copyright, Catchup, Inc.
+ * @link			https://catchup.co.jp
+ * @package			OptionalLink
+ *
+ * setting_customize.php.default を setting_customize.php にリネームして使用してください。
+ * 上書きしたい項目をsetting.phpと同じ構造で指定し変更することで上書きできます。
+ */
+
+/**
+ * 拡張子を制限したい場合はconfigより拡張性定義をunsetして別途定義くだささい。
+ */
+// unset($config['OptionalLink']['allowFileExts']);
+
+$customize_config = [
+	'OptionalLink' => [
+		'allowFileExts' => [
+			// ここに許可したい拡張子を記入
+		],
+	],
+];
+

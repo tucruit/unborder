@@ -1,0 +1,32 @@
+// ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+//
+// Value Migration Message
+//
+// ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+#ValueMigrationMessage {
+	font-weight: bold;
+	color: #b62d38;
+	border: #b62d38 5px solid;
+	margin-bottom: 20px;
+	padding: 20px 50px 10px;
+	display: none;
+	background: $lightest-color;
+	&.bge-vmm--success {
+		color: #690;
+		border: #690 5px solid;
+	}
+	button {
+		font-size: 1.2em;
+		font-weight: bold;
+		color: #b62d38;
+		border: #b62d38 2px solid;
+		margin-bottom: 10px;
+		padding: 10px 50px 10px;
+		background: #f6edff;
+		&:hover {
+			color: $lightest-color;
+			background: #b62d38;
+			cursor: pointer;
+		}
+	}
+}

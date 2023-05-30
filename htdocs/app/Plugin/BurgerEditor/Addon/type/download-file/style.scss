@@ -1,0 +1,112 @@
+.bgt-link__size {
+	&::before {
+		content: "(";
+	}
+
+	&::after {
+		content: ")";
+	}
+}
+
+.bgt-link__icon {
+	&.bgt-link__icon--before {
+		//
+	}
+
+	&.bgt-link__icon--after {
+		display: none;
+	}
+
+	&::after {
+		@include bge-icon;
+		content: "\e623";
+		font-size: 1.3em;
+		vertical-align: bottom;
+	}
+}
+
+// 拡張子によるアイコンの出し分け
+.bgt-download-file__link {
+	// PDF
+	&[href$="pdf"] {
+		.bgt-link__icon::after {
+			content: "\f1c1";
+		}
+	}
+
+	// Word
+	&[href$="doc"],
+	&[href$="docx"] {
+		.bgt-link__icon::after {
+			content: "\f1c2";
+		}
+	}
+
+	// Excel
+	&[href$="xls"],
+	&[href$="xlsx"] {
+		.bgt-link__icon::after {
+			content: "\f1c3";
+		}
+	}
+
+	// PowerPoint
+	&[href$="ppt"],
+	&[href$="pptx"] {
+		.bgt-link__icon::after {
+			content: "\f1c4";
+		}
+	}
+
+	// ZIP Archives
+	&[href$="zip"] {
+		.bgt-link__icon::after {
+			content: "\f1c6";
+		}
+	}
+
+	// Markup Files
+	&[href$="xml"],
+	&[href$="htm"],
+	&[href$="html"],
+	&[href$="css"],
+	&[href$="sass"],
+	&[href$="scss"],
+	&[href$="less"],
+	&[href$="styl"],
+	&[href$="json"] {
+		.bgt-link__icon::after {
+			content: "\f1c9";
+		}
+	}
+
+	// Image Files
+	&[href$="jpeg"],
+	&[href$="jpg"],
+	&[href$="png"],
+	&[href$="gif"],
+	&[href$="tif"],
+	&[href$="tiff"],
+	&[href$="webp"],
+	&[href$="bmp"], {
+		.bgt-link__icon::after {
+			content: "\f1c5";
+		}
+	}
+
+	// Movie Files
+	&[href$="mov"],
+	&[href$="mp4"],
+	&[href$="m4v"],
+	&[href$="flv"],
+	&[href$="swf"],
+	&[href$="mpg"],
+	&[href$="mpeg"],
+	&[href$="wmv"],
+	&[href$="webm"],
+	&[href$="ogg"] {
+		.bgt-link__icon::after {
+			content: "\f1c8";
+		}
+	}
+}

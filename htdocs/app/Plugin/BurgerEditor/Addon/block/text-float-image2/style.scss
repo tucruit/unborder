@@ -1,0 +1,11 @@
+[data-bgb="text-float-image2"] {
+	.bgt-grid--first {
+		float: left;
+		margin-right: $multiColumnGridMargin;
+		margin-bottom: ($multiColumnGridMargin / 4);
+	}
+
+	.bgt-grid--last {
+		overflow: visible;
+	}
+}

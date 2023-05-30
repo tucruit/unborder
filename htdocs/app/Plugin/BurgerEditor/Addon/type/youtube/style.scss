@@ -1,0 +1,27 @@
+.bgt-youtube {
+	width: 100%;
+	height: auto;
+	padding-top: (9 / 16) * 100%;
+	position: relative;
+
+	iframe {
+		/* YouTube本体 */
+		display: block;
+		margin: 0 auto;
+		border: none;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.bgt-youtube__thumb {
+		/* フォールバック画像 */
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}

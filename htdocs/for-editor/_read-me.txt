@@ -1,0 +1,9 @@
+当フォルダ内のファイルは、CMS実装時には下記参照が通るようにの各ディレクトリへ保存場所を変更し、全ページから参照するようにしてください。
+CMS実装時下記ディレクトリへ保存した後は、当フォルダを削除してください。（Static資源からは削除しないでください）
+
+<link rel="stylesheet" type="text/css" href="/theme/admin-third/css/admin/toolbar.css"/>
+<link rel="stylesheet" type="text/css" href="/burger_editor/css/bge_style_default.css"/>
+<link rel="stylesheet" type="text/css" href="/burger_editor/css/bge_style.css"/><!-- ←編集可能です -->
+<link rel="stylesheet" type="text/css" href="/burger_editor/css/colorbox.css"/>
+<script type="text/javascript" src="/burger_editor/js/bge_modules/bge_functions.min.js" defer="defer"></script>
+<script type="text/javascript" src="/burger_editor/js/bge_modules/jquery.colorbox-min.js" defer="defer"></script>

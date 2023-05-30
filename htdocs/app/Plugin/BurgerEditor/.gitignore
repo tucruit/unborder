@@ -1,0 +1,95 @@
+# IDE設定ファイル
+/.idea
+# カスタム設定ファイル
+bgeconfig.json
+#Config/setting_customize.php
+
+# フロントエンド開発
+node_modules
+.sass-cache
+yarn-error.log
+
+# フロントエンドテスト
+coverage
+.nyc_output
+
+# 販売版の書き出しzipデータ
+production/*
+
+# ブロック画像
+Addon/block-assets/
+
+# ブロック
+# オリジナルのブロックは除外
+# 標準のブロックは管理対象
+Addon/block/*
+!Addon/block/category.php
+!Addon/block/option.php
+!Addon/block/button/
+!Addon/block/button2/
+!Addon/block/button3/
+!Addon/block/download-file/
+!Addon/block/download-file2/
+!Addon/block/download-file3/
+!Addon/block/embed/
+!Addon/block/gallery/
+!Addon/block/google-maps/
+!Addon/block/hr/
+!Addon/block/image-link-text2/
+!Addon/block/image-link-text3/
+!Addon/block/image-link-text4/
+!Addon/block/image-link-text5/
+!Addon/block/image-link1/
+!Addon/block/image-link2/
+!Addon/block/image-link3/
+!Addon/block/image-link4/
+!Addon/block/image-link5/
+!Addon/block/image-text2/
+!Addon/block/image-text3/
+!Addon/block/image-text4/
+!Addon/block/image-text5/
+!Addon/block/image1/
+!Addon/block/image2/
+!Addon/block/image3/
+!Addon/block/image4/
+!Addon/block/image5/
+!Addon/block/table/
+!Addon/block/text-float-image1/
+!Addon/block/text-float-image2/
+!Addon/block/text-gallery1/
+!Addon/block/text-gallery2/
+!Addon/block/text-image1/
+!Addon/block/text-image2/
+!Addon/block/title/
+!Addon/block/title2/
+!Addon/block/trimmed-image-link2/
+!Addon/block/trimmed-image-link3/
+!Addon/block/trimmed-image-link4/
+!Addon/block/trimmed-image-link5/
+!Addon/block/trimmed-image2/
+!Addon/block/trimmed-image3/
+!Addon/block/trimmed-image4/
+!Addon/block/trimmed-image5/
+!Addon/block/wysiwyg/
+!Addon/block/wysiwyg2/
+!Addon/block/youtube/
+
+# タイプ
+# オリジナルのタイプは除外
+# 標準のタイプは管理対象
+Addon/type/*
+!Addon/type/button/
+!Addon/type/ckeditor/
+!Addon/type/download-file/
+!Addon/type/embed/
+!Addon/type/gallery/
+!Addon/type/google-maps/
+!Addon/type/hr/
+!Addon/type/image/
+!Addon/type/image-link/
+!Addon/type/table/
+!Addon/type/title-h2/
+!Addon/type/title-h3/
+!Addon/type/trimmed-image/
+!Addon/type/trimmed-image-link/
+!Addon/type/youtube/
