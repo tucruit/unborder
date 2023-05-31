@@ -10,8 +10,8 @@
 			<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew">
 				<span class="btnInner">LP新規作成</span>
 			</a>
-			<a href="#" class="mod-btn-square-02 myPage-btnGroup-fileUpload">
-				<span class="btnInner">ファイルアップロード</span>
+			<a href="#" class="mod-btn-square-02 myPage-btnGroup-fileUpload" disabled=”disabled”>
+				<span class="btnInner">ファイルアップロード（準備中）</span>
 			</a>
 		</div>
 		<div class="js-scrollable myPage-siteTableWrap">
