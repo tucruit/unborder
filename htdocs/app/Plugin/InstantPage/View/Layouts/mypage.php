@@ -8,12 +8,12 @@ if (!empty($user['Admin']
 	exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="robots" content="noindex,nofollow" />
 	<?php $this->BcBaser->title() ?>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -45,7 +45,7 @@ if (!empty($user['Admin']
 	<link rel="stylesheet" href="/my_page/css/common.css">
 	<link rel="stylesheet" href="/my_page/css/import.css">
 	<!-- /CSS -->
-	<!--[if IE]><?php //$this->BcBaser->js(['admin/vendors/excanvas']) ?><![endif]-->
+	<!--[if IE]><?php $this->BcBaser->js(['admin/vendors/excanvas']) ?><![endif]-->
 	<?php
 	echo $this->BcBaser->declarationI18n();
 	echo $this->BcBaser->i18nScript([
@@ -79,9 +79,6 @@ if (!empty($user['Admin']
 		'favoriteAlertMessage2'         => __d('baser', 'よく使う項目の追加に失敗しました。'),
 	], ['inline' => true]);
 	?>
-	<!-- JS LIBRARY -->
-	<script src="/my_page/js/lib/jquery-3.6.0.min.js"></script>
-	<!-- /JS LIBRARY -->
 	<?php
 	$this->BcBaser->js([
 		'admin/vue.min',
@@ -106,11 +103,8 @@ if (!empty($user['Admin']
 		'admin/startup',
 		'admin/favorite',
 		'admin/permission',
-		'admin/vendors/jquery.timepicker',
-		'common_navigation',
-		'common',
-	])
-	?>
+		'admin/vendors/jquery.timepicker'
+	]);?>
 	<script>
 		$.bcUtil.init({
 			baseUrl: '<?php echo $this->request->base ?>',
@@ -122,7 +116,21 @@ if (!empty($user['Admin']
 	<?php $this->BcBaser->googleAnalytics() ?>
 </head>
 
-<body>
+<body id="<?php $this->BcBaser->contentsName(true) ?>" class="normal">
+	<div class="bca-data">
+		<div id="BaseUrl" style="display: none"><?php echo $this->request->base ?></div>
+		<div id="SaveFavoriteBoxUrl" style="display:none"><?php $this->BcBaser->url(['plugin' => '', 'controller' => 'dashboard', 'action' => 'ajax_save_favorite_box']) ?></div>
+		<div id="SaveSearchBoxUrl" style="display:none"><?php $this->BcBaser->url(['plugin' => '', 'controller' => 'dashboard', 'action' => 'ajax_save_search_box', $this->BcBaser->getContentsName(true)]) ?></div>
+		<div id="SearchBoxOpened" style="display:none"><?php echo $this->Session->read('Baser.searchBoxOpened.' . $this->BcBaser->getContentsName(true)) ?></div>
+		<div id="CurrentPageName" style="display: none"><?php echo h($this->BcBaser->getContentsTitle()) ?></div>
+		<div id="CurrentPageUrl" style="display: none"><?php echo ($this->request->url == Configure::read('Routing.prefixes.0')) ? '/' . BcUtil::getAdminPrefix() . '/dashboard/index' : '/' . h($this->request->url); ?></div>
+		<!-- Waiting -->
+		<div id="Waiting" class="waiting-box bca-waiting-box" hidden>
+			<div class="corner10">
+				<?php echo $this->Html->image('admin/ajax-loader.gif') ?>
+			</div>
+		</div>
+	</div>
 
 	<?php $this->BcBaser->header() ?>
 
@@ -138,6 +146,9 @@ if (!empty($user['Admin']
 	<?php $this->BcBaser->footer() ?>
 
 	<!-- JS -->
+	<!-- JS LIBRARY -->
+	<script src="/my_page/js/lib/jquery-3.6.0.min.js"></script>
+	<!-- /JS LIBRARY -->
 	<script src="/my_page/js/lib/scroll-hint/js/scroll-hint.min.js"></script>
 	<script src="/my_page/js/common_navigation.js"></script>
 	<script src="/my_page/js/common.js"></script>

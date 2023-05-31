@@ -14,7 +14,7 @@ $config['BcAuthPrefix'] = [
 	  'userModel' => 'User',
 	  'loginAction'	=> '/mypage/instant_page/instant_page_users/login',
 	  'toolbar' => true,
-	   'sessionKey' => 'User'
+	   'sessionKey' => 'Admin'
 	],
 	// マイページ（例）
  'mypage' => [

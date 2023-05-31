@@ -3,7 +3,6 @@
  * [ADMIN] インスタントページ設定一覧
  */
 ?>
-
 <div role="main" class="myPage">
 	<h1 class="mod-hl-pageTitle">マイページ</h1>
 	<div class="l-container l-contentsContainer myPageInner">

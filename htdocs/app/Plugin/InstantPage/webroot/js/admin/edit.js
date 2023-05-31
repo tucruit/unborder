@@ -21,6 +21,7 @@ $(function () {
     $("#BtnSave").click(function () {
         if (typeof editor_contents_tmp != "undefined") {
             editor_contents_tmp.execCommand('synchronize');
+            console.log('NOT undefined');
         }
         $("#InstantPageMode").val('save');
         $.bcToken.check(function () {

@@ -2,11 +2,21 @@
 /**
  * [InstantInstantPage] InstantInstantPage 追加／編集
  */
+// if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+// 	include __DIR__ . DS . '../mypage/form.php';
+// } else {
 if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
-	include __DIR__ . DS . '../mypage/form.php';
-} else {
+	echo '<div role="main" class="myPage">';
+	echo '<h1 class="bca-main__header-title">'. h($this->BcBaser->getContentsTitle()). '</h1>';
+	echo '<div class="l-container l-contentsContainer myPageInner">';
+}
 	$this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
 	$this->BcBaser->js('InstantPage.admin/edit', false);
+	$this->BcBaser->js('InstantPage.admin/form', false, [
+		// 'id' => 'AdminBlogBLogPostsEditScript',
+		// 'data-fullurl' => $fullUrl,
+		// 'data-previewurl' => $this->Blog->getPreviewUrl($url, $this->request->params['Site']['use_subdomain'])
+	]);
 	$users = isset($users) ? $users : $this->InstantPageUser->getUserList();
 	$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : ['default', 'pop'];
 	$editorOptions = [];
@@ -16,9 +26,30 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 	}
 	?>
 	<?php if ($this->action == 'admin_add'): ?>
-		<?php echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['action' => 'add'], 'id' => 'InstantPageForm']) ?>
+		<?php
+		echo $this->BcForm->create('InstantPage', [
+			'type' => 'file',
+			'url' => [
+				'controller' => 'instant_pages',
+				'action' => 'add',
+			],
+			'id' => 'InstantPageForm'
+		]);
+		?>
 	<?php elseif ($this->action == 'admin_edit'): ?>
-		<?php echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['controller' => 'instant_pages', 'action' => 'edit', $this->BcForm->value('InstantPage.id'), 'id' => false], 'id' => 'InstantPageForm']) ?>
+		<?php
+		p($this->BcForm->value('InstantPage.id'));
+		echo $this->BcForm->create('InstantPage', [
+			'type' => 'file',
+			'url' => [
+				'controller' => 'instant_pages',
+				'action' => 'edit',
+				$this->BcForm->value('InstantPage.id'),
+				'id' => false
+			],
+			'id' => 'InstantPageForm'
+		]);
+		?>
 	<?php endif; ?>
 	<?php echo $this->BcForm->input('InstantPage.id', ['type' => 'hidden']) ?>
 	<?php echo $this->BcForm->input('InstantPage.mode', ['type' => 'hidden']) ?>
@@ -168,30 +199,42 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 		</div>
 		<div class="bca-actions__main">
 
-		<?php echo $this->BcForm->submit(__d('baser', '保存'), [
-			'div' => false,
-			'class' => 'button bca-btn',
-			'data-bca-btn-type' => 'save',
-			'data-bca-btn-size' => 'lg',
-			'data-bca-btn-width' => 'lg',
-			'id' => 'BtnSave'
-		]) ?>
-			<?php echo $this->BcForm->button(__d('baser', 'プレビュー'), [
-				'class' => 'button bca-btn bca-actions__item',
-				'data-bca-btn-type' => 'preview',
-				'id' => 'BtnPreview'
-			]) ?>
-		</div>
-		<div class="bca-actions__sub">
-			<?php echo $this->BcForm->button('削除', [
-				'data-bca-btn-type' => 'delete',
-				'data-bca-btn-size' => 'sm',
-				'data-bca-btn-color' => 'danger',
-				'class' => 'button bca-btn',
-				'id' => 'BtnDelete'
-			]) ?>
-		</div>
-	</div>
+			<?php if ($this->action == 'admin_edit' || $this->action == 'admin_add'): ?>
+				<div class="bca-actions__main">
+					<?php /*echo $this->BcForm->button(__d('baser', 'プレビュー'),
+						[
+							'id' => 'BtnPreview',
+							'div' => false,
+							'class' => 'button bca-btn bca-actions__item',
+							'data-bca-btn-type' => 'preview',
+						]) */?>
+					<?php echo $this->BcForm->button(__d('baser', '保存'),
+						[
+							'type' => 'submit',
+							'id' => 'BtnSave',
+							'div' => false,
+							'class' => 'button bca-btn bca-actions__item',
+							'data-bca-btn-type' => 'save',
+							'data-bca-btn-size' => 'lg',
+							'data-bca-btn-width' => 'lg',
+						]) ?>
+					</div>
+				<?php endif ?>
+			</div>
+			<?php if ($this->action == 'admin_edit'): ?>
+				<div class="bca-actions__sub">
+					<?php $this->BcBaser->link(__d('baser', '削除'), ['action' => 'delete', $this->BcForm->value('InstantPage.id')],
+						[
+							'class' => 'submit-token button bca-btn bca-actions__item',
+							'data-bca-btn-type' => 'delete',
+							'data-bca-btn-size' => 'sm',
+							'data-bca-btn-color' => 'danger'
+						], sprintf(__d('baser', '%s を本当に削除してもいいですか？\n※ ブログ記事はゴミ箱に入らず完全に消去されます。'), $this->BcForm->value('InstantPage.name')), false); ?>
+				</div>
+			<?php endif ?>
 	<?php echo $this->BcForm->end(); ?>
-	<?php
+<?php
+//}
+if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+	echo '</div></div>';
 }

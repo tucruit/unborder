@@ -41,8 +41,8 @@ class InstantPagesController extends AppController {
 		'BcAuth',
 		'Cookie',
 		'BcAuthConfigure',
-		//'BcEmail',
-		//'BcContents' => ['useForm' => true, 'useViewCache' => false]
+		'BcEmail',
+		'BcContents' => ['useForm' => true, 'useViewCache' => false]
 	];
 
 	/**
@@ -156,6 +156,17 @@ class InstantPagesController extends AppController {
 		}
 		$this->set('data', $data);
 	}
+
+	// /**
+	//  * [ADMIN] 追加
+	//  *
+	//  */
+	// public function add() {
+	// 	$user = BcUtil::loginUser();
+	// 	if ($this->request->data && isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
+	// 		$this->admin_add();
+	// 	}
+	// }
 
 
 	/**
