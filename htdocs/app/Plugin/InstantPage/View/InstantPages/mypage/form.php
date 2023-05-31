@@ -145,9 +145,7 @@ if (isset($user['InstantPageUser'])) {
 										<i class="subMenuBox-header-helpIcon">&thinsp;</i>
 										<div class="subMenuBox-header-help">
 											<ul class="mod-li-disc subMenuBox-header-help-list">
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
+												<li>LPのタイトルを入力してください。</li>
 											</ul>
 										</div>
 										<!-- /HELP -->
@@ -156,7 +154,7 @@ if (isset($user['InstantPageUser'])) {
 									echo $this->BcForm->input('InstantPage.title', [
 										'type' => 'textarea',
 										'div' => '',
-										'maxlength' => 5,
+										'maxlength' => 255,
 										'class' => 'mod-form-input-textArea inputSet-input inputSet-input__textArea'
 									]);
 									?>　
@@ -177,9 +175,7 @@ if (isset($user['InstantPageUser'])) {
 										<i class="subMenuBox-header-helpIcon">&thinsp;</i>
 										<div class="subMenuBox-header-help">
 											<ul class="mod-li-disc subMenuBox-header-help-list">
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
+												<li>このLPを表現するキーワードを半角カンマ（,）で入力してください。</li>
 											</ul>
 										</div>
 										<!-- /HELP -->
@@ -187,7 +183,7 @@ if (isset($user['InstantPageUser'])) {
 									<?php echo $this->BcForm->input('InstantPage.page_key_word', [
 										'type' => 'textarea',
 										'div' => '',
-										'maxlength' => 5,
+										'maxlength' => 255,
 										'class' => 'mod-form-input-textArea inputSet-input inputSet-input__textArea'
 									]); ?>
 									<span class="inputSet-inputLength"><span class="nowLength">0</span><span class="maxLength">0</span></span>
@@ -207,9 +203,7 @@ if (isset($user['InstantPageUser'])) {
 										<i class="subMenuBox-header-helpIcon">&thinsp;</i>
 										<div class="subMenuBox-header-help">
 											<ul class="mod-li-disc subMenuBox-header-help-list">
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
-												<li>ヘルプ内容を記述ヘルプ内容を記述ヘルプ内容を記述</li>
+												<li>このLPを説明する文章を入力してください。</li>
 											</ul>
 										</div>
 										<!-- /HELP -->
@@ -217,7 +211,7 @@ if (isset($user['InstantPageUser'])) {
 									<?php echo $this->BcForm->input('InstantPage.page_description', [
 										'type' => 'textarea',
 										'div' => '',
-										'maxlength' => 5,
+										'maxlength' => 255,
 										'class' => 'mod-form-input-textArea inputSet-input inputSet-input__textArea'
 									]); ?>
 									<span class="inputSet-inputLength"><span class="nowLength">0</span><span class="maxLength">0</span></span>
