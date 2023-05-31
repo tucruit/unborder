@@ -17,9 +17,9 @@ if (isset($user['InstantPageUser'])) {
 </div>
 
 <?php if ($this->action == 'admin_add'): ?>
-	<?php echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['controller' => 'instant_pages', 'action' => 'add'], 'id' => 'InstantPageForm']) ?>
+	<?php echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['controller' => 'instant_pages', 'action' => 'add'], 'id' => 'PageForm']) ?>
 <?php elseif ($this->action == 'admin_edit'): ?>
-	<?php echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['controller' => 'instant_pages', 'action' => 'edit', $this->BcForm->value('InstantPage.id'), 'id' => false], 'id' => 'InstantPageForm']) ?>
+	<?php echo $this->BcForm->create('InstantPage', ['type' => 'file', 'url' => ['controller' => 'instant_pages', 'action' => 'edit', $this->BcForm->value('InstantPage.id'), 'id' => false], 'id' => 'PageForm']) ?>
 <?php endif; ?>
 
 <?php echo $this->BcForm->input('InstantPage.mode', ['type' => 'hidden']) ?>
@@ -54,7 +54,7 @@ if (isset($user['InstantPageUser'])) {
 				<?php echo $this->BcFormTable->dispatchBefore() ?>
 				<div class="bca-section bca-section-editor-area">
 					<?php echo $this->BcForm->editor('InstantPage.contents', array_merge([
-						'editor' => 'ckeditor',//$siteConfig['editor'],
+						'editor' => $siteConfig['editor'],//'ckeditor',
 						'editorUseDraft' => true,
 						'editorDraftField' => 'draft',
 						'editorWidth' => 'auto',
