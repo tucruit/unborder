@@ -25,7 +25,7 @@ $(function () {
         }
         $("#InstantPageMode").val('save');
         $.bcToken.check(function () {
-            $("#InstantPageForm").submit();
+            $("#PageForm").submit();
         }, {useUpdate: false, hideLoader: false});
         return false;
     });

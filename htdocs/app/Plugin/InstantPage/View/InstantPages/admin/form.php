@@ -33,7 +33,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 				'controller' => 'instant_pages',
 				'action' => 'add',
 			],
-			'id' => 'InstantPageForm'
+			'id' => 'PageForm'
 		]);
 		?>
 	<?php elseif ($this->action == 'admin_edit'): ?>
@@ -47,7 +47,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 				$this->BcForm->value('InstantPage.id'),
 				'id' => false
 			],
-			'id' => 'InstantPageForm'
+			'id' => 'PageForm'
 		]);
 		?>
 	<?php endif; ?>
@@ -174,7 +174,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 		<?php
 		//p($siteConfig);
 		echo $this->BcForm->editor('InstantPage.contents', array_merge([
-			'editor' => 'ckeditor',//$siteConfig['editor'],
+			'editor' => $siteConfig['editor'],//'ckeditor',
 			'editorUseDraft' => true,
 			'editorDraftField' => 'draft',
 			'editorWidth' => 'auto',
