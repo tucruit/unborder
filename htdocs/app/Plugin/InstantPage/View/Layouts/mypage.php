@@ -21,8 +21,8 @@ if (!empty($user['Admin']
 	<meta name="format-detection" content="telephone=no">
 	<!-- FAVICON -->
 	<link rel="icon" href="favicon.ico">
-	<link rel="shortcut icon" href="img/common/favicon_180.png">
-	<link rel="apple-touch-icon" href="img/common/favicon_180.png">
+	<link rel="shortcut icon" href="/img/common/favicon_180.png">
+	<link rel="apple-touch-icon" href="/img/common/favicon_180.png">
 	<!-- /FAVICON -->
 	<!-- FONTS -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +131,7 @@ if (!empty($user['Admin']
 			</div>
 		</div>
 	</div>
-
+<div id="Page" class="bca-app">
 	<?php $this->BcBaser->header() ?>
 
 	<!-- MAIN -->
@@ -140,15 +140,20 @@ if (!empty($user['Admin']
 		<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
 		<?php echo $this->BcLayout->dispatchContentsHeader() ?>
 		<?php $this->BcBaser->content() ?>
+		<?php echo $this->BcLayout->dispatchContentsFooter() ?>
 	</main>
 	<!-- /MAIN -->
 
 	<?php $this->BcBaser->footer() ?>
+</div>
+
 
 	<!-- JS -->
+<?php if( $this->request->controller !== 'instant_pages' && $this->request->controller !== 'edit') :?>
 	<!-- JS LIBRARY -->
 	<script src="/my_page/js/lib/jquery-3.6.0.min.js"></script>
 	<!-- /JS LIBRARY -->
+<?php endif;?>
 	<script src="/my_page/js/lib/scroll-hint/js/scroll-hint.min.js"></script>
 	<script src="/my_page/js/common_navigation.js"></script>
 	<script src="/my_page/js/common.js"></script>
