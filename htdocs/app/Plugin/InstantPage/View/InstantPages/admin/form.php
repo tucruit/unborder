@@ -2,14 +2,14 @@
 /**
  * [InstantInstantPage] InstantInstantPage 追加／編集
  */
-if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
-	include __DIR__ . DS . '../mypage/form.php';
-} else {
 // if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
-// 	echo '<div role="main" class="myPage">';
-// 	echo '<h1 class="bca-main__header-title">'. h($this->BcBaser->getContentsTitle()). '</h1>';
-// 	echo '<div class="l-container l-contentsContainer myPageInner">';
-// }
+// 	include __DIR__ . DS . '../mypage/form.php';
+// } else {
+if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+	echo '<div role="main" class="myPage">';
+	echo '<h1 class="bca-main__header-title">'. h($this->BcBaser->getContentsTitle()). '</h1>';
+	echo '<div class="l-container l-contentsContainer myPageInner">';
+}
 	$this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
 	$this->BcBaser->js('InstantPage.admin/edit', false);
 	$this->BcBaser->js('InstantPage.admin/form', false, [
@@ -234,7 +234,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 			<?php endif ?>
 	<?php echo $this->BcForm->end(); ?>
 <?php
+//}
+if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+	echo '</div></div>';
 }
-// if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
-// 	echo '</div></div>';
-// }
