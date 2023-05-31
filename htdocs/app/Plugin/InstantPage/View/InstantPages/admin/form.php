@@ -38,7 +38,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 		?>
 	<?php elseif ($this->action == 'admin_edit'): ?>
 		<?php
-		p($this->BcForm->value('InstantPage.id'));
+		//p($this->BcForm->value('InstantPage.id'));
 		echo $this->BcForm->create('InstantPage', [
 			'type' => 'file',
 			'url' => [
