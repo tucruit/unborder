@@ -226,12 +226,10 @@ class InstantPagesController extends AppController {
 		}
 		// インスタントページユーザーでログイン中は自分の作成ページのみ編集可能
 		if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
-			if ($this->request->data['InstantPage']['instant_page_users_id'] !== $user['InstantPageUser']['id']) {
+			if ($this->request->data['InstantPage']['instant_page_users_id'] != $user['InstantPageUser']['id']) {
 				$this->setMessage('無効な処理です。', true);
 				$this->redirect(array('action' => 'index'));
 			}
-		} else {
-
 		}
 
 		// ユーザー一覧
