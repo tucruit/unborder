@@ -230,6 +230,8 @@ class InstantPagesController extends AppController {
 				$this->setMessage('無効な処理です。', true);
 				$this->redirect(array('action' => 'index'));
 			}
+		} else {
+
 		}
 
 		// ユーザー一覧

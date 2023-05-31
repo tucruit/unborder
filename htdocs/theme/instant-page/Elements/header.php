@@ -3,8 +3,8 @@
  *
  */
 // ログインユーザーの取得
-$user = $this->Session->read('Auth');
-$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
+// $user = $this->Session->read('Auth');
+// $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
 ?>
 <header role="banner" class="header" id="is-headerFixed">
 	<div class="headerInner">
@@ -32,24 +32,24 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 					<?php
 					$text = 'ログイン';
 					$href = '/instant_page/instant_page_users/login';
-					if (!empty($instantPageUser)) {
-						$text = 'ログアウト';
-						$href = '/cmsadmin/users/logout';
-						// $user = BcUtil::loginUser(); システムユーザー
-						// '/users/back_agent', '元のユーザーに戻る'
-					}
+					// if (!empty($instantPageUser)) {
+					// 	$text = 'ログアウト';
+					// 	$href = '/cmsadmin/users/logout';
+					// 	// $user = BcUtil::loginUser(); システムユーザー
+					// 	// '/users/back_agent', '元のユーザーに戻る'
+					// }
 					?>
 					<a href="<?php echo $href ?>" class="gNav-btn gNav-btn__login">
 						<span class="btnInner"><?php echo $text ?></span>
 						<button type="submit" data-bca-btn-type="login" id="HeaderBtnLogin"><?php echo $text ?></button>
 					</a>
 					<?php
-					if (!empty($instantPageUser)) {
-						$this->BcBaser->link('<span class="btnInner">ページ一覧</span>', '/cmsadmin/instant_page/instant_pages/', ['class' => 'gNav-btn gNav-btn__signUp']);
-						$this->BcBaser->link('<span class="btnInner">登録情報編集</span>', '/cmsadmin/instant_page/instant_page_users/edit/'. $instantPageUser['id'], ['class' => 'gNav-btn gNav-btn__signUp']);
-					} else {
+					// if (!empty($instantPageUser)) {
+					// 	$this->BcBaser->link('<span class="btnInner">ページ一覧</span>', '/cmsadmin/instant_page/instant_pages/', ['class' => 'gNav-btn gNav-btn__signUp']);
+					// 	$this->BcBaser->link('<span class="btnInner">登録情報編集</span>', '/cmsadmin/instant_page/instant_page_users/edit/'. $instantPageUser['id'], ['class' => 'gNav-btn gNav-btn__signUp']);
+					// } else {
 						$this->BcBaser->link('<span class="btnInner">新規登録</span>', '/signup/', ['class' => 'gNav-btn gNav-btn__signUp']);
-					}
+					// }
 					?>
 				</div>
 				<ol class="gNav-list">

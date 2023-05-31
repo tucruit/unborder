@@ -40,6 +40,12 @@ $userController = Inflector::tableize($userModel);
 				$this->BcBaser->link(__d('baser', 'パスワードをお忘れの方はこちら＞'), ['action' => 'reset_password', $this->request->params['prefix'] => false], ['class' => 'inputBlock-linkForgotPass']);
 			}
 			?>
+			<?php echo $this->BcForm->input($userModel . '.saved', [
+					'type' => 'checkbox',
+					'label' => __d('baser', 'ログイン状態を保存する'),
+					'class' => 'bca-checkbox__input bca-login-form-checkbox ',
+					'tabindex' => 3,
+				]); ?>
 			<div class="mod-btn-01 inputBlock-loginBtn">
 				<span class="btnInner">ログイン</span>
 				<?php echo $this->BcForm->button(__d('baser', 'ログイン'), ['type' => 'submit', 'div' => false, 'class' => 'bca-btn--login bca-btn', 'data-bca-btn-type' => 'login', 'id' => 'BtnLogin', 'tabindex' => 4]) ?>
