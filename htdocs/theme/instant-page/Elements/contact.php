@@ -13,10 +13,12 @@
 					<span class="btnInner">新規登録はこちら</span>
 				</a>
 			</div>
+			<!-- CONTACT HIDDEN
 			<div class="contents-telContainer">
 				<a href="tel:0000000000" class="isTelNum">00-0000-0000</a>
 				<small class="isTime">※平日○：○ - ○：○</small>
 			</div>
+			-->
 		</div>
 	</div>
 </div>
