@@ -104,3 +104,4 @@ $config['InstantPage'] = [
 ];
 
 include __DIR__ . DS . 'disapproval_domain.php';
+include __DIR__ . DS . 'template.php';

@@ -107,10 +107,14 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 	}
 
 	public function beforeRender(CakeEvent $event) {
+		$Controller = $event->subject();
 		if (!BcUtil::isAdminSystem()) {
+			$params = $Controller->request->params;
+			if ($params['controller'] == 'instant_pages' && $params['action'] == 'detail') {
+				$Controller->layout = 'InstantPage.instant';
+			}
 			return;
 		}
-		$Controller = $event->subject();
 		$user = BcUtil::loginUser();
 		if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
 			$Controller->layout = 'InstantPage.mypage';
