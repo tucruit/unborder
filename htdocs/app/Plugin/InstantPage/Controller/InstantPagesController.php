@@ -41,8 +41,8 @@ class InstantPagesController extends AppController {
 		'BcAuth',
 		'Cookie',
 		'BcAuthConfigure',
-		//'BcEmail',
-		//'BcContents' => ['useForm' => true, 'useViewCache' => false]
+		'BcEmail',
+		'BcContents' => ['useForm' => true, 'useViewCache' => false]
 	];
 
 	/**
@@ -95,7 +95,9 @@ class InstantPagesController extends AppController {
 		$this->pageTitle = $this->controlName . '一覧';
 		//$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
 		$users = $this->InstantPageUser->find('all');
+		$userDatas = Hash::combine($users, '{n}.InstantPageUser.id', '{n}.User');
 		$this->set('users',$users);
+		$this->set('userDatas',$userDatas);
 		$this->search = 'instant_pages_index';
 		$default = [
 			'named' => [
@@ -127,7 +129,7 @@ class InstantPagesController extends AppController {
 
 		$this->pageTitle = $this->controlName . '一覧';
 		if ($this->RequestHandler->isAjax() || !empty($this->request->query['ajax'])) {
-			$this->render('instant_page_users_ajax_index');
+			$this->render('ajax_index');
 			return;
 		}
 	}
@@ -137,22 +139,34 @@ class InstantPagesController extends AppController {
 	 *
 	 * @param int $id
 	 */
-	public function detail($id = null) {
-		if (!$id) {
+	public function detail($instantPageUsersName = '', $name = null) {
+		if (!$name) {
 			$this->notFound();
 		}
 
 		$conditions = $this->InstantPage->getConditionAllowPublish();
-		$conditions['InstantPage.id'] = $id;
+		$conditions['InstantPage.name'] = $name;
 
 		$data = $this->InstantPage->find('first', [
 			'conditions' => $conditions,
+			'recursive' => 2 //作成者ユーザー情報まで取得
 		]);
 		if (!$data) {
 			$this->notFound();
 		}
 		$this->set('data', $data);
 	}
+
+	// /**
+	//  * [ADMIN] 追加
+	//  *
+	//  */
+	// public function add() {
+	// 	$user = BcUtil::loginUser();
+	// 	if ($this->request->data && isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
+	// 		$this->admin_add();
+	// 	}
+	// }
 
 
 	/**
@@ -161,8 +175,6 @@ class InstantPagesController extends AppController {
 	 */
 	public function admin_add() {
 		if ($this->request->data) {
-			// p($this->request->data);
-			// exit;
 			$this->{$this->modelClass}->create($this->request->data);
 			if ($this->{$this->modelClass}->save()) {
 				$message = $this->controlName . '「'.$this->request->data[$this->modelClass]['name'] . '」を追加しました。';
@@ -171,6 +183,12 @@ class InstantPagesController extends AppController {
 			} else {
 				$message = '入力エラーです。内容を修正してください。';
 				$this->setMessage($message, true);
+			}
+		} else {
+			$this->request->data = $this->InstantPage->getDefaultValue();
+			$user = BcUtil::loginUser();
+			if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
+				$this->request->data['InstantPage']['instant_page_users_id'] = $user['InstantPageUser']['id'];
 			}
 		}
 
@@ -208,7 +226,7 @@ class InstantPagesController extends AppController {
 		}
 		// インスタントページユーザーでログイン中は自分の作成ページのみ編集可能
 		if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
-			if ($this->request->data['InstantPage']['instant_page_users_id'] !== $user['InstantPageUser']['id']) {
+			if ($this->request->data['InstantPage']['instant_page_users_id'] != $user['InstantPageUser']['id']) {
 				$this->setMessage('無効な処理です。', true);
 				$this->redirect(array('action' => 'index'));
 			}

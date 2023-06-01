@@ -35,7 +35,8 @@ class BurgerEditorViewEventListener extends BcViewEventListener {
 		if(BcUtil::isAdminSystem()) {
 			// プレビューは適用
 			if (($View->request['controller'] == 'pages' && $View->request['action'] == 'display')
-					|| ($View->request['plugin'] == 'blog' && $View->request['action'] == 'archives')) {
+					|| ($View->request['plugin'] == 'blog' && $View->request['action'] == 'archives')
+					|| ($View->request['plugin'] == 'InstantPage' && $View->request['action'] == 'detail')) {
 			} else {
 				return true;
 			}

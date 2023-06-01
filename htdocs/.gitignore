@@ -58,3 +58,5 @@ _notes
 ## Theme baserCMS 3系では、theme/｛プロジェクト名｝/Pages/をignoreする
 #theme/instant-page/Pages/*
 #!theme/instant-page/Pages/empty
+
+.idea/

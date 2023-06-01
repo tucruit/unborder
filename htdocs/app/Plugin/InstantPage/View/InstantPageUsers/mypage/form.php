@@ -45,14 +45,14 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 					<tr>
 						<th><?php echo $this->BcForm->label('User.name', __d('baser', 'アカウント名')) ?><span class="mod-form-hissuTag">必須</span></th>
 						<td>
-							<?php echo $this->BcForm->input('User.name', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'class' => 'mod-form-input-text', 'readonly' => 'readonly']) ?>
+							<?php echo $this->BcForm->input('User.name', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'class' => 'mod-form-input-text', 'readonly' => 'readonly', 'div' => false]) ?>
 							<?php echo $this->BcForm->hidden('User.name') ?>
 						</td>
 					</tr>
 					<tr>
 						<th><?php echo $this->BcForm->label('InstantPageUser.company', '会社名') ?><span class="mod-form-hissuTag">必須</span></th>
 						<td>
-							<?php echo $this->BcForm->input('InstantPageUser.company', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'class' => 'mod-form-input-text']) ?>
+							<?php echo $this->BcForm->input('InstantPageUser.company', ['type' => 'text', 'size' => 30, 'maxlength' => 255, 'autofocus' => true, 'class' => 'mod-form-input-text', 'div' => false]) ?>
 							<?php echo $this->BcForm->error('InstantPageUser.company') ?>
 						</td>
 					</tr>
@@ -61,9 +61,9 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 						<td>
 							<div class="inputWrap__name">
 								<?php
-								echo $this->BcForm->input('User.real_name_1', ['type' => 'text', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '姓', 'class' => 'mod-form-input-text--name', 'tag' => false]);
+								echo $this->BcForm->input('User.real_name_1', ['type' => 'text', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '姓', 'class' => 'mod-form-input-text--name', 'div' => false]);
 								echo $this->BcForm->error('User.real_name_1');
-								echo $this->BcForm->input('User.real_name_2', ['type' => 'text', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '名', 'class' => 'mod-form-input-text--name']);
+								echo $this->BcForm->input('User.real_name_2', ['type' => 'text', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => '名', 'class' => 'mod-form-input-text--name', 'div' => false]);
 								echo $this->BcForm->error('User.real_name_2');
 								?>
 							</div>
@@ -74,9 +74,9 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 						<td>
 							<div class="inputWrap__name">
 							<?php
-							echo $this->BcForm->input('InstantPageUser.kana_1', ['type' => 'text', 'class' => 'mod-form-input-text--name', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => 'セイ']);
+							echo $this->BcForm->input('InstantPageUser.kana_1', ['type' => 'text', 'class' => 'mod-form-input-text--name', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => 'セイ', 'div' => false]);
 							echo $this->BcForm->error('InstantPageUser.kana_1');
-							echo $this->BcForm->input('InstantPageUser.kana_2', ['type' => 'text', 'class' => 'mod-form-input-text--name', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => 'メイ']);
+							echo $this->BcForm->input('InstantPageUser.kana_2', ['type' => 'text', 'class' => 'mod-form-input-text--name', 'maxlength' => 255, 'autofocus' => true, 'placeholder' => 'メイ', 'div' => false]);
 							echo $this->BcForm->error('InstantPageUser.kana_2');
 							?>
 							</div>
@@ -90,7 +90,7 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 						<th><?php echo $this->BcForm->label('User.email', __d('baser', 'メールアドレス')) ?><span class="mod-form-hissuTag">必須</span></th>
 						<td>
 							<?php
-							echo $this->BcForm->input('User.email', ['type' => 'text', 'class' => '', 'maxlength' => 255, 'class' => 'mod-form-input-text mailCheck']);
+							echo $this->BcForm->input('User.email', ['type' => 'text', 'class' => '', 'maxlength' => 255, 'class' => 'mod-form-input-text mailCheck', 'div' => false]);
 							echo $this->BcForm->error('User.email') ?>
 							<!-- <input type="text" name="" class="mod-form-input-text" placeholder="メールアドレス（確認用）"> -->
 						</td>
@@ -112,28 +112,32 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 									'class' => 'mod-form-input-text',
 									'maxlength' => 15,
 									'placeholder' => '〒郵便番号をハイフン抜きで入力してください',
-									'onkeyup' => "AjaxZip3.zip2addr(this,'','data[InstantPageUser][prefecture_id]','data[InstantPageUser][address]')"
+									'onkeyup' => "AjaxZip3.zip2addr(this,'','data[InstantPageUser][prefecture_id]','data[InstantPageUser][address]')",
+									'div' => false
 								]);
 								echo $this->BcForm->error('InstantPageUser.zip_code');
 								echo $this->BcForm->input('InstantPageUser.prefecture_id', [
 								 	'type' => 'select',
 								 	'options' => $this->BcText->prefList(),
 								 	'escape' => true,
-								 	'class' => 'mod-form-select'
+								 	'class' => 'mod-form-select',
+								 	'div' => false
 								 ]);
 								 echo $this->BcForm->error('InstantPageUser.prefecture_id');
 								 echo $this->BcForm->input('InstantPageUser.address', [
 								 	'type' => 'text',
 								 	'class' => 'mod-form-input-text',
 								 	'maxlength' => 255,
-								 	'placeholder' => '市区町村・番地'
+								 	'placeholder' => '市区町村・番地',
+								 	'div' => false
 								 ]);
 								 echo $this->BcForm->error('InstantPageUser.address');
 								 echo $this->BcForm->input('InstantPageUser.building', [
 								 	'type' => 'text',
 								 	'class' => 'mod-form-input-text',
 								 	'maxlength' => 255,
-								 	'placeholder' => '建物名'
+								 	'placeholder' => '建物名',
+								 	'div' => false
 								 ]);
 								 echo $this->BcForm->error('InstantPageUser.building');
 								 ?>
@@ -144,7 +148,7 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 						<th><?php echo $this->BcForm->label('InstantPageUser.tel', '電話番号') ?><span class="mod-form-hissuTag">必須</span></th>
 						<td>
 							<?php
-							echo $this->BcForm->input('InstantPageUser.tel', ['type' => 'text', 'class' => 'mod-form-input-text', 'maxlength' => 20, 'autofocus' => true, 'placeholder' => 'ハイフン抜きで入力してください']);
+							echo $this->BcForm->input('InstantPageUser.tel', ['type' => 'text', 'class' => 'mod-form-input-text', 'maxlength' => 20, 'autofocus' => true, 'placeholder' => 'ハイフン抜きで入力してください', 'div' => false]);
 							echo $this->BcForm->error('InstantPageUser.tel') ?>
 						</td>
 					</tr>
@@ -162,10 +166,10 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 							<input type="password" name="dummypass" style="top:-100px;left:-100px;position:fixed;" />
 							<?php
 							echo $this->BcForm->input('User.password_1', [
-								'type' => 'password', 'class' => 'mod-form-input-text', 'maxlength' => 255
+								'type' => 'password', 'class' => 'mod-form-input-text', 'maxlength' => 255, 'div' => false
 							]);
 							echo $this->BcForm->input('User.password_2', [
-								'type' => 'password', 'class' => 'mod-form-input-text', 'maxlength' => 255
+								'type' => 'password', 'class' => 'mod-form-input-text', 'maxlength' => 255, 'div' => false
 							]);
 							echo $this->BcForm->error('User.password');
 							?>

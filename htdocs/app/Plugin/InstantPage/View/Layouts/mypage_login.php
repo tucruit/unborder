@@ -119,6 +119,14 @@
 </head>
 
 <body>
+ <div class="bca-data">
+	<div id="BaseUrl" style="display: none"><?php echo $this->request->base ?></div>
+	<div id="SaveFavoriteBoxUrl" style="display:none"><?php $this->BcBaser->url(['plugin' => '', 'controller' => 'dashboard', 'action' => 'ajax_save_favorite_box']) ?></div>
+	<div id="SaveSearchBoxUrl" style="display:none"><?php $this->BcBaser->url(['plugin' => '', 'controller' => 'dashboard', 'action' => 'ajax_save_search_box', $this->BcBaser->getContentsName(true)]) ?></div>
+	<div id="SearchBoxOpened" style="display:none"><?php echo $this->Session->read('Baser.searchBoxOpened.' . $this->BcBaser->getContentsName(true)) ?></div>
+	<div id="CurrentPageName" style="display: none"><?php echo h($this->BcBaser->getContentsTitle()) ?></div>
+	<div id="CurrentPageUrl" style="display: none"><?php echo ($this->request->url == Configure::read('Routing.prefixes.0')) ? '/' . BcUtil::getAdminPrefix() . '/dashboard/index' : '/' . h($this->request->url); ?></div>
+    <!-- Waiting -->
 	<?php $this->BcBaser->header() ?>
 		<main id="Contents">
 

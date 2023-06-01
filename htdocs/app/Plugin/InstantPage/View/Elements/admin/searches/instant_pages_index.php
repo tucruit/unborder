@@ -3,7 +3,7 @@
  * [InstantPage] ユーザー管理
  *
  */
-$userNmaes = Hash::combine($users, '{n}.InstantPageUser.id', '{n}.User.real_name_1');
+$userRealNmaes = Hash::combine($users, '{n}.InstantPageUser.id', '{n}.User.real_name_1');
 ?>
 
 <?php echo $this->BcForm->create('InstantPage', array('url' => array('action' => 'index'))) ?>
@@ -11,7 +11,7 @@ $userNmaes = Hash::combine($users, '{n}.InstantPageUser.id', '{n}.User.real_name
 	<span><?php echo $this->BcForm->label('InstantPageUser.id', 'ユーザー名'); ?></span>
 	<span>
 		<?php
-		echo $this->BcForm->input('InstantPageUser.id', ['type' => 'select', 'options' => $userNmaes, 'escape' => true, 'empty' => __d('baser', '指定なし')]);
+		echo $this->BcForm->input('InstantPageUser.id', ['type' => 'select', 'options' => $userRealNmaes, 'escape' => true, 'empty' => __d('baser', '指定なし')]);
 		?>
 	</span>
 </p>

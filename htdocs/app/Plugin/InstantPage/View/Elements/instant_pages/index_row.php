@@ -1,6 +1,6 @@
 <?php
 /**
- * [ADMIN] InstantPage一覧　行
+ * [ADMIN] InstantPage一覧 行
  */
 ?>
 

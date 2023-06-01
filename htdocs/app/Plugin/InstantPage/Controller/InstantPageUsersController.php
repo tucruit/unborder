@@ -94,7 +94,7 @@ class InstantPageUsersController extends AppController {
 
 		$this->pageTitle = $this->controlName . '一覧';
 		if ($this->RequestHandler->isAjax() || !empty($this->request->query['ajax'])) {
-			$this->render('instant_page_users_ajax_index');
+			$this->render('ajax_index');
 			return;
 		}
 	}
@@ -463,6 +463,30 @@ class InstantPageUsersController extends AppController {
 		$this->pageTitle = $pageTitle;
 	}
 
+	/**
+	 * 認証クッキーをセットする
+	 *
+	 * @param array $data
+	 * @return void
+	 */
+	public function setAuthCookie($data)
+	{
+		$userModel = $this->BcAuth->authenticate['Form']['userModel'];
+		$cookie = [];
+		foreach($data[$userModel] as $key => $val) {
+			// savedは除外
+			if ($key !== 'saved') {
+				$cookie[$key] = $val;
+			}
+		}
+		$this->Cookie->httpOnly = true;
+		$this->Cookie->write(
+			Inflector::camelize(str_replace('.', '', BcAuthComponent::$sessionKey)),
+			$cookie,
+			true,
+			'+2 weeks'
+		);	// 3つめの'true'で暗号化
+	}
 
 	public function mypage_logout() {
 		$this->redirect('/cmsadmin/users/logout');
