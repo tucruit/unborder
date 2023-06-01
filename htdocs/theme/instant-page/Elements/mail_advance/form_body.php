@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	<div class="mod-btnContainer signup-form-submit">
 		<?php if (!$freezed) : // 入力 ?>
 			<div class="mod-btn-01 signup-form-submit-send">
-				<span class="btnInner">保存</span>
+				<span class="btnInner">登録する</span>
 				<?php echo $this->Mailform->submit('入力内容を確認する', ['div' => false, 'id' => 'BtnMessageConfirm', 'class' => 'bgt-btn form-submit button']); ?>
 			</div>
 		<?php  else: // 確認画面?>

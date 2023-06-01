@@ -104,6 +104,7 @@
 								「Webの事は分からない…」「デザインのセンスがなくて…」「手間をかける時間がない…」、そんなアナタにピッタリ。<br>
 								ぜひ、”お湯すらいらない「即席」体験”をお楽しみください！
 							</p>
+							<!-- MOVIE HIDDEN
 							<div class="top-lead-movieBlock">
 								<div class="top-lead-movieBlockInner">
 									<div class="top-lead-movieBlock-videoWrap">
@@ -111,6 +112,7 @@
 									</div>
 								</div>
 							</div>
+							 -->
 						</div>
 					</div>
 					<!-- /LEAD -->
@@ -320,8 +322,8 @@
 											</div>
 										</th>
 										<td><em>無　料</em></td>
-										<td><em><span class="noWrap">○○円／</span><span class="noWrap">月</span></em></td>
-										<td><em><span class="noWrap">○○円／</span><span class="noWrap">月</span></em></td>
+										<td><em><span class="noWrap">ASK! ／</span><span class="noWrap">月</span></em></td>
+										<td><em><span class="noWrap">ASK! ／</span><span class="noWrap">月</span></em></td>
 									</tr>
 									<tr>
 										<th>
