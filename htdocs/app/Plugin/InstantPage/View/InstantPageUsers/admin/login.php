@@ -3,12 +3,38 @@
  * [MYPAGE] ログイン
  */
 $this->layout = 'InstantPage.mypage_login';
-$userModel = Configure::read('BcAuthPrefix.' . $currentPrefix . '.userModel');
+$currentPrefix = 'admin';
+$userModel = Configure::read('BcAuthPrefix.admin.userModel');
 if (!$userModel) {
 	$userModel = 'User';
 }
 list(, $userModel) = pluginSplit($userModel);
 $userController = Inflector::tableize($userModel);
+$this->append('script', <<< CSS_END
+<style type="text/css">
+#CreditScroller,#CreditScroller a{
+	color:#333!important;
+}
+#Credit {
+	text-align: right;
+}
+#CreditScrollerInner {
+	margin-right:0;
+}
+html {
+	margin-top:0;
+}
+.bca-container {
+	height: auto !important;
+	background: #F4F5F1;
+}
+.bca-crumb,
+.bca-main-body-header {
+	display: none;
+}
+</style>
+CSS_END
+);
 ?>
 <div id="UserModel" hidden><?php echo $userModel ?></div>
 <div class="l-subContentsContainer sub-container usersInner">
@@ -17,7 +43,7 @@ $userController = Inflector::tableize($userModel);
 	if ($this->request->here == '/cmsadmin/users/login') {
 		$url = ['action' => 'login'];
 	} else {
-		$url = ['controller' => 'instant_page_users', 'action' => 'login'];
+		$url = '/cmsadmin/users/login';
 	}
 	echo $this->BcForm->create($userModel, ['url' => $url, 'class' => 'users-form']);
 	?>
@@ -34,10 +60,10 @@ $userController = Inflector::tableize($userModel);
 				<?php echo $this->BcForm->input('User.password', ['type' => 'password', 'div' => ['tag' => false], 'tabindex' => 2, 'class' => 'mod-form-input-text inputBlock-inputGroup-txtBox']) ?>
 			</div>
 			<?php
-			if ($currentPrefix == 'front'){
-				$this->BcBaser->link(__d('baser', 'パスワードをお忘れの方はこちら＞'), ['plugin' => 'instant_page', 'action' => 'reset_password'], ['class' => 'inputBlock-linkForgotPass']);
+			if ($this->request->here == '/instant_page/instant_page_users/login'){
+				$this->BcBaser->link(__d('baser', 'パスワードをお忘れの方はこちら＞'), ['plugin' => 'instant_page', 'controller' => 'instant_page_users', 'action' => 'send_activate_url'], ['class' => 'inputBlock-linkForgotPass']);
 			} else {
-				$this->BcBaser->link(__d('baser', 'パスワードをお忘れの方はこちら＞'), ['action' => 'reset_password', $this->request->params['prefix'] => false], ['class' => 'inputBlock-linkForgotPass']);
+				$this->BcBaser->link(__d('baser', 'パスワードをお忘れの方はこちら＞'), ['plugin' => null, 'action' => 'send_activate_url', $this->request->params['prefix'] => true], ['class' => 'inputBlock-linkForgotPass']);
 			}
 			?>
 			<?php echo $this->BcForm->input($userModel . '.saved', [

@@ -59,6 +59,9 @@ class InstantPageUsersController extends AppController {
 		$this->BcAuth->allow('verify');
 		$this->BcAuth->allow('edit_password');
 		$this->BcAuth->allow('reset_password');
+		$this->BcAuth->allow('send_activate_url');
+		$this->BcAuth->allow('sent_activate_url');
+		$this->BcAuth->allow('login');
 		$this->BcAuth->allow('admin_login');
 		$this->BcAuth->allow('activate');
 		$this->BcAuth->allow('ajax_id_check');
@@ -321,6 +324,16 @@ class InstantPageUsersController extends AppController {
 	}
 
 
+/**
+ * パスワードリセットのためアクティベーション処理を行なう
+ * アクティベーション画面のURLを指定したメールアドレス宛に送信する
+ *
+ * @return void
+ */
+ 	public function send_activate_url() {
+		$this->redirect('/cmsadmin/users/send_activate_url');
+	}
+
 
 	public function reset_password() {
 		$this->admin_reset_password();
@@ -333,14 +346,16 @@ class InstantPageUsersController extends AppController {
 	 * @return void
 	 */
 	public function admin_reset_password() {
-		if ((empty($this->params['prefix']) && !Configure::read('BcAuthPrefix.front'))) {
-			$this->notFound();
-		}
+		// $this->params['prefix'] == 'admin';
+		// if ((empty($this->params['prefix']) && !Configure::read('BcAuthPrefix.front'))) {
+		// 	$this->notFound();
+		// }
 		if($this->BcAuth->user()) {
 			$this->BcMessage->setError(__d('baser', '現在ログイン中です。'));
 			$this->redirect(['action' => 'edit_password']);
 		}
 		$this->pageTitle = __d('baser', 'パスワードの再設定');
+
 		$userModel = $this->BcAuth->authenticate['Form']['userModel'];
 		if(strpos($userModel, '.') !== false) {
 			list(, $userModel) = explode('.', $userModel);
@@ -410,7 +425,7 @@ class InstantPageUsersController extends AppController {
 	 * @return void
 	 */
 	public function admin_login() {
-		if ($this->BcAuth->loginAction != ('/' . $this->request->url)) {
+		if ($this->BcAuth->loginAction != ('/' . $this->request->url) && $this->request->url !== 'instant_page/instant_page_users/login' ) {
 			$this->notFound();
 		}
 		if ($this->request->data) {

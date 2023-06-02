@@ -40,7 +40,7 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 			return;
 		}
 		// パスワードリセット画面の場合はスルー
-		if(($Controller->request->url) == 'mypage/instant_page/instant_page_users/reset_password') {
+		if(($Controller->request->url) == 'instant_page/instant_page_users/reset_password') {
 			return;
 		}
 		// パスワード編集画面の場合はスルー
@@ -62,7 +62,7 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 				// /partner/** に未ログイン状態でアクセス後、ログインした後に /partner/** へ遷移させる。
 				// $current_path = $Controller->request->url;
 				// $Controller->Session->write('Auth.redirect', '/'. $current_path);
-				$Controller->redirect($Controller->BcAuth->loginAction);
+				//$Controller->redirect($Controller->BcAuth->loginAction);
 			//}
 		}
 	}
@@ -75,35 +75,35 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 	public function initialize(CakeEvent $event) {
 		$Controller = $event->subject();
 
-		/**
-		 * authCookie 期限延長
-		 * ログイン状態保持設定 & ログイン画面からの遷移 & 認証情報有り
-		 */
-		//1. セッション一時書き込み
-		if (preg_match('/^\/users\/login/', $Controller->referer()) &&
-			Hash::get($Controller->request->params, 'controller') == 'users' &&
-			Hash::get($Controller->request->params, 'action')     == 'login' &&
-			Hash::get($Controller->request->data, 'User.saved')) {
+		// /**
+		//  * authCookie 期限延長
+		//  * ログイン状態保持設定 & ログイン画面からの遷移 & 認証情報有り
+		//  */
+		// //1. セッション一時書き込み
+		// if (preg_match('/^\/users\/login/', $Controller->referer()) &&
+		// 	Hash::get($Controller->request->params, 'controller') == 'users' &&
+		// 	Hash::get($Controller->request->params, 'action')     == 'login' &&
+		// 	Hash::get($Controller->request->data, 'User.saved')) {
 
-			CakeSession::write(FrontAuthUtil::$tmpLoginDataKey, $Controller->request->data);
-		}
-		//2. セッション一時データ取り出し 期限更新
-		if (preg_match('/^teacher\//', $Controller->params->url)) {
-			$tmpLoginData = CakeSession::read(FrontAuthUtil::$tmpLoginDataKey);
+		// 	CakeSession::write(FrontAuthUtil::$tmpLoginDataKey, $Controller->request->data);
+		// }
+		// //2. セッション一時データ取り出し 期限更新
+		// if (preg_match('/^teacher\//', $Controller->params->url)) {
+		// 	$tmpLoginData = CakeSession::read(FrontAuthUtil::$tmpLoginDataKey);
 
-			if ($tmpLoginData) {
-				$sessionKey = Configure::read('BcAuthPrefix.front.sessionKey');
-				$authKey    = "Auth{$sessionKey}";
-				$auth       = $Controller->Cookie->read($authKey);
-				if ($auth) {
-					$this->log($auth);
-					//期限更新
-					$Controller->Cookie->write($authKey, $auth, true, '+'.FrontAuthUtil::$extensionAuthExpires.' days');	// 3つめの'true'で暗号化
-					//削除
-					CakeSession::delete(FrontAuthUtil::$tmpLoginDataKey);
-				}
-			}
-		}
+		// 	if ($tmpLoginData) {
+		// 		$sessionKey = Configure::read('BcAuthPrefix.front.sessionKey');
+		// 		$authKey    = "Auth{$sessionKey}";
+		// 		$auth       = $Controller->Cookie->read($authKey);
+		// 		if ($auth) {
+		// 			$this->log($auth);
+		// 			//期限更新
+		// 			$Controller->Cookie->write($authKey, $auth, true, '+'.FrontAuthUtil::$extensionAuthExpires.' days');	// 3つめの'true'で暗号化
+		// 			//削除
+		// 			CakeSession::delete(FrontAuthUtil::$tmpLoginDataKey);
+		// 		}
+		// 	}
+		// }
 	}
 
 	public function beforeRender(CakeEvent $event) {

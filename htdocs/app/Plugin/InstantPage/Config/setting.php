@@ -6,28 +6,28 @@
 App::uses('InstantPageUtil', 'InstantPage.Lib');
 
 // フロント認証
-$config['BcAuthPrefix'] = [
-	// フロント（例）
- 'front' => [
-	  'name' => __d('baser', 'インスタントページ'),
-	  'loginRedirect' => '/cmsadmin/instant_page/instant_pages/',
-	  'userModel' => 'User',
-	  'loginAction'	=> '/mypage/instant_page/instant_page_users/login',
-	  'toolbar' => true,
-	   'sessionKey' => 'Admin'
-	],
-	// マイページ（例）
- 'mypage' => [
-	  'name'			=> __d('baser', 'マイページ'),
-	  'alias'			=> 'mypage',
-	  'loginRedirect'	=> '/cmsadmin/instant_page/instant_pages/',
-	  'loginTitle'	=> __d('baser', 'ログイン'),
-	  'userModel'		=> 'User',
-	  'loginAction'	=> '/mypage/instant_page/instant_page_users/login',
-	  'toolbar'		=> true,
-	  // 'sessionKey'	=> 'User'
-	]
-];
+// $config['BcAuthPrefix'] = [
+// 	// フロント（例）
+//  'front' => [
+// 	  'name' => __d('baser', 'インスタントページ'),
+// 	  'loginRedirect' => '/cmsadmin/instant_page/instant_pages/',
+// 	  'userModel' => 'User',
+// 	  'loginAction'	=> '/instant_page/instant_page_users/login',
+// 	  'toolbar' => true,
+// 	   'sessionKey' => 'Admin'
+// 	],
+// 	// マイページ（例）
+//  'mypage' => [
+// 	  'name'			=> __d('baser', 'マイページ'),
+// 	  'alias'			=> 'mypage',
+// 	  'loginRedirect'	=> '/cmsadmin/instant_page/instant_pages/',
+// 	  'loginTitle'	=> __d('baser', 'ログイン'),
+// 	  'userModel'		=> 'User',
+// 	  'loginAction'	=> '/mypage/instant_page/instant_page_users/login',
+// 	  'toolbar'		=> true,
+// 	  // 'sessionKey'	=> 'User'
+// 	]
+// ];
 
 // システムナビ
 $config['BcApp.adminNavigation'] = [

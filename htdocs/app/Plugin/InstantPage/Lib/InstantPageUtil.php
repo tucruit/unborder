@@ -95,6 +95,23 @@ class InstantPageUtil extends CakeObject {
 		return $data;
 	}
 
+	/*
+	 * @param string|array $check Value to check
+	 * @return bool Success
+	 */
+	public static function alphaNumericPlus($check) {
+		if (empty($check) && $check != '0') {
+			return false;
+		}
+		return static::_check($check, "/^[a-zA-Z0-9\-_]+$/Du");
+		//return static::_check($check, '/^[\p{Ll}\p{Lm}\p{Lo}\p{Lt}\p{Lu}\p{Nd}]+$/Du');
+	}
+	protected static function _check($check, $regex) {
+		if (is_string($regex) && is_scalar($check) && preg_match($regex, $check)) {
+			return true;
+		}
+		return false;
+	}
 
 	// /**
 	//  * 状態を取得する

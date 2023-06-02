@@ -111,6 +111,9 @@ class InstantPagesController extends AppController {
 
 		// インスタントページユーザーでログイン中は自分の作成ページのみ参照
 		$user = BcUtil::loginUser();
+		if (InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+			$user = $this->InstantPageUser->find('first', ['conditions' => ['InstantPageUser.user_id' => $user['id']]]);
+		}
 		if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
 			$conditions['InstantPage.instant_page_users_id'] = $user['InstantPageUser']['id'];
 		}

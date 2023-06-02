@@ -72,7 +72,7 @@ $this->BcBaser->i18nScript([
 			<div class="u-flex u-mt-6 u-mt-md-9 u-mb-3">
 				<div class="u-flex__inr u-jc-center">
 					<div class="mod-btn-01 signup-form-submit-send">
-						<a href="/mypage/instant_page/instant_page_users/login">ログイン画面へ戻る</a>
+						<a href="/instant_page/instant_page_users/login">ログイン画面へ戻る</a>
 					</div>
 					<br>
 					<div class="mod-btn-02 signup-form-submit-send">

@@ -8,9 +8,13 @@ $users = isset($users) ? $users : $this->InstantPageUser->getUserList();
 $InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : ['default', 'pop'];
 $editorOptions = [];
 $templates =[];
-if (isset($user['InstantPageUser'])) {
+$instantPageUserIdValue = [];
+if (!isset($user['InstantPageUser'])) {
+	$user['InstantPageUser'] = $this->InstantPage->getInstantPageUser($user['id']);
 	$this->request->data['InstantPage']['instant_page_user_id'] = $user['InstantPageUser']['id'];
+	$instantPageUserIdValue = ['value' => $user['InstantPageUser']['id']];
 }
+
 ?>
 <div hidden="hidden">
 	<div id="Action"><?php echo $this->request->action ?></div>
@@ -24,7 +28,7 @@ if (isset($user['InstantPageUser'])) {
 
 <?php echo $this->BcForm->input('InstantPage.mode', ['type' => 'hidden']) ?>
 <?php echo $this->BcForm->input('InstantPage.id', ['type' => 'hidden']) ?>
-<?php echo $this->BcForm->hidden('InstantPage.instant_page_users_id')  ?>
+<?php echo $this->BcForm->hidden('InstantPage.instant_page_users_id', $instantPageUserIdValue)  ?>
 <?php echo $this->BcForm->unlockField('InstantPage.status'); ?>
 <?php echo $this->BcFormTable->dispatchBefore() ?>
 
