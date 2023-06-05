@@ -36,7 +36,7 @@ class InstantPageUser extends AppModel {
 		$this->validate = [
 			'name' => [
 				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'アカウント名を入力してください。')],
-				// 'alphaNumericPlus' => ['rule' => 'alphaNumericPlus', 'message' => __d('baser', 'アカウント名は半角英数字とハイフン、アンダースコアのみで入力してください。')],
+				'alphaNumericPlus' => ['rule' => 'alphaNumericPlus', 'message' => __d('baser', 'アカウント名は半角英数字とハイフン、アンダースコアのみで入力してください。')],
 				'duplicate' => ['rule' => ['duplicate', 'name'], 'message' => __d('baser', '既に登録のあるアカウント名です。')],
 				'maxLength' => ['rule' => ['maxLength', 255], 'message' => __d('baser', 'アカウント名は255文字以内で入力してください。')]
 			],
@@ -238,12 +238,12 @@ class InstantPageUser extends AppModel {
 	 */
 	public function beforeSave($options = array()) {
 		// Active Actionからのユーザー登録の場合、二重にパスワードが暗号化されないようにリターンする
-		if (isset($this->data[$this->alias]['from']) && $this->data[$this->alias]['from'] == 'active_action') {
-			return true;
-		} elseif (isset($this->data['User']['password'])) {
-			App::uses('AuthComponent', 'Controller/Component');
-			$this->data['User']['password'] = AuthComponent::password($this->data[$this->alias]['password']);
-		}
+		// if (isset($this->data[$this->alias]['from']) && $this->data[$this->alias]['from'] == 'active_action') {
+		// 	return true;
+		// } elseif (isset($this->data['User']['password'])) {
+		// 	App::uses('AuthComponent', 'Controller/Component');
+		// 	$this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+		// }
 		// 県名がテキストだった場合、idで保存する
 		if (isset($this->data[$this->alias]['prefecture_id'])) {
 			$prefIds =Configure::read('InstantPage.pref');

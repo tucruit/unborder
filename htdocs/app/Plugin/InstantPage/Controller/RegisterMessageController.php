@@ -63,7 +63,8 @@ class RegisterMessageController extends AppController {
 		if (!$id && $this->request->data('id')) {
 			$id = $this->request->data('id');
 		}
-		if (!Validation::alphaNumeric($id)) {
+
+		if (!InstantPageUtil::alphaNumericPlus($id)) {
 			$id = false;
 			$errParams = ['status' => false, 'message' => '形式が無効です。'];
 		}

@@ -2,7 +2,7 @@
 // インスタントページをログアウトしたときはインスタントページログインページにリダイレクト
 $server = $_SERVER;
 if (!empty($server['HTTP_REFERER']) && strpos($server['HTTP_REFERER'], 'admin/instant_page/') !== false) {
-	header('Location: '. $this->BcBaser->getUri('/mypage/instant_page/instant_page_users/login'));
+	header('Location: '. $this->BcBaser->getUri('/instant_page/instant_page_users/login'));
 	exit;
 } else {
 	// $enableIp = [

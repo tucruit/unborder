@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<!-- FAVICON -->
-	<link rel="icon" href="favicon.ico">
+	<link rel="icon" href="/favicon.ico">
 	<link rel="shortcut icon" href="/img/common/favicon_180.png">
 	<link rel="apple-touch-icon" href="/img/common/favicon_180.png">
 	<!-- /FAVICON -->

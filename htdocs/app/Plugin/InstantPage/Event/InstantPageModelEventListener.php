@@ -43,7 +43,7 @@ class InstantPageModelEventListener extends BcModelEventListener {
 	public function userBeforeValidate(CakeEvent $event) {
 		$Model = $event->subject();
 
-		if (InstantPageUtil::isMemberGroup($Model->data['User']['user_group_id'])) {
+		if (isset($Model->data['User']['user_group_id']) && InstantPageUtil::isMemberGroup($Model->data['User']['user_group_id'])) {
 			$Model->validate['email'] = array(
 				'notBlank'	 => array(
 					'rule'		 => array('notBlank'),

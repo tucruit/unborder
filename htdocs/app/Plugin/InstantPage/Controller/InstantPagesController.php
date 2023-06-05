@@ -111,6 +111,9 @@ class InstantPagesController extends AppController {
 
 		// インスタントページユーザーでログイン中は自分の作成ページのみ参照
 		$user = BcUtil::loginUser();
+		if (InstantPageUtil::isMemberGroup($user['user_group_id'])) {
+			$user = $this->InstantPageUser->find('first', ['conditions' => ['InstantPageUser.user_id' => $user['id']]]);
+		}
 		if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
 			$conditions['InstantPage.instant_page_users_id'] = $user['InstantPageUser']['id'];
 		}
@@ -191,9 +194,10 @@ class InstantPagesController extends AppController {
 				$this->request->data['InstantPage']['instant_page_users_id'] = $user['InstantPageUser']['id'];
 			}
 		}
-
+		// テーマテンプレート一覧
+		$InstantpageTemplateList = configure::read('InstantpageTemplateList');
+		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
 		// ユーザー一覧
-		$this->set('InstantpageTemplateList', ['default', 'pop']);
 		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '新規登録';
 		$this->render('form');
@@ -232,6 +236,9 @@ class InstantPagesController extends AppController {
 			}
 		}
 
+		// テーマテンプレート一覧
+		$InstantpageTemplateList = configure::read('InstantpageTemplateList');
+		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
 		// ユーザー一覧
 		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '編集';

@@ -27,9 +27,9 @@ class InstantPage extends AppModel {
 		$this->validate = [
 			'name' => [
 				'notBlank' => ['rule' => ['notBlank'], 'message' => __d('baser', 'URLを入力してください。')],
-				// 'alphaNumericPlus' => ['rule' => 'alphaNumericPlus', 'message' => __d('baser', 'URLは半角英数字とハイフン、アンダースコアのみで入力してください。')],
-				//'duplicate' => ['rule' => ['duplicate', 'name'], 'message' => __d('baser', '既に登録のあるアカウント名です。')],
-				//'maxLength' => ['rule' => ['maxLength', 255], 'message' => __d('baser', 'アカウント名は255文字以内で入力してください。')]
+				'alphaNumericPlus' => ['rule' => 'alphaNumericPlus', 'message' => __d('baser', 'URLは半角英数字とハイフン、アンダースコアのみで入力してください。')],
+				'duplicate' => ['rule' => ['duplicate', 'name'], 'message' => __d('baser', '既に登録のあるアカウント名です。')],
+				'maxLength' => ['rule' => ['maxLength', 255], 'message' => __d('baser', 'アカウント名は255文字以内で入力してください。')]
 			],
 			// タイトル
 			'title' => [

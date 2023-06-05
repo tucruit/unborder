@@ -21,11 +21,9 @@
 
 			<div class="u-flex u-mt-6 u-mt-md-9 u-mb-3">
 				<div class="u-flex__inr u-jc-center">
-					<?php if (isset($activate['InstantPageUser']['referer']) && $activate['InstantPageUser']['referer']): ?>
-						<p><?php $this->BcBaser->link('引き続きダウンロード画面へ', $activate['InstantPageUser']['referer'], array('class' => 'button')); ?></p>
-					<?php else: ?>
-						<p><?php $this->BcBaser->link('ユーザー専用サイト', '/instant_pages/', array('class' => 'button')); ?></p>
-					<?php endif ?>
+					<p><?php
+					$this->BcBaser->link('ユーザー専用サイト', '/cmsadmin/instant_page/instant_pages/',['class' => 'button']);
+					?></p>
 				</div>
 			</div>
 

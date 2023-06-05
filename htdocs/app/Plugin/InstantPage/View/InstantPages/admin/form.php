@@ -18,7 +18,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 		// 'data-previewurl' => $this->Blog->getPreviewUrl($url, $this->request->params['Site']['use_subdomain'])
 	]);
 	$users = isset($users) ? $users : $this->InstantPageUser->getUserList();
-	$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : ['default', 'pop'];
+	$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : [1 => 'default', 2 =>'pop'];
 	$editorOptions = [];
 	$templates =[];
 	if (isset($user['InstantPageUser'])) {

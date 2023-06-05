@@ -40,7 +40,7 @@ if (!$userModel) {
 			</div>
 			<div class="u-flex u-mt-6 u-mt-md-9 u-mb-3">
 				<div class="u-flex__inr u-jc-center">
-					<div class="c-btn c-btn--sm2"><a href="/mypage/instant_page/instant_page_users/login">ログイン画面へ戻る<i class="c-icon c-icon--arrow rev"></i></a></div>
+					<div class="c-btn c-btn--sm2"><a href="/instant_page/instant_page_users/login">ログイン画面へ戻る<i class="c-icon c-icon--arrow rev"></i></a></div>
 					<div class="c-btn c-btn--input c-btn--sm2">
 						<?php echo $this->BcForm->submit(__d('baser', '送信'), array('div' => false, 'class' => 'btn-red button bca-btn', 'data-bca-btn-status' => 'warning')) ?><i class="c-icon c-icon--arrow"></i>
 					</div>
