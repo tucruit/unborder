@@ -96,6 +96,7 @@ class InstantPageUtil extends CakeObject {
 	}
 
 	/*
+	 * 英数字 +ハイフン・アンダースコアを許可
 	 * @param string|array $check Value to check
 	 * @return bool Success
 	 */
