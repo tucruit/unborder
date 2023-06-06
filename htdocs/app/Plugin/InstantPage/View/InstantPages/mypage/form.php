@@ -37,7 +37,7 @@ if (!isset($user['InstantPageUser'])) {
 		<!-- EDIT MAIN -->
 		<div class="edit-main">
 			<section>
-				<h2 class="mod-hl-02">編集対象ページの公開ステータスにつきまして</h2>
+				<!-- <h2 class="mod-hl-02">編集対象ページの公開ステータスにつきまして</h2>
 				<p class="marginTop30">
 					#selfStatusValue(input type="hidden")で保持する仕様にしています。<br>
 					当ページ表示時に、公開ステータスを上記要素のvalueへ入れていただきますようお願いします。<br>
@@ -49,7 +49,7 @@ if (!isset($user['InstantPageUser'])) {
 					<li>非公開：0</li>
 				</ul>
 				<p>
-				</p>
+				</p> -->
 
 				<div hidden="hidden">
 					<div id="Action"><?php echo $this->request->action ?></div>
