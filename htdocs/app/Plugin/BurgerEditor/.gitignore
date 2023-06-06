@@ -74,6 +74,8 @@ Addon/block/*
 !Addon/block/wysiwyg2/
 !Addon/block/youtube/
 
+!Addon/block/header-1/
+
 # タイプ
 # オリジナルのタイプは除外
 # 標準のタイプは管理対象
