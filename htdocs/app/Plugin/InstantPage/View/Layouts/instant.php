@@ -56,7 +56,7 @@
 		$template = configure::read('InstantpageTemplateList');
 		if ( array_key_exists($data['InstantPage']['template'], $template) ) {
 			$this->BcBaser->css([
-				'/Theme/'. $template[$data['InstantPage']['template']]. '/css/bge_style'
+				'/theme/'. $template[$data['InstantPage']['template']]. '/css/bge_style'
 			], ['inline' => true]);
 		}
 	}
