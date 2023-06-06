@@ -6,19 +6,19 @@ $(function () {
     var template = $('#InstantPageTemplate');
     //console.log(template.val());
     if (template.val()) {
-        let templateIds = $('.btnApply');
+        let templateIds = $('.themeBox-btn__apply');
         $.each(templateIds, function(){
             let inner = $(this).html();
             if ($(this).data('template') == template.val()) {
                 inner = inner.replace('適用する', '適用済み');
                 //console.log(inner);
-                $(this).html(inner).parent('div').css('background-color', '#ccc');
+                $(this).html(inner).css('background-color', '#ccc');
             }
         });
         // ボタン押下時のアクション
-        $('.btnApply').click(function() {
-           $('.btnApply').text('適用する').parent('div').css('background-color', '#ea5457');
-           $(this).text('適用済み').parent('div').css('background-color', '#ccc');
+        $('.themeBox-btn__apply').click(function() {
+           $('.themeBox-btn__apply').css('background-color', '#ea5457').children('span').text('適用する');
+           $(this).css('background-color', '#ccc').children('span').text('適用済み');
            // 入力項目の切り替え
            template.val($(this).data('template'));
            //console.log($(this).data('template'));

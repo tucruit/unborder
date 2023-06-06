@@ -316,8 +316,8 @@ if (!isset($user['InstantPageUser'])) {
 									<div class="themeBox-img">
 										<?php $this->BcBaser->img('admin/no-screenshot.png', ['alt' => h($template). '適用イメージ', 'class' => 'imgFit']) ?>
 									</div>
-									<div class="themeBox-btn themeBox-btn__apply">
-										<span class="btnInner btnApply" data-template="<?php echo $key ?>">適用する</span>
+									<div class="themeBox-btn themeBox-btn__apply" data-template="<?php echo $key ?>">
+										<span class="btnInner">適用する</span>
 									</div>
 									<!-- <a href="#" target="_blank" rel="noopener noreferrer" class="themeBox-btn themeBox-btn__preview">
 										<span class="btnInner">サンプルプレビュー</span>
