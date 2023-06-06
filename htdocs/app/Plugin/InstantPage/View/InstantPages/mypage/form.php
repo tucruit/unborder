@@ -295,7 +295,48 @@ if (!isset($user['InstantPageUser'])) {
 		</aside>
 		<!-- /EDIT MENU -->
 		<!-- THEME LIST -->
-		<?php //$this->BcBaser->element('admin/theme_list') ?>
+		<?php
+		$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : [];
+		?>
+		<div class="edit-themeListWrap" id="edit-themeListWrap">
+			<div class="edit-themeList">
+				<div class="edit-themeList-header">
+					<div class="edit-themeList-header-hl">テーマ一覧</div>
+					<p class="edit-themeList-header-txt">
+						任意のテーマの「適用する」ボタンをクリックするとテーマが適用されます。<br>保存すると表示が切り替わります。<!-- 「サンプルプレビュー」をクリックしていただくとサンプル画面がご確認いただけます。 -->
+					</p>
+				</div>
+				<div class="edit-themeList-body">
+					<div class="edit-themeList-body-themeContainer">
+						<?php if (!empty($InstantpageTemplateList)) :?>
+							<?php foreach ($InstantpageTemplateList as $key => $template) :?>
+								<!-- BOX -->
+								<div class="themeBox">
+									<span class="themeBox-title"><?php echo h($template) ?></span>
+									<div class="themeBox-img">
+										<?php $this->BcBaser->img('admin/no-screenshot.png', ['alt' => h($template). '適用イメージ', 'class' => 'imgFit']) ?>
+									</div>
+									<div class="themeBox-btn themeBox-btn__apply">
+										<span class="btnInner btnApply" data-template="<?php echo $key ?>">適用する</span>
+									</div>
+									<!-- <a href="#" target="_blank" rel="noopener noreferrer" class="themeBox-btn themeBox-btn__preview">
+										<span class="btnInner">サンプルプレビュー</span>
+									</a> -->
+								</div>
+								<!-- /BOX -->
+							<?php endforeach; ?>
+						<?php else: ?>
+							<p>現在選択できるテーマはございません。</p>
+						<?php endif; ?>
+					</div>
+				</div>
+				<div class="edit-themeList-footer">
+					<div class="edit-themeList-footer-closeBtn">
+						<span class="btnInner">閉じる</span>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- /THEME LIST -->
 	</div>
 </div>
@@ -304,4 +345,4 @@ if (!isset($user['InstantPageUser'])) {
 <script src="https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
 <script src="/my_page/js/ps_edit.js" type="module"></script>
 <script src="/my_page/js/lib/scroll-hint/js/scroll-hint.min.js"></script>
-<?php //$this->BcBaser->js(array('InstantPage.instant_pages'), true); ?>
+<?php $this->BcBaser->js(array('InstantPage.instant_pages'), true); ?>
