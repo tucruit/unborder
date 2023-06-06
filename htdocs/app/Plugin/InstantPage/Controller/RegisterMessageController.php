@@ -64,6 +64,7 @@ class RegisterMessageController extends AppController {
 			$id = $this->request->data('id');
 		}
 
+		// 英数字 +ハイフン・アンダースコア以外が使われていないかチェック
 		if (!InstantPageUtil::alphaNumericPlus($id)) {
 			$id = false;
 			$errParams = ['status' => false, 'message' => '形式が無効です。'];

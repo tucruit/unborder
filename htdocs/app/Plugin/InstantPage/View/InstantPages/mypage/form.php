@@ -5,7 +5,7 @@
 $this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
 $this->BcBaser->js('InstantPage.admin/edit', false);
 $users = isset($users) ? $users : $this->InstantPageUser->getUserList();
-$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : ['default', 'pop'];
+$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : [1 => 'default', 2 =>'pop'];
 $editorOptions = [];
 $templates =[];
 $instantPageUserIdValue = [];
@@ -14,7 +14,6 @@ if (!isset($user['InstantPageUser'])) {
 	$this->request->data['InstantPage']['instant_page_user_id'] = $user['InstantPageUser']['id'];
 	$instantPageUserIdValue = ['value' => $user['InstantPageUser']['id']];
 }
-
 ?>
 <div hidden="hidden">
 	<div id="Action"><?php echo $this->request->action ?></div>
@@ -116,7 +115,7 @@ if (!isset($user['InstantPageUser'])) {
 								<div class="subMenuBox-inputBlock-inputSet">
 									<div class="inputSet-header withHelp">
 										<?php
-										echo $this->BcForm->label('InstantPage.name', 'Url名（name）', ['class' => 'inputSet-header-name']);
+										echo $this->BcForm->label('InstantPage.name', 'Url名（name）', ['class' => 'inputSet-header-name nameCheck']);
 										?>
 										<!-- HELP -->
 										<i class="subMenuBox-header-helpIcon">&thinsp;</i>
@@ -226,7 +225,8 @@ if (!isset($user['InstantPageUser'])) {
 						<!-- /MENU BOX -->
 						<!-- MENU BOX -->
 						<div class="subMenuBox" id="subMenuGroupPageConfig-themeSelect">
-							<span class="subMenuBox-title isMenuBtn">テーマの選択</span>
+							<span class="subMenuBox-title isMenuBtn"><?php echo $this->BcForm->label('InstantPage.template', 'テーマの選択') ?></span>
+							<?php echo $this->BcForm->input('InstantPage.template', ['type' => 'hidden']) ?>
 						</div>
 						<!-- /MENU BOX -->
 					</div>
@@ -300,7 +300,8 @@ if (!isset($user['InstantPageUser'])) {
 	</div>
 </div>
 
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
 <script src="/my_page/js/ps_edit.js" type="module"></script>
 <script src="/my_page/js/lib/scroll-hint/js/scroll-hint.min.js"></script>
+<?php //$this->BcBaser->js(array('InstantPage.instant_pages'), true); ?>

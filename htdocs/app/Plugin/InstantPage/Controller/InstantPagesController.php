@@ -71,6 +71,7 @@ class InstantPagesController extends AppController {
 		// 認証設定
 		$this->BcAuth->allow('display');
 		$this->BcAuth->allow('detail');
+		$this->BcAuth->allow('ajax_name_check');
 
 		if (empty($this->siteConfigs['editor']) || $this->siteConfigs['editor'] === 'none') {
 			return;
@@ -84,7 +85,7 @@ class InstantPagesController extends AppController {
 	 * @param int id
 	 */
 	public function index($id = null) {
-		$this->BcMessage->setError(__d('baser', 'まだ実装されていません'));
+		$this->BcMessage->setError(__d('baser', '準備中です'));
 	}
 
 	/**
@@ -157,6 +158,7 @@ class InstantPagesController extends AppController {
 		if (!$data) {
 			$this->notFound();
 		}
+
 		$this->set('data', $data);
 	}
 
@@ -239,11 +241,72 @@ class InstantPagesController extends AppController {
 		// テーマテンプレート一覧
 		$InstantpageTemplateList = configure::read('InstantpageTemplateList');
 		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
+		// 管理画面にテーマのセット
+		$template = isset($this->request->data['InstantPage']['template']) ? $this->request->data['InstantPage']['template'] : 1;
+		if (array_key_exists($template, $InstantpageTemplateList)) {
+			Configure::write('BcSite.theme', $InstantpageTemplateList[$template]);
+		}
+
+
 		// ユーザー一覧
 		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '編集';
 		$this->render('form');
 	}
+
+
+	/*
+	 * name チェック
+	 */
+
+	public function ajax_name_check($name = null) {
+
+		$this->layout = false;
+		$this->autoRender = false;
+		$errParams = array();
+		if (!$name && $this->request->data('name')) {
+			$name = $this->request->data('name');
+		}
+
+		// 英数字 +ハイフン・アンダースコア以外が使われていないかチェック
+		if (!InstantPageUtil::alphaNumericPlus($name)) {
+			$name = false;
+			$errParams = ['status' => false, 'message' => '形式が無効です。'];
+		}
+
+		if ($name) {
+			$user =
+			$names = $this->{$this->modelClass}->find('all', array(
+				'conditions' => array(
+					'InstantPage.name' => $name,
+					'InstantPage.instant_page_users_id >=' => date('Y-m-d H:i:s'),
+				),
+				'recursive' => -1
+			));
+
+			if ($users || $InstantPage) {
+			//if ($users) {
+				$errParams = [
+					'status' => false,
+					'message' => '既に登録されているページ名名です。別のページ名名をご入力ください。',
+				];
+			} else {
+				$errParams = [
+					'status' => true,
+					'message' => '利用可能なページ名名です。',
+				];
+			}
+		} elseif(empty($errParams)) {
+			$errParams = [
+				'status' => false,
+				'message' => 'ページ名名が入力されていません。ページ名名をご入力ください。',
+			];
+		}
+		$errParams['field'] = '.nameCheck';
+		return json_encode($errParams);
+	}
+
+
 
 	/**
 	 * [ADMIN] 削除
