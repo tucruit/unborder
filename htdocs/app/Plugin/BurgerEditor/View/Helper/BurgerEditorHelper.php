@@ -639,7 +639,10 @@ class BurgerEditorHelper extends AppHelper {
 
 		$params = Router::getParams();
 
-		if(!in_array($params['controller'], array('pages', 'blog_posts'))) return;
+		/* ▼▼▼▼▼▼ 案件専用カスタマイズ pages・blog_posts以外でもBurgerEditorを使用可能にする ▼▼▼▼▼▼ */
+		//if(!in_array($params['controller'], array('pages', 'blog_posts'))) return;
+		if(!in_array($params['controller'], array('pages', 'blog_posts'))) return Configure::read('BcSite.theme');
+		/* ▲▲▲▲▲▲ 案件専用カスタマイズ ここまで ▲▲▲▲▲▲ */
 		if(!in_array($params['action'], array('admin_add', 'admin_edit'))) return;
 
 		$siteId = 0;
