@@ -9,7 +9,7 @@
 					<span class="btnInner">
 						<span class="noWrap"><span class="noWrap">インスタントページ</span><span class="noWrap">に関する</span></span><span class="noWrap">お問い合せはこちら</span></span>
 				</a>
-				<a href="#" class="linkBtn linkBtn__signUp">
+				<a href="/signup/" class="linkBtn linkBtn__signUp">
 					<span class="btnInner">新規登録はこちら</span>
 				</a>
 			</div>

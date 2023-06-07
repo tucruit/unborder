@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mail_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mail_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mod_contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mod_contact.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +52,7 @@
       <updated>1685536197754</updated>
       <workItem from="1685536198819" duration="825000" />
       <workItem from="1685537068192" duration="2175000" />
-      <workItem from="1686119600032" duration="171000" />
+      <workItem from="1686119600032" duration="237000" />
     </task>
     <servers />
   </component>
