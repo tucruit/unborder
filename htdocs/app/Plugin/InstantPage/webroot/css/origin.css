@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.bgb-header-1 {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    max-height: 150px;
+}
+.bgb-header-1 header{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.bgb-header-1 header .bgt-grid2 {
+    width: auto;
+}
+.bgb-header-1 header .bgt-grid--last {
+    float: none;
+}
+.bgb-header-1 + div {
+    margin-top: 200px;
+}

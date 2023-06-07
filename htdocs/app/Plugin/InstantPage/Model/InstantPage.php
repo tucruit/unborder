@@ -209,7 +209,7 @@ class InstantPage extends AppModel {
 	 */
 	public function getDefaultValue() {
 		$data[$this->name]['status'] = 0;
-		$data[$this->name]['template'] = 0;
+		$data[$this->name]['template'] = 1;
 		return $data;
 	}
 

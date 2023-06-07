@@ -17,12 +17,18 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 		// 'data-fullurl' => $fullUrl,
 		// 'data-previewurl' => $this->Blog->getPreviewUrl($url, $this->request->params['Site']['use_subdomain'])
 	]);
+	//$this->BcBaser->js('InstantPage.instant_pages', false);
 	$users = isset($users) ? $users : $this->InstantPageUser->getUserList();
 	$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : [1 => 'default', 2 =>'pop'];
 	$editorOptions = [];
 	$templates =[];
 	if (isset($user['InstantPageUser'])) {
 		$this->request->data['InstantPage']['instant_page_user_id'] = $user['InstantPageUser']['id'];
+	}
+	?>
+	<?php
+	if (isset($this->request->data['InstantPage']['template'])) {
+		$this->BcBaser->css(['InstantPage.origin'], ['inline' => true]);
 	}
 	?>
 	<?php if ($this->action == 'admin_add'): ?>
@@ -61,7 +67,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 					&nbsp;<span class="bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
 				</th>
 				<td class="col-input bca-form-table__input">
-					<?php echo $this->BcForm->input('InstantPage.name', ['type' => 'text', 'size' => 20, 'autofocus' => true]) ?>
+					<?php echo $this->BcForm->input('InstantPage.name', ['type' => 'text', 'size' => 20, 'autofocus' => true, 'class' => 'bca-textbox__input nameCheck']) ?>
 					<?php echo $this->BcForm->error('InstantPage.name') ?>
 					<span class="bca-post__url">
 						<?php //echo strip_tags($linkedFullUrl, '<a>') ?>

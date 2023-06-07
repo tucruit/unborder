@@ -48,6 +48,19 @@
 	<meta property="og:site_name" content="<?php echo $this->BcBaser->getSiteName(); ?>">
 	<!-- /SHARE -->
 	<?php $this->BcBaser->scripts() ?>
+
+	<?php
+	$this->BcBaser->css(['InstantPage.origin'], ['inline' => true]);
+	// テンプレートリスト取得
+	if (isset($data['InstantPage']['template']) && $data['InstantPage']['template']) {
+		$template = configure::read('InstantpageTemplateList');
+		if ( array_key_exists($data['InstantPage']['template'], $template) ) {
+			$this->BcBaser->css([
+				'/theme/'. $template[$data['InstantPage']['template']]. '/css/bge_style'
+			], ['inline' => true]);
+		}
+	}
+	?>
 	<?php $this->BcBaser->googleAnalytics() ?>
 </head>
 

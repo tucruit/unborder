@@ -113,6 +113,11 @@ if (!empty($user['Admin']
 		});
 	</script>
 	<?php $this->BcBaser->scripts() ?>
+	<?php
+	if (isset($this->request->data['InstantPage']['template'])) {
+		$this->BcBaser->css(['InstantPage.origin'], ['inline' => true]);
+	}
+	?>
 	<?php $this->BcBaser->googleAnalytics() ?>
 </head>
 

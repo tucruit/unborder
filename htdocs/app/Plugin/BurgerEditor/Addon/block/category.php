@@ -10,6 +10,9 @@
  *   );
  */
 $bgCategory = array(
+	'ヘッダー' => array(
+		'header-1' => 'ヘッダー',
+	),
 	'見出し / テキスト / テキスト+画像' => array(
 		'title' => '大見出し',
 		'title2' => '中見出し',
