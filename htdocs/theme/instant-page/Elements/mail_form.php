@@ -57,7 +57,7 @@ $this->BcBaser->js('mail/form-submit', true, ['defer'])
 				$sendBtnTitle = "送信する";
 			}
 		?>
-		<a href="#">プライバシーポリシー</a>をご一読いただき、同意された方は「<?php echo $sendBtnTitle; ?>」ボタンを押してください。
+		<a href="/privacy">プライバシーポリシー</a>をご一読いただき、同意された方は「<?php echo $sendBtnTitle; ?>」ボタンを押してください。
 	</p>
 </div>
 
@@ -73,7 +73,7 @@ $this->BcBaser->js('mail/form-submit', true, ['defer'])
 		</div>
 	<?php else : ?>
 		<?php
-		/* 
+		/*
 		<div class="mod-btn-02 contact-form-submit-send">
 			<span class="btnInner">取り消す</span>
 			<input name="resetdata" value="取り消す" type="reset">

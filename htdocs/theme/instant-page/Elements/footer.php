@@ -22,7 +22,7 @@
 					<a href="/news/" class="listItemInner">お知らせ</a>
 				</li>
 				<li class="listItem">
-					<a href="#" class="listItemInner">プライバシーポリシー</a>
+					<a href="/privacy" class="listItemInner">プライバシーポリシー</a>
 				</li>
 				<li class="listItem">
 					<a href="/contact/" class="listItemInner">お問い合わせ</a>
