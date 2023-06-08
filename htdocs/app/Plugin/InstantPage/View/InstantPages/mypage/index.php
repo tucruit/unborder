@@ -2,6 +2,8 @@
 /**
  * [ADMIN] インスタントページ設定一覧
  */
+$pageRoutes = configure::read('pageRoutes');
+$userUrl = isset($user['name']) ? h($user['name']) : '';
 ?>
 <div role="main" class="myPage">
 	<h1 class="mod-hl-pageTitle">マイページ</h1>
@@ -30,7 +32,13 @@
 						<?php foreach ($datas as $data) :?>
 							<tr>
 								<td><?php $this->BcBaser->link($data['InstantPage']['title'], ['action' => 'edit', $data['InstantPage']['id']]) ?></td>
-								<td><?php echo $data['InstantPage']['status'] ? '公開中' : ''?></td>
+								<td><?php
+								if ($this->InstantPage->allowPublish($data) && $userUrl) { //公開状態であれば 公開ページヘのリンク
+									$this->BcBaser->link('公開中', $pageRoutes. $userUrl. '/' . $data['InstantPage']['name'], ['title' => __d('baser', '確認'), 'target' => '_blank']);
+								} else { // 非公開であればボタンを押せなくする
+									echo '非公開';
+								}
+								?></td>
 								<td><?php echo h($data['InstantPage']['template']) ?></td>
 								<td><?php echo date('Y年m月d日', strtotime($data['InstantPage']['modified']))?></td>
 								<td>

@@ -77,7 +77,7 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 						</a>
 					</li>
 					<li class="dn-pc">
-						<a href="#" class="menuTitle">
+						<a href="/privacy" class="menuTitle">
 							プライバシーポリシー
 						</a>
 					</li>

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mod_contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mod_contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/InstantPages/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/InstantPages/detail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/20230531__テーマのダミー文章変更",
+    "git-widget-placeholder": "feature/20230607__フロント側LPページの表示調整",
     "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -52,7 +52,8 @@
       <option name="presentableId" value="Default" />
       <updated>1685536197754</updated>
       <workItem from="1685536198819" duration="825000" />
-      <workItem from="1685537068192" duration="1553000" />
+      <workItem from="1685537068192" duration="2175000" />
+      <workItem from="1686119600032" duration="237000" />
     </task>
     <servers />
   </component>
