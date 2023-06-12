@@ -75,8 +75,8 @@ $(function(){
 				<?php echo $this->BcForm->error('InstantPageUser.kana_2') ?>
 			</td>
 		</tr>
-		<?php echo $this->BcForm->input('User.nickname', ['type' => 'hidden', 'size' => 40, 'maxlength' => 255]) ?>
- 		<?php echo $this->BcForm->input('User.user_group_id', ['type' => 'hidden', 'options' => $userGroups, 'value' => 4]) ?>
+		<?php //echo $this->BcForm->input('User.nickname', ['type' => 'hidden', 'size' => 40, 'maxlength' => 255]) ?>
+ 		<?php //echo $this->BcForm->input('User.user_group_id', ['type' => 'hidden', 'options' => $userGroups, 'value' => 4]) ?>
 		<tr>
 			<th class="col-head bca-form-table__label">
 				<?php echo $this->BcForm->label('InstantPageUser.zip_code', '郵便番号') ?>&nbsp;<span class="required bca-label" data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
