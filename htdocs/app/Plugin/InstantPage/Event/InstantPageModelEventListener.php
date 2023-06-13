@@ -258,7 +258,7 @@ class InstantPageModelEventListener extends BcModelEventListener {
 
 
 				// メールコンテンツチェック
-				if ($mailContent['MailContent']['id'] !== '1' ) { //baserCMS４系ではmail_contentテーブルにnameが無い
+				if (intval($mailContent['MailContent']['id']) !== 1 ) { //baserCMS４系ではmail_contentテーブルにnameが無い
 					return;
 				}
 
