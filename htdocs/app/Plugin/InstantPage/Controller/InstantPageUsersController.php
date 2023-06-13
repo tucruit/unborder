@@ -374,7 +374,8 @@ class InstantPageUsersController extends AppController {
 			}
 			if (!$user || mb_strlen($email) === 0) {
 				$this->BcMessage->setError('送信されたメールアドレスは登録されていません。');
-				return;
+				$this->request->data = [];
+				return false;
 			}
 
 			$Token = ClassRegistry::init('InstantPage.InstantPagePasswordToken');

@@ -11,6 +11,7 @@ class InstantPageModelEventListener extends BcModelEventListener {
 		'User.beforeValidate',
 		'User.afterSave',
 		'User.afterDelete',
+		'InstantPageUser.afterValidate',
 		'InstantPageUser.afterSave',
 		'InstantPageUser.afterDelete',
 		'Mail.MailMessage.afterValidate',
@@ -209,6 +210,26 @@ class InstantPageModelEventListener extends BcModelEventListener {
 		}
 	}
 
+	/**
+	 * instantPageUserAfterValidate
+	 *
+	 * @param CakeEvent $event
+	 * @return type
+	 */
+	public function instantPageUserAfterValidate(CakeEvent $event) {
+		$Model = $event->subject();
+		// パスワードチェック
+		if (isset($Model->data['User']['password_1']) && $Model->data['User']['password_1']) {
+			$valdateError = InstantPageUtil::password($Model->data['User']['password_1']);
+			if ($valdateError) {
+				$Model->invalidate('password_1_complete', $valdateError);
+			}
+			if ($Model->data['User']['password_1'] !== $Model->data['User']['password_2']) {
+				$Model->invalidate('password_2_equal', 'パスワードが同じものではありません。');
+			}
+		}
+	}
+
 
 	/**
 	 * mailMessageBeforeValidate
@@ -225,6 +246,7 @@ class InstantPageModelEventListener extends BcModelEventListener {
 		}
 
 		if ($Model->name == 'MailMessage') {
+
 			if ($Model->data['MailMessage']['mode'] === 'Confirm' || $Model->data['MailMessage']['mode'] === 'Send') {
 				$MailContent = ClassRegistry::init('Mail.MailContent');
 				$mailContent = $MailContent->find('first', array(
@@ -234,8 +256,9 @@ class InstantPageModelEventListener extends BcModelEventListener {
 					'recursive' => -1
 				));
 
+
 				// メールコンテンツチェック
-				if ($mailContent['MailContent']['id'] !== 1) { //baserCMS４系ではmail_contentテーブルにnameが無い
+				if ($mailContent['MailContent']['id'] !== '1' ) { //baserCMS４系ではmail_contentテーブルにnameが無い
 					return;
 				}
 
@@ -252,13 +275,14 @@ class InstantPageModelEventListener extends BcModelEventListener {
 
 				// e-mailチェック
 				if (isset($Model->data['MailMessage']['email']) && $Model->data['MailMessage']['email']) {
-					$InstantPageUser = ClassRegistry::init('InstantPage.InstantPageUser');
+					//$InstantPageUser = ClassRegistry::init('InstantPage.InstantPageUser');
+					$User = InstantPageUtil::users();
 					$RegisterMessage = ClassRegistry::init('InstantPage.RegisterMessage');
 					// メール・アドレスのバリデーションチェックが通っている場合
 					if (Validation::email($Model->data['MailMessage']['email'] )) {
-						$instantPageUserMail = $InstantPageUser->find('all', array(
+						$instantPageUserMail = $User->find('all', array(
 							'conditions' => array(
-								'InstantPageUser.email' => $Model->data['MailMessage']['email'],
+								'User.email' => $Model->data['MailMessage']['email'],
 							),
 							'recursive' => -1
 						));

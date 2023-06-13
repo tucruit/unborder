@@ -122,7 +122,7 @@ if (!isset($user['InstantPageUser'])) {
 										<div class="subMenuBox-header-help">
 											<ul class="mod-li-disc subMenuBox-header-help-list">
 												<li>半角英数のみで入力してください</li>
-												<li>同じ名前は仕様できません</li>
+												<li>同じ名前は使用できません</li>
 											</ul>
 										</div>
 										<!-- /HELP -->
@@ -260,7 +260,6 @@ if (!isset($user['InstantPageUser'])) {
 						</div>
 					</div> -->
 					<!-- OPERATION BTN -->
-				<?php echo $this->BcForm->end(); ?>
 					<!-- MENU BOX GROUP (LINK) -->
 					<div class="edit-sub-menu-menuGroup" id="subMenuGroupLink">
 						<!-- MENU BOX -->
@@ -314,7 +313,13 @@ if (!isset($user['InstantPageUser'])) {
 								<div class="themeBox">
 									<span class="themeBox-title"><?php echo h($template) ?></span>
 									<div class="themeBox-img">
-										<?php $this->BcBaser->img('admin/no-screenshot.png', ['alt' => h($template). '適用イメージ', 'class' => 'imgFit']) ?>
+										<?php
+										// テーマ内にscreenshot.pngがあれば、それを表示
+										$screenshotPath = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
+										$filePath = dirname(__FILE__). DS . '../../../../../..'. $screenshotPath;
+										$thnmb = file_exists($filePath) ? $screenshotPath : 'admin/no-screenshot.png';
+										$this->BcBaser->img($thnmb, ['alt' => h($template). '適用イメージ', 'class' => 'imgFit']);
+										?>
 									</div>
 									<div class="themeBox-btn themeBox-btn__apply" data-template="<?php echo $key ?>">
 										<span class="btnInner">適用する</span>
@@ -340,6 +345,7 @@ if (!isset($user['InstantPageUser'])) {
 		<!-- /THEME LIST -->
 	</div>
 </div>
+<?php echo $this->BcForm->end(); ?>
 
 <script src="https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>

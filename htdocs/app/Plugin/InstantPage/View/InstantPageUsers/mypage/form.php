@@ -171,7 +171,20 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 							echo $this->BcForm->input('User.password_2', [
 								'type' => 'password', 'class' => 'mod-form-input-text', 'maxlength' => 255, 'div' => false
 							]);
-							echo $this->BcForm->error('User.password');
+
+							$erros = $this->validationErrors['InstantPageUser'];
+							if (!empty($erros)) {
+								foreach ($erros as $key => $error) {
+									if (strpos($key, 'password_') !== false) {
+										$errorMassage = implode(' ', $error);
+										// validationErrorsでは、グループチェックフィールドは必須入力がバグっているため、除外
+										if (strpos($errorMassage, '1 1') === false ){
+											echo '<div class="error-message">'. $errorMassage. '</div>';
+										}
+									}
+								}
+							}
+							echo $this->BcForm->error('User.password')
 							?>
 						</td>
 					</tr>

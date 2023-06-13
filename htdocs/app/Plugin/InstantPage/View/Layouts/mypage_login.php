@@ -20,10 +20,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 	<!-- /FONTS -->
 	<?php
-	$this->BcBaser->css([
-		'../js/admin/vendors/bootstrap-4.1.3/bootstrap.min',
-		'admin/style.css',
-		'admin/jquery-ui/jquery-ui.min',
+	$this->BcBaser->css(['../js/admin/vendors/bootstrap-4.1.3/bootstrap.min',]);
+	if (isset($user)) {
+		$this->BcBaser->css(['admin/style.css',]);
+	}
+	$this->BcBaser->css(['admin/jquery-ui/jquery-ui.min',
 		'../js/admin/vendors/jquery.jstree-3.3.8/themes/proton/style.min',
 		'../js/admin/vendors/jquery-contextMenu-2.2.0/jquery.contextMenu.min',
 		'admin/colorbox/colorbox-1.6.1',
@@ -128,47 +129,48 @@
 	<div id="CurrentPageUrl" style="display: none"><?php echo ($this->request->url == Configure::read('Routing.prefixes.0')) ? '/' . BcUtil::getAdminPrefix() . '/dashboard/index' : '/' . h($this->request->url); ?></div>
     <!-- Waiting -->
 	<?php $this->BcBaser->header() ?>
-		<main id="Contents">
+	<main id="Contents">
 
-			<div role="main">
-				<!-- BREAD CRUMBS -->
-				<div class="sub-breadcrumbs">
-					<div class="l-subContentsContainer sub-breadcrumbsInner">
-						<ol class="sub-breadcrumbs-list">
-							<li><a href="/">トップページ</a></li>
-							<li><?php $this->BcBaser->contentsTitle() ?></li>
-						</ol>
-					</div>
+		<div role="main">
+			<!-- BREAD CRUMBS -->
+			<div class="sub-breadcrumbs">
+				<div class="l-subContentsContainer sub-breadcrumbsInner">
+					<ol class="sub-breadcrumbs-list">
+						<li><a href="/">トップページ</a></li>
+						<li><?php $this->BcBaser->contentsTitle() ?></li>
+					</ol>
 				</div>
-				<!-- /BREAD CRUMBS -->
-				<!-- SUB H1 -->
-				<div class="sub-h1">
-					<div class="l-subContentsContainer sub-h1Inner">
-						<h1 class="sub-h1-hl"><?php h($this->BcBaser->contentsTitle()) ?></h1>
-					</div>
-				</div>
-				<!-- /SUB H1 -->
-
-				<!-- PAGE CONTENTS -->
-				<div class="users usersLogin">
-					<?php $this->BcBaser->flash() ?>
-					<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
-					<?php echo $this->BcLayout->dispatchContentsHeader() ?>
-					<div class="l-subContentsContainer sub-container usersInner">
-					<div class="bca-main__header-actions">
-						<?php if(!empty($user)) $this->BcBaser->element('main_body_header_links'); ?>
-					</div>
-						<?php $this->BcBaser->content() ?>
-					</div>
-					<?php echo $this->BcLayout->dispatchContentsFooter() ?>
-				</div>
-				<!-- /PAGE CONTENTS -->
 			</div>
+			<!-- /BREAD CRUMBS -->
+			<!-- SUB H1 -->
+			<div class="sub-h1">
+				<div class="l-subContentsContainer sub-h1Inner">
+					<h1 class="sub-h1-hl"><?php h($this->BcBaser->contentsTitle()) ?></h1>
+				</div>
+			</div>
+			<!-- /SUB H1 -->
 
-			<?php $this->BcBaser->element('mod_contact'); ?>
-		</main>
-		<?php $this->BcBaser->footer() ?>
-	<?php $this->BcBaser->func() ?>
+			<!-- PAGE CONTENTS -->
+			<div class="users usersLogin">
+				<?php $this->BcBaser->flash() ?>
+				<div id="BcMessageBox"><div id="BcSystemMessage" class="notice-message"></div></div>
+				<?php echo $this->BcLayout->dispatchContentsHeader() ?>
+				<div class="l-subContentsContainer sub-container usersInner">
+				<div class="bca-main__header-actions">
+					<?php if(!empty($user)) $this->BcBaser->element('main_body_header_links'); ?>
+				</div>
+					<?php $this->BcBaser->content() ?>
+				</div>
+				<?php echo $this->BcLayout->dispatchContentsFooter() ?>
+			</div>
+			<!-- /PAGE CONTENTS -->
+		</div>
+
+		<?php $this->BcBaser->element('mod_contact'); ?>
+	</main>
+	<?php $this->BcBaser->footer() ?>
+</div>
+<?php $this->BcBaser->func() ?>
 </body>
 
 </html>
