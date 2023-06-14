@@ -1,6 +1,6 @@
 <?php
 /**
- * [ADMIN] パートナー企業設定一覧
+ * [ADMIN] インスタントページ一覧
  */
 if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_group_id'])) {
 	include __DIR__ . DS . '../mypage/index.php';

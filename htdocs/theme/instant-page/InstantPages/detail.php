@@ -2,7 +2,6 @@
 /*
  * インスタントページ公開テーマ
  */
-var_dump($this->theme);
 $this->BcBaser->setTitle(strip_tags($data['InstantPage']['title']));
 $this->BcBaser->setDescription(strip_tags($data['InstantPage']['page_description']));
 $this->BcBaser->setKeywords(strip_tags($data['InstantPage']['page_key_word']));

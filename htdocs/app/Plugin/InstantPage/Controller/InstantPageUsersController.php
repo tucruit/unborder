@@ -609,7 +609,7 @@ class InstantPageUsersController extends AppController {
 						$this->BcMessage->setError(__d('baser', 'パスワードを入力してください。'));
 						$valdate = false;
 						break;
-					case strlen($password1) <= 6:
+					case strlen($password1) < 6:
 						$this->BcMessage->setError(__d('baser', 'パスワードは6文字以上で入力してください。'));
 						$valdate = false;
 						break;

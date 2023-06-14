@@ -32,7 +32,7 @@
 					if (strpos($key, $field['field_name']) !== false) {
 						$errorMassage = implode(' ', $error);
 						// validationErrorsでは、グループチェックフィールドは必須入力がバグっているため、除外
-						if (strpos($errorMassage, '1 1') === false ){
+						if (strpos($errorMassage, '1') === false ){
 							$field['error'] = $errorMassage;
 						}
 					}

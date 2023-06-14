@@ -38,7 +38,7 @@ class InstantPageUtil extends CakeObject {
 			case strlen($password) == '':
 				$valdateError = 'パスワードを入力してください。';
 				break;
-			case strlen($password) <= 6:
+			case strlen($password) < 6:
 				$valdateError = 'パスワードは6文字以上で入力してください。';
 				break;
 			case strlen($password) >= 255:
