@@ -3,7 +3,7 @@
  */
 $(function () {
     // テーマ切り替え
-    var template = $('#InstantPageTemplate');
+    var template = $('#InstantPageInstantPageTemplateId');
     //console.log(template.val());
     if (template.val()) {
         let templateIds = $('.themeBox-btn__apply');

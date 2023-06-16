@@ -734,6 +734,10 @@ class BlogController extends BlogAppController
 		if (empty($name)) {
 			$this->notFound();
 		}
+		$tag = $this->BlogTag->findByName($name);
+		if (empty($tag)) {
+			$this->notFound();
+		}
 		$num = 10;
 		if (!empty($this->request->params['named']['num'])) {
 			$num = $this->request->params['named']['num'];

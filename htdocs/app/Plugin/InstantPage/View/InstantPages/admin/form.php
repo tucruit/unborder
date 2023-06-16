@@ -27,7 +27,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 	}
 	?>
 	<?php
-	if (isset($this->request->data['InstantPage']['template'])) {
+	if (isset($this->request->data['InstantPage']['instant_page_template_id'])) {
 		$this->BcBaser->css(['InstantPage.origin'], ['inline' => true]);
 	}
 	?>
@@ -131,12 +131,11 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 			</tr>
 			<?php if($InstantpageTemplateList): ?>
 				<tr>
-					<th class="bca-form-table__label"><?php echo $this->BcForm->label('InstantPage.template', __d('baser', '固定ページテンプレート')) ?></th>
+					<th class="bca-form-table__label"><?php echo $this->BcForm->label('InstantPage.instant_page_template_id', __d('baser', 'テーマ')) ?></th>
 					<td class="col-input bca-form-table__input">
-						<?php echo $this->BcForm->input('InstantPage.template', ['type' => 'radio', 'options' => $InstantpageTemplateList]) ?>
-						<div
-						class="helptext"><?php echo __d('baser', 'テーマフォルダ内の、InstantPages/templates テンプレートを配置する事で、ここでテンプレートを選択できます。') ?></div>
-						<?php echo $this->BcForm->error('InstantPage.template') ?>
+						<?php echo $this->BcForm->input('InstantPage.instant_page_template_id', ['type' => 'radio', 'options' => $InstantpageTemplateList]) ?>
+						<div class="helptext"><?php echo __d('baser', 'テーマフォルダ内の、InstantPages/templates テンプレートを配置する事で、ここでテンプレートを選択できます。') ?></div>
+						<?php echo $this->BcForm->error('InstantPage.instant_page_template_id') ?>
 					</td>
 				</tr>
 			<?php endif ?>

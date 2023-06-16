@@ -1,6 +1,6 @@
 <?php
 /**
- * [ADMIN] パートナー企業一覧　テーブル
+ * [ADMIN] InstantPage一覧　テーブル
  */
 $this->BcListTable->setColumnNumber(7);
 ?>
@@ -19,43 +19,28 @@ $this->BcListTable->setColumnNumber(7);
 				],
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>
+		<th class="bca-table-listup__thead-th">スクリーンショット</th>
 		<th class="bca-table-listup__thead-th">
 			<?php echo $this->Paginator->sort('name',
 				[
-					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '企業名'),
-					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', '企業名')
+					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', 'name'),
+					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', 'name')
 				],
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>
 		<th class="bca-table-listup__thead-th">
-			<?php echo $this->Paginator->sort('type',
+			<?php echo $this->Paginator->sort('user_id',
 				[
-					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', 'パートナー種別'),
-					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', 'パートナー種別')
+					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '登録者'),
+					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', '登録者')
 				],
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>
 		<th class="bca-table-listup__thead-th">
-			<?php echo $this->Paginator->sort('address',
+			<?php echo $this->Paginator->sort('user_id',
 				[
-					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '住所'),
-					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', '住所')
-				],
-				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
-		</th>
-		<th class="bca-table-listup__thead-th">
-			<?php echo $this->Paginator->sort('area_id',
-				[
-					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', 'エリア'),
-					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', 'エリア')
-				],
-				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
-		</th>
-		<th class="bca-table-listup__thead-th">
-			<?php echo $this->Paginator->sort('url',
-				[
-					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', 'URL'),
-					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', 'URL')
+					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '利用数'),
+					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', '利用数')
 				],
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>
@@ -80,7 +65,7 @@ $this->BcListTable->setColumnNumber(7);
 	<tbody>
 	<?php if (!empty($datas)): ?>
 		<?php foreach($datas as $data): ?>
-			<?php $this->BcBaser->element('instant_pages/index_row', ['data' => $data]) ?>
+			<?php $this->BcBaser->element('instant_page_templates/index_row', ['data' => $data]) ?>
 		<?php endforeach; ?>
 	<?php else: ?>
 		<tr>

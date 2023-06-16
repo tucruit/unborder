@@ -15,7 +15,7 @@ class InstantPageModelEventListener extends BcModelEventListener {
 		'InstantPageUser.afterSave',
 		'InstantPageUser.afterDelete',
 		'Mail.MailMessage.afterValidate',
-		'Mail.MailMessage.beforeSave'
+		'Mail.MailMessage.beforeSave',
 	);
 
 	/**
