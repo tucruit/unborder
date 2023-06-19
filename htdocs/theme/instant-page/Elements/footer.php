@@ -4,6 +4,7 @@
 			<a href="/" class="footer-contents-logo">
 				<img src="<?php $this->BcBaser->themeUrl(); ?>img/common/logo.svg" alt="" class="imgFit">
 			</a>
+			<div style="font-size: 12px;padding: 15px 0;">※インスタントページのロゴは、株式会社UNBORDERの商標です。</div>
 			<ul class="footer-contents-menu">
 				<?php
 				/*

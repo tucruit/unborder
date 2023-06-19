@@ -12,7 +12,7 @@ if (empty($instantPageUser)) {
 <!-- FOOTER -->
 <footer role="contentinfo" class="footer">
 	<div class="l-container footerInner">
-		<small class="footer-copyright">© UNBORDER ltd.</small>
+		<small class="footer-copyright">Copyright © 2023 UNBORDER ltd.</small>
 	</div>
 </footer>
 <!-- /FOOTER -->
