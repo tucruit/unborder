@@ -200,6 +200,20 @@ class InstantPagesController extends AppController {
 		// テーマテンプレート一覧
 		$InstantpageTemplateList = $this->InstantPageTemplate->find('list',['fields' => ['id', 'name']]);
 		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
+		// テーマのconfig情報の読み込み
+		$themedatas = [];
+		if (!empty($InstantpageTemplateList)) {
+			foreach($InstantpageTemplateList as $themename) {
+				if ($themename !== 'core' && $themename !== '_notes') {
+					if ($themename == $this->siteConfigs['theme']) {
+						continue;
+					} else {
+						$themedatas[$themename] = InstantPageUtil::loadThemeInfo($themename);
+					}
+				}
+			}
+		}
+		$this->set('themedatas', $themedatas );
 		// ユーザー一覧
 		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '新規登録';
@@ -239,9 +253,24 @@ class InstantPagesController extends AppController {
 			}
 		}
 
+
 		// テーマテンプレート一覧
 		$InstantpageTemplateList = $this->InstantPageTemplate->find('list',['fields' => ['id', 'name']]);
 		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
+		// テーマのconfig情報の読み込み
+		$themedatas = [];
+		if (!empty($InstantpageTemplateList)) {
+			foreach($InstantpageTemplateList as $themename) {
+				if ($themename !== 'core' && $themename !== '_notes') {
+					if ($themename == $this->siteConfigs['theme']) {
+						continue;
+					} else {
+						$themedatas[$themename] = InstantPageUtil::loadThemeInfo($themename);
+					}
+				}
+			}
+		}
+		$this->set('themedatas', $themedatas );
 		// 管理画面にテーマのセット
 		$template = isset($this->request->data['InstantPage']['instant_page_template_id']) ? $this->request->data['InstantPage']['instant_page_template_id'] : 1;
 		if (array_key_exists($template, $InstantpageTemplateList)) {

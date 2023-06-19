@@ -20,6 +20,8 @@ $this->BcListTable->setColumnNumber(7);
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>
 		<th class="bca-table-listup__thead-th">スクリーンショット</th>
+		<th class="bca-table-listup__thead-th">タイトル</th>
+		<th class="bca-table-listup__thead-th">説明</th>
 		<th class="bca-table-listup__thead-th">
 			<?php echo $this->Paginator->sort('name',
 				[

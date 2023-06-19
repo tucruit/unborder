@@ -14,6 +14,20 @@
 	</td>
 	<td class="bca-table-listup__tbody-td">
 		<?php
+		if (isset($themedatas[$data['InstantPageTemplate']['name']]) && $themedatas[$data['InstantPageTemplate']['name']]['title']) {
+			echo h($themedatas[$data['InstantPageTemplate']['name']]['title']);
+		}
+		?>
+	</td>
+	<td class="bca-table-listup__tbody-td">
+		<?php
+		if (isset($themedatas[$data['InstantPageTemplate']['name']]) && $themedatas[$data['InstantPageTemplate']['name']]['description']) {
+			echo nl2br(h(mb_strimwidth($themedatas[$data['InstantPageTemplate']['name']]['description'], 0, 160, '...', 'utf8')));
+		}
+		?>
+	</td>
+	<td class="bca-table-listup__tbody-td">
+		<?php
 		echo h($data['InstantPageTemplate']['name']);
 		//$this->BcBaser->link($data['InstantPageTemplate']['name'], ['action' => 'edit', $data['InstantPageTemplate']['id']], ['escape' => true]);
 		?>

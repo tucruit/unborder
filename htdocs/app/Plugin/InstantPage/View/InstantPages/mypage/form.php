@@ -309,15 +309,34 @@ if (!isset($user['InstantPageUser'])) {
 					<div class="edit-themeList-body-themeContainer">
 						<?php if (!empty($InstantpageTemplateList)) :?>
 							<?php foreach ($InstantpageTemplateList as $key => $template) :?>
+								<?php
+								// configを読み込んで、タイトル・ディスクリプション・screenshotをセット
+								$title = $template;
+								$description = '';
+								$thnmb = 'admin/no-screenshot.png';
+								if (isset($themedatas[$template])) {
+									if ($themedatas[$template]['title']) { //タイトル
+										$title = $themedatas[$template]['title'];
+									}
+									if ($themedatas[$template]['description']) { //ディスクリプション
+										$description = mb_strimwidth($themedatas[$template]['description'], 0, 160, '...', 'utf8');
+									}
+									if ($themedatas[$template]['screenshot']) { // screenshot
+										$thnmb = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
+									}
+								} else {
+									// テーマ内にscreenshot.pngがあれば、それを表示
+									$screenshotPath = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
+									$path = WWW_ROOT . 'theme';
+									$thnmb = file_exists($path . DS . $template . DS . 'screenshot.png') ? $screenshotPath : 'admin/no-screenshot.png';
+								}
+								?>
 								<!-- BOX -->
 								<div class="themeBox">
-									<span class="themeBox-title"><?php echo h($template) ?></span>
+									<span class="themeBox-title"><?php echo h($title) ?></span>
+									<?php echo $description ? '<span class="themeBox-description">'. nl2br(h($description)). '</span>' :''?>
 									<div class="themeBox-img">
 										<?php
-										// テーマ内にscreenshot.pngがあれば、それを表示
-										$screenshotPath = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
-										$path = WWW_ROOT . 'theme';
-										$thnmb = file_exists($path . DS . $template . DS . 'screenshot.png') ? $screenshotPath : 'admin/no-screenshot.png';
 										$this->BcBaser->img($thnmb, ['alt' => h($template). '適用イメージ', 'class' => 'imgFit']);
 										?>
 									</div>

@@ -149,7 +149,7 @@ class InstantPageUtil extends CakeObject {
 		}
 		$theme['name'] = $themename;
 		$theme['title'] = $title;
-		// $theme['description'] = $description;
+		$theme['description'] = $description;
 		// $theme['author'] = $author;
 		// $theme['url'] = $url;
 		// $theme['version'] = $this->getThemeVersion($theme['name']);
