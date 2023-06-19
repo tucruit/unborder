@@ -43,6 +43,9 @@ $config['BcApp.adminNavigation'] = [
 				[ 'title' => 'ユーザー一覧',
 					'url' => [ 'admin' => true, 'plugin' => 'instant_page', 'controller' => 'instant_page_users', 'action' => 'index']
 				],
+				[ 'title' => 'テーマ一覧',
+					'url' => [ 'admin' => true, 'plugin' => 'instant_page', 'controller' => 'instant_page_templates', 'action' => 'index']
+				],
 			],
 		]
 	],

@@ -76,7 +76,7 @@ class BurgerEditorHelper extends AppHelper {
 		// 設定値により、ユーザ別にファイル場所を設置
 		if (!Configure::read("Bge.fileShare")) {
 			$user = BcUtil::loginUser();
-			$userId = $user['id'];
+			$userId = isset($user['id']) ? $user['id'] : '';
 			self::$imageFileBaseDir .=  $userId . DS;
 			self::$otherFileBaseDir .= $userId . DS;
 			self::$imageFileBaseURL .= $userId .'/';

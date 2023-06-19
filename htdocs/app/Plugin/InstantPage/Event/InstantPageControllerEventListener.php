@@ -111,6 +111,12 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 		if (!BcUtil::isAdminSystem()) {
 			$params = $Controller->request->params;
 			if ($params['controller'] == 'instant_pages' && $params['action'] == 'detail') {
+				$instantPageData = isset($Controller->viewVars['data']['InstantPage']) ? $Controller->viewVars['data']['InstantPage'] : [];
+				if (!empty($instantPageData) && $instantPageData['instant_page_template_id']) {
+					$InstantpageTemplateModel = ClassRegistry::init('InstantPage.InstantpageTemplate');
+					$InstantpageTemplateList = $InstantpageTemplateModel->find('list',['fields' => ['id', 'name']]);
+					$Controller->theme = $InstantpageTemplateList[$instantPageData['instant_page_template_id']];
+				}
 				$Controller->layout = 'InstantPage.instant';
 			}
 			return;

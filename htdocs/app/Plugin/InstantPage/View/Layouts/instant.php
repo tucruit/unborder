@@ -53,7 +53,8 @@
 	$this->BcBaser->css(['InstantPage.origin'], ['inline' => true]);
 	// テンプレートリスト取得
 	if (isset($data['InstantPage']['template']) && $data['InstantPage']['template']) {
-		$template = configure::read('InstantpageTemplateList');
+		$InstantpageTemplateModel = ClassRegistry::init('InstantPage.InstantpageTemplate');
+		$template = $InstantpageTemplateModel->find('list',['fields' => ['id', 'name']]);
 		if ( array_key_exists($data['InstantPage']['template'], $template) ) {
 			$this->BcBaser->css([
 				'/theme/'. $template[$data['InstantPage']['template']]. '/css/bge_style'

@@ -4,19 +4,19 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ユーザー情報
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-担当者：<?php if ($InstantPage['InstantPageUser']['real_name_1']) { echo $InstantPage['InstantPageUser']['real_name_1']; } ?> <?php if ($InstantPage['InstantPageUser']['real_name_2']) { echo $InstantPage['InstantPageUser']['real_name_2']; }?> 様
+担当者：<?php if ($InstantPage['User']['real_name_1']) { echo $InstantPage['User']['real_name_1']; } ?> <?php if ($InstantPage['User']['real_name_2']) { echo $InstantPage['User']['real_name_2']; }?> 様
 
-管理画面URL： <?php echo 'http://'.$_SERVER["HTTP_HOST"].'/cmsadmin/instant_page/instant_page_users/edit/' . $InstantPage['InstantPageUser']['id']; ?>
+管理画面URL： <?php echo 'http://'.$_SERVER["HTTP_HOST"].'/cmsadmin/users/edit/' . $InstantPage['User']['id']; ?>
 
 <?php else: ?>
 
 <?php
-	if ($InstantPage['InstantPageUser']['real_name_1']) {
-		echo $InstantPage['InstantPageUser']['real_name_1'];
+	if ($InstantPage['User']['real_name_1']) {
+		echo $InstantPage['User']['real_name_1'];
 	}
 ?> <?php
-	if ($InstantPage['InstantPageUser']['real_name_2']) {
-		echo $InstantPage['InstantPageUser']['real_name_2'];
+	if ($InstantPage['User']['real_name_2']) {
+		echo $InstantPage['User']['real_name_2'];
 	}
 ?> 様
 
@@ -26,7 +26,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ユーザ情報
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ログインID：<?php echo $InstantPage['InstantPageUser']['name']; ?>
+ログインID：<?php echo $InstantPage['User']['name']; ?>
 
 パスワード：**********（セキュリティのため暗号化されています）
 

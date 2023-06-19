@@ -225,8 +225,8 @@ if (!isset($user['InstantPageUser'])) {
 						<!-- /MENU BOX -->
 						<!-- MENU BOX -->
 						<div class="subMenuBox" id="subMenuGroupPageConfig-themeSelect">
-							<span class="subMenuBox-title isMenuBtn"><?php echo $this->BcForm->label('InstantPage.instant_page_template_id', 'テーマの選択') ?></span>
-							<?php echo $this->BcForm->input('InstantPage.instant_page_template_id', ['type' => 'hidden']) ?>
+							<span class="subMenuBox-title isMenuBtn"><?php echo $this->BcForm->label('InstantPage.template', 'テーマの選択') ?></span>
+							<?php echo $this->BcForm->input('InstantPage.template', ['type' => 'hidden']) ?>
 						</div>
 						<!-- /MENU BOX -->
 					</div>
@@ -309,34 +309,15 @@ if (!isset($user['InstantPageUser'])) {
 					<div class="edit-themeList-body-themeContainer">
 						<?php if (!empty($InstantpageTemplateList)) :?>
 							<?php foreach ($InstantpageTemplateList as $key => $template) :?>
-								<?php
-								// configを読み込んで、タイトル・ディスクリプション・screenshotをセット
-								$title = $template;
-								$description = '';
-								$thnmb = 'admin/no-screenshot.png';
-								if (isset($themedatas[$template])) {
-									if ($themedatas[$template]['title']) { //タイトル
-										$title = $themedatas[$template]['title'];
-									}
-									if ($themedatas[$template]['description']) { //ディスクリプション
-										$description = mb_strimwidth($themedatas[$template]['description'], 0, 160, '...', 'utf8');
-									}
-									if ($themedatas[$template]['screenshot']) { // screenshot
-										$thnmb = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
-									}
-								} else {
-									// テーマ内にscreenshot.pngがあれば、それを表示
-									$screenshotPath = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
-									$path = WWW_ROOT . 'theme';
-									$thnmb = file_exists($path . DS . $template . DS . 'screenshot.png') ? $screenshotPath : 'admin/no-screenshot.png';
-								}
-								?>
 								<!-- BOX -->
 								<div class="themeBox">
-									<span class="themeBox-title"><?php echo h($title) ?></span>
-									<?php echo $description ? '<span class="themeBox-description">'. nl2br(h($description)). '</span>' :''?>
+									<span class="themeBox-title"><?php echo h($template) ?></span>
 									<div class="themeBox-img">
 										<?php
+										// テーマ内にscreenshot.pngがあれば、それを表示
+										$screenshotPath = $this->BcBaser->getUrl('/theme/'.$template. '/screenshot.png');
+										$filePath = dirname(__FILE__). DS . '../../../../../..'. $screenshotPath;
+										$thnmb = file_exists($filePath) ? $screenshotPath : 'admin/no-screenshot.png';
 										$this->BcBaser->img($thnmb, ['alt' => h($template). '適用イメージ', 'class' => 'imgFit']);
 										?>
 									</div>

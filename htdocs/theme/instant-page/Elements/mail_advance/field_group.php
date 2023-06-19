@@ -15,10 +15,30 @@
 			if (!$freezed) {
 				echo $field['control'];
 			} else {
-				echo !$field['raw']['no_send'] ? $field['control'] : '<span style="display: none;">'.  $field['control']. '</span>';
+				if (strpos($field['field_name'], 'password_') !== false) {
+					$filedValueText = '*****'. '<span style="display: none;">'.  $field['control']. '</span>';
+				} else {
+					$filedValueText = $field['control'];
+				}
+				echo !$field['raw']['no_send'] ? $filedValueText : '<span style="display: none;">'.  $field['control']. '</span>';
 			}
 			?>
 			<?php //echo $freezed ? ''. $field['control']. '' : $field['control'] ; ?>
+			<?php
+			// baserCMSの仕様上 invalidate のエラーメッセージは出力されないため、再セットが必要
+			$erros = $this->validationErrors['MailMessage'];
+			if (!empty($erros)) {
+				foreach ($erros as $key => $error) {
+					if (strpos($key, $field['field_name']) !== false) {
+						$errorMassage = implode(' ', $error);
+						// validationErrorsでは、グループチェックフィールドは必須入力がバグっているため、除外
+						if (strpos($errorMassage, '1') === false ){
+							$field['error'] = $errorMassage;
+						}
+					}
+				}
+			}
+			?>
 			<?php if($field['error']): ?>
 				<?php
 				switch ($field['name']) {
@@ -31,7 +51,6 @@
 
 					default:
 						echo '<p class="error">'. h($field['error']).'</p>';
-						# code...
 						break;
 				}
 				?>

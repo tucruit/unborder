@@ -17,6 +17,7 @@ class InstantPagesController extends AppController {
 	 */
 	public $uses = array(
 		'InstantPage.InstantPage',
+		'InstantPage.InstantPageTemplate',
 		'InstantPage.InstantPageUser',
 		'User',
 	);
@@ -197,8 +198,22 @@ class InstantPagesController extends AppController {
 			}
 		}
 		// テーマテンプレート一覧
-		$InstantpageTemplateList = configure::read('InstantpageTemplateList');
+		$InstantpageTemplateList = $this->InstantPageTemplate->find('list',['fields' => ['id', 'name']]);
 		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
+		// テーマのconfig情報の読み込み
+		$themedatas = [];
+		if (!empty($InstantpageTemplateList)) {
+			foreach($InstantpageTemplateList as $themename) {
+				if ($themename !== 'core' && $themename !== '_notes') {
+					if ($themename == $this->siteConfigs['theme']) {
+						continue;
+					} else {
+						$themedatas[$themename] = InstantPageUtil::loadThemeInfo($themename);
+					}
+				}
+			}
+		}
+		$this->set('themedatas', $themedatas );
 		// ユーザー一覧
 		$this->set('users', $this->InstantPageUser->getUserList());
 		$this->pageTitle = $this->controlName . '新規登録';
@@ -238,11 +253,26 @@ class InstantPagesController extends AppController {
 			}
 		}
 
+
 		// テーマテンプレート一覧
-		$InstantpageTemplateList = configure::read('InstantpageTemplateList');
+		$InstantpageTemplateList = $this->InstantPageTemplate->find('list',['fields' => ['id', 'name']]);
 		$this->set('InstantpageTemplateList', $InstantpageTemplateList );
+		// テーマのconfig情報の読み込み
+		$themedatas = [];
+		if (!empty($InstantpageTemplateList)) {
+			foreach($InstantpageTemplateList as $themename) {
+				if ($themename !== 'core' && $themename !== '_notes') {
+					if ($themename == $this->siteConfigs['theme']) {
+						continue;
+					} else {
+						$themedatas[$themename] = InstantPageUtil::loadThemeInfo($themename);
+					}
+				}
+			}
+		}
+		$this->set('themedatas', $themedatas );
 		// 管理画面にテーマのセット
-		$template = isset($this->request->data['InstantPage']['template']) ? $this->request->data['InstantPage']['template'] : 1;
+		$template = isset($this->request->data['InstantPage']['instant_page_template_id']) ? $this->request->data['InstantPage']['instant_page_template_id'] : 1;
 		if (array_key_exists($template, $InstantpageTemplateList)) {
 			Configure::write('BcSite.theme', $InstantpageTemplateList[$template]);
 		}

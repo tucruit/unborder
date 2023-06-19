@@ -39,6 +39,7 @@ if (!empty($user['Admin']
 		'../js/admin/vendors/jquery-contextMenu-2.2.0/jquery.contextMenu.min',
 		'admin/colorbox/colorbox-1.6.1',
 		'admin/jquery.timepicker',
+		'InstantPage.admin/mypage'
 	])
 	?>
 	<link rel="stylesheet" href="/my_page/js/lib/scroll-hint/css/scroll-hint.css">

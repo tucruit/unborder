@@ -38,7 +38,7 @@ class InstantPageUtil extends CakeObject {
 			case strlen($password) == '':
 				$valdateError = 'パスワードを入力してください。';
 				break;
-			case strlen($password) <= 6:
+			case strlen($password) < 6:
 				$valdateError = 'パスワードは6文字以上で入力してください。';
 				break;
 			case strlen($password) >= 255:
@@ -128,6 +128,33 @@ class InstantPageUtil extends CakeObject {
 
 	// 	return $allowPublish;
 	// }
+
+	/**
+	 * テーマ情報を読み込む
+	 *
+	 * @param string $themename テーマ名
+	 * @return array
+	 */
+	public static function loadThemeInfo($themename) {
+		$path = WWW_ROOT . 'theme';
+		$title = $description = $author = $url = $screenshot = '';
+		$theme = [];
+		if (file_exists($path . DS . $themename . DS . 'config.php')) {
+			include $path . DS . $themename . DS . 'config.php';
+		}
+		if (file_exists($path . DS . $themename . DS . 'screenshot.png')) {
+			$theme['screenshot'] = true;
+		} else {
+			$theme['screenshot'] = false;
+		}
+		$theme['name'] = $themename;
+		$theme['title'] = $title;
+		$theme['description'] = $description;
+		// $theme['author'] = $author;
+		// $theme['url'] = $url;
+		// $theme['version'] = $this->getThemeVersion($theme['name']);
+		return $theme;
+	}
 
 
 

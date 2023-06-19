@@ -48,7 +48,7 @@ CSS_END
 	echo $this->BcForm->create($userModel, ['url' => $url, 'class' => 'users-form']);
 	?>
 		<h2 class="users-sectionHl users-form-hl">
-			<span class="noWrap">メールアドレスとパスワードを</span><span class="noWrap">入力して、ログインしてください。</span>
+			<span class="noWrap">アカウント名とパスワードを</span><span class="noWrap">入力して、ログインしてください。</span>
 		</h2>
 		<div class="users-form-inputBlock">
 			<div class="inputBlock-inputGroup">

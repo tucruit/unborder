@@ -129,10 +129,10 @@ if (!empty($currentAuthPrefix['name']) && $currentPrefix !== 'front') {
 				<?php else: ?>
 					<?php
 					$this->BcBaser->link(
-						sprintf('<span class="bca-toolbar__logo-text">%s</span>', h($authName)), 
-						Configure::read('BcAuthPrefix.' . $currentPrefix . '.loginRedirect'), 
+						sprintf('<span class="bca-toolbar__logo-text">%s</span>', h($authName)),
+						Configure::read('BcAuthPrefix.' . $currentPrefix . '.loginRedirect'),
 						['class' => 'bca-toolbar__logo-link', 'title' => h($authName)]
-					); 
+					);
 					?>
 				<?php endif ?>
 			<?php endif ?>

@@ -1,0 +1,6 @@
+cu_deploy/*
+htdocs/_cms/*
+htdocs/theme/*
+!htdocs/theme/admin-third/*
+!htdocs/theme/instant-page/*
+
