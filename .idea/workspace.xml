@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mypage/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mypage/footer.php" afterDir="false" />
-    </list>
+    <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/20230619__フッターの商標関係の文言修正",
+    "git-widget-placeholder": "demo",
     "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
