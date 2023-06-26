@@ -3,6 +3,7 @@ $this->Mail->token();
 $this->BcBaser->css(array('Mail.style'), false);
 $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_users'), false);
 ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 

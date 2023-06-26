@@ -57,4 +57,22 @@ class InstantPageHelper extends AppHelper {
 		return $InstantPage->allowPublish($data);
 	}
 
+	/**
+	 * エレメントテンプレートのレンダリング結果を取得する（プラグインInstantPage内のelementを呼び出す）
+	 *
+	 * @param string $name エレメント名
+	 * @param array $data エレメントで参照するデータ
+	 * @param array $options オプションのパラメータ
+	 *  `subDir` (boolean) エレメントのパスについてプレフィックスによるサブディレクトリを追加するかどうか
+	 * ※ その他のパラメータについては、View::element() を参照
+	 * @return string エレメントのレンダリング結果
+	 */
+	public function getElement($name, $data = [], $options = [])
+	{
+		$options['plugin'] = 'instant_page';
+		return $this->BcBaser->getElement($name, $data, $options);
+	}
+
+
+
 }

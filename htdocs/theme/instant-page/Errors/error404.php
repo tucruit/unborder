@@ -6,6 +6,7 @@
 //if (strpos($message, '.html') !== false)
 //  $message = str_replace('pages/', '', $message);
 $messageText = $this->response->statusCode() . ' ' . $message;
+$this->BcBaser->setTitle('エラー');
 ?>
 <!-- SUB H1 -->
 <div class="sub-h1">
@@ -29,6 +30,9 @@ $messageText = $this->response->statusCode() . ' ' . $message;
 					<a href="/">トップページへ戻る</a>
 				</p>
 			</div>
+			<?php if (Configure::read('debug') > 0): ?>
+				<?php //echo $this->element('exception_stack_trace'); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 	<!-- /PAGE CONTENTS -->

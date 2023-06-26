@@ -22,7 +22,7 @@ $userUrl = isset($userNmaes[$instantPageUsersId]) ? h($userNmaes[$instantPageUse
 		<?php echo isset($userRealNmaes[$instantPageUsersId]) ? h($userRealNmaes[$instantPageUsersId]) : h($instantPageUsersId); ?>
 	</td>
 	<td class="bca-table-listup__tbody-td">
-		<?php echo h($data['InstantPage']['instant_page_template_id']); ?>
+		<?php echo h($data['InstantPageTemplate']['name']); ?>
 	</td>
 	<td class="bca-table-listup__tbody-td">
 		<?php echo $data['InstantPage']['status'] ? '公開' : '非公開'; ?>

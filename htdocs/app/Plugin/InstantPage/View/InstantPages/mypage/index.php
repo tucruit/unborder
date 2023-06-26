@@ -39,7 +39,7 @@ $userUrl = isset($user['name']) ? h($user['name']) : '';
 									echo '非公開';
 								}
 								?></td>
-								<td><?php echo h($data['InstantPage']['instant_page_template_id']) ?></td>
+								<td><?php echo h($data['InstantPageTemplate']['name']); ?></td>
 								<td><?php echo date('Y年m月d日', strtotime($data['InstantPage']['modified']))?></td>
 								<td>
 									<a href="#" class="myPage-siteTable-applicationStatus">

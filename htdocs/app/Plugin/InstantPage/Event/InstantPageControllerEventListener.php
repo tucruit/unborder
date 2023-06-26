@@ -6,6 +6,8 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 		'beforeRender',
 		'Users.beforeRender',
 		'Mail.Mail.startup',
+		'Mail.Mail.beforeSendEmail',
+		'Mail.Mail.afterSendEmail'
 		);
 
 	/**
@@ -221,6 +223,52 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 
 			}
 		}
+		return true;
+	}
+
+	/**
+	 * mailMailBeforeSendEmail
+	 *
+	 * @param CakeEvent $event
+	 * @return boolean
+	 */
+	public function mailMailBeforeSendEmail(CakeEvent $event)
+	{
+		$Controller = $event->subject();
+		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 3) {
+			$authorId = $event->data['data']['MailMessage']['author'];
+			if ($authorId) {
+				if (ClassRegistry::isKeySet('InstantPage.InstantPageUser')) {
+					$InstantPageUserModel = ClassRegistry::getObject('InstantPage.InstantPageUser');
+				} else {
+					$InstantPageUserModel = ClassRegistry::init('InstantPage.InstantPageUser');
+				}
+				// 管理者の送信先をインスタントページ制作者あてに変更する
+				$author = $InstantPageUserModel->find('first', ['conditions' => ['InstantPageUser.id' => $authorId]]);
+				$email = $author['User']['email'];
+				$Controller->siteConfigs['email'] = $email;
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * mailMailAfterSendEmail
+	 *
+	 * @param CakeEvent $event
+	 * @return boolean
+	 */
+	public function mailMailAfterSendEmail(CakeEvent $event)
+	{
+		$Controller = $event->subject();
+		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 3) {
+			$url = $event->data['data']['MailMessage']['url'];
+			if ($url) {
+				$Controller->redirect($url.'?status=thanks');
+			}
+		}
+
 		return true;
 	}
 

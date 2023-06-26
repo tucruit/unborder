@@ -16,8 +16,8 @@ class InstantPagesSchema extends CakeSchema {
 			return true ;
 		}
 
-		if (isset($event['create'])) {
-			switch ($event['create']) {
+		if (isset($event['alter'])) {
+			switch ($event['alter']) {
 				case 'instantpages':
 					$tableName = $db->config['prefix'] . 'instant_pages';
 					$db->query("ALTER TABLE {$tableName} CHANGE contents contents LONGTEXT");

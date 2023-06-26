@@ -17,7 +17,7 @@ class RegisterMessageController extends AppController {
  */
 	public $helpers = array(
 		'BcText',
-		'BcAuth'
+		'BcAuth',
 	);
 
 /**
@@ -30,6 +30,7 @@ class RegisterMessageController extends AppController {
 		'Cookie',
 		'BcAuthConfigure',
 		'BcEmail',
+		'BcCaptcha',
 		'BcAuth' => array(
 			'authenticate' => array(
 				'all' => array(
@@ -152,6 +153,68 @@ class RegisterMessageController extends AppController {
 			];
 		}
 		$errParams['field'] = '.mailCheck';
+		return json_encode($errParams);
+	}
+
+	/*
+	 * e-mail チェック
+	 */
+	public function ajax_email_validate($email = null) {
+		$this->layout = false;
+		$this->autoRender = false;
+		$errParams = array();
+		if (!$email && $this->request->data('id')) {
+			$email = $this->request->data('id');
+		}
+		if (!Validation::email($email)) {
+			$text = $email. 'E-mailの形式が無効です。';
+			$email = false;
+			$errParams = ['status' => false, 'message' => $text];
+		}
+		if ($email) {
+			$errParams = [
+				'status' => true,
+				'message' => '利用可能なメールアドレスです。',
+			];
+		} elseif(empty($errParams)) {
+			$errParams = [
+				'status' => false,
+				'message' => 'メールアドレスが入力されていません。メールアドレスをご入力ください。',
+			];
+		}
+		$errParams['field'] = '.mailCheck';
+		return json_encode($errParams);
+	}
+
+
+	/*
+	 * auth_captcha チェック
+	 */
+	public function ajax_auth_captcha($checkId = null) {
+		// 画像認証を行う
+		$this->layout = false;
+		$this->autoRender = false;
+		$errParams = array();
+		if (!$checkId && $this->request->data('id')) {
+			$checkId = $this->request->data('id');
+		}
+		$captcha = explode('|', $checkId);
+		$this->log($captcha);
+		$auth_captcha = $captcha[0];
+		$captcha_id = $captcha[1];
+		$captchaResult = $this->BcCaptcha->check($auth_captcha, $captcha_id);
+		if (!$captchaResult) {
+			$errParams = [
+				'status' => false,
+				'message' => '入力された文字が間違っています。入力をやり直してください。',
+			];
+		} else {
+			$errParams = [
+				'status' => true,
+				'message' => '正しいです',
+			];
+		}
+		$errParams['field'] = '#MailMessageAuthCaptcha';
 		return json_encode($errParams);
 	}
 

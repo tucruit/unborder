@@ -209,12 +209,22 @@ class ThemeHelper extends AppHelper {
 
 
 	/**
-	* サイトデータを返す
+	* InstantPageUserを取得する
 	*
 	* @param array post
 	* @return $content
 	*/
 	public function getInstantPageUser($id = null) {
+		return $this->InstantPage->getInstantPageUser($id);
+	}
+
+	/**
+	* ページ作成者を取得
+	*
+	* @param array post
+	* @return $content
+	*/
+	public function getUser($id = null) {
 		return $this->InstantPage->getInstantPageUser($id);
 	}
 
