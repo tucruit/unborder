@@ -51,7 +51,9 @@ if (!empty($author)) {
 
 				<div class="contact-form-noticeWrap">
 					<p class="contact-form-notice">
-						<a href="/privacy">プライバシーポリシー</a>をご一読いただき、同意された方は「送信する」ボタンを押してください。
+						<!-- <a href="/privacy">プライバシーポリシー</a>をご一読いただき、同意された方は「送信する」ボタンを押してください。 -->
+						通信状況によって自動返信メールが届かない場合がございます。<br>
+						その場合はしばらく経ってから再送信をお願いします。
 					</p>
 				</div>
 
