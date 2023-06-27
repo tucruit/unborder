@@ -11,7 +11,7 @@ $query = $this->request->query;
 <section class="c-page-home__questionnaire" id="surveyIn">
 	<div class="contact isSubmit">
 		<div class="l-subContentsContainer sub-container contactInner">
-			<h2 class="mod-hl-01 contact-hl">お問い合わせフォーム</h2>
+			<!-- <h2 class="mod-hl-01 contact-hl">お問い合わせフォーム</h2> -->
 			<div class="contact-form">
 				<p class="contact-form-thanksMsg">
 					お問い合わせ頂きありがとうございました。<br>
