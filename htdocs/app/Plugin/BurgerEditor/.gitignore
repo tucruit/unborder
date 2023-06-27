@@ -75,6 +75,8 @@ Addon/block/*
 !Addon/block/youtube/
 
 !Addon/block/header-1/
+!Addon/block/form/
+
 
 # タイプ
 # オリジナルのタイプは除外
@@ -95,3 +97,5 @@ Addon/type/*
 !Addon/type/trimmed-image/
 !Addon/type/trimmed-image-link/
 !Addon/type/youtube/
+!Addon/type/form/
+
