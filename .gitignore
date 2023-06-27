@@ -1,6 +1,4 @@
 cu_deploy/*
 htdocs/_cms/*
-htdocs/theme/*
-!htdocs/theme/admin-third/*
-!htdocs/theme/instant-page/*
-
+htdocs/theme/custom_pink/*
+htdocs/theme/default_gray/*
