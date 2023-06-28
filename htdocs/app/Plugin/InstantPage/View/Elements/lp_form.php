@@ -6,7 +6,7 @@ $here = $this->request->here;
 $mailForm = $this->BcContents->getContentByEntityId(3, 'MailContent');
 $query = $this->request->query;
 ?>
-<?php if (!empty($query) && strpos($query['status'], 'thanks') !== false) :?>
+<?php if (!empty($query) && !empty($query['status']) && strpos($query['status'], 'thanks') !== false) :?>
 
 <section class="c-page-home__questionnaire" id="surveyIn">
 	<div class="contact isSubmit">
