@@ -12,9 +12,11 @@ $userUrl = isset($user['name']) ? h($user['name']) : '';
 			<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew">
 				<span class="btnInner">LP新規作成</span>
 			</a>
+			<?php /*
 			<a href="#" class="mod-btn-square-02 myPage-btnGroup-fileUpload" disabled=”disabled”>
 				<span class="btnInner">ファイルアップロード（準備中）</span>
 			</a>
+			*/?>
 		</div>
 		<div class="js-scrollable myPage-siteTableWrap">
 			<table class="myPage-siteTable">
@@ -24,7 +26,7 @@ $userUrl = isset($user['name']) ? h($user['name']) : '';
 						<th>状態</th>
 						<th>利用テーマ</th>
 						<th>最終更新日</th>
-						<th>独自ドメイン</th>
+						<?php /*<th>独自ドメイン</th>*/?>
 					</tr>
 				</thead>
 				<tbody>
@@ -41,16 +43,14 @@ $userUrl = isset($user['name']) ? h($user['name']) : '';
 								?></td>
 								<td><?php echo h($data['InstantPageTemplate']['name']); ?></td>
 								<td><?php echo date('Y年m月d日', strtotime($data['InstantPage']['modified']))?></td>
-								<td>
+								<?php /*<td>
 									<a href="#" class="myPage-siteTable-applicationStatus">
 										<span class="btnInner"><?php echo '準備中'//'申請' ?></span>
 									</a>
-									<?php /*
 									<a href="#" class="myPage-siteTable-applicationStatus isApplying">
 										<span class="btnInner">申請中</span>
 									</a>
-									*/?>
-								</td>
+								</td>*/?>
 							</tr>
 						<?php endforeach; ?>
 					<?php endif; ?>
