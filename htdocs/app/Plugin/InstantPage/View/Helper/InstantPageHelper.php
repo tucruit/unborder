@@ -73,6 +73,22 @@ class InstantPageHelper extends AppHelper {
 		return $this->BcBaser->getElement($name, $data, $options);
 	}
 
+	/**
+	 * プレビュー用のURLを取得する
+	 *
+	 * @param string $url 元となるURL
+	 * @param bool $useSubDomain サブドメインを利用してるかどうか
+	 * @return string
+	 */
+	public function getPreviewUrl($url, $useSubDomain = false)
+	{
+		if ($useSubDomain) {
+			$targetSite = BcSite::findByUrl($url);
+			return $this->BcBaser->getUrl($targetSite->getPureUrl($url)) . '?host=' . $targetSite->host;
+		} else {
+			return $this->BcBaser->getContentsUrl($url, false, false, true);
+		}
+	}
 
 
 }

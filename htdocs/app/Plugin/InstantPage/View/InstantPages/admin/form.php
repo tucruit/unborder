@@ -10,15 +10,19 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 // 	echo '<h1 class="bca-main__header-title">'. h($this->BcBaser->getContentsTitle()). '</h1>';
 // 	echo '<div class="l-container l-contentsContainer myPageInner">';
 // }
+	$userNames = isset($userNames) ? $userNames : [];
+	$userName = $userNames[$this->BcForm->value('InstantPage.instant_page_users_id')];
+	$url = '/lp/' . $userName. '/'.  $this->BcForm->value('InstantPage.name');
+	$fullUrl = $this->BcBaser->getContentsUrl($url, true);
 	$this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
 	$this->BcBaser->js('InstantPage.admin/edit', false);
 	$this->BcBaser->js('InstantPage.admin/form', false, [
-		// 'id' => 'AdminBlogBLogPostsEditScript',
-		// 'data-fullurl' => $fullUrl,
-		// 'data-previewurl' => $this->Blog->getPreviewUrl($url, $this->request->params['Site']['use_subdomain'])
+		'id' => 'AdminInstantPagesEditScript',
+		'data-fullurl' => $fullUrl,
+		'data-previewurl' => $this->BcBaser->getContentsUrl($url, false, false, true),
 	]);
 	//$this->BcBaser->js('InstantPage.instant_pages', false);
-	$users = isset($users) ? $users : $this->InstantPageUser->getUserList();
+	$users = isset($users) ? $users : [];
 	$InstantpageTemplateList = isset($InstantpageTemplateList) ? $InstantpageTemplateList : [1 => 'default', 2 =>'pop'];
 	$editorOptions = [];
 	$templates =[];
@@ -206,13 +210,13 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 
 			<?php if ($this->action == 'admin_edit' || $this->action == 'admin_add'): ?>
 				<div class="bca-actions__main">
-					<?php /*echo $this->BcForm->button(__d('baser', 'プレビュー'),
+					<?php echo $this->BcForm->button(__d('baser', 'プレビュー'),
 						[
 							'id' => 'BtnPreview',
 							'div' => false,
 							'class' => 'button bca-btn bca-actions__item',
 							'data-bca-btn-type' => 'preview',
-						]) */?>
+						]) ?>
 					<?php echo $this->BcForm->button(__d('baser', '保存'),
 						[
 							'type' => 'submit',

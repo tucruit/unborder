@@ -219,5 +219,24 @@ class InstantPage extends AppModel {
 	}
 
 
+	/**
+	 * プレビュー用のデータを生成する
+	 *
+	 * @param array $data
+	 */
+	public function createPreviewData($data)
+	{
+		//$this->log($data);
+		$post['InstantPage'] = $data['InstantPage'];
+		if (isset($post['Page']['contents_tmp'])) {
+			$post['InstantPage']['contents'] = $post['Page']['contents_tmp'];
+		}
+
+		// InstantPageキーのデータは作り直しているため、元データは削除して他のモデルキーのデータとマージする
+		unset($data['InstantPage']);
+		$post = Hash::merge($data, $post);
+
+		return $post;
+	}
 
 }

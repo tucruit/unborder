@@ -1,6 +1,7 @@
 <?php
 /*
  * [Contoller] InstantPages
+ * @property BcContentsComponent $BcContents
  */
 class InstantPagesController extends AppController {
 	/**
@@ -43,7 +44,7 @@ class InstantPagesController extends AppController {
 		'Cookie',
 		'BcAuthConfigure',
 		'BcEmail',
-		'BcContents' => ['useForm' => true, 'useViewCache' => false]
+		'BcContents' => ['type' => 'InstantPage.InstantPage', 'useForm' => true, 'useViewCache' => false]
 	];
 
 	/**
@@ -78,6 +79,10 @@ class InstantPagesController extends AppController {
 			return;
 		}
 		$this->helpers[] = $this->siteConfigs['editor'];
+		// コメント送信用のトークンを出力する為にセキュリティコンポーネントを利用しているが、
+		// 表示用のコントローラーなのでポストデータのチェックは必要ない
+		$this->Security->validatePost = false;
+		$this->Security->csrfCheck = false;
 	}
 
 	/**
@@ -160,6 +165,12 @@ class InstantPagesController extends AppController {
 			$this->notFound();
 		}
 
+				// プレビュー
+		if ($this->BcContents->preview) {
+			if (!empty($this->request->data['InstantPage'])) {
+				$data = $this->InstantPage->createPreviewData($this->request->data);
+			}
+		}
 		$this->set('data', $data);
 	}
 
@@ -216,6 +227,7 @@ class InstantPagesController extends AppController {
 		$this->set('themedatas', $themedatas );
 		// ユーザー一覧
 		$this->set('users', $this->InstantPageUser->getUserList());
+		$this->set('userNames', $this->InstantPageUser->getUserNameList());
 		$this->pageTitle = $this->controlName . '新規登録';
 		$this->render('form');
 	}
@@ -280,6 +292,7 @@ class InstantPagesController extends AppController {
 
 		// ユーザー一覧
 		$this->set('users', $this->InstantPageUser->getUserList());
+		$this->set('userNames', $this->InstantPageUser->getUserNameList());
 		$this->pageTitle = $this->controlName . '編集';
 		$this->render('form');
 	}

@@ -2,6 +2,17 @@
 /**
  * [InstantInstantPage] InstantInstantPage 追加／編集
  */
+$userNames = isset($userNames) ? $userNames : [];
+$userName = $userNames[$this->BcForm->value('InstantPage.instant_page_users_id')];
+$url = '/lp/' . $userName. '/'.  $this->BcForm->value('InstantPage.name');
+$fullUrl = $this->BcBaser->getContentsUrl($url, true);
+$this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
+$this->BcBaser->js('InstantPage.admin/edit', false);
+$this->BcBaser->js('InstantPage.admin/form', false, [
+	'id' => 'AdminInstantPagesEditScript',
+	'data-fullurl' => $fullUrl,
+	'data-previewurl' => $this->BcBaser->getContentsUrl($url, false, false, true),
+]);
 $this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);
 $this->BcBaser->js('InstantPage.admin/edit', false);
 $users = isset($users) ? $users : $this->InstantPageUser->getUserList();
@@ -231,6 +242,19 @@ if (!isset($user['InstantPageUser'])) {
 						<!-- /MENU BOX -->
 					</div>
 					<!-- /MENU BOX GROUP (PAGE CONFIG) -->
+					<!-- プレビュー -->
+					<div class="edit-sub-menu-save">
+						<div class="mod-btn-square-03 edit-sub-menu-preview-btn">
+							<span class="btnInner">プレビュー</span>
+							<?php echo $this->BcForm->button(__d('baser', 'プレビュー'),
+								[
+									'id' => 'BtnPreview',
+									'div' => false,
+									'class' => 'button bca-btn bca-actions__item',
+									'data-bca-btn-type' => 'preview',
+								]) ?>
+						</div>
+					</div>
 					<!-- SAVE -->
 					<div class="edit-sub-menu-save">
 						<div class="mod-btn-square-03 edit-sub-menu-save-btn">
