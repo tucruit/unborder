@@ -21,9 +21,9 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 	<div class="l-container l-contentsContainer registrationInfoInner">
 		<section class="registrationInfo-form">
 			<h2 class="mod-hl-01 registrationInfo-form-hl">登録情報を変更する</h2>
-			<p class="registrationInfo-form-lead">
+			<!-- <p class="registrationInfo-form-lead">
 				こちらにテキストが入ります。この文章はダミーです。こちらにテキストが入ります。この文章はダミーです。こちらにテキストが入ります。この文章はダミーです。こちらにテキストが入ります。この文章はダミーです。
-			</p>
+			</p> -->
 			<div id="SelfUpdate" style="display: none"><?php echo $selfUpdate ?></div>
 			<div id="AlertMessage" style="display: none"></div>
 			<div id="UserGroupSetDefaultFavoritesUrl" style="display:none">
