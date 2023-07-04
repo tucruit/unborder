@@ -104,6 +104,11 @@ $config['InstantPage'] = [
 		// ダウンロードユーザー新規登録URLの有効期限 ( 単位: 時間 )
 	'activateMaxTime' => 24,
 	'enableGroup' => [4],
+	'plan_id' => [
+		1 => '無料プラン',
+		2 => '有料レギュラープラン',
+		3 => '有料ビジネスプラン',
+	],
 ];
 
 include __DIR__ . DS . 'disapproval_domain.php';

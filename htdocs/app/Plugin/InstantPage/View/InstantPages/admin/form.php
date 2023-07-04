@@ -11,7 +11,11 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 // 	echo '<div class="l-container l-contentsContainer myPageInner">';
 // }
 	$userNames = isset($userNames) ? $userNames : [];
-	$userName = $userNames[$this->BcForm->value('InstantPage.instant_page_users_id')];
+	if (array_key_exists($this->BcForm->value('InstantPage.instant_page_users_id'), $userNames)) {
+		$userName = $userNames[$this->BcForm->value('InstantPage.instant_page_users_id')];
+	} else {
+		$userName = $userNames[1];
+	}
 	$url = '/lp/' . $userName. '/'.  $this->BcForm->value('InstantPage.name');
 	$fullUrl = $this->BcBaser->getContentsUrl($url, true);
 	$this->BcBaser->css('admin/ckeditor/editor', ['inline' => true]);

@@ -9,6 +9,7 @@ $this->BcBaser->i18nScript([
 	'confirmMessage2' => __d('baser', '登録されている「よく使う項目」を、このユーザーが所属するユーザーグループの初期設定として登録します。よろしいですか？'),
 	'infoMessage1' => __d('baser', '登録されている「よく使う項目」を所属するユーザーグループの初期値として設定しました。'),
 ]);
+$planIds =  Configure::read('InstantPage.plan_id');
 $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_users'), false);
 ?>
 <script>
@@ -150,6 +151,14 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 							<?php
 							echo $this->BcForm->input('InstantPageUser.tel', ['type' => 'text', 'class' => 'mod-form-input-text', 'maxlength' => 20, 'autofocus' => true, 'placeholder' => 'ハイフン抜きで入力してください', 'div' => false]);
 							echo $this->BcForm->error('InstantPageUser.tel') ?>
+						</td>
+					</tr>
+					<tr>
+						<th class="col-head bca-form-table__label"><?php echo $this->BcForm->label('InstantPageUser.plan_id', 'プラン') ?></th>
+						<td class="col-input bca-form-table__input">
+							<?php echo $planIds[$this->BcForm->value('InstantPageUser.plan_id')]; ?>
+							<?php echo $this->BcForm->input('InstantPageUser.plan_id', ['type' => 'hidden', 'options' => $planIds]) ?>
+							<?php echo $this->BcForm->error('InstantPageUser.plan_id') ?>
 						</td>
 					</tr>
 

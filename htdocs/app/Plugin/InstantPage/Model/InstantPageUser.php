@@ -121,6 +121,7 @@ class InstantPageUser extends AppModel {
 			$this->name => array(
 				'status' => 1,
 				'password' => '',
+				'plan_id' => 1,
 			)
 		);
 		return $data;
