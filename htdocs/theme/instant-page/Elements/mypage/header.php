@@ -8,6 +8,7 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 if (empty($instantPageUser)) {
 	include __DIR__ . DS . '../header.php';
 } else {
+	$planIds =  Configure::read('InstantPage.plan_id');
 ?>
 <!-- HEADER -->
 <header role="banner" class="header" id="is-headerFixed">
@@ -20,15 +21,19 @@ if (empty($instantPageUser)) {
 		<!-- /LOGO -->
 		<div class="header-itemGroup">
 			<!-- PLAN -->
-			<div class="header-plan isFree">
-				<span class="header-plan-txt">無料プラン</span>
-			</div>
-			<!-- <div class="header-plan isRegular">
-			<span class="header-plan-txt">レギュラー</span>
-			</div> -->
-			<!-- <div class="header-plan isBusiness">
-			<span class="header-plan-txt">ビジネス</span>
-			</div> -->
+			<?php if ($instantPageUser['plan_id'] == 1): ?>
+				<div class="header-plan isFree">
+					<span class="header-plan-txt">無料プラン</span>
+				</div>
+			<?php elseif ($instantPageUser['plan_id'] == 2):?>
+				<div class="header-plan isRegular">
+					<span class="header-plan-txt">レギュラー</span>
+				</div>
+			<?php else:?>
+				<div class="header-plan isBusiness">
+					<span class="header-plan-txt">ビジネス</span>
+				</div>
+			<?php endif;?>
 			<!-- /PLAN -->
 			<!-- MOBILE MENU BUTTON -->
 			<div id="header-mobileMenuBtn">
