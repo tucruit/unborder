@@ -6,6 +6,7 @@ $pageRoutes = configure::read('pageRoutes');
 $userUrl = isset($user['name']) ? h($user['name']) : '';
 // 無料プランの場合は1件以上登録できない。優良プランの場合は5件まで
 $limit = $user['InstantPageUser']['plan_id'] == 1 ? 1 : 5;
+$no = $limit;
 ?>
 <div role="main" class="myPage">
 	<h1 class="mod-hl-pageTitle">マイページ</h1>
@@ -37,8 +38,8 @@ $limit = $user['InstantPageUser']['plan_id'] == 1 ? 1 : 5;
 					<?php if (!empty($datas)):?>
 						<?php foreach ($datas as $data) :?>
 							<?php //無料プランの場合は1件以上表示できない。優良プランの場合は5件まで
-							if ($limit <= 0) continue;
-							$limit --;
+							if ($no <= 0) continue;
+							$no --;
 							?>
 							<tr>
 								<td><?php $this->BcBaser->link($data['InstantPage']['title'], ['action' => 'edit', $data['InstantPage']['id']]) ?></td>
