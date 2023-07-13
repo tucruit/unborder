@@ -63,6 +63,14 @@ if (empty($instantPageUser)) {
 						}
 						?>
 					</li>
+					<?php if (!empty($instantPageUser) && $instantPageUser['creator_flg']) : ?>
+						<li>
+							<?php
+							$this->BcBaser->link('テーマ管理', '/cmsadmin/instant_page/instant_page_templates/', ['class' => 'menuTitle']);
+							?>
+						</li>
+					<?php endif;?>
+
 					<li>
 						<?php
 						 if ($this->Session->check('AuthAgent')) {

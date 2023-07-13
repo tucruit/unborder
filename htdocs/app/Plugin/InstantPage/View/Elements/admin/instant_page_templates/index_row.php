@@ -47,8 +47,8 @@
 
 	<td class="row-tools bca-table-listup__tbody-td bca-table-listup__tbody-td--actions">
 		<?php
-		//$this->BcBaser->link('', ['action' => 'edit', $data['InstantPageTemplate']['id']], ['title' => __d('baser', '編集'), 'class' => ' bca-btn-icon', 'data-bca-btn-type' => 'edit', 'data-bca-btn-size' => 'lg']);
 		if ($data['InstantPageTemplate']['id'] != 1) { // テーマが0件にならないように「default_gray」だけは残しておく
+			$this->BcBaser->link('', ['action' => 'edit', $data['InstantPageTemplate']['id']], ['title' => __d('baser', '作成者変更'), 'class' => ' bca-btn-icon', 'data-bca-btn-type' => 'edit', 'data-bca-btn-size' => 'lg']);
 			$this->BcBaser->link('', ['action' => 'ajax_delete', $data['InstantPageTemplate']['id']], ['title' => __d('baser', '削除'), 'class' => 'btn-delete bca-btn-icon', 'data-bca-btn-type' => 'delete', 'data-bca-btn-size' => 'lg']);
 		}
 		?>

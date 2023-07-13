@@ -149,6 +149,21 @@ $(function(){
 				<?php echo $this->BcForm->error('InstantPageUser.plan_id') ?>
 			</td>
 		</tr>
+		<tr>
+			<th class="col-head bca-form-table__label">
+				<?php echo $this->BcForm->label('InstantPageUser.creator_flg', 'クリエイター設定') ?>
+			</th>
+			<td class="col-input bca-form-table__input">
+				<?php echo $this->BcForm->input('InstantPageUser.creator_flg', array('type' => 'checkbox', 'label' => 'クリエイター')) ?>
+				<i class="bca-icon--question-circle btn help bca-help"></i>
+				<div id="helptextBlank" class="helptext">
+					<ul>
+						<li>クリエイターとして自作のテーマの利用状況を確認するかどうかを指定します。</li>
+					</ul>
+				</div>
+				<?php echo $this->BcForm->error('InstantPageUser.creator_flg') ?>
+			</td>
+		</tr>
 		<?php echo $this->BcForm->dispatchAfterForm() ?>
 	</table>
 </div>
