@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="" />
+    <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Config/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Config/install.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +34,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "demo",
+    "git-widget-placeholder": "feature/20230730__決済機能",
     "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -52,6 +56,7 @@
       <workItem from="1685537068192" duration="2175000" />
       <workItem from="1686119600032" duration="237000" />
       <workItem from="1687165016032" duration="427000" />
+      <workItem from="1690694354906" duration="1550000" />
     </task>
     <servers />
   </component>

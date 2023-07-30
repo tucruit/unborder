@@ -42,6 +42,14 @@ public $test = array(
 			$this->default['password'] = 'catchup55';
 			$this->default['database'] = 'instant-page';
 		}
+		//add by goichi
+		if (strpos($_SERVER['HTTP_HOST'], 'localhost:8137') !== false) {
+			$this->default['host'] = '127.0.0.1';
+			$this->default['port'] = '8889';
+			$this->default['login'] = 'xb934289_catchup';
+			$this->default['password'] = 'instant001';
+			$this->default['database'] = 'xb934289_db';
+		}
 	}
 }
 
