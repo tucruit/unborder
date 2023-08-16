@@ -1054,4 +1054,17 @@ class InstantPageUsersController extends AppController {
 
 		return $data;
 	}
+
+
+	public function payment()
+	{
+		//決済画面へのリンク生成
+		//決済システムに送るパラメータを生成する。
+	}
+
+
+	public function payment_result()
+	{
+		//決済の結果取得
+	}
 }

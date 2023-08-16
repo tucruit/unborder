@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
+      <change afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payments.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Model/InstantPagePaymentLog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Config/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Config/install.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPageUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPageUsersController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "feature/20230730__決済機能",
-    "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page",
+    "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page/htdocs/app/Plugin/InstantPage/Config/Schema",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -44,6 +45,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="デフォルトタスク">
@@ -56,7 +62,7 @@
       <workItem from="1685537068192" duration="2175000" />
       <workItem from="1686119600032" duration="237000" />
       <workItem from="1687165016032" duration="427000" />
-      <workItem from="1690694354906" duration="1550000" />
+      <workItem from="1690694354906" duration="2595000" />
     </task>
     <servers />
   </component>
