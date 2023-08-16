@@ -91,4 +91,23 @@ class InstantPageHelper extends AppHelper {
 	}
 
 
+	/**
+	 * プランIDからプラン名を返す
+	 *
+	 * @param $id
+	 * @return false|string
+	 */
+	public function getPlanName($id){
+		$plan = [
+			1 => '無料プラン',
+			2 => '有料プラン',
+			3 => '有料ビジネスプラン'
+		];
+		if(!empty($plan[$id])){
+			return $plan[$id];
+		} else {
+			return false;
+		}
+	}
+
 }
