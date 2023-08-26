@@ -24,7 +24,7 @@ class InstantPagePaymentsController extends AppController {
 		'InstantPage.InstantPage',
 		'InstantPage.InstantPageTemplate',
 		'InstantPage.InstantPageUser',
-		'InstantPage.InstantPageLog',
+		'InstantPage.InstantPagePaymentLog',
 		'User'
 	];
 
@@ -115,6 +115,19 @@ class InstantPagePaymentsController extends AppController {
 		$this->mypage_payment($planId);
 	}
 
+
+	/**
+	 * 決済実施後の処理
+	 *
+	 * @param $tradingId string 決済ID
+	 * @return void
+	 */
+	public function admin_payment_result($tradingId)
+	{
+		$this->mypage_payment_result($tradingId);
+	}
+
+
 	/**
 	 * [MY PAGE] 決済実施の確認画面
 	 *
@@ -134,11 +147,20 @@ class InstantPagePaymentsController extends AppController {
 			}
 			//URL取得
 			$response = $this->_getPaymentUrl($userData, $planId);
-			if($response["result"] != "1"){
-				$this->redirect($response["url"]); //決済API
-				exit;
+			//ログ作成
+			$insert['InstantPagePaymentLog']['user_id'] = $userData['id'];
+			$insert['InstantPagePaymentLog']['trading_id'] = $response["trading_id"];
+			$insert['InstantPagePaymentLog']['plan_id'] = $planId;
+			if($this->InstantPagePaymentLog->save($insert)){
+				if($response["result"] != "1") {
+					$this->redirect($response["url"]); //決済API
+					exit;
+				} else {
+					var_dump($response);
+					exit;
+				}
 			} else {
-				var_dump($response);
+				echo 'ログの保存に失敗しました。管理者に連絡してください。';
 				exit;
 			}
 		}
@@ -151,9 +173,38 @@ class InstantPagePaymentsController extends AppController {
 	}
 
 
-	public function admin_payment_result()
+	/**
+	 * [My Page] 決済実施後の処理
+	 *
+	 * @param $tradingId string 決済ID
+	 * @return void
+	 */
+	public function mypage_payment_result($tradingId)
 	{
-		//決済の結果取得
+		//除外処理
+		if(empty($tradingId)){
+			$this->redirect('/');
+		}
+		$tradingData = $this->InstantPagePaymentLog->find('first',['conditions' => [
+			'InstantPagePaymentLog.trading_id' => $tradingId,
+			'InstantPagePaymentLog.user_id' => $this->BcAuth->user('id'),
+		]]);
+		//除外処理
+		if(empty($tradingData)){
+			$this->redirect('/');
+		} else {
+			//ユーザーの有料フラグを入れる
+			$myData = $this->InstantPageUser->findByUserId($this->BcAuth->user('id'));
+			if(empty($myData)){
+				$this->redirect('/');
+			} else {
+				$myData['InstantPageUser']['plan_id'] = $tradingData['InstantPagePaymentLog']['plan_id'];
+				if($this->InstantPageUser->save($myData)){
+					$this->setMessage('決済が完了しました。', false, true);
+					$this->redirect('/cmsadmin/instant_page/instant_pages/');
+				}
+			}
+		}
 	}
 
 
@@ -318,7 +369,7 @@ class InstantPagePaymentsController extends AppController {
 			'merchant_name' => 'インスタントページ',
 			'payment_detail' => '月額利用料決済',
 			'banner_url' => 'https://instantpage.jp/theme/instant-page/img/common/logo.svg',
-			'return_url' => $serverData['return_url'],
+			'return_url' => $serverData['return_url'].'/'.$tradingId,
 			'customer_family_name' => $user['real_name_1'],
 			'customer_name' => $user['real_name_2'],
 			'customer_id' => $user['id'],
@@ -327,6 +378,7 @@ class InstantPagePaymentsController extends AppController {
 			'payment_class' => 0,
 			'use_card_conf_number' => 0,
 			'threedsecure_ryaku' => 0,
+			'finish_disable' => 1,//完了画面を表示せず、リターンURLに戻ってくる（完了画面はこっちで出す）
 		];
 		//ハッシュ値は上のPOST用データをもとに生成されるので、ハッシュだけあとで作る。
 		$data['hc'] = $this->_getPaymentHash($data);

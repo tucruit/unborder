@@ -15,6 +15,8 @@ class InstantPagePaymentLogsSchema extends CakeSchema {
 	public $instant_page_payment_logs = [
 		'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary', 'comment' => 'ID'],
 		'user_id' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 11, 'comment' => 'ユーザーID'],
+		'trading_id' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 200, 'comment' => '決済ID'],
+		'plan_id' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 11, 'comment' => 'プラン'],
 		'response_code' => ['type' => 'string', 'null' => true, 'default' => null, 'comment' => 'レスポンスコード'],
 		'created' => ['type' => 'datetime', 'null' => true, 'default' => null, 'comment' => '作成日時'],
 		'modified' => ['type' => 'datetime', 'null' => true, 'default' => null, 'comment' => '更新日時'],

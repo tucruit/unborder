@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
-      <change afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Config/install.overwrite.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Config/install.overwrite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payments.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payment_logs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPageUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPageUsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/Helper/InstantPageHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/Helper/InstantPageHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payment_logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payment_logs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mypage/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mypage/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +44,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -74,7 +77,10 @@
       <workItem from="1686119600032" duration="237000" />
       <workItem from="1687165016032" duration="427000" />
       <workItem from="1690694354906" duration="2595000" />
-      <workItem from="1692148054174" duration="13175000" />
+      <workItem from="1692148054174" duration="16625000" />
+      <workItem from="1692342297753" duration="1309000" />
+      <workItem from="1692958294857" duration="621000" />
+      <workItem from="1693018509976" duration="2379000" />
     </task>
     <servers />
   </component>
