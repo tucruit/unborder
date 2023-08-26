@@ -66,5 +66,22 @@ $no = $limit;
 				</tbody>
 			</table>
 		</div>
+
+		<?php
+		//有料会員への動線
+		$user = $this->Session->read('Auth');
+		$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
+		if($instantPageUser['plan_id'] == 1){
+			?>
+			<p class="textCenter marginTop40">
+				あなたも有料会員になりませんか？ 有料会員になれば作成できるLPの数が増えます！
+			</p>
+			<a class="mod-btn-01 marginTop30" href="/cmsadmin/instant_page/instant_page_payments/payment/2">
+				有料会員になる
+			</a>
+
+			<?php
+		}
+		?>
 	</div>
 </div>

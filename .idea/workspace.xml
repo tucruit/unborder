@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payment_logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Config/Schema/instant_page_payment_logs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mypage/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Elements/mypage/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <workItem from="1692148054174" duration="16625000" />
       <workItem from="1692342297753" duration="1309000" />
       <workItem from="1692958294857" duration="621000" />
-      <workItem from="1693018509976" duration="2379000" />
+      <workItem from="1693018509976" duration="3389000" />
     </task>
     <servers />
   </component>

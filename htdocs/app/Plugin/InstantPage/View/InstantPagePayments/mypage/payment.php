@@ -1,3 +1,7 @@
+<?php
+$user = $this->Session->read('Auth');
+$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
+?>
 <div role="main" class="registrationInfo">
 	<h1 class="mod-hl-pageTitle">有料会員登録</h1>
 	<div class="l-container l-contentsContainer registrationInfoInner">
@@ -23,13 +27,19 @@
 						<?php echo $paymentPrice ?>円
 					</td>
 					<td>
-						<?php echo $this->InstantPage->getPlanName($user['InstantPageUser']['plan_id']) ?>
+						<?php echo $this->InstantPage->getPlanName($instantPageUser['plan_id']) ?>
 					</td>
 				</tr>
 				</tbody>
 			</table>
 			</div>
+			<?php if($instantPageUser['plan_id'] == 1): ?>
 			<button type="submit" class="mod-btn-01" style="margin-top: 40px;">決済画面へ進む</button>
+			<?php else: ?>
+				<p class="marginTop40 textCenter">
+					ありがとうございます。お客様は現在有料プランです。
+				</p>
+			<?php endif ?>
 			<?php echo $this->BcForm->hidden('Payment', ['value' => 1]) ?>
 			<?php echo $this->BcForm->end() ?>
 		</section>
