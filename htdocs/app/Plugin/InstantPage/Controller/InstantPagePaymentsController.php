@@ -76,8 +76,8 @@ class InstantPagePaymentsController extends AppController {
 			'token_gen_key' => 'live_xZutCLkHOosrCwPKKzfbBFTv',
 			'token_get_key' => 'ck_CvKAf44sfmIyxrUkZTFCfh48',
 			'hash_gen_key' => '0KV0t7NEhH',
-			'url' => '',
-			'return_url' => ''
+			'url' => 'https://link.paygent.co.jp/v/u/request',
+			'return_url' => 'https://instantpage.jp/cmsadmin/instant_page/instant_page_payments/payment_result'
 		]
 	];
 
@@ -327,7 +327,6 @@ class InstantPagePaymentsController extends AppController {
 		$header = stream_get_meta_data($fp);
 		$html = stream_get_contents($fp);
 		fclose($fp);
-		//var_dump($header);
 		//返り値は改行で区切られているので、とりあえずLFに統一したうえで、配列にする。
 		$responseText = str_replace(array("\r\n", "\r", "\n"), "\n", $html);
 		$textDatas = explode("\n", $responseText);

@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,25 +29,25 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/20230730__決済機能",
-    "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/20230730__決済機能&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/instant-page/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage" />
@@ -79,7 +77,8 @@
       <workItem from="1692148054174" duration="16625000" />
       <workItem from="1692342297753" duration="1309000" />
       <workItem from="1692958294857" duration="621000" />
-      <workItem from="1693018509976" duration="3389000" />
+      <workItem from="1693018509976" duration="3576000" />
+      <workItem from="1693293539614" duration="992000" />
     </task>
     <servers />
   </component>
