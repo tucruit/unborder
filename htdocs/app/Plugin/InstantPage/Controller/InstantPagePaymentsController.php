@@ -234,7 +234,7 @@ class InstantPagePaymentsController extends AppController {
 	 */
 	private function _getPaymentPrice($planId)
 	{
-		$price = [1 => 0, 2 => 2000, 3 => 3800]; //月額料金
+		$price = [1 => 0, 2 => 3190, 3 => 3800]; //月額料金
 		return $price[$planId];
 	}
 

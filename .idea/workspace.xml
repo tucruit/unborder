@@ -7,6 +7,9 @@
     <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/Controller/InstantPagePaymentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPagePayments/mypage/payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/theme/instant-page/Layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/theme/instant-page/Layouts/default.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +37,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/20230730__決済機能&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/instant-page/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/instant-page&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -78,7 +81,11 @@
       <workItem from="1692342297753" duration="1309000" />
       <workItem from="1692958294857" duration="621000" />
       <workItem from="1693018509976" duration="3576000" />
-      <workItem from="1693293539614" duration="992000" />
+      <workItem from="1693293539614" duration="1920000" />
+      <workItem from="1693376941515" duration="2632000" />
+      <workItem from="1693382007639" duration="48000" />
+      <workItem from="1693717812380" duration="615000" />
+      <workItem from="1694577748617" duration="3754000" />
     </task>
     <servers />
   </component>

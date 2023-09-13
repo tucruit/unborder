@@ -5,6 +5,7 @@
 $pageRoutes = configure::read('pageRoutes');
 $userUrl = isset($user['name']) ? h($user['name']) : '';
 // 無料プランの場合は1件以上登録できない。優良プランの場合は5件まで
+// TODO:初回のLP登録後にこの画面に戻ってくると無料プランでもボタンが表示される場合がある？確認対応する。
 $limit = $user['InstantPageUser']['plan_id'] == 1 ? 1 : 5;
 $no = $limit;
 ?>
@@ -68,7 +69,6 @@ $no = $limit;
 		</div>
 
 		<?php
-		//有料会員への動線
 		$user = $this->Session->read('Auth');
 		$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
 		if($instantPageUser['plan_id'] == 1){

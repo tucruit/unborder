@@ -24,7 +24,7 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 						<?php echo $this->InstantPage->getPlanName($paymentPlan) ?>
 					</td>
 					<td style="color:#F00;">
-						<?php echo $paymentPrice ?>円
+						月額 <?php echo $paymentPrice ?>円（税込）
 					</td>
 					<td>
 						<?php echo $this->InstantPage->getPlanName($instantPageUser['plan_id']) ?>
