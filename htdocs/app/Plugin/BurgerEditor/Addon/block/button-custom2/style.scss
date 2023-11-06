@@ -1,0 +1,10 @@
+[data-bgb="button-custom2"] {
+	@extend %column2-layout;
+	text-align: center;
+
+	[data-bgt="button-custom"] {
+		/* ボタンブロック内 ボタンタイプ */
+		display: inline-block;
+		vertical-align: middle;
+	}
+}

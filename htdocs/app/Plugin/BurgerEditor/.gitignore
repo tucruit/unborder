@@ -76,6 +76,10 @@ Addon/block/*
 
 !Addon/block/header-1/
 !Addon/block/form/
+!Addon/block/button-custom/
+!Addon/block/button-custom2/
+!Addon/block/button-custom3/
+
 
 
 # タイプ
