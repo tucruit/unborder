@@ -72,6 +72,14 @@ $this->BcListTable->setColumnNumber(11);
 				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
 		</th>
 		<th class="bca-table-listup__thead-th">
+			<?php echo $this->Paginator->sort('creator_flg',
+				[
+					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', 'クリエイター'),
+					'desc' => '<i class="bca-icon--desc"></i>' . __d('baser', 'クリエイター')
+				],
+				['escape' => false, 'class' => 'btn-direction bca-table-listup__a']) ?>
+		</th>
+		<th class="bca-table-listup__thead-th">
 			<?php echo $this->Paginator->sort('prefecture_id',
 				[
 					'asc' => '<i class="bca-icon--asc"></i>' . __d('baser', '都道府県'),

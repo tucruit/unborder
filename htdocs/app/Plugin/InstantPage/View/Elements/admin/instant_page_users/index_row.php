@@ -23,6 +23,7 @@ $planIds =  Configure::read('InstantPage.plan_id');
 	<td class="bca-table-listup__tbody-td"><?php $this->BcBaser->link($data['User']['real_name_1']. ' '. $data['User']['real_name_2'], ['action' => 'edit', $data['InstantPageUser']['id']], ['escape' => true]) ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo h($data['User']['email']) ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo $planIds[$data['InstantPageUser']['plan_id']]; ?></td>
+	<td class="bca-table-listup__tbody-td"><?php echo $data['InstantPageUser']['creator_flg'] ? 'クリエイター' : ''; ?></td>
 	<td class="bca-table-listup__tbody-td"><?php echo $this->BcText->arrayValue($data['InstantPageUser']['prefecture_id'], $this->BcText->prefList()) ?></td>
 	<?php echo $this->BcListTable->dispatchShowRow($data) ?>
 	<td class="bca-table-listup__tbody-td"><?php echo $this->BcTime->format('Y-m-d', $data['InstantPageUser']['created']) ?><br>

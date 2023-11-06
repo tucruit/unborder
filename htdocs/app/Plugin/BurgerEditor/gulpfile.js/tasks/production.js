@@ -14,6 +14,7 @@ const srcFull = [
 	'Addon/block/category.php',
 	'Addon/block/option.php',
 	'Addon/block/button/**/*',
+	'Addon/block/button-custom/**/*',
 	'Addon/block/button2/**/*',
 	'Addon/block/button3/**/*',
 	'Addon/block/download-file/**/*',
@@ -64,6 +65,7 @@ const srcFull = [
 
 	// タイプ
 	'Addon/type/button/**/*',
+	'Addon/type/button-custom/**/*',
 	'Addon/type/ckeditor/**/*',
 	'Addon/type/download-file/**/*',
 	'Addon/type/embed/**/*',

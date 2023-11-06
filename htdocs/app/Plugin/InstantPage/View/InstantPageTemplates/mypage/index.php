@@ -2,54 +2,64 @@
 /**
  * [ADMIN] インスタントページ設定一覧
  */
-$pageRoutes = configure::read('pageRoutes');
-$userUrl = isset($user['name']) ? h($user['name']) : '';
 ?>
 <div role="main" class="myPage">
 	<h1 class="mod-hl-pageTitle">マイページ</h1>
 	<div class="l-container l-contentsContainer myPageInner">
-		<div class="myPage-btnGroup">
-			<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew">
-				<span class="btnInner">LP新規作成</span>
-			</a>
-			<a href="#" class="mod-btn-square-02 myPage-btnGroup-fileUpload" disabled=”disabled”>
-				<span class="btnInner">ファイルアップロード（準備中）</span>
-			</a>
-		</div>
+		<?php /*if (empty($datas) || count($datas) < intval($limit)) :?>
+			<div class="myPage-btnGroup">
+				<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew">
+					<span class="btnInner">LP新規作成</span>
+				</a>
+
+			</div>
+		<?php endif;*/?>
 		<div class="js-scrollable myPage-siteTableWrap">
 			<table class="myPage-siteTable">
 				<thead>
 					<tr>
+						<th>アイキャッチ</th>
 						<th>タイトル</th>
-						<th>状態</th>
-						<th>利用テーマ</th>
+						<th>説明</th>
+						<th>利用数</th>
 						<th>最終更新日</th>
-						<th>独自ドメイン</th>
+						<?php /*<th>独自ドメイン</th>*/?>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if (!empty($datas)):?>
 						<?php foreach ($datas as $data) :?>
 							<tr>
-								<td><?php $this->BcBaser->link($data['InstantPage']['title'], ['action' => 'edit', $data['InstantPage']['id']]) ?></td>
-								<td><?php
-								if ($this->InstantPage->allowPublish($data) && $userUrl) { //公開状態であれば 公開ページヘのリンク
-									$this->BcBaser->link('公開中', $pageRoutes. $userUrl. '/' . $data['InstantPage']['name'], ['title' => __d('baser', '確認'), 'target' => '_blank']);
-								} else { // 非公開であればボタンを押せなくする
-									echo '非公開';
-								}
-								?></td>
-								<td><?php echo h($data['InstantPage']['template']) ?></td>
-								<td><?php echo date('Y年m月d日', strtotime($data['InstantPage']['modified']))?></td>
-								<td>
-									<a href="#" class="myPage-siteTable-applicationStatus">
-										<span class="btnInner"><?php echo '準備中'//'申請' ?></span>
-									</a>
-									<?php /*
-									<a href="#" class="myPage-siteTable-applicationStatus isApplying">
-										<span class="btnInner">申請中</span>
-									</a>
-									*/?>
+								<!-- <td class="bca-table-listup__tbody-td"><?php //echo $data['InstantPageTemplate']['id'] ?></td> -->
+								<td class="bca-table-listup__tbody-td">
+									<?php
+									if (isset($themedatas[$data['InstantPageTemplate']['name']]) && $themedatas[$data['InstantPageTemplate']['name']]['screenshot']) {
+										$this->BcBaser->img('/theme/' . $data['InstantPageTemplate']['name'] . '/screenshot.png', ['alt' => $data['InstantPageTemplate']['name'], 'width' => '50px']);
+									}
+									?>
+								</td>
+								<td class="bca-table-listup__tbody-td">
+									<?php
+									if (isset($themedatas[$data['InstantPageTemplate']['name']]) && $themedatas[$data['InstantPageTemplate']['name']]['title']) {
+										echo h($themedatas[$data['InstantPageTemplate']['name']]['title']);
+									}else {
+										echo h($data['InstantPageTemplate']['name']);
+									}
+									?>
+								</td>
+								<td class="bca-table-listup__tbody-td">
+									<?php
+									if (isset($themedatas[$data['InstantPageTemplate']['name']]) && $themedatas[$data['InstantPageTemplate']['name']]['description']) {
+										echo nl2br(h(mb_strimwidth($themedatas[$data['InstantPageTemplate']['name']]['description'], 0, 160, '...', 'utf8')));
+									}
+									?>
+								</td>
+								<td class="bca-table-listup__tbody-td">
+									<?php echo isset($data['InstantPage']) ? count($data['InstantPage']) : ''; ?>
+								</td>
+								<td class="bca-table-listup__tbody-td">
+									<?php //echo $this->BcTime->format('Y年m月d日 H:i:s', $data['InstantPageTemplate']['created']) ?><br>
+									<?php echo $this->BcTime->format('Y年m月d日 H:i:s', $data['InstantPageTemplate']['modified']) ?>
 								</td>
 							</tr>
 						<?php endforeach; ?>

@@ -224,7 +224,15 @@ class InstantPageTemplatesController extends AppController {
 			// }
 		}
 		// ユーザー一覧
-		$users = $this->User->find('all', ['order' => 'User.created ASC',]);
+		// ユーザー一覧
+		$users = $this->User->find('all', [
+			'conditions' => ['OR' => [
+				['InstantPageUser.creator_flg = ' => 1], //インスタントページユーザーの場合クリエイターのみ
+				['User.user_group_id' => [1, 2, 3]], //もしくは、インスタントページユーザー以外
+			]
+		],
+			'order' => 'User.created ASC',
+		]);
 		$this->set('users', Hash::combine($users, '{n}.User.id', '{n}.User.real_name_1'));
 		$this->pageTitle = $this->controlName . '新規登録';
 		$this->render('form');
@@ -265,7 +273,14 @@ class InstantPageTemplatesController extends AppController {
 		// }
 
 		// ユーザー一覧
-		$users = $this->User->find('all', ['order' => 'User.created ASC',]);
+		$users = $this->User->find('all', [
+			'conditions' => ['OR' => [
+				['InstantPageUser.creator_flg = ' => 1], //インスタントページユーザーの場合クリエイターのみ
+				['User.user_group_id' => [1, 2, 3]], //もしくは、インスタントページユーザー以外
+			]
+		],
+			'order' => 'User.created ASC',
+		]);
 		$this->set('users', Hash::combine($users, '{n}.User.id', '{n}.User.real_name_1'));
 		$this->pageTitle = $this->controlName . '編集';
 		$this->render('form');
