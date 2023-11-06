@@ -102,4 +102,6 @@ Addon/type/*
 !Addon/type/trimmed-image-link/
 !Addon/type/youtube/
 !Addon/type/form/
+!Addon/type/button-custom/
+
 
