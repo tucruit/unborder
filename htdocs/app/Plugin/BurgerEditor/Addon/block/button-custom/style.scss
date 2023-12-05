@@ -1,0 +1,9 @@
+[data-bgb="button-custom"] {
+	text-align: center;
+
+	[data-bgt="button-custom"] {
+		/* ボタンブロック内 ボタンタイプ */
+		display: inline-block;
+		vertical-align: middle;
+	}
+}

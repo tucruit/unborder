@@ -14,14 +14,6 @@ $bgCategory = array(
 		'header-1' => 'ヘッダー',
 	),
 	'カスタムボタン' => array(
-		'button-reflect' => 'リフレクト',
-		'button-shake' => 'シェイク',
-		'button-bound'=> 'バウンド',
-		'button-syasen'=> '斜線枠',
-		'button-syasen2'=> '斜線枠 x2',
-		'button-kakumaru'=> '角丸',
-		'button-rittai-kaku'=> '立体角',
-		'button-rittai-kakumaru'=> '立体角丸',
 		'button-custom' => 'ボタン（余白）',
 		'button-custom2' => 'ボタン（余白） x2',
 		'button-custom3' => 'ボタン（余白） x3',
@@ -73,12 +65,6 @@ $bgCategory = array(
 		'download-file' => 'ファイル<br>ダウンロード',
 		'download-file2' => 'ファイル<br>ダウンロード x2',
 		'download-file3' => 'ファイル<br>ダウンロード x3',
-	),
-	'カスタム区切り線' => array(
-		'hr-tensen' => '点線（区切り線）',
-		'hr-syasen'=> '斜線（区切り線）',
-		'hr-grade-center'=> '中央グラデ（区切り線）',
-		'hr-haikeihasen'=> '背景色あり破線（区切り線）',
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',
