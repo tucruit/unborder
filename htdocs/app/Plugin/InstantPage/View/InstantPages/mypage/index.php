@@ -74,7 +74,7 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 										</a>
 									<?php else:?>
 										<a href="#" class="myPage-siteTable-applicationStatus isApplying">
-											<span class="btnInner">申請中</span>
+											<span class="btnInner">申請済</span>
 										</a>
 								<?php endif;/**/?>
 								</td>
