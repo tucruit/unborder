@@ -22,6 +22,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			return false;
 		});
 	});
+$("#MailMessageDate").datepicker({
+		minDate		: '+3d'
+	});
 });
 </script>
 
