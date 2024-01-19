@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="" />
+    <list default="true" id="1b98b276-c84c-4a08-b8fc-0cd60c93af67" name="変更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,42 +22,73 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php@8.1/8.1.13/bin/php" />
-  <component name="ProjectId" id="2QYh0I59NsbqJoTYHWA5t84VOjn" />
+  <component name="ProjectId" id="2WF7XzYKP3g5M2Siw6PGy6EnrIP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "demo",
-    "last_opened_file_path": "/Applications/MAMP/htdocs/instant-page",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;demo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/instant-page/htdocs/app/Plugin/BurgerEditor/Addon/block/maniwa&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/block/maniwa" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/tabata" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="デフォルトタスク">
-      <changelist id="39d574a4-6b0d-43de-94f2-5e34d2007de7" name="変更" comment="" />
-      <created>1685536197754</created>
+      <changelist id="1b98b276-c84c-4a08-b8fc-0cd60c93af67" name="変更" comment="" />
+      <created>1696316519270</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685536197754</updated>
-      <workItem from="1685536198819" duration="825000" />
-      <workItem from="1685537068192" duration="2175000" />
-      <workItem from="1686119600032" duration="237000" />
-      <workItem from="1687165016032" duration="427000" />
+      <updated>1696316519270</updated>
+      <workItem from="1696316519940" duration="990000" />
+      <workItem from="1696402823202" duration="45000" />
+      <workItem from="1697679054287" duration="2291000" />
+      <workItem from="1698892621667" duration="736000" />
+      <workItem from="1698905455604" duration="1104000" />
+      <workItem from="1701224126779" duration="1351000" />
+      <workItem from="1701305597323" duration="3101000" />
+      <workItem from="1701312776615" duration="647000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/gallery/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/ckeditor/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/trimmed-image/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/table/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/embed/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/google-maps/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/image-link/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/button/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/form/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/image/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/download-file/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/trimmed-image-link/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/title-h2/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/hr/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/youtube/init.js" />
+        <option value="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/title-h3/init.js" />
+      </list>
+    </option>
   </component>
 </project>
