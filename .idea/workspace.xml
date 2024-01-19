@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1b98b276-c84c-4a08-b8fc-0cd60c93af67" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPageTemplates/mypage/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPageTemplates/mypage/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/app/Plugin/InstantPage/View/InstantPages/mypage/form.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php@8.1/8.1.13/bin/php" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2WF7XzYKP3g5M2Siw6PGy6EnrIP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,6 +55,13 @@
       <recent name="$PROJECT_DIR$/htdocs/app/Plugin/BurgerEditor/Addon/type/tabata" />
     </key>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="デフォルトタスク">
@@ -65,6 +78,8 @@
       <workItem from="1701224126779" duration="1351000" />
       <workItem from="1701305597323" duration="3101000" />
       <workItem from="1701312776615" duration="647000" />
+      <workItem from="1705625790158" duration="1039000" />
+      <workItem from="1707269189882" duration="286000" />
     </task>
     <servers />
   </component>
