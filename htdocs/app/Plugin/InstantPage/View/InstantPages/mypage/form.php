@@ -286,10 +286,11 @@ if (!isset($user['InstantPageUser'])) {
 					<!-- OPERATION BTN -->
 					<!-- MENU BOX GROUP (LINK) -->
 					<div class="edit-sub-menu-menuGroup" id="subMenuGroupLink">
-						<!-- MENU BOX -->
+						<!-- MENU BOX
 						<div class="subMenuBox" id="subMenuGroupLink-manual">
 							<a href="#" class="subMenuBox-title isLinkBtn">マニュアルを見る</a>
 						</div>
+						-->
 						<!-- /MENU BOX -->
 						<!-- MENU BOX -->
 						<div class="subMenuBox" id="subMenuGroupLink-myPage">

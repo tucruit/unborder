@@ -267,12 +267,13 @@ if (!isset($user['InstantPageUser'])) {
 							<a href="#" class="subMenuBox-title isLinkBtn">マニュアルを見る</a>
 						</div>
 						<!-- /MENU BOX -->
-						<!-- MENU BOX -->
+						<!-- MENU BOX
 						<div class="subMenuBox" id="subMenuGroupLink-myPage">
 							<?php echo $this->BcHtml->link('マイページに戻る', ['controller' => 'instant_pages', 'action' => 'index'], [
 								'class' => 'subMenuBox-title isLinkBtn'
 							]) ?>
 						</div>
+						-->
 						<!-- /MENU BOX -->
 						<!-- MENU BOX -->
 						<div class="subMenuBox" id="subMenuGroupLink-myEdit">

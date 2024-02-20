@@ -2,3 +2,4 @@ cu_deploy/*
 htdocs/_cms/*
 htdocs/theme/custom_pink/*
 htdocs/theme/default_gray/*
+.idea/*
