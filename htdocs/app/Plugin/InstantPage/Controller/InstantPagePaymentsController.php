@@ -82,6 +82,11 @@ class InstantPagePaymentsController extends AppController {
 	];
 
 	/**
+	 * プランアップ時の通知メール送信先
+	 */
+	public $adminEmail = "goichi.m@gmail.com";
+
+	/**
 	 * beforeFilter
 	 *
 	 * @return void
@@ -195,11 +200,16 @@ class InstantPagePaymentsController extends AppController {
 		} else {
 			//ユーザーの有料フラグを入れる
 			$myData = $this->InstantPageUser->findByUserId($this->BcAuth->user('id'));
+			$oldPlan = $myData['InstantPageUser']['plan_id']; //プランアップかどうかの判断ができるよう、更新前のプランを取得しておく。
 			if(empty($myData)){
 				$this->redirect('/');
 			} else {
 				$myData['InstantPageUser']['plan_id'] = $tradingData['InstantPagePaymentLog']['plan_id'];
 				if($this->InstantPageUser->save($myData)){
+					//planId が2 から 3になった場合はプランアップ
+					if($myData['InstantPageUser']['plan_id'] == 3 && $oldPlan == 2){ //プランアップである。
+						$this->_sendMailPlanUp();
+					}
 					$this->setMessage('決済が完了しました。', false, true);
 					$this->redirect('/cmsadmin/instant_page/instant_pages/');
 				}
@@ -234,7 +244,8 @@ class InstantPagePaymentsController extends AppController {
 	 */
 	private function _getPaymentPrice($planId)
 	{
-		$price = [1 => 0, 2 => 3190, 3 => 3800]; //月額料金
+		//金額は/app/Plugin/InstantPage/setting.phpにて設定あり
+		$price = Configure::read('InstantPage.plan_price');
 		return $price[$planId];
 	}
 
@@ -259,9 +270,11 @@ class InstantPagePaymentsController extends AppController {
 	 */
 	private function _getPaymentServer()
 	{
-		if (strpos($_SERVER['HTTP_HOST'], 'instantpage.jp') !== false) { //本番ドメイン
+		if (strpos($_SERVER['HTTP_HOST'], 'stg.instantpage.jp') !== false) { //ステージング
 			return $this->paymentServer['prod'];
-		} else {
+		} elseif(strpos($_SERVER['HTTP_HOST'], 'instantpage.jp') !== false) { //本番
+			return $this->paymentServer['demo'];
+		} else { //その他の環境
 			return $this->paymentServer['demo'];
 		}
 	}
@@ -432,6 +445,24 @@ class InstantPagePaymentsController extends AppController {
 	}
 
 
-
+	/**
+	 * プランアップ時の通知メール
+	 *
+	 * @param $userData
+	 * @return void
+	 */
+	private function _sendMailPlanUp()
+	{
+		$userData = BcUtil::loginUser();
+		$to = $this->adminEmail;
+		$title = "プランアップしたユーザーがあります";
+		$options = array(
+			'fromName' => 'インスタントページ',
+			'template' => 'plan_up',
+		);
+		$body['name'] = $userData['real_name_1'].$userData['real_name_2'];
+		$body['no'] = $userData['InstantPageUser']['id'];
+		$this->sendMail($to, $title, $body, $options);
+	}
 
 }
