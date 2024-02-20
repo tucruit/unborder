@@ -27,7 +27,7 @@ if (empty($instantPageUser)) {
 				</div>
 			<?php elseif ($instantPageUser['plan_id'] == 2):?>
 				<div class="header-plan isRegular">
-					<span class="header-plan-txt">レギュラー</span>
+					<span class="header-plan-txt">有料プラン</span>
 				</div>
 			<?php else:?>
 				<div class="header-plan isBusiness">

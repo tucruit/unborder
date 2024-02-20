@@ -39,7 +39,10 @@ $this->BcAdmin->addAdminMainBodyHeaderLinks([
 <div id="MessageBox" hidden>
 	<div id="flashMessage" class="notice-message"></div>
 </div>
-<div id="DataList" class="bca-data-list"><?php $this->BcBaser->element('instant_pages/index_list') ?></div>
+<div id="DataList" class="bca-data-list">
+	<?php $this->BcBaser->element('instant_pages/index_list') ?>
+</div>
 
 <?php
 }
+?>

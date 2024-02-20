@@ -307,10 +307,7 @@
 										<th>&thinsp;</th>
 										<th>無料プラン</th>
 										<th>
-											<span class="noWrap">有料</span><span class="noWrap">レギュラー</span><span class="noWrap">プラン</span>
-										</th>
-										<th>
-											<span class="noWrap">有料</span><span class="noWrap">ビジネス</span><span class="noWrap">プラン</span>
+											有料プラン
 										</th>
 									</tr>
 								</thead>
@@ -322,8 +319,7 @@
 											</div>
 										</th>
 										<td><em>無　料</em></td>
-										<td><em><span class="noWrap">ASK! ／</span><span class="noWrap">月</span></em></td>
-										<td><em><span class="noWrap">ASK! ／</span><span class="noWrap">月</span></em></td>
+										<td><em><span style="font-size: 16px">税抜</span> 2,900円/月<br><span style="font-size: 16px">（税込 3,190円/月）</span></em></td>
 									</tr>
 									<tr>
 										<th>
@@ -332,7 +328,6 @@
 											</div>
 										</th>
 										<td>１ページのみ</td>
-										<td>５ページまで</td>
 										<td>５ページまで</td>
 									</tr>
 									<tr>
@@ -345,7 +340,6 @@
 											<span class="noWrap"><span class="noWrap">無料</span><span class="noWrap">テンプレート</span></span><span class="noWrap">使用可能</span>
 										</td>
 										<td>すべて</td>
-										<td>すべて</td>
 									</tr>
 									<tr>
 										<th>
@@ -353,7 +347,6 @@
 												<span class="noWrap">レスポンシブ</span><span class="noWrap">対応</span>
 											</div>
 										</th>
-										<td>○</td>
 										<td>○</td>
 										<td>○</td>
 									</tr>
@@ -365,8 +358,8 @@
 										</th>
 										<td>○</td>
 										<td>○</td>
-										<td>○</td>
 									</tr>
+									<!--
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -377,6 +370,8 @@
 										<td>○</td>
 										<td>○</td>
 									</tr>
+									-->
+
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -385,8 +380,9 @@
 										</th>
 										<td>×</td>
 										<td>○</td>
-										<td>○</td>
 									</tr>
+
+									<!--
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -397,6 +393,7 @@
 										<td>○</td>
 										<td>○</td>
 									</tr>
+									-->
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -405,8 +402,8 @@
 										</th>
 										<td>×</td>
 										<td>○</td>
-										<td>○</td>
 									</tr>
+									<!--
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -417,6 +414,8 @@
 										<td>○</td>
 										<td>○</td>
 									</tr>
+									-->
+									<!--
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -427,6 +426,8 @@
 										<td>×</td>
 										<td>○</td>
 									</tr>
+									-->
+									<!--
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -437,6 +438,8 @@
 										<td>×</td>
 										<td>○</td>
 									</tr>
+									-->
+									<!--
 									<tr>
 										<th>
 											<div class="isCellInner">
@@ -447,6 +450,7 @@
 										<td>×</td>
 										<td>○</td>
 									</tr>
+									-->
 								</tbody>
 							</table>
 							<!-- <a href="#" class="top-btn top-plan-moreBtn">

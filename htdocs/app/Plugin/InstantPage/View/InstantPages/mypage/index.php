@@ -5,6 +5,7 @@
 $pageRoutes = configure::read('pageRoutes');
 $userUrl = isset($user['name']) ? h($user['name']) : '';
 // 無料プランの場合は1件以上登録できない。優良プランの場合は5件まで
+// TODO:初回のLP登録後にこの画面に戻ってくると無料プランでもボタンが表示される場合がある？確認対応する。
 $limit = $user['InstantPageUser']['plan_id'] == 1 ? 1 : 5;
 $no = $limit;
 
@@ -84,5 +85,21 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 				</tbody>
 			</table>
 		</div>
+
+		<?php
+		$user = $this->Session->read('Auth');
+		$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
+		if($instantPageUser['plan_id'] == 1){
+			?>
+			<p class="textCenter marginTop40">
+				あなたも有料会員になりませんか？ 有料会員になれば作成できるLPの数が増えます！
+			</p>
+			<a class="mod-btn-01 marginTop30" href="/cmsadmin/instant_page/instant_page_payments/payment/2">
+				有料会員になる
+			</a>
+
+			<?php
+		}
+		?>
 	</div>
 </div>
