@@ -9,6 +9,6 @@ Configure::write('BcEnv.mainDomain', '');
 Configure::write('BcApp.adminSsl', false);
 Configure::write('BcApp.allowedPhpOtherThanAdmins', false);
 Cache::config('default', array('engine' => 'File'));
-Configure::write('debug', 0);
+Configure::write('debug', 1);
 
 include __DIR__ . DS . 'install.overwrite.php';

@@ -109,6 +109,11 @@ $config['InstantPage'] = [
 		2 => '有料レギュラープラン',
 		3 => '有料ビジネスプラン',
 	],
+	'plan_price' => [
+		1 => 0,
+		2 => 3190,
+		3 => 3800,
+	]
 ];
 
 include __DIR__ . DS . 'disapproval_domain.php';
