@@ -290,8 +290,8 @@ class InstantPagePaymentsController extends AppController {
 	 */
 	private function _isAppropriatePlan($user, $planId)
 	{
-		//TODO:グレードダウンのスキームを確認する
-		if((int)$planId <= (int)$user['InstantPageUser']['plan_id']){
+		//同プランでの処理はしない。
+		if((int)$planId == (int)$user['InstantPageUser']['plan_id']){
 			return false;
 		} else {
 			return true;
@@ -465,4 +465,24 @@ class InstantPagePaymentsController extends AppController {
 		$this->sendMail($to, $title, $body, $options);
 	}
 
+
+	/**
+	 * プランアップ時の通知メール
+	 *
+	 * @param $userData
+	 * @return void
+	 */
+	private function _sendMailPlanDown()
+	{
+		$userData = BcUtil::loginUser();
+		$to = $this->adminEmail;
+		$title = "プランダウンしたユーザーがあります";
+		$options = array(
+			'fromName' => 'インスタントページ',
+			'template' => 'plan_down',
+		);
+		$body['name'] = $userData['real_name_1'].$userData['real_name_2'];
+		$body['no'] = $userData['InstantPageUser']['id'];
+		$this->sendMail($to, $title, $body, $options);
+	}
 }

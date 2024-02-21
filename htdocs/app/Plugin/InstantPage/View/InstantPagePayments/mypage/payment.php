@@ -39,6 +39,9 @@ $instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($us
 				<p class="marginTop40 textCenter">
 					ありがとうございます。お客様は現在有料プランです。
 				</p>
+				<?php if($instantPageUser['plan_id'] == 3 && $paymentPlan == 2): ?>
+					<button type="submit" class="mod-btn-01" style="margin-top: 40px;">決済画面へ進む（プランダウン）</button>
+				<?php endif; ?>
 				<?php if($instantPageUser['plan_id'] == 2): ?>
 					<button type="submit" class="mod-btn-01" style="margin-top: 40px;">決済画面へ進む（プランアップ）</button>
 				<?php endif; ?>
