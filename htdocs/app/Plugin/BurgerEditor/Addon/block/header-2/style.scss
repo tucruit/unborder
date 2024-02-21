@@ -1,0 +1,19 @@
+[data-bgb="header-1"] {
+	.bgt-grid--first {
+		float: left;
+		padding-right: ($multiColumnGridMargin / 2);
+		@media screen and (max-width: $breakPoint) {
+			float: none;
+			padding-right: 0;
+		}
+	}
+
+	.bgt-grid--last {
+		float: right;
+		padding-left: ($multiColumnGridMargin / 2);
+		@media screen and (max-width: $breakPoint) {
+			float: none;
+			padding-left: 0;
+		}
+	}
+}
