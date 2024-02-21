@@ -1,4 +1,5 @@
 <?php
+$this->BcBaser->element('is_allow_login');
 /*
  * mypage header
  */
