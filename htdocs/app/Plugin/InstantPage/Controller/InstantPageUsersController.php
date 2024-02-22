@@ -66,6 +66,7 @@ class InstantPageUsersController extends AppController {
 		$this->BcAuth->allow('activate');
 		$this->BcAuth->allow('ajax_id_check');
 		$this->BcAuth->allow('ajax__check');
+		$this->BcAuth->allow('not_allow_login');
 		$this->Security->validatePost = false;
 		$this->Security->csrfCheck = false;
 	}
@@ -1053,5 +1054,11 @@ class InstantPageUsersController extends AppController {
 		$this->Session->delete("InstantPage.Register.referer");
 
 		return $data;
+	}
+
+
+	public function not_allow_login()
+	{
+		$this->pageTitle = 'ログインできません。';
 	}
 }

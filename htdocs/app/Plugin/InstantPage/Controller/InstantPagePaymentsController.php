@@ -24,6 +24,7 @@ class InstantPagePaymentsController extends AppController {
 		'InstantPage.InstantPage',
 		'InstantPage.InstantPageTemplate',
 		'InstantPage.InstantPageUser',
+		'InstantPage.InstantPageUserStatus',
 		'InstantPage.InstantPagePaymentLog',
 		'User'
 	];
@@ -205,6 +206,7 @@ class InstantPagePaymentsController extends AppController {
 				$this->redirect('/');
 			} else {
 				$myData['InstantPageUser']['plan_id'] = $tradingData['InstantPagePaymentLog']['plan_id'];
+				unset($myData['User']);
 				if($this->InstantPageUser->save($myData)){
 					//planId が2 から 3になった場合はプランアップ
 					if($myData['InstantPageUser']['plan_id'] == 3 && $oldPlan == 2){ //プランアップである。
@@ -215,6 +217,34 @@ class InstantPagePaymentsController extends AppController {
 				}
 			}
 		}
+	}
+
+
+	/**
+	 * 退会処理
+	 *
+	 * @return void
+	 */
+	public function withdrawal()
+	{
+		//ユーザー取得と現在のプラン確認
+		$userData = BcUtil::loginUser();
+		$myData = $this->InstantPageUser->findByUserId($userData['id']);
+		if(!empty($this->request->data)){
+			//空であれば確認画面を表示
+			if(empty($this->request->data['confirm'])){
+				$this->set('is_confirm', 1);
+			} else {
+				if($userData['InstantPageUser']['plan_id'] > 1){ //無料プラン以外であれば決済を止める必要あるので連絡する
+					$this->_sendMailWithdrawal();
+				}
+				//ステータスの保存を行う
+				//$this->InstantPageUser->save($userData);
+				$this->set('is_confirm', 0);
+				$this->set('is_send', 1);
+			}
+		}
+		$this->render('mypage'.DS.'withdrawal');
 	}
 
 
@@ -290,8 +320,13 @@ class InstantPagePaymentsController extends AppController {
 	 */
 	private function _isAppropriatePlan($user, $planId)
 	{
-		//TODO:グレードダウンのスキームを確認する
-		if((int)$planId <= (int)$user['InstantPageUser']['plan_id']){
+		$myData = $this->InstantPageUser->findById($user['InstantPageUser']['id']);
+		//存在しない
+		if(empty($myData)){
+			return false;
+		}
+		//同プランでの処理はしない。
+		if((int)$planId == (int)$myData['InstantPageUser']['plan_id']){
 			return false;
 		} else {
 			return true;
@@ -455,7 +490,7 @@ class InstantPagePaymentsController extends AppController {
 	{
 		$userData = BcUtil::loginUser();
 		$to = $this->adminEmail;
-		$title = "プランアップしたユーザーがあります";
+		$title = "【要変更処理】プランアップしたユーザーがあります";
 		$options = array(
 			'fromName' => 'インスタントページ',
 			'template' => 'plan_up',
@@ -465,4 +500,40 @@ class InstantPagePaymentsController extends AppController {
 		$this->sendMail($to, $title, $body, $options);
 	}
 
+
+	/**
+	 * プランアップ時の通知メール
+	 *
+	 * @param $userData
+	 * @return void
+	 */
+	private function _sendMailPlanDown()
+	{
+		$userData = BcUtil::loginUser();
+		$to = $this->adminEmail;
+		$title = "【要変更処理】プランダウンしたユーザーがあります";
+		$options = array(
+			'fromName' => 'インスタントページ',
+			'template' => 'plan_down',
+		);
+		$body['name'] = $userData['real_name_1'].$userData['real_name_2'];
+		$body['no'] = $userData['InstantPageUser']['id'];
+		$this->sendMail($to, $title, $body, $options);
+	}
+
+
+
+	private function _sendMailWithdrawal()
+	{
+		$userData = BcUtil::loginUser();
+		$to = $this->adminEmail;
+		$title = "【要変更処理】退会ユーザーがあります。";
+		$options = array(
+			'fromName' => 'インスタントページ',
+			'template' => 'withdrawal',
+		);
+		$body['name'] = $userData['real_name_1'].$userData['real_name_2'];
+		$body['no'] = $userData['InstantPageUser']['id'];
+		$this->sendMail($to, $title, $body, $options);
+	}
 }
