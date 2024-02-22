@@ -36,6 +36,25 @@ $bgCategory = array(
 		'text-image1' => '画像右寄せ<small>テキスト回り込み無し</small>',
 		'text-image2' => '画像左寄せ<small>テキスト回り込み無し</small>',
 	),
+	'カスタム見出し / テキスト / テキスト+画像' => array(
+		'text-image3' => '画像上寄せ+テキスト',	
+		'text-image4' => '画像+テキスト',	
+	),
+	'カスタム見出し' => array(
+		'title-dot-line' => '下点線見出し',
+		'title-haikeikage' => '背景影あり見出し',
+		'title-kakoi-kage' => '囲い影あり見出し',
+		// 'title-stripe' => '下斜線模様見出し',
+		// 'title-patch' => '上アーチ見出し',
+		// 'title-center'=> '中央下線見出し',
+		'title-keisya'=> '背景傾斜見出し',
+		'title-fukidasi'=> '吹き出し見出し',
+		'title-fukidasi2'=> '白抜き吹き出し見出し',
+		'title-itimatu'=> '背景市松模様見出し',
+		'title-kousi'=> '背景格子柄見出し',
+		'title-mizutama'=> '背景水玉模様見出し',
+		'title-kadoore'=> 'ドッグイヤー見出し',
+	),
 	'画像' => array(
 		'image1' => '画像1列',
 		'image2' => '画像2列',
@@ -65,6 +84,10 @@ $bgCategory = array(
 		'image-link-text3' => '画像3列<small>リンク・テキスト付</small>',
 		'image-link-text4' => '画像4列<small>リンク・テキスト付</small>',
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
+	),
+	'カスタム画像+テキスト' => array(
+		'image-text-block' => '画像',
+
 	),
 	'ボタン' => array(
 		'button' => 'ボタン',
