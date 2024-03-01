@@ -50,12 +50,12 @@ public $test = array(
 			$this->default['password'] = 'instant001';
 			$this->default['database'] = 'xb934289_db';
 		}
-		//ヒニアラタ（ローカル）
-		if (strpos($_SERVER['HTTP_HOST'], 'localhost:8137') !== false) {
-			$this->default['host'] = 'localhost';
-			$this->default['login'] = 'root';
-			$this->default['password'] = 'root';
-			$this->default['database'] = 'xb934289_db';
+		//Xserver ステージング
+		if (strpos($_SERVER['HTTP_HOST'], 'stg.instantpage.jp') !== false) {
+			$this->default['host'] = '127.0.0.1';
+			$this->default['login'] = 'xb934289_catchup';
+			$this->default['password'] = 'instant001';
+			$this->default['database'] = 'xb934289_stg';
 		}
 	}
 }
