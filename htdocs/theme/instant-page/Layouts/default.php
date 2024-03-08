@@ -79,7 +79,7 @@
 									<img src="<?php $this->BcBaser->themeUrl() ?>img/top/kv_catch.svg" alt="ランディングページ制作支援ツール インスタントページ" class="imgFit">
 								</picture>
 								<div class="top-kv-txt-btnWrap">
-									<a href="#" class="top-kv-txt-btn">
+									<a href="/signup/" class="top-kv-txt-btn">
 										<span class="btnInner">今すぐはじめる</span>
 									</a>
 								</div>

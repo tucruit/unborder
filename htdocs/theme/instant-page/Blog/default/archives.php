@@ -61,7 +61,7 @@ $this->BcBaser->setDescription($this->Blog->getTitle() . '｜' . $this->BcBaser-
 				<!-- PAGINATION -->
 				<?php $this->BcBaser->pagination('simple'); ?>
 				<!-- /PAGINATION -->
-				<a href="<?php echo $post['BlogContent']['Content']['url']; ?>" class="mod-btn-01 news-buckBtn">
+				<a href="/news/" class="mod-btn-01 news-buckBtn">
 					<span class="btnInner">お知らせ一覧に戻る</span>
 				</a>
 			</div>
