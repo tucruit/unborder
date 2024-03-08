@@ -159,6 +159,13 @@ $this->BcBaser->js(array('admin/vendors/ajaxzip3', 'InstantPage.instant_page_use
 							<?php echo $planIds[$this->BcForm->value('InstantPageUser.plan_id')]; ?>
 							<?php echo $this->BcForm->input('InstantPageUser.plan_id', ['type' => 'hidden', 'options' => $planIds]) ?>
 							<?php echo $this->BcForm->error('InstantPageUser.plan_id') ?>
+							<?php if($this->request->data['InstantPageUser']['plan_id'] > 1): ?>
+							<div class="marginTop10">
+								<p>
+									（<a href="/cmsadmin/instant_page/instant_page_payments/withdrawal" style="text-decoration: underline">有料会員から退会する場合はこちらから</a>）
+								</p>
+							</div>
+							<?php endif; ?>
 						</td>
 					</tr>
 
