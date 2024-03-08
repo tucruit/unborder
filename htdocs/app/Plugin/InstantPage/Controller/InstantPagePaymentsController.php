@@ -134,6 +134,17 @@ class InstantPagePaymentsController extends AppController {
 	}
 
 
+	public function admin_withdrawal()
+	{
+		$this->mypage_withdrawal();
+	}
+
+	public function admin_withdrawal_complete()
+	{
+		$this->mypage_withdrawal_complete();
+	}
+
+
 	/**
 	 * [MY PAGE] 決済実施の確認画面
 	 *
@@ -225,7 +236,7 @@ class InstantPagePaymentsController extends AppController {
 	 *
 	 * @return void
 	 */
-	public function withdrawal()
+	public function mypage_withdrawal()
 	{
 		//ユーザー取得と現在のプラン確認
 		$userData = BcUtil::loginUser();
@@ -239,12 +250,26 @@ class InstantPagePaymentsController extends AppController {
 					$this->_sendMailWithdrawal();
 				}
 				//ステータスの保存を行う
-				//$this->InstantPageUser->save($userData);
-				$this->set('is_confirm', 0);
-				$this->set('is_send', 1);
+				//プランIDは1（無料）
+				$updateData['InstantPageUser']['id'] = $myData['InstantPageUser']['id'];
+				$updateData['InstantPageUser']['plan_id'] = 1;
+				if($this->InstantPageUser->save($updateData)){
+					//完了画面にリンク
+					$this->render('mypage'.DS.'withdrawal_complete');
+				} else {
+					echo '退会処理に失敗しました。ユーザー情報が保存できません。管理者までお問い合わせください。';
+					exit;
+				}
 			}
+		} else {
+			$this->render('mypage'.DS.'withdrawal');
 		}
-		$this->render('mypage'.DS.'withdrawal');
+	}
+
+
+	public function withdrawal_complete()
+	{
+		$this->pageTitle = "退会処理";
 	}
 
 
@@ -522,7 +547,11 @@ class InstantPagePaymentsController extends AppController {
 	}
 
 
-
+	/**
+	 * 退会時のメール
+	 *
+	 * @return void
+	 */
 	private function _sendMailWithdrawal()
 	{
 		$userData = BcUtil::loginUser();
