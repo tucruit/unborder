@@ -51,6 +51,58 @@ $(function () {
         return false;
     });
 
+    $("#BtnPreviewSP").click(function () {
+        window.open('', 'previewSP', "width=400,height=600");
+        var form = $(this).parents('form');
+        var action = form.attr('action');
+        var previewMode = 'default';
+        var previewurl = previewurlBase;
+
+        if ($("#DraftModeDetailTmp").val() == 'draft') {
+            previewMode = 'draft';
+        }
+        if (previewurl.match(/\?/)) {
+            previewurl += '&preview=' + previewMode;
+        } else {
+            previewurl += '?preview=' + previewMode;
+        }
+        form.attr('target', 'previewSP');
+        form.attr('action', previewurl);
+        form.submit();
+        form.attr('target', '_self');
+        form.attr('action', action);
+        $.get($.baseUrl + '/bc_form/ajax_get_token?requestview=false', function (result) {
+            $('input[name="data[_Token][key]"]').val(result);
+        });
+        return false;
+    });
+
+    $("#BtnPreviewTB").click(function () {
+        window.open('', 'previewTB', "width=640,height=800");
+        var form = $(this).parents('form');
+        var action = form.attr('action');
+        var previewMode = 'default';
+        var previewurl = previewurlBase;
+
+        if ($("#DraftModeDetailTmp").val() == 'draft') {
+            previewMode = 'draft';
+        }
+        if (previewurl.match(/\?/)) {
+            previewurl += '&preview=' + previewMode;
+        } else {
+            previewurl += '?preview=' + previewMode;
+        }
+        form.attr('target', 'previewTB');
+        form.attr('action', previewurl);
+        form.submit();
+        form.attr('target', '_self');
+        form.attr('action', action);
+        $.get($.baseUrl + '/bc_form/ajax_get_token?requestview=false', function (result) {
+            $('input[name="data[_Token][key]"]').val(result);
+        });
+        return false;
+    });
+
     /**
      * フォーム送信時イベント
      */
