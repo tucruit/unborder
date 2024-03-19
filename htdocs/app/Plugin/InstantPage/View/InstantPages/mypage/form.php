@@ -83,7 +83,7 @@ if (!isset($user['InstantPageUser'])) {
 		</div>
 		<!-- /EDIT MAIN -->
 		<!-- EDIT MENU -->
-		<aside class="edit-sub">
+		<aside class="edit-sub" style="z-index: 100;">
 			<div class="edit-subInner">
 				<!-- EDIT MENU OPEN/CLOSE BTN -->
 				<div class="edit-sub-menuOpenBtn">
@@ -245,7 +245,7 @@ if (!isset($user['InstantPageUser'])) {
 					<!-- プレビュー -->
 					<div class="edit-sub-menu-save">
 						<div class="mod-btn-square-03 edit-sub-menu-preview-btn">
-							<span class="btnInner">プレビュー</span>
+							<span class="btnInner">PCプレビュー</span>
 							<?php echo $this->BcForm->button(__d('baser', 'プレビュー'),
 								[
 									'id' => 'BtnPreview',
@@ -255,6 +255,33 @@ if (!isset($user['InstantPageUser'])) {
 								]) ?>
 						</div>
 					</div>
+
+					<div class="edit-sub-menu-save">
+						<div class="mod-btn-square-03 edit-sub-menu-preview-btn">
+							<span class="btnInner">タブレットプレビュー</span>
+							<?php echo $this->BcForm->button(__d('baser', 'プレビュー'),
+								[
+									'id' => 'BtnPreviewTB',
+									'div' => false,
+									'class' => 'button bca-btn bca-actions__item',
+									'data-bca-btn-type' => 'preview',
+								]) ?>
+						</div>
+					</div>
+
+					<div class="edit-sub-menu-save">
+						<div class="mod-btn-square-03 edit-sub-menu-preview-btn">
+							<span class="btnInner">スマホプレビュー</span>
+							<?php echo $this->BcForm->button(__d('baser', 'プレビュー'),
+								[
+									'id' => 'BtnPreviewSP',
+									'div' => false,
+									'class' => 'button bca-btn bca-actions__item',
+									'data-bca-btn-type' => 'preview',
+								]) ?>
+						</div>
+					</div>
+
 					<!-- SAVE -->
 					<div class="edit-sub-menu-save">
 						<div class="mod-btn-square-03 edit-sub-menu-save-btn">
