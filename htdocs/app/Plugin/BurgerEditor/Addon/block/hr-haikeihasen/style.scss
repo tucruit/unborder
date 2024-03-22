@@ -1,3 +1,13 @@
 [data-bgb="hr"] {
 	//
 }
+
+[data-bgt="hr-haikeihasen"] .haikeihasen {
+	border-width: 0;
+	background-color: #f3ecec;
+	background-image: -webkit-linear-gradient(right,
+	#ddd6d6 5px,#855454 5px);
+	background-image: linear-gradient(-90deg,
+	#ddd6d6 5px,#855454 5px);
+	background-size: 10px 10px;
+}

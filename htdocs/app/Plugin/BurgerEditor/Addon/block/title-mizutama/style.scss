@@ -1,3 +1,12 @@
 [data-bgb="title"] {
 	//
 }
+
+[data-bgt="title-mizutama"] h2.mizutama {
+  padding: 1rem 2rem;
+  color: #fff;
+  background: #015dac;
+  background-image: radial-gradient(#0175d5 13%, transparent 13%), radial-gradient(#0175d5 13%, transparent 13%);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+}

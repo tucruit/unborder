@@ -86,7 +86,9 @@ $bgCategory = array(
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
 	),
 	'カスタム画像+テキスト' => array(
-		'image-text-block' => '画像',
+		'image-text-block1' => '画像+テキスト+ボタン',
+		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		'image-blur1' => '下部ぼかし画像+テキスト',
 
 	),
 	'ボタン' => array(

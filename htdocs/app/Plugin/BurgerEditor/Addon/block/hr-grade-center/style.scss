@@ -1,3 +1,11 @@
 [data-bgb="hr"] {
 	//
 }
+[data-bgt="hr-grade-center"] .grade_center {
+	position: relative;
+	border-width: 0;
+	background-image: -webkit-linear-gradient(left,
+	transparent 0%,#283593 50%,transparent 100%);
+	background-image:         linear-gradient(90deg,
+	transparent 0%,#283593 50%,transparent 100%);
+}

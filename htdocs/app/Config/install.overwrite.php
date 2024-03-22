@@ -4,9 +4,12 @@
  * include __DIR__ . DS . 'install.overwrite.php';
  */
 // 本番ドメイン設定 - 固定で入力すること
-Configure::write('BcEnv.siteUrl', 'https://instantpage.jp/');
-Configure::write('BcEnv.sslUrl', 'https://instantpage.jp/');
-Configure::write('BcEnv.cmsUrl', 'https://instantpage.jp/');
+// Configure::write('BcEnv.siteUrl', 'https://instantpage.jp/');
+// Configure::write('BcEnv.sslUrl', 'https://instantpage.jp/');
+// Configure::write('BcEnv.cmsUrl', 'https://instantpage.jp/');
+Configure::write('BcEnv.siteUrl', 'http://localhost/');
+Configure::write('BcEnv.sslUrl', 'http://localhost/');
+Configure::write('BcEnv.cmsUrl', 'http://localhost/');
 Configure::write('BcApp.adminSsl', false);
 Configure::write('Asset.timestamp', 'force');
 
