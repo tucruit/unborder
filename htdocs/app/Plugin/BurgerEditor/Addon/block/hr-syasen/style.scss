@@ -1,3 +1,14 @@
 [data-bgb="hr"] {
 	//
 }
+[data-bgt="hr-syasen"] .syasen {
+	border-width: 0;
+	background-color: #ffccbc;
+	background-image: -webkit-linear-gradient(135deg,
+	#ff5722 0px,#ff5722 2px, transparent 2px, transparent 4px,
+	#ff5722 4px, #ff5722 6px, transparent 6px, transparent);
+	background-image:         linear-gradient(-45deg,
+	#ff5722 0px,#ff5722 2px, transparent 2px, transparent 4px,
+	#ff5722 4px, #ff5722 6px, transparent 6px, transparent);
+	background-size: 6px 6px;
+}

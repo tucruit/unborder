@@ -1,3 +1,22 @@
 [data-bgb="title"] {
 	//
 }
+[data-bgt="title-fukidasi"] h2.fukidasi {
+  overflow: visible !important;
+  position: relative;
+  padding: 1.5rem 2rem;
+  color: #fff;
+  border-radius: 10px;
+  background: #00a6d4;
+}
+[data-bgt="title-fukidasi"] h2.fukidasi:after {
+  position: absolute;
+  bottom: -9px;
+  left: 1em;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #00a6d4 transparent transparent transparent;
+}
