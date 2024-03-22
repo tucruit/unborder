@@ -37,8 +37,8 @@ $bgCategory = array(
 		'text-image2' => '画像左寄せ<small>テキスト回り込み無し</small>',
 	),
 	'カスタム見出し / テキスト / テキスト+画像' => array(
-		'text-image3' => '画像上寄せ+テキスト',	
-		'text-image4' => '画像+テキスト',	
+		'text-image3' => '画像上寄せ+テキスト',
+		'text-image4' => '画像+テキスト',
 	),
 	'カスタム見出し' => array(
 		'title-dot-line' => '下点線見出し',

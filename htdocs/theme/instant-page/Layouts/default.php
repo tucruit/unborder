@@ -498,7 +498,7 @@
 	<script src="<?php $this->BcBaser->themeUrl(); ?>js/common.js"></script>
 	<!-- /JS -->
 
-	<?php $this->BcBaser->func() ?>
+	<?php //$this->BcBaser->func() ?>
 </body>
 
 </html>

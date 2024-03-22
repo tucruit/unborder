@@ -1377,7 +1377,7 @@ position: relative;
 [data-bgt="imege-text-block"].imege-text-leftupper p {
 position: absolute;
 color: white;
-font-weight: bold; 
+font-weight: bold;
 font-size: 2em;
 font-family :Quicksand, sans-serif;
 top: 0;
@@ -1394,7 +1394,7 @@ position: relative;
 [data-bgt="imege-text-block"].imege-text-rightlower p {
 position: absolute;
 color: white;
-font-weight: bold; 
+font-weight: bold;
 font-size: 2em;
 font-family :Quicksand, sans-serif;
 bottom: 25px;
@@ -1504,7 +1504,7 @@ left: 50%;
 transform: translate(-50%,-50%);
 margin:0;
 font-size: 20px;
-border: solid white 2px; 
+border: solid white 2px;
 padding: 7px;
 color: white;
 text-decoration: none;
@@ -1661,4 +1661,8 @@ text-align: center;
 }
 .cva .botton img {
 max-width: 20%;
+}
+
+.test-background{
+    background-image: url('https://unborder.co.jp/info/wp/wp-content/uploads/2023/06/container-6751623_1280-1-800x386.jpg');
 }
