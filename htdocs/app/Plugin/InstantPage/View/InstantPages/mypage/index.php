@@ -22,9 +22,9 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 	<div class="l-container l-contentsContainer myPageInner">
 		<?php if (empty($datas) || count($datas) < intval($limit)) :?>
 			<div class="myPage-btnGroup">
-				<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew">
+				<button class="mod-btn-square-01 myPage-btnGroup-lpNew" id="subMenuGroupPageConfig-themeSelect" style="border: none;outline: none;">
 					<span class="btnInner">LP新規作成</span>
-				</a>
+				</button>
 				<?php /*
 				<a href="#" class="mod-btn-square-02 myPage-btnGroup-fileUpload" disabled=”disabled”>
 					<span class="btnInner">ファイルアップロード（準備中）</span>
@@ -102,5 +102,86 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 				プランアップする
 			</a>
 		<?php endif; ?>
+	</div>
+</div>
+
+<script>
+	$(function(){
+
+		/**
+		 * EDIT THEME SELECT MENU OPEN
+		 **/
+		$('#subMenuGroupPageConfig-themeSelect').on('click', function () {
+			$('#edit-themeListWrap').fadeIn();
+			$(this).addClass('isModalOpen');
+		});
+
+		/**
+		 * EDIT THEME SELECT MENU CLOSE
+		 **/
+		$('.edit-themeList-footer-closeBtn').on('click', function () {
+			$('#edit-themeListWrap').fadeOut();
+			$('#subMenuGroupPageConfig-themeSelect').removeClass('isModalOpen');
+		});
+	});
+</script>
+
+
+<div class="edit">
+	<div class="edit-themeListWrap" id="edit-themeListWrap" style="width: 100%;right: auto;">
+		<div class="edit-themeList">
+			<div class="edit-themeList-header">
+				<div class="edit-themeList-header-hl">
+					テンプレート
+				</div>
+				<p class="edit-themeList-header-txt">
+					任意のテンプレートを選択すれば簡単に新規LPを作成できます。
+				</p>
+			</div>
+			<div class="edit-themeList-body">
+			<?php if(!empty($templateCategories)): ?>
+				<?php foreach ($templateCategories as $templateCategory): ?>
+						<div>
+							<div class="myPage-btnGroup">
+								<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew" style="margin: 15px auto;max-width: 90%">
+									<span class="btnInner">テンプレートを使わずに始める</span>
+								</a>
+							</div>
+						</div>
+						<div class="edit-themeList-body-themeContainer">
+									<!-- BOX -->
+									<div class="themeBox">
+										<span class="themeBox-title"><?php echo $templateCategory['InstantPageTemplateCategory']['name'] ?></span>
+										<span class="themeBox-description">
+											<?php nl2br($templateCategory['InstantPageTemplateCategory']['description']) ?>
+										</span>
+										<div class="themeBox-img">
+											<?php if(!empty($templateCategory['InstantPageTemplateCategory']['image_1'])): ?>
+												<img src="/img/instant_page_template_category/<?php echo $templateCategory['InstantPageTemplateCategory']['image_1'] ?>" alt="<?php echo $templateCategory['InstantPageTemplateCategory']['name'] ?> サムネイル" class="imgFit">
+											<?php else: ?>
+												<?php
+												$this->BcBaser->img('admin/no-screenshot.png', ['alt' =>'NOイメージ', 'class' => 'imgFit']);
+												?>
+											<?php endif ?>
+										</div>
+										<a class="themeBox-btn themeBox-btn__apply" data-template="" href="/cmsadmin/instant_page/instant_pages/add/<?php echo $templateCategory['InstantPageTemplateCategory']['id'] ?>">
+											<span class="btnInner">使用する</span>
+										</a>
+										<!-- <a href="#" target="_blank" rel="noopener noreferrer" class="themeBox-btn themeBox-btn__preview">
+											<span class="btnInner">サンプルプレビュー</span>
+										</a> -->
+									</div>
+									<!-- /BOX -->
+						</div>
+
+				<?php endforeach; ?>
+			<?php endif ?>
+			</div>
+			<div class="edit-themeList-footer">
+				<div class="edit-themeList-footer-closeBtn">
+					<span class="btnInner">閉じる</span>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

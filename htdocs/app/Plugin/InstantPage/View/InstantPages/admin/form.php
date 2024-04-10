@@ -195,6 +195,7 @@ if (isset($user['user_group_id']) && InstantPageUtil::isMemberGroup($user['user_
 			'editorEnterBr' => $siteConfig['editor_enter_br']
 		], $editorOptions));
 		?>
+
 		<?php echo $this->BcForm->error('InstantPage.contents') ?>
 		<?php echo $this->BcForm->error('InstantPage.draft') /**/?>
 	</div>
