@@ -8,12 +8,33 @@ class InstantPageTemplateCategory extends AppModel {
 
 
 	/**
+	 * validate
+	 *
+	 * @var array
+	 */
+	public $validate = array(
+		'name' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'message' => 'タイトルを入力してください。'
+			)),
+		'description' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'message' => '説明を入力してください。'
+			)),
+	);
+
+
+	/**
 	 * 画像保存パス
 	 *
 	 * @var string
 	 * @access public
 	 */
 	public $imageDir = 'instant_page_template_category';
+
+
 
 	/**
 	 * 画像のデフォルト幅（px）

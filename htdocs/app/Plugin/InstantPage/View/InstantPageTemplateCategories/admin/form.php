@@ -16,7 +16,8 @@
 	<table class="form-table bca-form-table" data-bca-table-type="type2">
 		<tr>
 			<th class="col-head bca-form-table__label">
-				タイトル
+				タイトル<span class="required bca-label"
+							  data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
 			</th>
 			<td class="col-input bca-form-table__input">
 				<?php echo $this->BcForm->text('InstantPageTemplateCategory.name', ['class' => 'bca-textbox__input']); ?>
@@ -24,7 +25,8 @@
 		</tr>
 		<tr>
 			<th class="col-head bca-form-table__label">
-				説明
+				説明<span class="required bca-label"
+						  data-bca-label-type="required"><?php echo __d('baser', '必須') ?></span>
 			</th>
 			<td class="col-input bca-form-table__input">
 				<?php echo $this->BcForm->textarea('InstantPageTemplateCategory.description', ['class' => 'bca-textarea__textarea']); ?>
