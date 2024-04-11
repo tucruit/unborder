@@ -19,3 +19,9 @@ $config['BcShortCode']['BcBaser'] = [
 $config['BcShortCode']['InstantPage'] = [
 	'InstantPage.getElement',
 ];
+// ショートコード 1カラムテキストなどで　[InstantPage.getElement lp_form] と記載
+/*
+$config['BcShortCode']['InstantPage'] = [
+	'InstantPage.getElement',
+];
+*/
