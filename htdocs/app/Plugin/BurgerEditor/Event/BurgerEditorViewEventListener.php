@@ -246,9 +246,32 @@ class BurgerEditorViewEventListener extends BcViewEventListener {
 					}
 				}
 				$View->output = $output;
-
 			}
 		}
+
+		// -------------------------------
+		// ブロック作成を用意にするため 独自の instantタグ でエレメントを呼び出せるようにした。
+		// -------------------------------
+		// <instant>エレメント名</instant>
+		// をブロックで利用できる。
+		// -------------------------------
+		//独自のコードを変換して出力する
+		if($View->request['controller'] == 'instant_pages' && $View->request['action'] == 'detail'){
+			$output = $View->output;
+			if(preg_match_all('/<instant>(.*)<\/instant>/i', $output, $matches)){
+				foreach($matches[0] as $match) {
+					if (false !== strpos($output, $match)) {
+						$elementName = str_replace('</instant>', '', $match);
+						$elementName = str_replace('<instant>', '', $elementName);
+						$element = $View->BcBaser->getElement($elementName);
+						//var_dump($element);exit;
+						$output = str_replace($match, $element, $output);
+					}
+				}
+				$View->output = $output;
+			}
+		}
+
 		return true;
 	}
 }

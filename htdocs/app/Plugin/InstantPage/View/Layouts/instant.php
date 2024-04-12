@@ -70,5 +70,10 @@
 	<?php $this->BcBaser->content() ?>
 	<?php $this->BcBaser->func() ?>
 </body>
-
+<style>
+	/* 管理画面側で非表示になっている独自タグをフロント側で表示させる */
+	.instantTag{
+		display: block !important
+	}
+</style>
 </html>

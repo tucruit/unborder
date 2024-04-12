@@ -262,7 +262,9 @@ class InstantPageControllerEventListener extends BcControllerEventListener {
 	public function mailMailAfterSendEmail(CakeEvent $event)
 	{
 		$Controller = $event->subject();
-		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 3) {
+		//スマートな方法を考える
+		if ($Controller->dbDatas['mailContent']['MailContent']['id'] == 3
+			|| $Controller->dbDatas['mailContent']['MailContent']['id'] == 5) {
 			$url = $event->data['data']['MailMessage']['url'];
 			if ($url) {
 				$Controller->redirect($url.'?status=thanks');

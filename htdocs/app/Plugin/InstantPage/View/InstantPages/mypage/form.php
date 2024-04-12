@@ -423,3 +423,4 @@ if (!isset($user['InstantPageUser'])) {
 <script src="/my_page/js/ps_edit.js" type="module"></script>
 <script src="/my_page/js/lib/scroll-hint/js/scroll-hint.min.js"></script>
 <?php $this->BcBaser->js(array('InstantPage.instant_pages'), true); ?>
+

@@ -111,6 +111,7 @@ $bgCategory = array(
 		'text-gallery1' => 'ギャラリー<small>+テキスト(左)</small>',
 		'text-gallery2' => 'ギャラリー<small>+テキスト(右)</small>',
 		'form' => 'メールフォーム',
+		'form_2' => 'メールフォーム２',
 		// 'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',
