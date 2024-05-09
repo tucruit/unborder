@@ -599,4 +599,9 @@ class InstantPagesController extends AppController {
 		}
 	}
 
+
+	public function admin_useful_link()
+	{
+		$this->pageTitle = 'お役立ちリンク';
+	}
 }
