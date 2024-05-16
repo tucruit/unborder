@@ -37,8 +37,8 @@ $bgCategory = array(
 		'text-image2' => '画像左寄せ<small>テキスト回り込み無し</small>',
 	),
 	'カスタム見出し / テキスト / テキスト+画像' => array(
-		'text-image3' => '画像上寄せ+テキスト',	
-		'text-image4' => '画像+テキスト',	
+		'text-image3' => '画像上寄せ+テキスト',
+		'text-image4' => '画像+テキスト',
 	),
 	'カスタム見出し' => array(
 		'title-dot-line' => '下点線見出し',
@@ -86,7 +86,9 @@ $bgCategory = array(
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
 	),
 	'カスタム画像+テキスト' => array(
-		'image-text-block' => '画像',
+		'image-text-block1' => '画像+テキスト+ボタン',
+		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		'image-blur1' => '下部ぼかし画像+テキスト',
 
 	),
 	'ボタン' => array(
@@ -109,6 +111,8 @@ $bgCategory = array(
 		'text-gallery1' => 'ギャラリー<small>+テキスト(左)</small>',
 		'text-gallery2' => 'ギャラリー<small>+テキスト(右)</small>',
 		'form' => 'メールフォーム',
+		'form_2' => 'メールフォーム２',
+		'form_3' => 'メールフォーム３',
 		// 'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',

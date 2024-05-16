@@ -7,3 +7,23 @@
 		vertical-align: middle;
 	}
 }
+
+[data-bgt="button-rittai-kakumaru"] a.btn_rittai_kakumaru {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border-radius: 100vh;
+	border-bottom: 7px solid #0686b2;
+	background: #27acd9;
+	color: #fff;
+}
+[data-bgt="button-rittai-kakumaru"] a.btn_rittai_kakumaru:hover {
+	margin-top: 6px;
+	border-bottom: 1px solid #0686b2;
+	color: #fff;
+}

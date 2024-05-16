@@ -4,9 +4,12 @@
  * include __DIR__ . DS . 'install.overwrite.php';
  */
 // 本番ドメイン設定 - 固定で入力すること
-Configure::write('BcEnv.siteUrl', 'https://instantpage.jp/');
-Configure::write('BcEnv.sslUrl', 'https://instantpage.jp/');
-Configure::write('BcEnv.cmsUrl', 'https://instantpage.jp/');
+// Configure::write('BcEnv.siteUrl', 'https://instantpage.jp/');
+// Configure::write('BcEnv.sslUrl', 'https://instantpage.jp/');
+// Configure::write('BcEnv.cmsUrl', 'https://instantpage.jp/');
+Configure::write('BcEnv.siteUrl', 'http://localhost/');
+Configure::write('BcEnv.sslUrl', 'http://localhost/');
+Configure::write('BcEnv.cmsUrl', 'http://localhost/');
 Configure::write('BcApp.adminSsl', false);
 Configure::write('Asset.timestamp', 'force');
 
@@ -47,7 +50,7 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 2);
+		Configure::write('debug', 1);
 	}
 	if (strpos($_SERVER['HTTP_HOST'], 'stg.instantpage.jp') !== false) {
 		Configure::write('ToolbarColorChanger.background', '#3F51B5');

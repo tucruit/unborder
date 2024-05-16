@@ -338,6 +338,17 @@ if (!isset($user['InstantPageUser'])) {
 							?>
 						</div>
 						<!-- /MENU BOX -->
+						<!-- MENU BOX -->
+						<div class="subMenuBox" id="subMenuGroupLink-myEdit">
+							<?php
+							$userName = h($this->BcText->arrayValue($this->BcForm->value('InstantPage.instant_page_users_id'), $users, ['class' => 'subMenuBox-title isLinkBtn']));
+							echo $this->BcHtml->link('お役立ちリンク', [
+								'controller' => 'instant_pages',
+								'action' => 'useful_link'
+							], ['class' => 'subMenuBox-title isLinkBtn', 'target' => '_blank']);
+							?>
+						</div>
+						<!-- /MENU BOX -->
 					</div>
 					<!-- /MENU BOX GROUP (LINK) -->
 				</div>
@@ -423,3 +434,4 @@ if (!isset($user['InstantPageUser'])) {
 <script src="/my_page/js/ps_edit.js" type="module"></script>
 <script src="/my_page/js/lib/scroll-hint/js/scroll-hint.min.js"></script>
 <?php $this->BcBaser->js(array('InstantPage.instant_pages'), true); ?>
+

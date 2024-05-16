@@ -19,6 +19,7 @@ class InstantPagesController extends AppController {
 	public $uses = array(
 		'InstantPage.InstantPage',
 		'InstantPage.InstantPageTemplate',
+		'InstantPage.InstantPageTemplateCategory',
 		'InstantPage.InstantPageUser',
 		'User',
 	);
@@ -137,6 +138,14 @@ class InstantPagesController extends AppController {
 			$this->set('datas',$datas);
 		}
 
+		//テンプレートカテゴリ
+		$templateCategories = $this->InstantPageTemplateCategory->find('all', [
+			'conditions' => [
+				'InstantPageTemplateCategory.status' => 1
+			]
+		]);
+		$this->set('templateCategories', $templateCategories);
+
 		$this->pageTitle = $this->controlName . '一覧';
 		if ($this->RequestHandler->isAjax() || !empty($this->request->query['ajax'])) {
 			$this->render('ajax_index');
@@ -190,7 +199,7 @@ class InstantPagesController extends AppController {
 	 * [ADMIN] 追加
 	 *
 	 */
-	public function admin_add() {
+	public function admin_add($templateCategoryId = null) {
 		if ($this->request->data) {
 			$this->{$this->modelClass}->create($this->request->data);
 			if ($this->{$this->modelClass}->save()) {
@@ -203,6 +212,18 @@ class InstantPagesController extends AppController {
 			}
 		} else {
 			$this->request->data = $this->InstantPage->getDefaultValue();
+			//テンプレートIDが存在していれば呼び出す。
+			if(!empty($templateCategoryId)){
+				$templateCategory = $this->InstantPageTemplateCategory->find('first', [
+					'conditions' => [
+						'InstantPageTemplateCategory.id' => $templateCategoryId,
+						'InstantPageTemplateCategory.status' => 1
+					]
+				]);
+				if(!empty($templateCategory['InstantPageTemplateCategory']['contents'])){
+					$this->request->data['InstantPage']['contents'] = $templateCategory['InstantPageTemplateCategory']['contents'];
+				}
+			}
 			$user = BcUtil::loginUser();
 			if (isset($user['InstantPageUser']['id']) && $user['InstantPageUser']['id']) {
 				$this->request->data['InstantPage']['instant_page_users_id'] = $user['InstantPageUser']['id'];
@@ -578,4 +599,9 @@ class InstantPagesController extends AppController {
 		}
 	}
 
+
+	public function admin_useful_link()
+	{
+		$this->pageTitle = 'お役立ちリンク';
+	}
 }

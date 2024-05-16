@@ -68,6 +68,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			?>
 		</tbody>
 	</table>
+	<p style="text-align: center;margin-top: 50px;">
+		ご登録いただいた場合、<a target="_blank" href="/kiyaku">利用規約</a>に同意したものとみなします。
+	</p>
 	<div class="mod-btnContainer signup-form-submit">
 		<?php if (!$freezed) : // 入力 ?>
 			<div class="mod-btn-01 signup-form-submit-send">
