@@ -57,6 +57,14 @@ public $test = array(
 			$this->default['password'] = 'instant001';
 			$this->default['database'] = 'xb934289_stg';
 		}
+		if (strpos($_SERVER['HTTP_HOST'], 'localhost:8001') !== false) {
+			$this->default['host'] = '127.0.0.1';
+			$this->default['port'] = '8889';
+			$this->default['login'] = 'root';
+			$this->default['password'] = 'root';
+			$this->default['database'] = 'instantPage_db';
+		}
+
 	}
 }
 

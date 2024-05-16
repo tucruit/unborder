@@ -56,4 +56,11 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 		Configure::write('BcEnv.cmsUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('debug', 2);
 	}
+	if (strpos($_SERVER['HTTP_HOST'], 'localhost:8001') !== false) {
+		Configure::write('ToolbarColorChanger.background', '#3F51B5');
+		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
+		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
+		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
+		Configure::write('debug', 2);
+	}
 }
