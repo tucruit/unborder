@@ -91,6 +91,13 @@ $bgCategory = array(
 		'image-blur1' => '下部ぼかし画像+テキスト',
 
 	),
+	'背景画像' => array(
+		'back-img1' => '背景画像',
+		'back-img2' => '背景画像',
+		'back-img3' => '背景画像',
+
+
+	),
 	'ボタン' => array(
 		'button' => 'ボタン',
 		'button2' => 'ボタン x2',

@@ -5,14 +5,18 @@ Configure::write('Cache.disable', false);
 Configure::write('Cache.check', true);
 Configure::write('BcEnv.siteUrl', 'http://localhost/');
 
+
 Configure::write('BcEnv.sslUrl', 'http://localhost/');
+
 
 Configure::write('BcEnv.mainDomain', '');
 Configure::write('BcApp.adminSsl', false);
 
+
 Configure::write('BcApp.allowedPhpOtherThanAdmins', false);
 Cache::config('default', array('engine' => 'File'));
-Configure::write('debug', 0);
+Configure::write('debug', 2);
+
 
 
 include __DIR__ . DS . 'install.overwrite.php';

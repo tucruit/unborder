@@ -1,10 +1,21 @@
 <?php
 /**
- * [InstantPage] InstantPageTemplateCategory管理
+ * Class InstantPageFileUploader
+ * 背景画像アップロードモデル
+ *
+ * @package instant-page
  */
-class InstantPageTemplateCategory extends AppModel {
+class InstantPageFileUploader extends AppModel {
 
-	public $useTable = 'instant_page_template_categories';
+
+	/**
+	 * 利用テーブル
+	 *
+	 * @var string
+	 */
+	public $useTable = 'instant_page_file_uploader';
+
+
 
 
 	/**
@@ -13,6 +24,7 @@ class InstantPageTemplateCategory extends AppModel {
 	 * @var array
 	 */
 	public $validate = array(
+		/*
 		'name' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
@@ -23,7 +35,10 @@ class InstantPageTemplateCategory extends AppModel {
 				'rule' => array('notBlank'),
 				'message' => '説明を入力してください。'
 			)),
+		*/
 	);
+
+
 
 
 	/**
@@ -32,7 +47,7 @@ class InstantPageTemplateCategory extends AppModel {
 	 * @var string
 	 * @access public
 	 */
-	public $imageDir = 'instant_page_template_category';
+	public $imageDir = 'instant_page_file_uploader';
 
 
 
@@ -44,6 +59,9 @@ class InstantPageTemplateCategory extends AppModel {
 	 */
 	public $widthSize = 500;
 
+
+
+
 	/**
 	 * 画像のデフォルト高さ（px）
 	 *
@@ -52,6 +70,9 @@ class InstantPageTemplateCategory extends AppModel {
 	 */
 	public $heightSize = 500;
 
+
+
+
 	/**
 	 * 画像の最大枚数
 	 *
@@ -59,6 +80,9 @@ class InstantPageTemplateCategory extends AppModel {
 	 * @access public
 	 */
 	public $imageCount = 2;
+
+
+
 
 	/**
 	 * 画像を保存する。
@@ -117,6 +141,9 @@ class InstantPageTemplateCategory extends AppModel {
 		return $data;
 	}
 
+
+
+
 	/**
 	 * 画像を削除する。
 	 *
@@ -137,6 +164,9 @@ class InstantPageTemplateCategory extends AppModel {
 			}
 		}
 	}
+
+
+
 
 	/**
 	 * 一時ファイルから公開フォルダ上へコピーして
@@ -166,6 +196,9 @@ class InstantPageTemplateCategory extends AppModel {
 		return $newFileName . '.' . $ext;
 	}
 
+
+
+
 	/**
 	 * 画像を削除する。
 	 *
@@ -194,6 +227,5 @@ class InstantPageTemplateCategory extends AppModel {
 			}
 		}
 	}
-
 
 }
