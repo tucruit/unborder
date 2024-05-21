@@ -1630,9 +1630,54 @@ width: 100%;
 
 
 
+/* レスポンシブスタイル */
+/* 親要素のサイズを超えない範囲 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* メディアクエリ */
+@media screen and (max-width: 600px) {
+  .bg_img {
+    max-width: 50%;
+  }
+}
+
+/* アスペクト比を維持拡大縮小 */
+img {
+  object-fit: cover;
+}
+
+/* アスペクト比を維持拡大縮小 */
+img {
+  object-fit: contain;
+}
+
+/* 角丸画像 */
+img {
+  border-radius: 10px;
+}
+
+/* 円形画像 */
+img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+/*
+img {
+  clip-path: circle(50%);
+  width: 200px;
+  height: 200px;
+} */
+
+/* 中央に配置 */
 
 
-
+/*  */
+/*  */
+/*  */
 
 
 
