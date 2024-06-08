@@ -9,8 +9,6 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="bg_blk">
-    <?php $this->BurgerEditor->type('ckeditor') ?>
-	<?php $this->BurgerEditor->type('button') ?>
+<div class="bg_img2">
+    <?php $this->BurgerEditor->type('title-haikeikage') ?>
 </div>
-

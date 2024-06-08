@@ -9,7 +9,7 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="bg_blk">
+<div class="blur-gradient">
     <?php $this->BurgerEditor->type('ckeditor') ?>
 	<?php $this->BurgerEditor->type('button') ?>
 </div>

@@ -88,8 +88,10 @@ $bgCategory = array(
 	'カスタム画像+テキスト' => array(
 		'image-text-block1' => '画像+テキスト+ボタン',
 		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
-		'image-blur1' => '下部ぼかし画像+テキスト',
-
+		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
+		'image-blur1' => 'ぼかし画像+半透明ボタン',
+		'image-title1' => '画像+左上見出し',
+		'image-title2' => '画像+中央見出し',
 	),
 	'背景画像' => array(
 		'back-img1' => '背景画像',

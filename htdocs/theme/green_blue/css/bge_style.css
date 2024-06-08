@@ -1007,6 +1007,7 @@
 
 
 
+
 /* hr */
 
 [data-bgt="hr-tensen"] .tensen {
@@ -1308,10 +1309,30 @@
 
 /* main */
 
-.bg_img {
+.bg_blk {
   background-image: url(../green_blue.jpg);
+  background-repeat: no-repeat;  
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  width:100%;
+  height:400px;
+  position: relative;
+}
+.bg_blk .bge-title-h2{
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  width:95%;
+}
+.bg_blk .bgt-btn{
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+.bg_blk .bge-ckeditor{
+  position: absolute;
+  top: 5%;
+  left: 5%;
 }
 
 
@@ -1322,6 +1343,8 @@
   position: relative;
   z-index: 0;
   overflow: hidden;
+  width:100%;
+  height:400px; 
 }
 .bg_blur:before{
   content: '';
@@ -1338,6 +1361,17 @@
   bottom: -5px;
   z-index: -1;
 }
+.bg_blur .bgt-btn{
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+.bg_blur .bge-ckeditor{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
 
 
 .blur-gradient{
@@ -1345,6 +1379,8 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  width:100%;
+  height:400px; 
 }
 .blur-gradient:before{
   content: "";
@@ -1355,6 +1391,113 @@
   top: 0;
   left: 0;
 }
+.blur-gradient .bgt-btn{
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+.blur-gradient .bge-ckeditor{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+
+
+.blur-translucent{
+  background-image: url(../green_blue.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  width:100%;
+  height:600px; 
+}
+.blur-translucent:before{
+  content: '';
+  background: inherit;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+.blur-translucent .bgt-btn{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: block;
+  width: 200px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.3);
+  border: 1px solid #FFF;
+  padding: 15px;
+  text-align: center;
+  color: #FFF;
+  font-size: 120%;
+  font-weight: bold;
+  transition: .3s;
+}
+
+
+.bg_img {
+  background-image: url(../green_blue.jpg);
+  background-repeat: no-repeat;  
+  background-size: cover;
+  background-position: center center;
+  width:100%;
+  height:400px;
+  position: relative;
+}
+.bg_img .bge-title-h2{
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  width:95%;
+}
+
+
+.bg_img2 {
+  background-image: url(../green_blue.jpg);
+  background-repeat: no-repeat;  
+  background-size: cover;
+  background-position: center center;
+  width:100%;
+  height:400px;
+  position: relative;
+}
+.bg_img2 .bge-title-h2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:100%;
+  text-align: center;
+}
+
+/*
+スクロールしてもついてくるボタン
+ .bgt-btn{
+  position: fixed;
+  bottom: 10%;
+  right: 25%;
+}
+*/
+
+
+
+
+
+
+
 
 
 
