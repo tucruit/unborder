@@ -92,13 +92,15 @@ $bgCategory = array(
 		'image-blur1' => 'ぼかし画像+半透明ボタン',
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
-		'slidein-img' => '上からスライドイン',
 	),
 	'背景画像' => array(
 		'back-img1' => '背景画像',
 		'back-img2' => '背景画像',
 		'back-img3' => '背景画像',
-
+		'slidein-img' => '左からスライドイン',
+		'slidein-img2' => '上からスライドイン',
+		'slidein-img3' => '下からスライドイン',
+		'slidein-img4' => '右からスライドイン',
 
 	),
 	'ボタン' => array(
