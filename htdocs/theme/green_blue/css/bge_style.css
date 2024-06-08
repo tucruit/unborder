@@ -1483,6 +1483,40 @@
   text-align: center;
 }
 
+
+.slidein_img {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.slidein_img :after {
+  position: absolute;
+  content: '';
+  top:0;
+  left: 0;
+  background-image: url(../green_blue.jpg);
+  background-repeat: no-repeat;  
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: translateX(-100%);
+  animation-name: box_slide;
+  animation-duration:.5s;
+  animation-fill-mode: forwards;
+  transform: translateX(-100%);
+}
+@keyframes box_slide {
+0% {
+  transform: translate(-100%,0)
+}
+100% {
+  transform: translate(0,0)
+}}
+
+
+
 /*
 スクロールしてもついてくるボタン
  .bgt-btn{
