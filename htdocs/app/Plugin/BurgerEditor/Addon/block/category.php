@@ -97,8 +97,8 @@ $bgCategory = array(
 	),
 	'メイン：背景画像' => array(
 		'back-img1' => '背景画像',
-		'back-img2' => '背景画像',
-		'back-img3' => '背景画像',
+		// 'back-img2' => '背景画像',
+		// 'back-img3' => '背景画像',
 		'slidein-img' => '左からスライドイン',
 		'slidein-img2' => '上からスライドイン',
 		'slidein-img3' => '下からスライドイン',
@@ -128,11 +128,12 @@ $bgCategory = array(
 		'text-gallery1' => 'ギャラリー<small>+テキスト(左)</small>',
 		'text-gallery2' => 'ギャラリー<small>+テキスト(右)</small>',
 		'form' => 'メールフォーム',
-		'form_2' => 'メールフォーム２',
-		'form_3' => 'メールフォーム３',
+		// 'form_2' => 'メールフォーム２',
+		// 'form_3' => 'メールフォーム３',
 		// 'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',
-		'hr' => '区切り線'
+		'hr' => '区切り線',
+		'medal' => 'メダル',
 	)
 );
