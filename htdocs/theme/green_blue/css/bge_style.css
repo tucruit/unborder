@@ -2207,11 +2207,30 @@ img {
 }
 
 /* 円形画像 */
-.oval_img {
+.oval_img img{
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
+/*
+.oval_img {
+  position: relative;
+  width: 100%;
+}
+.oval_img:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.oval_img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+*/
+
 
 
 /*

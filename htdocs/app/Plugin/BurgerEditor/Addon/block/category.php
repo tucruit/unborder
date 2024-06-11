@@ -17,11 +17,14 @@ $bgCategory = array(
 		'image-text-block1' => '画像+テキスト+ボタン',
 		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
 		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
+		'image-text-block2' => '角丸画像+テキスト+ボタン',
+		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
+		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト+ボタン',
 		'image-blur1' => 'ぼかし画像+半透明ボタン',
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
 		'image-medal' => '画像+メダル',
-		'image-text-block2' => '角丸画像+テキスト+ボタン',
+	
 
 	),
 	'メイン：背景画像' => array(
@@ -91,10 +94,10 @@ $bgCategory = array(
 		'title-transparent'=> '背景透過見出し',
 
 	),
-	'カスタム見出し / テキスト / テキスト+画像' => array(
+	// 'カスタム見出し / テキスト / テキスト+画像' => array(
 		// 'text-image3' => '画像上寄せ+テキスト',
 		// 'text-image4' => '画像+テキスト',
-	),
+	// ),
 	'画像' => array(
 		'image1' => '画像1列',
 		'image2' => '画像2列',
@@ -114,6 +117,12 @@ $bgCategory = array(
 		'trimmed-image-link3' => 'トリミング画像3列<small>リンク付</small>',
 		'trimmed-image-link4' => 'トリミング画像4列<small>リンク付</small>',
 		'trimmed-image-link5' => 'トリミング画像5列<small>リンク付</small>',
+	),
+	'丸画像' => array(
+		'oval-image1' => '画像1列',
+		// 'oval-image2' => '画像2列',
+		'oval-image-link1' => '画像1列<small>リンク付</small>',
+		// 'oval-image-link2' => '画像2列<small>リンク付</small>',
 	),
 	'画像+テキスト' => array(
 		'image-text2' => '画像2列<small>テキスト付</small>',
