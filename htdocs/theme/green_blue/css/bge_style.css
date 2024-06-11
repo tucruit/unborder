@@ -1204,7 +1204,7 @@
 	margin-bottom: 1em;
 	text-align: center;
   color: #00a6d4;
-  background: #f9f9f9;
+  background: #ffffff;
 }
 [data-bgt="title-center"] h2.title_center:before {
   overflow: visible !important;
@@ -1218,6 +1218,13 @@
 	transform: translateX(-50%);
 	background-color: #00a6d4;
 	border-radius: 2px;
+}
+
+
+[data-bgt="title-transparent"] h2.transparent {
+	border-width: 0;
+	background-image: -webkit-linear-gradient(left,
+	transparent 0%,#28349300 50%,transparent 100%);
 }
 
 
@@ -1699,7 +1706,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 46vw;
+  height: 500px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1741,10 +1748,34 @@
 }
 
 
-
-
-
-
+.image-medal {
+  background-image: url(../green_blue.jpg);
+  background-repeat: no-repeat;  
+  background-size: cover;
+  background-position: center center;
+  width:100%;
+  height:500px;
+  position: relative;
+}
+.image-medal .bgt-title-transparent-container{
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  width:50%;
+  background-color: transparent !important;
+}
+.image-medal .text-wrap{
+  position: absolute;
+  top: 20%;
+  left: 6%;
+  width:60%;
+}
+.image-medal .medal-wrap{
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  width:95%;
+}
 
 
 

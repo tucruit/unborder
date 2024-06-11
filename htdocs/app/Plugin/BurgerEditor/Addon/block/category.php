@@ -54,6 +54,7 @@ $bgCategory = array(
 		'title-kousi'=> '背景格子柄見出し',
 		'title-mizutama'=> '背景水玉模様見出し',
 		'title-kadoore'=> 'ドッグイヤー見出し',
+		'title-transparent'=> '背景透過見出し',
 
 	),
 	'画像' => array(
@@ -93,7 +94,9 @@ $bgCategory = array(
 		'image-blur1' => 'ぼかし画像+半透明ボタン',
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
-	
+		'image-medal' => '画像+メダル',
+
+
 	),
 	'メイン：背景画像' => array(
 		'back-img1' => '背景画像',
