@@ -9,8 +9,8 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="bg_blk rounded_corners_img">
-    <?php $this->BurgerEditor->type('ckeditor') ?>
-	<?php $this->BurgerEditor->type('button') ?>
+<div class="image_scrolldown">
+    <?php $this->BurgerEditor->type('title-center-transparent') ?>
+    <span class="scrollDown"></span>
 </div>
 

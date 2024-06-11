@@ -13,6 +13,38 @@ $bgCategory = array(
 	'ヘッダー' => array(
 		'header-1' => 'ヘッダー',
 	),
+	'メイン：カスタム画像+テキスト' => array(
+		'image-text-block1' => '画像+テキスト+ボタン',
+		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
+		'image-blur1' => 'ぼかし画像+半透明ボタン',
+		'image-title1' => '画像+左上見出し',
+		'image-title2' => '画像+中央見出し',
+		'image-medal' => '画像+メダル',
+		'image-text-block2' => '角丸画像+テキスト+ボタン',
+
+	),
+	'メイン：背景画像' => array(
+		'back-img1' => '背景画像',
+		// 'back-img2' => '背景画像',
+		// 'back-img3' => '背景画像',
+		'slidein-img' => '左からスライドイン',
+		'slidein-img2' => '上からスライドイン',
+		'slidein-img3' => '下からスライドイン',
+		'slidein-img4' => '右からスライドイン',
+		'image-scrolldown' => 'scrollDown',
+		// 'image-snow' => 'snowFalling',
+		'zoom-img' => 'ズーム',
+
+	),
+	'ボタン' => array(
+		'button' => 'ボタン',
+		'button2' => 'ボタン x2',
+		'button3' => 'ボタン x3',
+		'download-file' => 'ファイル<br>ダウンロード',
+		'download-file2' => 'ファイル<br>ダウンロード x2',
+		'download-file3' => 'ファイル<br>ダウンロード x3',
+	),
 	'カスタムボタン' => array(
 		'button-reflect' => 'リフレクト',
 		'button-shake' => 'シェイク',
@@ -26,6 +58,12 @@ $bgCategory = array(
 		'button-custom2' => 'ボタン（余白） x2',
 		'button-custom3' => 'ボタン（余白） x3',
 	),
+	'カスタム区切り線' => array(
+		'hr-tensen' => '点線（区切り線）',
+		'hr-syasen'=> '斜線（区切り線）',
+		'hr-grade-center'=> '中央グラデ（区切り線）',
+		'hr-haikeihasen'=> '背景色あり破線（区切り線）',
+	),
 	'見出し / テキスト / テキスト+画像' => array(
 		'title' => '大見出し',
 		'title2' => '中見出し',
@@ -35,10 +73,6 @@ $bgCategory = array(
 		'text-float-image2' => '画像左寄せ<small>テキスト回り込み</small>',
 		'text-image1' => '画像右寄せ<small>テキスト回り込み無し</small>',
 		'text-image2' => '画像左寄せ<small>テキスト回り込み無し</small>',
-	),
-	'カスタム見出し / テキスト / テキスト+画像' => array(
-		'text-image3' => '画像上寄せ+テキスト',
-		'text-image4' => '画像+テキスト',
 	),
 	'カスタム見出し' => array(
 		'title-dot-line' => '下点線見出し',
@@ -56,6 +90,10 @@ $bgCategory = array(
 		'title-kadoore'=> 'ドッグイヤー見出し',
 		'title-transparent'=> '背景透過見出し',
 
+	),
+	'カスタム見出し / テキスト / テキスト+画像' => array(
+		// 'text-image3' => '画像上寄せ+テキスト',
+		// 'text-image4' => '画像+テキスト',
 	),
 	'画像' => array(
 		'image1' => '画像1列',
@@ -86,44 +124,6 @@ $bgCategory = array(
 		'image-link-text3' => '画像3列<small>リンク・テキスト付</small>',
 		'image-link-text4' => '画像4列<small>リンク・テキスト付</small>',
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
-	),
-	'メイン：カスタム画像+テキスト' => array(
-		'image-text-block1' => '画像+テキスト+ボタン',
-		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
-		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
-		'image-blur1' => 'ぼかし画像+半透明ボタン',
-		'image-title1' => '画像+左上見出し',
-		'image-title2' => '画像+中央見出し',
-		'image-medal' => '画像+メダル',
-
-
-	),
-	'メイン：背景画像' => array(
-		'back-img1' => '背景画像',
-		// 'back-img2' => '背景画像',
-		// 'back-img3' => '背景画像',
-		'slidein-img' => '左からスライドイン',
-		'slidein-img2' => '上からスライドイン',
-		'slidein-img3' => '下からスライドイン',
-		'slidein-img4' => '右からスライドイン',
-		'image-text-block2' => 'scrollDown',
-		// 'image-snow' => 'snowFalling',
-		'zoom-img' => 'ズーム',
-
-	),
-	'ボタン' => array(
-		'button' => 'ボタン',
-		'button2' => 'ボタン x2',
-		'button3' => 'ボタン x3',
-		'download-file' => 'ファイル<br>ダウンロード',
-		'download-file2' => 'ファイル<br>ダウンロード x2',
-		'download-file3' => 'ファイル<br>ダウンロード x3',
-	),
-	'カスタム区切り線' => array(
-		'hr-tensen' => '点線（区切り線）',
-		'hr-syasen'=> '斜線（区切り線）',
-		'hr-grade-center'=> '中央グラデ（区切り線）',
-		'hr-haikeihasen'=> '背景色あり破線（区切り線）',
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',

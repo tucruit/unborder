@@ -9,8 +9,6 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="bg_blk rounded_corners_img">
-    <?php $this->BurgerEditor->type('ckeditor') ?>
-	<?php $this->BurgerEditor->type('button') ?>
-</div>
-
+<script>
+<?php require('init.js'); ?>
+</script>

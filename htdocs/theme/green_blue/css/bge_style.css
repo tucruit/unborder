@@ -1221,6 +1221,16 @@
 }
 
 
+[data-bgt="title-center-transparent"] h2.title_center_transparent {
+  overflow: visible !important;
+	position: relative;
+	margin-bottom: 1em;
+	text-align: center;
+  color: #00a6d4;
+  background: #ffffff;
+}
+
+
 [data-bgt="title-transparent"] h2.transparent {
 	border-width: 0;
 	background-image: -webkit-linear-gradient(left,
@@ -1640,29 +1650,29 @@
   }}
 
 
-.bg_blk2 {
+.image_scrolldown {
   background-color: #ffffff;
   background-repeat: no-repeat;  
   background-size: cover;
   background-position: center center;
   width:100%;
-  height:500px;
+  height:300px;
   position: relative;
 }
-.bg_blk2 .title_center{
+.image_scrolldown .bgt-title-center-transparent-container{
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%,-50%);
   width:100%; 
 }
-.bg_blk2 span.scrollDown {
+.image_scrolldown span.scrollDown {
   position: absolute;
-  top: 60%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%,-50%);
   width: 20px;
-  height: 50px;
+  height: 80px;
   background-image: linear-gradient(
     -180deg,
     transparent,
@@ -1761,7 +1771,7 @@
   position: absolute;
   top: 5%;
   left: 2%;
-  width:50%;
+  width:60%;
   background-color: transparent !important;
 }
 .image-medal .text-wrap{
@@ -2193,7 +2203,7 @@ img {
 
 /* 角丸画像 */
 .rounded_corners_img {
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 /* 円形画像 */

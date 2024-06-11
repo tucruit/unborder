@@ -8,9 +8,4 @@
  * @since			Baser v 3.0.0
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
-?>
-<div class="bg_blk rounded_corners_img">
-    <?php $this->BurgerEditor->type('ckeditor') ?>
-	<?php $this->BurgerEditor->type('button') ?>
-</div>
-
+$version = "2.1.0";
