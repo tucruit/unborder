@@ -24,7 +24,8 @@ $bgCategory = array(
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
 		'image-medal' => '画像+メダル',
-	
+		'oval-image-text' => '丸画像（右）+テキスト+ボタン',
+		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 
 	),
 	'メイン：背景画像' => array(
@@ -120,9 +121,7 @@ $bgCategory = array(
 	),
 	'丸画像' => array(
 		'oval-image1' => '画像1列',
-		// 'oval-image2' => '画像2列',
 		'oval-image-link1' => '画像1列<small>リンク付</small>',
-		// 'oval-image-link2' => '画像2列<small>リンク付</small>',
 	),
 	'画像+テキスト' => array(
 		'image-text2' => '画像2列<small>テキスト付</small>',
@@ -133,6 +132,7 @@ $bgCategory = array(
 		'image-link-text3' => '画像3列<small>リンク・テキスト付</small>',
 		'image-link-text4' => '画像4列<small>リンク・テキスト付</small>',
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
+		// 'image-text-btn2' => '画像2列<small>テキスト・ボタン付</small>',	
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',
