@@ -26,6 +26,7 @@ $bgCategory = array(
 		'image-medal' => '画像+メダル',
 		'oval-image-text' => '丸画像（右）+テキスト+ボタン',
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
+		'zoom-img-text' => 'ズーム画像+見出し',
 
 	),
 	'メイン：背景画像' => array(
@@ -93,6 +94,7 @@ $bgCategory = array(
 		'title-mizutama'=> '背景水玉模様見出し',
 		'title-kadoore'=> 'ドッグイヤー見出し',
 		'title-transparent'=> '背景透過見出し',
+		'title-first-letter'=> 'ファーストレター見出し',
 
 	),
 	// 'カスタム見出し / テキスト / テキスト+画像' => array(
