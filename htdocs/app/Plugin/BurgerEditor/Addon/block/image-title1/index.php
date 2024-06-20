@@ -10,6 +10,7 @@
  */
 ?>
 <div class="bg_img">
+	<?php $this->BurgerEditor->type('back-img1') ?>
 	<?php $this->BurgerEditor->type('title-kakoi-kage') ?>
 </div>
 

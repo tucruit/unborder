@@ -10,6 +10,7 @@
  */
 ?>
 <div class="image-medal">
+	<?php $this->BurgerEditor->type('back-img1') ?>
 	<?php $this->BurgerEditor->type('title-transparent') ?>
 	<div class="text-wrap">
 		<?php $this->BurgerEditor->type('ckeditor') ?>

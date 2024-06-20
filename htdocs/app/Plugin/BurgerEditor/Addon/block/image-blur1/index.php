@@ -10,6 +10,7 @@
  */
 ?>
 <div class="blur-translucent">
+    <?php $this->BurgerEditor->type('back-img1') ?>
     <?php $this->BurgerEditor->type('button') ?>
 </div>
 
