@@ -14,7 +14,8 @@ $bgCategory = array(
 		'header-1' => 'ヘッダー',
 	),
 	'メイン：カスタム画像+テキスト' => array(
-		'image-text-block1' => '画像+テキスト+ボタン',
+		'image-text-block1' => '画像+テキスト+ボタン（右下）',
+		'image-text-block3' => '画像+テキスト+ボタン（中央）',
 		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
 		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
 		'image-text-block2' => '角丸画像+テキスト+ボタン',
@@ -27,6 +28,7 @@ $bgCategory = array(
 		'oval-image-text' => '丸画像（右）+テキスト+ボタン',
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 		'zoom-img-text' => 'ズーム画像+見出し',
+		'image-mix-box' => '複数画像+見出し+テキスト+ボタン',	
 
 	),
 	'メイン：背景画像' => array(
@@ -123,7 +125,9 @@ $bgCategory = array(
 	),
 	'丸画像' => array(
 		'oval-image1' => '画像1列',
+		'oval-image2' => '画像2列',
 		'oval-image-link1' => '画像1列<small>リンク付</small>',
+		'oval-image-link2' => '画像2列<small>リンク付</small>',
 	),
 	'画像+テキスト' => array(
 		'image-text2' => '画像2列<small>テキスト付</small>',
@@ -134,7 +138,8 @@ $bgCategory = array(
 		'image-link-text3' => '画像3列<small>リンク・テキスト付</small>',
 		'image-link-text4' => '画像4列<small>リンク・テキスト付</small>',
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
-		// 'image-text-btn2' => '画像2列<small>テキスト・ボタン付</small>',	
+		// 'image-text-btn2' => '画像2列<small>テキスト・ボタン付</small>',
+		// 'image-text-r2' => '丸画像2列<small>テキスト付</small>',	
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',
@@ -144,7 +149,7 @@ $bgCategory = array(
 		'form' => 'メールフォーム',
 		// 'form_2' => 'メールフォーム２',
 		// 'form_3' => 'メールフォーム３',
-		// 'google-maps' => 'GoogleMaps',
+		'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',
 		'hr' => '区切り線',

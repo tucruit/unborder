@@ -1350,43 +1350,74 @@
 /* main */
 
 .bg_blk {
-  background-image: url(../green_blue.jpg);
-  background-repeat: no-repeat;  
-  background-size: cover;
-  background-position: center center;
+  position: relative;
+}
+.bg_blk .back-img1{
   width:100%;
   height:500px;
-  position: relative;
+  position: absolute;
+  z-index: 1;
 }
 .bg_blk .bge-title-h2{
   position: absolute;
   top: 5%;
   left: 2%;
   width:95%;
+  z-index: 10; 
 }
 .bg_blk .bgt-btn{
   position: absolute;
   bottom: 10%;
   right: 5%;
+  z-index: 10; 
 }
 .bg_blk .bge-ckeditor{
   position: absolute;
   top: 5%;
   left: 5%;
+  z-index: 5; 
+}
+
+
+.bg_blk3 {
+  position: relative;
+}
+.bg_blk3 .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: 1;
+}
+.bg_blk3 h2{
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%,-50%);
+  top: 5%;
+  left: 50%;
+  width:95%;
+  z-index: 10; 
+}
+.bg_blk3 .bgt-btn{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  bottom: 10%;
+  left: 50%;
+  z-index: 10;
+}
+.bg_blk3 .bge-ckeditor{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 15%;
+  left: 50%;
+  z-index: 5;
 }
 
 
 .bg_blur{
-  background-image: url(../green_blue.jpg);
-  background-size: cover;
-  background-position: center;
   position: relative;
-  z-index: 0;
   overflow: hidden;
-  width:100%;
-  height:500px; 
 }
-.bg_blur:before{
+.bg_blur img:before{
   content: '';
   background: inherit;
   -webkit-filter: blur(5px);
@@ -1399,28 +1430,25 @@
   left: -5px;
   right: -5px;
   bottom: -5px;
-  z-index: -1;
+  z-index: 5;
 }
 .bg_blur .bgt-btn{
   position: absolute;
   bottom: 10%;
   right: 5%;
+  z-index: 10;
 }
 .bg_blur .bge-ckeditor{
   position: absolute;
   top: 5%;
   left: 5%;
+  z-index: 10;
 }
 
 
 
 .blur-gradient{
-  background-image: url(../green_blue.jpg);
-  background-size: cover;
-  background-position: center;
   position: relative;
-  width:100%;
-  height:500px; 
 }
 .blur-gradient:before{
   content: "";
@@ -1428,18 +1456,21 @@
   height: 100%;
   background: linear-gradient(rgba(255,255,255,0) 0, #fff 95%);
   position: absolute;
-  top: 0;
+  top: 10%;
   left: 0;
+  z-index: 5;
 }
 .blur-gradient .bgt-btn{
   position: absolute;
   bottom: 10%;
   right: 5%;
+  z-index: 10;
 }
 .blur-gradient .bge-ckeditor{
   position: absolute;
   top: 5%;
   left: 5%;
+  z-index: 10;
 }
 
 
@@ -1882,8 +1913,13 @@
 }
 
 
-
-
+.oval-image2{
+  border-collapse: separate;
+  border-spacing: 5px 0;
+}
+.oval-image2 div{
+  display:table-cell;
+}
 
 
 

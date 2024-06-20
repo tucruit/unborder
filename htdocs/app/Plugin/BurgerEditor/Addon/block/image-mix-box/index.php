@@ -9,8 +9,8 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="bg_blk">
-    <?php $this->BurgerEditor->type('back-img1') ?>
+<div class="blur-translucent">
+    <?php $this->BurgerEditor->type('title-transparent') ?>
     <?php $this->BurgerEditor->type('ckeditor') ?>
 	<?php $this->BurgerEditor->type('button') ?>
 </div>
