@@ -10,6 +10,7 @@
  */
 ?>
 <div class="blur-gradient rounded_corners_img">
+    <?php $this->BurgerEditor->type('back-img1') ?>
     <?php $this->BurgerEditor->type('ckeditor') ?>
 	<?php $this->BurgerEditor->type('button') ?>
 </div>

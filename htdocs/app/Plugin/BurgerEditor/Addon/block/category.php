@@ -15,20 +15,21 @@ $bgCategory = array(
 	),
 	'メイン：カスタム画像+テキスト' => array(
 		'image-text-block1' => '画像+テキスト+ボタン（右下）',
-		'image-text-block3' => '画像+テキスト+ボタン（中央）',
-		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		'image-text-block3' => '画像+見出し+テキスト+ボタン（中央）',
 		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
 		'image-text-block2' => '角丸画像+テキスト+ボタン',
-		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
 		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト+ボタン',
-		'image-blur1' => 'ぼかし画像+半透明ボタン',
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
 		'image-medal' => '画像+メダル',
 		'oval-image-text' => '丸画像（右）+テキスト+ボタン',
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 		'zoom-img-text' => 'ズーム画像+見出し',
-		'image-mix-box' => '複数画像+見出し+テキスト+ボタン',	
+		
+		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
+		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
+		'image-blur1' => 'ぼかし画像+半透明ボタン',
 
 	),
 	'メイン：背景画像' => array(
