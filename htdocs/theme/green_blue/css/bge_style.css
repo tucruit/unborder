@@ -3077,3 +3077,164 @@ max-width: 20%;
 .test-background{
     background-image: url('https://unborder.co.jp/info/wp/wp-content/uploads/2023/06/container-6751623_1280-1-800x386.jpg');
 }
+
+
+
+.bgb-image-text2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text2 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text2 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-text3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text3 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text3 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-text4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text4 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text4 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-text5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text5 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text5 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text2 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text2 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text3 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text3 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text4 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text4 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text5 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text5 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

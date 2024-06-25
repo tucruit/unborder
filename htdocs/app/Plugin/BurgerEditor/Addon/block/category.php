@@ -25,7 +25,7 @@ $bgCategory = array(
 		'oval-image-text' => '丸画像（右）+テキスト+ボタン',
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 		'zoom-img-text' => 'ズーム画像+見出し',
-		
+
 		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
 		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
 		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
@@ -150,7 +150,7 @@ $bgCategory = array(
 		'form' => 'メールフォーム',
 		// 'form_2' => 'メールフォーム２',
 		// 'form_3' => 'メールフォーム３',
-		'google-maps' => 'GoogleMaps',
+		// 'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',
 		'hr' => '区切り線',
