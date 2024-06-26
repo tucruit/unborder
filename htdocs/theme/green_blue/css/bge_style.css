@@ -3238,3 +3238,191 @@ max-width: 20%;
   height: 100%;
   object-fit: cover;
 }
+
+/*
+.bgb-oval-image-link2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-oval-image-link2 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-oval-image-link2 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+*/
+
+
+.bgb-image2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image2 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image2 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image3 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image3 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image4 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image4 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image5 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image5 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.bgb-image-link2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link2 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link2 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link3 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link3 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link4 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link4 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link5 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link5 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+
