@@ -1906,13 +1906,7 @@
 }
 
 
-.oval-image2{
-  border-collapse: separate;
-  border-spacing: 5px 0;
-}
-.oval-image2 div{
-  display:table-cell;
-}
+
 
 
 
@@ -3422,7 +3416,25 @@ max-width: 20%;
 }
 
 
-
-
-
+/*
+.oval-image2{
+  border-collapse: separate;
+  border-spacing: 5px 0;
+}
+.oval-image2 div{
+  display:table-cell;
+}
+*/
+/*
+.bgb-oval-image2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-oval-image2 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  box-sizing:border-box;
+  padding-top: 60%;
+}
+*/
 

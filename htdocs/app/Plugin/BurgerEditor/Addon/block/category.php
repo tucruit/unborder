@@ -126,9 +126,9 @@ $bgCategory = array(
 	),
 	'丸画像' => array(
 		'oval-image1' => '画像1列',
-		'oval-image2' => '画像2列',
+		// 'oval-image2' => '画像2列',
 		'oval-image-link1' => '画像1列<small>リンク付</small>',
-		'oval-image-link2' => '画像2列<small>リンク付</small>',
+		// 'oval-image-link2' => '画像2列<small>リンク付</small>',
 	),
 	'画像+テキスト' => array(
 		'image-text2' => '画像2列<small>テキスト付</small>',
