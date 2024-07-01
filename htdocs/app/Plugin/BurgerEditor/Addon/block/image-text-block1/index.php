@@ -10,6 +10,7 @@
  */
 ?>
 <div class="bg_blk">
+    <?php $this->BurgerEditor->type('back-img1') ?>
     <?php $this->BurgerEditor->type('ckeditor') ?>
 	<?php $this->BurgerEditor->type('button') ?>
 </div>

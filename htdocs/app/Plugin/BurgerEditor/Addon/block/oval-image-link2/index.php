@@ -9,9 +9,7 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="bgt-grid bgt-grid--first bgt-grid6" data-bge-grid-changeable>
+<div class="oval-image2">
 	<?php $this->BurgerEditor->type('oval-image-link') ?>
-</div>
-<div class="bgt-grid bgt-grid--last bgt-grid6" data-bge-grid-changeable>
 	<?php $this->BurgerEditor->type('oval-image-link') ?>
 </div>

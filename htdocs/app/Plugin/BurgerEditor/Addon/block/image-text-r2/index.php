@@ -10,10 +10,12 @@
  */
 ?>
 <div class="oval-image2">
-	<div class="bgt-grid bgt-grid--first bgt-grid6" data-bge-grid-changeable>
+	<div class="bgt-grid bgt-grid--first">
 		<?php $this->BurgerEditor->type('oval-image') ?>
+		<?php $this->BurgerEditor->type('ckeditor') ?>
 	</div>
-	<div class="bgt-grid bgt-grid--last bgt-grid6" data-bge-grid-changeable>
+	<div class="bgt-grid bgt-grid--last">
 		<?php $this->BurgerEditor->type('oval-image') ?>
+		<?php $this->BurgerEditor->type('ckeditor') ?>
 	</div>
 </div>
