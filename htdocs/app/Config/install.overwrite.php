@@ -42,7 +42,7 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 2);
+		Configure::write('debug', 0);
 	}
 	//
 	if (strpos($_SERVER['HTTP_HOST'], 'localhost:8137') !== false) {
@@ -50,20 +50,20 @@ if (!empty($_SERVER['HTTP_HOST'])) {
 		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 1);
+		Configure::write('debug', 0);
 	}
 	if (strpos($_SERVER['HTTP_HOST'], 'stg.instantpage.jp') !== false) {
 		Configure::write('ToolbarColorChanger.background', '#3F51B5');
 		Configure::write('BcEnv.siteUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'https://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 2);
+		Configure::write('debug', 0);
 	}
 	if (strpos($_SERVER['HTTP_HOST'], 'localhost:8001') !== false) {
 		Configure::write('ToolbarColorChanger.background', '#3F51B5');
 		Configure::write('BcEnv.siteUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.sslUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
 		Configure::write('BcEnv.cmsUrl', 'http://' . $_SERVER["HTTP_HOST"] . '/');
-		Configure::write('debug', 2);
+		Configure::write('debug', 0);
 	}
 }

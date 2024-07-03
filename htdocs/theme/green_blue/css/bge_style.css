@@ -1745,10 +1745,10 @@
 }
 .zoom_img>div{
   position: absolute;
-  top: 0;
+  top: -30%;
   left: 0;
   width: 100%;
-  height: 500px;
+  height: 700px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1774,16 +1774,13 @@
     z-index: 0;
   }
 }
-/* 1枚目 */
 .zoom_img>div:first-of-type{
   background-image: url(../img/img.jpg);
 }
-/* 2枚目 */
 .zoom_img>div:nth-of-type(2){
   background-image: url(../img/img2.jpg);
   animation-delay: 4s;
 }
-/* 3枚目 */
 .zoom_img>div:last-of-type{
   background-image: url(../img/img3.jpg);
   animation-delay: 8s;
@@ -1831,78 +1828,171 @@
 }
 .image-medal .medal-wrap{
   position: absolute;
-  bottom: 15%;
+  bottom: 5%;
   left: 2%;
-  width:95%;
+  width:70%;
+  z-index: 10;
+}
+
+
+.image-medal2 {
+  position: relative;
+}
+.image-medal2 .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: -10;
+}
+.image-medal2 .bgt-title-transparent-container{
+  position: absolute;
+  transform: translate(-50%,0%);
+  top: 5%;
+  left: 50%;
+  width:60%;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.image-medal2 .bgt-title-transparent-container h2{
+  text-align: center;
+}
+.image-medal2 .text-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  top: 20%;
+  left: 50%;
+  width:60%;
+  z-index: 10;
+}
+.image-medal2 .text-wrap .bge-ckeditor{
+  text-align: center;
+}
+.image-medal2 .medal-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  bottom: 5%;
+  left: 50%;
+  width:70%;
+  z-index: 10;
+
+}
+
+
+.image-medal3 {
+  position: relative;
+}
+.image-medal3 .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: -10;
+}
+.image-medal3 .bgt-title-transparent-container{
+  position: absolute;
+  top: 5%;
+  right: 0.5%;
+  width:60%;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.image-medal3 .bgt-title-transparent-container h2{
+  text-align: right;
+}
+.image-medal3 .text-wrap{
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width:60%;
+  z-index: 10;
+}
+.image-medal3 .text-wrap .bge-ckeditor{
+  text-align: right;
+}
+.image-medal3 .medal-wrap{
+  position: absolute;
+  bottom: 5%;
+  right: 0.5%;
+  width:70%;
   z-index: 10;
 }
 
 
 .oval-image-text {
-  width:100%;
-  height:400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.oval-image-text .item {
+  padding: 5px;
+  width: 49%;
+  height: 400px;
+  background-color: #fff;
   position: relative;
 }
-.oval-image-text .bge-title-h2{
+@media not all and (min-width: 768px) {
+  .oval-image-text .item {
+    width: 100%;
+  }
+}
+.oval-image-text .item .bge-ckeditor{
   position: absolute;
   top: 5%;
-  left: 5%;
-  width:60%;
-  color: #ff5722;
-}
-.oval-image-text .bge-ckeditor{
-  position: absolute;
-  top: 20%;
   left: 10%;
-  width:60%;
 }
-.oval-image-text .bgt-btn{
+.oval-image-text .item .bgt-btn{
   position: absolute;
   border-radius: 30px;
-  top: 65%;
+  bottom: 10%;
   left: 10%;
-  width: 15%;
 }
-.oval-image-text .oval_img img{
+.oval-image-text .item .oval_img img{
   position: absolute;
-  top: 40%;
-  left: 65%;
-  width: 300px;
-  height: 300px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
 }
 
 
 .oval-image-text2 {
-  width:100%;
-  height:400px;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.oval-image-text2 .bge-title-h2{
+.oval-image-text2 .item {
+  padding: 5px;
+  width: 49%;
+  height: 400px;
+  background-color: #fff;
+  position: relative;
+  text-align: center;
+}
+@media not all and (min-width: 768px) {
+  .oval-image-text2 .item {
+    width: 100%;
+  }
+}
+.oval-image-text2 .item .bge-ckeditor{
   position: absolute;
   top: 5%;
-  left: 50%;
-  width:60%;
-  color: #ff5722;
+  left: 10%;
 }
-.oval-image-text2 .bge-ckeditor{
-  position: absolute;
-  top: 20%;
-  left: 55%;
-  width:60%;
-}
-.oval-image-text2 .bgt-btn{
+.oval-image-text2 .item .bgt-btn{
   position: absolute;
   border-radius: 30px;
-  top: 65%;
-  left: 55%;
-  width: 15%;
+  bottom: 10%;
+  left: 10%;
 }
-.oval-image-text2 .oval_img img{
+.oval-image-text2 .item .oval_img img{
   position: absolute;
-  top: 40%;
-  left: 5%;
-  width: 300px;
-  height: 300px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
 }
 
 
@@ -1918,12 +2008,16 @@
 /* その他 */
 
 
+
 .medal-wrap{
-  border-collapse: separate;
-  border-spacing: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 50%;
 }
-.medal-wrap div.medal-wrap__inner{
-  display:table-cell;
+.medal-wrap div.medal-wrap__inner {
+  padding: 5px;
+  width: calc((100% - 30px * 2) / 3);
   position: relative;
 }
 .medal-wrap__inner .bgt-ckeditor-container{
@@ -1934,24 +2028,15 @@
   text-align:center;
 }
 .medal {	
-  background: linear-gradient(135deg, #b39855 0%, #fff9e6 50%, #b39855 100%);
+  width: 100%;
+  padding-bottom: 100%;
+  background-image: url(../gold_medal.png);
   background-repeat: no-repeat;
-  border-radius: 50%;
+  background-size: contain;
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
 }
-.medal div {
-  position: absolute;
-  display: inline-block;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width :80px;
-}
+
 
 /* リスト用
 body {
@@ -3000,15 +3085,11 @@ img {
 }
 
 /* 円形画像 */
-.oval_img img{
-  border-radius: 50%;
-  width: 100%;
-  object-fit: cover;
-}
-/*
 .oval_img {
   position: relative;
-  width: 100%;
+  width: 85%;
+  display: flex;
+  margin:0 auto;
 }
 .oval_img:before {
   content: '';
@@ -3017,12 +3098,10 @@ img {
 }
 .oval_img img {
   position: absolute;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
-*/
+
 
 
 

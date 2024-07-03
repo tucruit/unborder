@@ -21,9 +21,13 @@ $bgCategory = array(
 		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト+ボタン',
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
-		'image-medal' => '画像+メダル',
+		'image-medal' => '画像+メダル左下',
+		'image-medal2' => '画像+メダル中央下',
+		'image-medal3' => '画像+メダル右下',
+		//
 		'oval-image-text' => '丸画像（右）+テキスト+ボタン',
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
+		//
 		'zoom-img-text' => 'ズーム画像+見出し',
 
 		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
@@ -40,7 +44,7 @@ $bgCategory = array(
 		'slidein-img2' => '上からスライドイン',
 		'slidein-img3' => '下からスライドイン',
 		'slidein-img4' => '右からスライドイン',
-		'image-scrolldown' => 'scrollDown',
+		// 'image-scrolldown' => 'scrollDown',
 		// 'image-snow' => 'snowFalling',
 		'zoom-img' => 'ズーム',
 
@@ -148,7 +152,7 @@ $bgCategory = array(
 		'text-gallery1' => 'ギャラリー<small>+テキスト(左)</small>',
 		'text-gallery2' => 'ギャラリー<small>+テキスト(右)</small>',
 		'form' => 'メールフォーム',
-		// 'form_2' => 'メールフォーム２',
+		'form_2' => 'メールフォーム２',
 		// 'form_3' => 'メールフォーム３',
 		// 'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',

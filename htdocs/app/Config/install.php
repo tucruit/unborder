@@ -6,16 +6,20 @@ Configure::write('Cache.check', true);
 Configure::write('BcEnv.siteUrl', 'http://localhost/');
 
 
+
 Configure::write('BcEnv.sslUrl', 'http://localhost/');
+
 
 
 Configure::write('BcEnv.mainDomain', '');
 Configure::write('BcApp.adminSsl', false);
 
 
+
 Configure::write('BcApp.allowedPhpOtherThanAdmins', false);
 Cache::config('default', array('engine' => 'File'));
-Configure::write('debug', 2);
+Configure::write('debug', 0);
+
 
 
 

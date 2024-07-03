@@ -10,8 +10,12 @@
  */
 ?>
 <div class="oval-image-text2">
-	<?php $this->BurgerEditor->type('oval-image') ?>
-	<?php $this->BurgerEditor->type('title-transparent') ?>
-	<?php $this->BurgerEditor->type('ckeditor') ?>
-	<?php $this->BurgerEditor->type('button') ?>
+	<div class="item">
+		<?php $this->BurgerEditor->type('oval-image') ?>
+	</div>
+	<div class="item">
+		<?php // $this->BurgerEditor->type('title-transparent') ?>
+		<?php $this->BurgerEditor->type('ckeditor') ?>
+		<?php $this->BurgerEditor->type('button') ?>
+	</div>
 </div>
