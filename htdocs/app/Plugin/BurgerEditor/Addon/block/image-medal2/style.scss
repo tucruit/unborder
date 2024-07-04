@@ -1,0 +1,41 @@
+.image-medal2 {
+  position: relative;
+}
+.image-medal2 .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: -10;
+}
+.image-medal2 .bgt-title-transparent-container{
+  position: absolute;
+  transform: translate(-50%,0%);
+  top: 5%;
+  left: 50%;
+  width:60%;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.image-medal2 .bgt-title-transparent-container h2{
+  text-align: center;
+}
+.image-medal2 .text-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  top: 20%;
+  left: 50%;
+  width:60%;
+  z-index: 10;
+}
+.image-medal2 .text-wrap .bge-ckeditor{
+  text-align: center;
+}
+.image-medal2 .medal-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  bottom: 5%;
+  left: 50%;
+  width:70%;
+  z-index: 10;
+
+}

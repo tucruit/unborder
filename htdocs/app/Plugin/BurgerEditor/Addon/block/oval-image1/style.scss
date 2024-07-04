@@ -1,3 +1,16 @@
-[data-bgb="image1"] {
-	//
+.oval_img {
+  position: relative;
+  width: 85%;
+  display: flex;
+  margin:0 auto;
+}
+.oval_img:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.oval_img img {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 50%;
 }

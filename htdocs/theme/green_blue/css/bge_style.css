@@ -1745,7 +1745,7 @@
 }
 .zoom_img>div{
   position: absolute;
-  top: -30%;
+  top: -25%;
   left: 0;
   width: 100%;
   height: 700px;
@@ -3312,26 +3312,34 @@ max-width: 20%;
   object-fit: cover;
 }
 
-/*
-.bgb-oval-image-link2 {
+
+.oval-image-link2 {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
-.bgb-oval-image-link2 .bgt-image-link figure {
+.oval-image-link2 .item {
+  padding: 5px;
+  width: 49%;
+  height: 400px;
+  background-color: #fff;
   position: relative;
-  overflow: hidden;
-  padding-top: 60%;
 }
-.bgb-oval-image-link2 .bgt-image-link figure img {
+@media not all and (min-width: 768px) {
+  .oval-image-link2 .item {
+    width: 100%;
+  }
+}
+.oval-image-link2 .item .oval_img img{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
 }
-*/
+
 
 
 .bgb-image2 {
@@ -3495,25 +3503,33 @@ max-width: 20%;
 }
 
 
-/*
-.oval-image2{
-  border-collapse: separate;
-  border-spacing: 5px 0;
-}
-.oval-image2 div{
-  display:table-cell;
-}
-*/
-/*
-.bgb-oval-image2 {
+.oval-image2 {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
-.bgb-oval-image2 .bgt-image figure {
+.oval-image2 .item {
+  padding: 5px;
+  width: 49%;
+  height: 400px;
+  background-color: #fff;
   position: relative;
-  overflow: hidden;
-  box-sizing:border-box;
-  padding-top: 60%;
 }
-*/
+@media not all and (min-width: 768px) {
+  .oval-image2 .item {
+    width: 100%;
+  }
+}
+.oval-image2 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+} 
+
+
+
 
