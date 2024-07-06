@@ -9,5 +9,7 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="slidein_img"></div>
+<div class="slidein_img">
+    <?php $this->BurgerEditor->type('image') ?>
+</div>
 
