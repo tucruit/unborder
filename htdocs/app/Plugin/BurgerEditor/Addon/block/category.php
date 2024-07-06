@@ -155,11 +155,17 @@ $bgCategory = array(
 		'image-link-text4' => '画像4列<small>リンク・テキスト付</small>',
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
 
-		// 'image-text-btn2' => '画像2列<small>テキスト・ボタン付</small>',
 		'image-text-r2' => '丸画像2列<small>テキスト付</small>',
 		'image-text-r3' => '丸画像3列<small>テキスト付</small>',
 		'image-text-r4' => '丸画像4列<small>テキスト付</small>',
-		'image-text-r5' => '丸画像5列<small>テキスト付</small>',	
+		'image-text-r5' => '丸画像5列<small>テキスト付</small>',
+
+		'image-link-text-r2' => '丸画像2列<small>リンク・テキスト付</small>',
+		'image-link-text-r3' => '丸画像3列<small>リンク・テキスト付</small>',
+		'image-link-text-r4' => '丸画像4列<small>リンク・テキスト付</small>',
+		'image-link-text-r5' => '丸画像5列<small>リンク・テキスト付</small>',
+
+		// 'image-text-btn2' => '画像2列<small>テキスト・ボタン付</small>',
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',
