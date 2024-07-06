@@ -3313,33 +3313,6 @@ max-width: 20%;
 }
 
 
-.oval-image-link2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.oval-image-link2 .item {
-  padding: 5px;
-  width: 49%;
-  height: 400px;
-  background-color: #fff;
-  position: relative;
-}
-@media not all and (min-width: 768px) {
-  .oval-image-link2 .item {
-    width: 100%;
-  }
-}
-.oval-image-link2 .item .oval_img img{
-  position: absolute;
-  object-fit: cover;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  display: inline-block;
-}
-
 
 
 .bgb-image2 {
@@ -3506,13 +3479,12 @@ max-width: 20%;
 .oval-image2 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  vertical-align: top;
   flex-wrap: wrap;
 }
 .oval-image2 .item {
   padding: 5px;
   width: 49%;
-  height: 400px;
   background-color: #fff;
   position: relative;
 }
@@ -3531,5 +3503,82 @@ max-width: 20%;
 } 
 
 
+.oval-image3 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image3 .item {
+  padding: 2px;
+  width: 33%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image3 .item {
+    width: 100%;
+  }
+}
+.oval-image3 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+} 
 
 
+.oval-image4 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image4 .item {
+  padding: 2px;
+  width: 24%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image4 .item {
+    width: 100%;
+  }
+}
+.oval-image4 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+} 
+
+
+.oval-image5 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image5 .item {
+  padding: 2px;
+  width: 19%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image5 .item {
+    width: 100%;
+  }
+}
+.oval-image5 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+} 

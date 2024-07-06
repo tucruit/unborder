@@ -1,14 +1,12 @@
-
 .oval-image2 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  vertical-align: top;
   flex-wrap: wrap;
 }
 .oval-image2 .item {
   padding: 5px;
   width: 49%;
-  height: 400px;
   background-color: #fff;
   position: relative;
 }

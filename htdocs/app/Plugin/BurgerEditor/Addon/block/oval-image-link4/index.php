@@ -9,7 +9,13 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="oval-image2">
+<div class="oval-image4">
+	<div class="item">
+		<?php $this->BurgerEditor->type('oval-image-link') ?>
+	</div>
+	<div class="item">
+		<?php $this->BurgerEditor->type('oval-image-link') ?>
+	</div>
 	<div class="item">
 		<?php $this->BurgerEditor->type('oval-image-link') ?>
 	</div>
