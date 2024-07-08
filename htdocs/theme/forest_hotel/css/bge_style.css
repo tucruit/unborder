@@ -1454,141 +1454,84 @@
 
 .slidein_img {
   position: relative;
-  width: 100%;
-  height: 500px;
+  max-width: 100%;
   overflow: hidden;
 }
-.slidein_img:after {
-  position: absolute;
-  content: '';
-  top:0;
-  left: 0;
-  background-image: url(../green_blue.jpg);
-  background-repeat: no-repeat;  
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transform: translateX(-100%);
-  animation-name: box_slide;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  transform: translateX(-100%);
+.slidein_img .bgt-box__image-container{
+  position: absoloute;
+  right: 0;
+  animation: slideinLeft 5s;
 }
-@keyframes box_slide {
-0% {
-  transform: translate(-100%,0)
-}
-100% {
-  transform: translate(0,0)
-}}
-
-
-.slidein_img2 {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-}
-.slidein_img2:after {
-  position: absolute;
-  content: '';
-  top:0;
-  left: 0;
-  background-image: url(../green_blue.jpg);
-  background-repeat: no-repeat;  
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transform: translateX(-100%);
-  animation-name: box_slide2;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  transform: translateX(-100%);
-}
-@keyframes box_slide2 {
-  0% {
-    transform: translateY(-50px);
-  }
-  100% {
-    transform: translateY(0);
-  }}
-
-
-.slidein_img3 {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-}
-.slidein_img3:after {
-  position: absolute;
-  content: '';
-  top:0;
-  left: 0;
-  background-image: url(../green_blue.jpg);
-  background-repeat: no-repeat;  
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transform: translateX(-100%);
-  animation-name: box_slide3;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  transform: translateX(-100%);
-}
-@keyframes box_slide3 {
-  0% {
-    transform: translateY(50px);
-  }
-  100% {
-    transform: translateY(0);
-  }}
-
-
-  
-.slidein_img4 {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-}
-.slidein_img4:after {
-  position: absolute;
-  content: '';
-  top:0;
-  left: 0;
-  background-image: url(../green_blue.jpg);
-  background-repeat: no-repeat;  
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transform: translateX(-100%);
-  animation-name: box_slide4;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  transform: translateX(-100%);
-}
-@keyframes box_slide4 {
+@keyframes slideinLeft {
   0% {
     transform: translateX(-50px);
   }
   100% {
     transform: translateX(0);
-  }}
+  }
+}
 
 
+.slidein_img2 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slidein_img2 .bgt-box__image-container{
+  position: absoloute;
+  right: 0;
+  animation: slideinTop 5s;
+}
+@keyframes slideinTop {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.slidein_img3 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slidein_img3 .bgt-box__image-container{
+  position: absoloute;
+  right: 0;
+  animation: slideinBottom 3s;
+}
+@keyframes slideinBottom {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.slidein_img4 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slidein_img4 .bgt-box__image-container{
+  position: absoloute;
+  right: 0;
+  animation: slideinRight 3s;
+}
+@keyframes slideinRight {
+  0% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/*  */
 .image_scrolldown {
   background-color: #ffffff;
   background-repeat: no-repeat;  
@@ -1645,17 +1588,17 @@
 
 
 .zoom_img{
-  width: 100%;
-  height:500px;
-  overflow: hidden;
   position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
 }
 .zoom_img>div{
   position: absolute;
-  top: 0;
+  top: -40%;
   left: 0;
   width: 100%;
-  height: 500px;
+  height: 100%;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1664,6 +1607,27 @@
   animation-name: fade;
   animation-duration: 12s;
   animation-iteration-count: infinite;
+}
+@media only screen and (max-width: 1020px) and (min-width: 769px){
+  .zoom_img{
+    max-height: 450px;
+  }
+  .zoom_img>div {
+    width: 100%;
+    top: -15%;
+  }
+}
+@media not all and (min-width: 768px) {
+  .zoom_img{
+    max-height: 310px;
+  }
+  .zoom_img>div {
+    width: 100%;
+    top: 0;
+  }
+}
+.zoom_img>img{
+  position: absolute;
 }
 @keyframes fade {
   0%{
@@ -1681,18 +1645,13 @@
     z-index: 0;
   }
 }
-/* 1枚目 */
 .zoom_img>div:first-of-type{
-  background-image: url(../img/img.jpg);
+
 }
-/* 2枚目 */
 .zoom_img>div:nth-of-type(2){
-  background-image: url(../img/img2.jpg);
   animation-delay: 4s;
 }
-/* 3枚目 */
 .zoom_img>div:last-of-type{
-  background-image: url(../img/img3.jpg);
   animation-delay: 8s;
 }
 
@@ -1738,99 +1697,189 @@
 }
 .image-medal .medal-wrap{
   position: absolute;
-  bottom: 15%;
+  bottom: 5%;
   left: 2%;
-  width:95%;
+  width:70%;
+  z-index: 10;
+}
+
+
+.image-medal2 {
+  position: relative;
+}
+.image-medal2 .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: -10;
+}
+.image-medal2 .bgt-title-transparent-container{
+  position: absolute;
+  transform: translate(-50%,0%);
+  top: 5%;
+  left: 50%;
+  width:60%;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.image-medal2 .bgt-title-transparent-container h2{
+  text-align: center;
+}
+.image-medal2 .text-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  top: 20%;
+  left: 50%;
+  width:60%;
+  z-index: 10;
+}
+.image-medal2 .text-wrap .bge-ckeditor{
+  text-align: center;
+}
+.image-medal2 .medal-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  bottom: 5%;
+  left: 50%;
+  width:70%;
+  z-index: 10;
+
+}
+
+
+.image-medal3 {
+  position: relative;
+}
+.image-medal3 .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: -10;
+}
+.image-medal3 .bgt-title-transparent-container{
+  position: absolute;
+  top: 5%;
+  right: 0.5%;
+  width:60%;
+  background-color: transparent !important;
+  z-index: 10;
+}
+.image-medal3 .bgt-title-transparent-container h2{
+  text-align: right;
+}
+.image-medal3 .text-wrap{
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width:60%;
+  z-index: 10;
+}
+.image-medal3 .text-wrap .bge-ckeditor{
+  text-align: right;
+}
+.image-medal3 .medal-wrap{
+  position: absolute;
+  bottom: 5%;
+  right: 0.5%;
+  width:70%;
   z-index: 10;
 }
 
 
 .oval-image-text {
-  width:100%;
-  height:400px;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image-text .item {
+  padding: 5px;
+  width: 48%;
+  min-height: 300px;
+  background-color: #fff;
   position: relative;
 }
-.oval-image-text .bge-title-h2{
+@media not all and (min-width: 768px) {
+  .oval-image-text .item {
+    width: 100%;
+  }
+}
+.oval-image-text .item .bge-ckeditor{
   position: absolute;
   top: 5%;
-  left: 5%;
-  width:60%;
-  color: #53ff89;
-}
-.oval-image-text .bge-ckeditor{
-  position: absolute;
-  top: 20%;
   left: 10%;
-  width:60%;
 }
-.oval-image-text .bgt-btn{
+.oval-image-text .item .bgt-btn{
   position: absolute;
   border-radius: 30px;
-  top: 65%;
-  left: 10%;
-  width: 15%;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%,50%);
 }
-.oval-image-text .oval_img img{
+.oval-image-text .item .oval_img img{
   position: absolute;
-  top: 40%;
-  left: 65%;
-  width: 300px;
-  height: 300px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
 
 .oval-image-text2 {
-  width:100%;
-  height:400px;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
 }
-.oval-image-text2 .bge-title-h2{
+.oval-image-text2 .item {
+  padding: 5px;
+  width: 49%;
+  min-height: 300px;
+  background-color: #fff;
+  position: relative;
+  text-align: center;
+}
+@media not all and (min-width: 768px) {
+  .oval-image-text2 .item {
+    width: 100%;
+  }
+}
+.oval-image-text2 .item .bge-ckeditor{
   position: absolute;
   top: 5%;
-  left: 50%;
-  width:60%;
-  color: #53ff89;
+  left: 10%;
 }
-.oval-image-text2 .bge-ckeditor{
-  position: absolute;
-  top: 20%;
-  left: 55%;
-  width:60%;
-}
-.oval-image-text2 .bgt-btn{
+.oval-image-text2 .item .bgt-btn{
   position: absolute;
   border-radius: 30px;
-  top: 65%;
-  left: 55%;
-  width: 15%;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%,50%);
 }
-.oval-image-text2 .oval_img img{
+.oval-image-text2 .item .oval_img img{
   position: absolute;
-  top: 40%;
-  left: 5%;
-  width: 300px;
-  height: 300px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
 }
-
-
-
-
-
-
-
-
-
 
 
 /* その他 */
 
-
 .medal-wrap{
-  border-collapse: separate;
-  border-spacing: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 50%;
 }
-.medal-wrap div.medal-wrap__inner{
-  display:table-cell;
+.medal-wrap div.medal-wrap__inner {
+  padding: 5px;
+  width: calc((100% - 30px * 2) / 3);
   position: relative;
 }
 .medal-wrap__inner .bgt-ckeditor-container{
@@ -1841,26 +1890,538 @@
   text-align:center;
 }
 .medal {	
-  background: linear-gradient(135deg, #b39855 0%, #fff9e6 50%, #b39855 100%);
+  width: 100%;
+  padding-bottom: 100%;
+  background-image: url(../gold_medal.png);
   background-repeat: no-repeat;
-  border-radius: 50%;
+  background-size: contain;
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 200px;
+}
+
+
+/* レスポンシブスタイル */
+/* 親要素のサイズを超えない範囲 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* メディアクエリ */
+@media screen and (max-width: 600px) {
+  .bg_img {
+    max-width: 50%;
+  }
+}
+
+/* アスペクト比を維持拡大縮小 */
+img {
+  object-fit: cover;
+}
+
+/* アスペクト比を維持拡大縮小 */
+img {
+  object-fit: contain;
+}
+
+/* 角丸画像 */
+.rounded_corners_img {
+  border-radius: 30px;
+}
+
+/* 円形画像 */
+.oval_img {
+  position: relative;
+  width: 85%;
+  display: flex;
+  margin:0 auto;
+}
+.oval_img:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.oval_img img {
+  position: absolute;
+  object-fit: cover;
   border-radius: 50%;
 }
-.medal div {
-  position: absolute;
-  display: inline-block;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width :80px;
+
+body {
+background-color: #fff;
+}
+.wrapper {
+max-width: 750px;
+margin: 0 auto;
+text-align: center;
+}
+.cta {
+margin-top: -5px;
+}
+img {
+width: 100%;
+margin: 0;
+}
+.cva {
+position: relative;
+}
+.cva .botton {
+position: absolute;
+height: 150px;
+float: left;
+bottom: 5%;
+left: 0;
+right: 0;
+margin: auto;
+text-align: center;
+}
+.cva .botton img {
+max-width: 20%;
+}
+
+.test-background{
+    background-image: url('https://unborder.co.jp/info/wp/wp-content/uploads/2023/06/container-6751623_1280-1-800x386.jpg');
 }
 
 
+
+.bgb-image-text2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text2 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text2 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-text3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text3 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text3 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-text4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text4 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text4 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-text5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-text5 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-text5 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text2 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text2 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text3 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text3 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text4 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text4 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link-text5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link-text5 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link-text5 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+.bgb-image2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image2 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image2 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image3 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image3 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image4 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image4 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image5 .bgt-image figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image5 .bgt-image figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.bgb-image-link2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link2 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link2 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link3 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link3 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link4 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link4 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bgb-image-link5 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bgb-image-link5 .bgt-image-link figure {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+}
+.bgb-image-link5 .bgt-image-link figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.oval-image2 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image2 .item {
+  padding: 5px;
+  width: 49%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image2 .item {
+    width: 100%;
+  }
+}
+.oval-image2 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+} 
+
+
+.oval-image3 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image3 .item {
+  padding: 2px;
+  width: 33%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image3 .item {
+    width: 100%;
+  }
+}
+.oval-image3 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+} 
+
+
+.oval-image4 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image4 .item {
+  padding: 2px;
+  width: 24%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image4 .item {
+    width: 100%;
+  }
+}
+.oval-image4 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+} 
+
+
+.oval-image5 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image5 .item {
+  padding: 2px;
+  width: 19%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image5 .item {
+    width: 100%;
+  }
+}
+.oval-image5 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+
+
+/* sonota */
 
 [data-bgt="image-text-block2"].imege-text-leftupper {
 position: relative;
@@ -2130,464 +2691,4 @@ width: 100%;
   top: 25px;
   left: 30px;
 }
-
-
-
-/* レスポンシブスタイル */
-/* 親要素のサイズを超えない範囲 */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* メディアクエリ */
-@media screen and (max-width: 600px) {
-  .bg_img {
-    max-width: 50%;
-  }
-}
-
-/* アスペクト比を維持拡大縮小 */
-img {
-  object-fit: cover;
-}
-
-/* アスペクト比を維持拡大縮小 */
-img {
-  object-fit: contain;
-}
-
-/* 角丸画像 */
-.rounded_corners_img {
-  border-radius: 30px;
-}
-
-/* 円形画像 */
-.oval_img img{
-  border-radius: 50%;
-  width: 100%;
-  object-fit: cover;
-}
-/*
-.oval_img {
-  position: relative;
-  width: 100%;
-}
-.oval_img:before {
-  content: '';
-  display: block;
-  padding-top: 100%;
-}
-.oval_img img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-*/
-
-
-
-body {
-background-color: #fff;
-}
-.wrapper {
-max-width: 750px;
-margin: 0 auto;
-text-align: center;
-}
-.cta {
-margin-top: -5px;
-}
-img {
-width: 100%;
-margin: 0;
-}
-.cva {
-position: relative;
-}
-.cva .botton {
-position: absolute;
-height: 150px;
-float: left;
-bottom: 5%;
-left: 0;
-right: 0;
-margin: auto;
-text-align: center;
-}
-.cva .botton img {
-max-width: 20%;
-}
-
-.test-background{
-    background-image: url('https://unborder.co.jp/info/wp/wp-content/uploads/2023/06/container-6751623_1280-1-800x386.jpg');
-}
-
-
-
-.bgb-image-text2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-text2 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-text2 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-text3 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-text3 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-text3 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-text4 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-text4 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-text4 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-text5 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-text5 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-text5 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link-text2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link-text2 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link-text2 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link-text3 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link-text3 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link-text3 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link-text4 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link-text4 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link-text4 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link-text5 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link-text5 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link-text5 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/*
-.bgb-oval-image-link2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-oval-image-link2 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-oval-image-link2 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-*/
-
-
-.bgb-image2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image2 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image2 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image3 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image3 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image3 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image4 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image4 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image4 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image5 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image5 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image5 .bgt-image figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-
-.bgb-image-link2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link2 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link2 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link3 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link3 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link3 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link4 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link4 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link4 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.bgb-image-link5 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-image-link5 .bgt-image-link figure {
-  position: relative;
-  overflow: hidden;
-  padding-top: 60%;
-}
-.bgb-image-link5 .bgt-image-link figure img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-/*
-.oval-image2{
-  border-collapse: separate;
-  border-spacing: 5px 0;
-}
-.oval-image2 div{
-  display:table-cell;
-}
-*/
-/*
-.bgb-oval-image2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-.bgb-oval-image2 .bgt-image figure {
-  position: relative;
-  overflow: hidden;
-  box-sizing:border-box;
-  padding-top: 60%;
-}
-*/
 
