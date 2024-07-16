@@ -105,7 +105,7 @@ class InstantPageTemplateCategoriesController extends AppController {
 			//とりあえず全て取得するので条件なし
 			//'conditions'	=> $conditions,
 			'fields'		=> array(),
-			'limit'			=> $this->passedArgs['num'],
+			'limit'			=> 30,
 			'order' => 'InstantPageTemplateCategory.created DESC',
 		);
 		//現在のページの情報を自動で取得

@@ -6,7 +6,7 @@ $pageRoutes = configure::read('pageRoutes');
 $userUrl = isset($user['name']) ? h($user['name']) : '';
 // 無料プランの場合は1件以上登録できない。優良プランの場合は5件まで
 // TODO:初回のLP登録後にこの画面に戻ってくると無料プランでもボタンが表示される場合がある？確認対応する。
-$limit = $user['InstantPageUser']['plan_id'] == 1 ? 1 : 5;
+$limit = $user['InstantPageUser']['plan_id'] == 1 ? 2 : 5; //無料であれば２，そうでなければ５
 $no = $limit;
 
 // 申請送信済みのインスタントページをメール・メッセージから取得（userUrlを含む）
@@ -140,7 +140,6 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 			</div>
 			<div class="edit-themeList-body">
 			<?php if(!empty($templateCategories)): ?>
-				<?php foreach ($templateCategories as $templateCategory): ?>
 						<div>
 							<div class="myPage-btnGroup">
 								<a href="/cmsadmin/instant_page/instant_pages/add" class="mod-btn-square-01 myPage-btnGroup-lpNew" style="margin: 15px auto;max-width: 90%">
@@ -149,6 +148,7 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 							</div>
 						</div>
 						<div class="edit-themeList-body-themeContainer">
+							<?php foreach ($templateCategories as $templateCategory): ?>
 									<!-- BOX -->
 									<div class="themeBox">
 										<span class="themeBox-title"><?php echo $templateCategory['InstantPageTemplateCategory']['name'] ?></span>
@@ -172,9 +172,8 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 										</a> -->
 									</div>
 									<!-- /BOX -->
+							<?php endforeach; ?>
 						</div>
-
-				<?php endforeach; ?>
 			<?php endif ?>
 			</div>
 			<div class="edit-themeList-footer">
