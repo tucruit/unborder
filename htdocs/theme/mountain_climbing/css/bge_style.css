@@ -2691,4 +2691,14 @@ width: 100%;
   top: 25px;
   left: 30px;
 }
-
+.bg_img3 {
+  position: relative;
+  z-index: 0;
+}
+.bg_img3 .bgt-ckeditor-container{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%,50%);
+  z-index: 10;
+}
