@@ -9,4 +9,5 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<?php $this->BurgerEditor->type('form_2') ?>
+<?php // $this->BurgerEditor->type('form_2') ?>
+<?php // $this->Blog->mailFormLink( $title , $contentsName , [$datas] , [$options] ); ?>

@@ -22,6 +22,7 @@ $bgCategory = array(
 
 		'image-title1' => '画像+左上見出し',
 		'image-title2' => '画像+中央見出し',
+		'image-title3' => '画像+テキスト（中央）',
 
 		'image-medal' => '画像+メダル左下',
 		'image-medal2' => '画像+メダル中央下',
@@ -31,10 +32,10 @@ $bgCategory = array(
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 		'zoom-img-text' => 'ズーム画像+見出し',
 
-		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
 		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
 		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
 		'image-blur1' => 'ぼかし画像+半透明ボタン',
+		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
 	),
 	'メイン：背景画像' => array(
 		'back-img1' => '背景画像',
