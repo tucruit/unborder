@@ -1092,11 +1092,11 @@
 
 [data-bgt="title-fukidasi"] h2.fukidasi {
   overflow: visible !important;
-  position: relative;
-  padding: 1.5rem 2rem;
-  color: #fff;
-  border-radius: 10px;
-  background: #00a6d4;
+  position: relative !important;
+  padding: 1.5rem 2rem !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  background: #00a6d4 !important;
 }
 [data-bgt="title-fukidasi"] h2.fukidasi:after {
   position: absolute !important;
@@ -1113,12 +1113,12 @@
 
 [data-bgt="title-fukidasi2"] h2.fukidasi2 {
   overflow: visible !important;
-  position: relative;
-  padding: 1.5rem 2rem;
-  color: #00a6d4;
-  border: 3px solid #00a6d4;
-  border-radius: 10px;
-  background: #f9f9f9;
+  position: relative !important;
+  padding: 1.5rem 2rem !important;
+  color: #00a6d4 !important;
+  border: 3px solid #00a6d4 !important;
+  border-radius: 10px !important;
+  background: #f9f9f9 !important;
 }
 [data-bgt="title-fukidasi2"] h2.fukidasi2:before {
   position: absolute !important;
@@ -1300,10 +1300,11 @@
   position: absolute;
   text-align: center;
   transform: translate(-50%,-50%);
-  top: 5%;
+  top: 10%;
   left: 50%;
   width:95%;
   z-index: 10; 
+  text-shadow: 0 0 10px #ffcc00;
 }
 .bg_blk3 .bgt-btn{
   position: absolute;
@@ -1315,8 +1316,9 @@
 .bg_blk3 .bge-ckeditor{
   position: absolute;
   transform: translate(-50%,-50%);
-  top: 15%;
+  top: 50%;
   left: 50%;
+  width: 85%;
   z-index: 5;
 }
 
@@ -1439,7 +1441,7 @@
   position: relative;
   z-index: 0;
 }
-.bg_img2 .bgt-title-haikeikage-container{
+.bg_img2 .bgt-ckeditor-container{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1447,6 +1449,9 @@
   width:100%;
   text-align: center;
   z-index: 10;
+}
+.bg_img2 .bge-ckeditor{
+  text-shadow:0px 15px 3px #666666;
 }
 
 
@@ -1456,9 +1461,10 @@
 }
 .bg_img3 .bgt-ckeditor-container{
   position: absolute;
-  top: 10%;
+  width: 80%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%,50%);
+  transform: translate(-50%,0%);
   z-index: 10;
 }
 
@@ -2702,3 +2708,26 @@ width: 100%;
   left: 30px;
 }
 
+.bg_img4 {
+  position: relative;
+  z-index: 0;
+}
+.bg_img4 .bgt-ckeditor-container{
+  position: absolute;
+  width: 80%;
+  top: 5%;
+  left: 5%;
+  z-index: 10;
+}
+
+.bg_img5 {
+  position: relative;
+  z-index: 0;
+}
+.bg_img5 .bgt-ckeditor-container{
+  position: absolute;
+  width: 80%;
+  top: 5%;
+  right: 5%;
+  z-index: 10;
+}

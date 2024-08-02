@@ -11,5 +11,5 @@
 ?>
 <div class="bg_img2">
     <?php $this->BurgerEditor->type('back-img1') ?>
-    <?php $this->BurgerEditor->type('title-haikeikage') ?>
+    <?php $this->BurgerEditor->type('ckeditor') ?>
 </div>

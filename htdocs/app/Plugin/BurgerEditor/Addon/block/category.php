@@ -21,8 +21,11 @@ $bgCategory = array(
 		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト+ボタン',
 
 		'image-title1' => '画像+左上見出し',
-		'image-title2' => '画像+中央見出し',
-		'image-title3' => '画像+テキスト（中央）',
+		'image-title2' => '画像+テキスト（中央）',
+		'image-title3' => '画像+テキスト（中央上）',
+		'image-title4' => '画像+テキスト（左上）',
+		'image-title5' => '画像+テキスト（右上）',
+
 
 		'image-medal' => '画像+メダル左下',
 		'image-medal2' => '画像+メダル中央下',
