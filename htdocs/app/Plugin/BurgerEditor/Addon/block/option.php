@@ -40,6 +40,11 @@ $bgBlockConfig = array(
 		"bgb-opt--bg-gray"	 => "グレー",
 		"bgb-opt--bg-blue"	 => "ブルー",
 		"bgb-opt--bg-pink"	 => "ピンク",
+		"bgb-opt--bg-orange"	 => "オレンジ",
+		"bgb-opt--bg-darkgreen"	 => "ダークグリーン",
+		"bgb-opt--bg-gold"	 => "ゴールド",
+		"bgb-opt--bg-black"	 => "ブラック",
+		"bgb-opt--bg-navy"	 => "ネイビー",
 	),
 
 	// 枠線 - スタイル

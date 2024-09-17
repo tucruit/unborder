@@ -14,10 +14,13 @@ $bgCategory = array(
 		'header-1' => 'ヘッダー',
 	),
 	'メイン：カスタム画像+テキスト' => array(
-		'image-text-block1' => '画像+テキスト+ボタン（右下）',
-		'image-text-block3' => '画像+見出し+テキスト+ボタン（中央）',
-		'image-text-blur2' => '下部ぼかし画像+テキスト+ボタン',
-		'image-text-block2' => '角丸画像+テキスト+ボタン',
+		'image-text-block1' => '画像+テキスト（左上）+ボタン（右下）',
+		'image-text-block4' => '画像+テキスト（中央上）+ボタン（右下）',
+		'image-text-block3' => '画像+文字影付き見出し（中央上）+テキスト（中央）+ボタン（中央下）',
+		'image-text-block5' => '画像+文字影付き見出し（左上）+テキスト（左上）+ボタン（中央下）',
+		'image-text-blur2' => '下部ぼかし画像+テキスト（左上）+ボタン（右下）',
+		'image-text-blur3' => '下部ぼかし画像+テキスト（中央上）+ボタン（中央下）',
+		'image-text-block2' => '角丸画像+テキスト（左上）+ボタン（右下）',
 		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト+ボタン',
 
 		'image-title1' => '画像+左上見出し',

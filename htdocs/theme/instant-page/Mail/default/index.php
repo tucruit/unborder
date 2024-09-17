@@ -35,6 +35,19 @@
 		<div class="contact-form">
 			<?php $this->BcBaser->flash() ?>
 			<?php $this->BcBaser->element('mail_form') ?>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8"></script>
+			<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+			<script type="text/javascript" src="/theme/admin-third/js/admin/vendors/i18n/ui.datepicker-ja.js"></script>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/start/jquery-ui.min.css"> 
+			<script>
+			$('#MailMessageCalender').datepicker();
+			const datetime = new Date();
+			const datetime_today = datetime.getFullYear() + "-" +
+									(datetime.getMonth() + 1)  + "-" + 
+									datetime.getDate(); 
+			$('#MailMessageCalender').datepicker({dateFormat: 'yy-mm-dd'});
+			$("#MailMessageCalender").datepicker("setDate", datetime_today);
+			</script>
 		</div>
 	</div>
 </div>
