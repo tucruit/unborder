@@ -38,9 +38,9 @@ $bgCategory = array(
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 		'zoom-img-text' => 'ズーム画像+見出し',
 
-		'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		//'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
 		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
-		'image-blur1' => 'ぼかし画像+半透明ボタン',
+		'image-blur1' => '画像+半透明ボタン',
 		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
 	),
 	'メイン：背景画像' => array(
