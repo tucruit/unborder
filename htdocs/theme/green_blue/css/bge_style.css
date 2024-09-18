@@ -1346,6 +1346,9 @@
   transform: translate(-50%,0%);
   z-index: 5;
 }
+.bgb-image-text-block6 .bgt-image .bgt-box__image-container img{
+  border-radius: 30px;
+}
 
 
 .bg_blk5 {

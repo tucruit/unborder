@@ -21,9 +21,11 @@ $bgCategory = array(
 		'image-text-blur2' => '下部ぼかし画像+テキスト（左上）+ボタン（右下）',
 		'image-text-blur3' => '下部ぼかし画像+テキスト（中央上）+ボタン（中央下）',
 		'image-text-block2' => '角丸画像+テキスト（左上）+ボタン（右下）',
-		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト+ボタン',
+		'image-text-block6' => '角丸画像+テキスト（中央上）+ボタン（右下）',
+		'image-text-blur_rou2' => '角丸下部ぼかし画像+テキスト（左上）+ボタン（右下）',
+		'image-text-blur_rou3' => '角丸下部ぼかし画像+テキスト（中央上）+ボタン（中央下）',
 
-		'image-title1' => '画像+左上見出し',
+		'image-title1' => '画像+左上囲い影見出し',
 		'image-title2' => '画像+テキスト（中央）',
 		'image-title3' => '画像+テキスト（中央上）',
 		'image-title4' => '画像+テキスト（左上）',
@@ -39,7 +41,7 @@ $bgCategory = array(
 		'zoom-img-text' => 'ズーム画像+見出し',
 
 		//'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
-		'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
+		//'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
 		'image-blur1' => '画像+半透明ボタン',
 		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
 	),
