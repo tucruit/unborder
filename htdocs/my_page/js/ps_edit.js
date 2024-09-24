@@ -89,12 +89,12 @@ function setStatusBtnStyle(targetBtnObj) {
   if (selfStatusValue.val() == 0) {
     targetBtnObj.removeClass('isStatus1');
     mainTxt = '公開する';
-    subTxt = '（現在下書中）';
+    subTxt = '';
   }
   else {
     targetBtnObj.addClass('isStatus1');
     mainTxt = '公開しない';
-    subTxt = '（現在公開中）';
+    subTxt = '';
   }
   targetBtnObj.find('.isMainTxt').text(mainTxt);
   targetBtnObj.find('.isSubTxt').text(subTxt);
