@@ -174,6 +174,13 @@ $urls = $DomeinMessageModel->find('list', ['fields' => 'urlname', 'conditions' =
 									<!-- /BOX -->
 							<?php endforeach; ?>
 						</div>
+						<div>
+							<div class="myPage-btnGroup">
+								<a href="/files/manual/manual_v100.pdf" class="mod-btn-square-01 myPage-btnGroup-lpNew" style="margin: 15px auto;max-width: 90%">
+									<span class="btnInner">マニュアルを見る</span>
+								</a>
+							</div>
+						</div>
 			<?php endif ?>
 			</div>
 			<div class="edit-themeList-footer">
