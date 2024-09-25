@@ -315,7 +315,7 @@ if (!isset($user['InstantPageUser'])) {
 					<div class="edit-sub-menu-menuGroup" id="subMenuGroupLink">
 						<!-- MENU BOX-->
 						<div class="subMenuBox" id="subMenuGroupLink-manual">
-							<a href="/files/manual/manual_v100.pdf" target="_blank" class="subMenuBox-title isLinkBtn">マニュアルを見る</a>
+							<a href="/files/manual_blk/manual_blk_v100.pdf" target="_blank" class="subMenuBox-title isLinkBtn">マニュアルを見る</a>
 						</div>
 						<!-- /MENU BOX -->
 						<!-- MENU BOX -->
