@@ -86,7 +86,8 @@
 
 [data-bgb] h2 {
   /* スタイル */
-  font-size: 1.8em;
+  /* font-size: 1.8em; */
+  font-size: clamp(18px, 3.0vw, 70px) !important;
   font-weight: bold;
   line-height: 1.2;
   margin: 1.5em 0;
@@ -120,7 +121,8 @@
 }
 [data-bgb] h3 {
   /* スタイル */
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
+  font-size: clamp(16px, 2.6vw, 70px) !important;
   font-weight: bold;
   line-height: 1.2;
   padding: 0.8rem 0;
@@ -150,7 +152,8 @@
 }
 [data-bgb] h4 {
   /* スタイル */
-  font-size: 1.3em;
+  /* font-size: 1.3em; */
+  font-size: clamp(13px, 2.0vw, 50px) !important;
   font-weight: bold;
   line-height: 1.2;
   margin: 1em 0;
@@ -188,7 +191,8 @@
 }
 [data-bgb] h5 {
   /* スタイル */
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
+  font-size: clamp(11px, 1.8vw, 36px) !important;
   font-weight: bold;
   line-height: 1.2;
   margin: 1em 0;
@@ -221,6 +225,7 @@
 [data-bgb] p {
   /* スタイル */
   margin: 1em 0;
+  font-size: clamp(10px, 2vw, 24px) !important;
 }
 [data-bgb] p:first-child {
   /* ブロックの最初の場合は余白を詰める */
@@ -1549,6 +1554,7 @@
 
 .bg_img3 {
   position: relative;
+  font-size: 1.5em;
   z-index: 0;
 }
 .bg_img3 .bgt-ckeditor-container{
@@ -1559,6 +1565,15 @@
   transform: translate(-50%,0%);
   z-index: 10;
 }
+/*
+.bg_img3 .bgt-ckeditor-container .bge-ckeditor .p {
+  font-size: clamp(16px, 1.8vw, 30px) !important;
+}
+.bg_img3 .bgt-ckeditor-container .bge-ckeditor .h3 {
+  font-size: clamp(16px, 1.8vw, 72px) !important;
+}
+*/
+
 
 .slidein_img {
   position: relative;
@@ -1892,7 +1907,6 @@
   width:70%;
   z-index: 10;
 }
-
 
 .oval-image-text {
   display: flex;
@@ -2822,4 +2836,34 @@ width: 100%;
   top: 5%;
   right: 5%;
   z-index: 10;
+}
+
+.yurayura {
+  position: relative;
+}
+.yurayura .back-img1{
+  width:100%;
+  height:500px;
+  position: absolute;
+  z-index: -10;
+}
+.yurayura .medal-wrap{
+  position: absolute;
+  transform: translate(-50%,0%);
+  bottom: 10%;
+  left: 5%;
+  width:70%;
+  z-index: 10;
+  animation: yurayura 2s infinite;
+}
+@keyframes yurayura {
+  0% {
+      transform: rotate(20deg);
+  }
+  50% {
+      transform: rotate(-20deg);
+  }
+  100% {
+      transform: rotate(20deg);
+  }
 }

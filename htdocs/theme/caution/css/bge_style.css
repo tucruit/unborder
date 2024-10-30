@@ -221,6 +221,7 @@
 [data-bgb] p {
   /* スタイル */
   margin: 1em 0;
+  font-size: clamp(10px, 2vw, 24px) !important;
 }
 [data-bgb] p:first-child {
   /* ブロックの最初の場合は余白を詰める */
