@@ -1,0 +1,27 @@
+
+.oval-image-link2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.oval-image-link2 .item {
+  padding: 5px;
+  width: 49%;
+  height: 400px;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image-link2 .item {
+    width: 100%;
+  }
+}
+.oval-image-link2 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+}

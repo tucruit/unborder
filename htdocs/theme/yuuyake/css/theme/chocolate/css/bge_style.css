@@ -1,0 +1,779 @@
+@charset "UTF-8";
+/*!
+ *
+ * BurgerEditor StyleSheet Style Sample v2.21.0
+ *
+ */
+/** ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- *
+ *
+ * フォントの定義
+ * Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ *
+ * ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- **/
+@font-face {
+  font-family: FontAwesome;
+  src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/** ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- *
+ *
+ * マルチカラムブロックのレイアウト
+ *
+ * ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- **/
+[data-bgb=button2] {
+  /* 2列ブロック */
+}
+[data-bgb=button2] .bgt-grid {
+  /* 2列ブロック内 レイアウト用コンテナ */
+  width: 50%;
+  float: left;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb=button2] .bgt-grid {
+    width: 100%;
+    float: none;
+  }
+  [data-bgb=button2] .bgt-grid [data-bgt] > :last-child {
+    /* 下マージンはブロック内のタイプの要素に対して指定する (空画像対策) */
+    margin-bottom: 20px;
+  }
+  [data-bgb=button2] .bgt-grid [data-bgt] > :last-child[data-bge-empty="1"] {
+    margin-bottom: 0;
+  }
+  [data-bgb=button2] .bgt-grid:last-child [data-bgt] > :last-child, [data-bgb=button2] .bgt-grid[class*=bgt-sp-grid] [data-bgt] > :last-child {
+    margin-bottom: 0;
+  }
+}
+[data-bgb=button2] .bgt-grid:nth-child(1) {
+  /* 2列ブロック内 レイアウト用最初のコンテナ */
+  padding-right: 10px;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb=button2] .bgt-grid:nth-child(1) {
+    padding-right: 0;
+  }
+}
+[data-bgb=button2] .bgt-grid:nth-child(2) {
+  /* 2列ブロック内 レイアウト用最後のコンテナ */
+  padding-left: 10px;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb=button2] .bgt-grid:nth-child(2) {
+    padding-left: 0;
+  }
+}
+
+[data-bgb=button] {
+  text-align: center;
+}
+[data-bgb=button] [data-bgt=button] {
+  /* ボタンブロック内 ボタンタイプ */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[data-bgb=button2] {
+  text-align: center;
+}
+[data-bgb=button2] [data-bgt=button] {
+  /* ボタンブロック内 ボタンタイプ */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[data-bgb] h2 {
+  /* スタイル */
+  font-size: 1.7em;
+  font-weight: bold;
+  line-height: 1.7;
+  margin: 1.5em 0;
+  padding: 1rem 2rem;
+  text-align: center;
+  /* 回り込み防止 */
+  overflow: hidden;
+  color: #000000;
+  background-image: -webkit-gradient(linear, left top, right top, from(#f36144), to(#530093));
+  background-image: -webkit-linear-gradient(left, #f36144 0%, #530093 100%);
+  background-image: linear-gradient(to right, #ffffff , #3d2310 );
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-align: left;
+}
+[data-bgb] h2:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] h2::after {
+  content: "";
+  display: none;
+  width: 2em;
+  height: 2px;
+  background: #ccc;
+  margin: 0.8em auto;
+}
+[data-bgb] h3 {
+  /* スタイル */
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 0.7;
+  padding: 0.8rem 0;
+  border: 1px solid #ffffff;
+  margin-bottom: 0.2rem;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4eec88 ), to(#682be1));
+  background-image: -webkit-linear-gradient(left, #4eec88  0%, #2b6be1 100%);
+  background-image: linear-gradient(to right, #5f2102  0%, #ffffffcf 100%);
+  background-size: 100% 10px;
+  background-position: bottom;
+  border: 0px;
+  color: #ffffff;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+          /* 回り込み防止 */
+  overflow: hidden;
+}
+[data-bgb] h3:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] h3::after {
+  display: none;
+}
+[data-bgb] h4 {
+  /* スタイル */
+  font-size: 0.9m;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 1em 0;
+  background-image: linear-gradient(to right, #000000 0%, #ffffff 100%);
+  background-size: 100% 10px;
+  background-position: bottom;
+  background-color: #fff;
+  border: none;
+  color: #ffffff;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding: 0.3em 0.2em;
+  /* 回り込み防止 */
+  overflow: hidden;
+  position: relative;
+}
+[data-bgb] h4:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] h4::after {
+  position: absolute;
+  bottom: 0.25em;
+  left: 0;
+  z-index: -1;
+  content: "";
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 2px;
+}
+[data-bgb] h5 {
+  /* スタイル */
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 1em 0;
+  padding: 0.3em 0;
+  border-bottom: 1px dashed #999;
+  /* 回り込み防止 */
+  overflow: hidden;
+}
+[data-bgb] h5:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] h6 {
+  /* スタイル */
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 1em 0;
+  border: none;
+  border-left: 3px solid #ccc;
+  background: #eee;
+  padding: 0.3em 0.5em;
+  /* 回り込み防止 */
+  overflow: hidden;
+}
+[data-bgb] h6:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] p {
+  /* スタイル */
+  margin: 1em 0;
+}
+[data-bgb] p:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] li {
+  /* スタイル */
+  list-style: inherit;
+  /* 回り込み防止 */
+  overflow: hidden;
+}
+[data-bgb] li:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] ul {
+  /* スタイル */
+  margin: 1em 0;
+  background-color: hsla(108, 93%, 11%, 0.129);
+}
+[data-bgb] ul:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] ul ul {
+  /* 箇条書きリストの内箇条書きリスト */
+  margin: 0 0 0 1.8em;
+}
+[data-bgb] ul ul:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] ul li {
+  /* 箇条書きリストアイテム */
+  list-style-position: inside;
+  list-style-type: disc;
+  margin: 0 0 0.2em;
+}
+[data-bgb] ol {
+  /* スタイル */
+  margin: 1em 0;
+}
+[data-bgb] ol:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] ol ol {
+  /* 番号順リスト内の番号順リスト */
+  margin: 0 0 0 2em;
+}
+[data-bgb] ol ol:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] ol li {
+  margin: 0 0 0.2em;
+  background-color: #4718012f;
+  /* 番号順リストアイテム */
+  list-style-position: inside;
+  list-style-type: decimal-leading-zero;
+}
+[data-bgb] blockquote {
+  position: relative;
+  margin: 1em 0;
+  padding: 1px 2.5em;
+  border-radius: 5px;
+  background: none;
+  border: 2px solid #ccc;
+  /* 回り込み防止 */
+  overflow: hidden;
+  color: #880202;
+  font-size: 0.9em;
+}
+[data-bgb] blockquote:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] blockquote::before {
+  /* 引用 */
+  content: "“";
+  display: block;
+  font-family: serif;
+  position: absolute;
+  top: 0.3em;
+  left: 0.25em;
+  z-index: 0;
+  color: #ccc;
+  font-size: 3em;
+}
+[data-bgb] blockquote::after {
+  /* 引用 */
+  content: "”";
+  display: block;
+  font-family: serif;
+  position: absolute;
+  bottom: -0.3em;
+  right: 0.25em;
+  z-index: 0;
+  color: #ccc;
+  font-size: 3em;
+}
+[data-bgb] table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  margin: 1em 0;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb] table {
+    /* テーブル */
+    width: 100%;
+    display: block;
+  }
+}
+[data-bgb] table:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+[data-bgb] table caption {
+  /* テーブルキャプション */
+  font-weight: bold;
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb] table caption {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+  [data-bgb] table tbody,
+[data-bgb] table tfoot {
+    display: block;
+  }
+}
+[data-bgb] table tr {
+  /* テーブル行 */
+}
+@media screen and (max-width: 768px) {
+  [data-bgb] table tr {
+    display: block;
+    margin-top: -1px;
+  }
+}
+[data-bgb] table tr:nth-child(odd) td {
+  /* 奇数行 */
+  background: #fff;
+}
+[data-bgb] table tr:nth-child(even) td {
+  /* 偶数行 */
+  background: #fafafa;
+}
+[data-bgb] table tr th,
+[data-bgb] table tr td {
+  /* テーブルセル共通 */
+  text-align: left;
+  padding: 0.5em;
+  border: 1px solid #282121;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb] table tr th,
+[data-bgb] table tr td {
+    width: auto;
+    display: block;
+  }
+}
+[data-bgb] table tr th {
+  /* テーブル見出しセル */
+  font-weight: bold;
+  background-image: linear-gradient(to right, #000000 0%, hsl(0, 0%, 100%) 100%);
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  [data-bgb] table tr th {
+    border-bottom: none;
+  }
+}
+[data-bgb] table tr td {
+  /* テーブル通常セル */
+  font-weight: normal;
+}
+[data-bgb] strong {
+  /* 太字 */
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+}
+[data-bgb] u {
+  /* 下線 */
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: underline;
+}
+[data-bgb] s {
+  /* 取り消し線 */
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: line-through;
+}
+[data-bgb] sub {
+  /* 下付き文字 */
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  vertical-align: sub;
+}
+[data-bgb] sup {
+  /* 上付き文字 */
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  vertical-align: super;
+}
+[data-bgb] hr {
+  /* 区切り線 */
+  width: 100%;
+  height: 2px;
+  color: #ccc;
+  background: currentColor;
+  border-style: none;
+  margin: 50px auto;
+}
+[data-bgb] hr:first-child {
+  /* ブロックの最初の場合は余白を詰める */
+  margin-top: 0;
+}
+
+/**
+ * 画像タイプのキャプション
+ *
+ */
+.bgt-box__caption {
+  text-align: left;
+  font-weight: normal;
+  padding: 3px;
+  background: none;
+  font-size: 0.8em;
+}
+
+/**
+ * ボタン
+ *
+ */
+/* ボタンタイプ */
+.bgt-btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 12px 10px;
+  border-width: 1px;
+  border-style: solid;
+  background: #fff;
+  text-decoration: none;
+  min-width: 280px;
+  border-radius: 2px;
+}
+.bgt-btn:active, .bgt-btn:focus {
+  -webkit-box-shadow: 0 0 10px 0 #0570c7, 0 0 10px 0 #fff;
+          box-shadow: 0 0 10px 0 #0570c7, 0 0 10px 0 #fff;
+}
+
+.bgt-btn--link,
+[data-bgt-button-kind=link] .bgt-btn {
+  color: #ffffff;
+  border-color: #ffffff;
+  background-image: linear-gradient(to right, #000000 , #572400,#ffffff);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	transition: 0.5s;
+}
+.bgt-btn--link:hover, .bgt-btn--link:active, .bgt-btn--link:focus,
+[data-bgt-button-kind=link] .bgt-btn:hover,
+[data-bgt-button-kind=link] .bgt-btn:active,
+[data-bgt-button-kind=link] .bgt-btn:focus {
+  background: #e9e9e9;
+  color: #ffffff;
+  background-image: linear-gradient(to left, #000000 , #391902 ,#ffffff);
+}
+
+.bgt-btn--em,
+[data-bgt-button-kind=em] .bgt-btn {
+  font-weight: bold;
+  color: #fff;
+  border-color: #333;
+  background: #333;
+}
+.bgt-btn--em:hover, .bgt-btn--em:active, .bgt-btn--em:focus,
+[data-bgt-button-kind=em] .bgt-btn:hover,
+[data-bgt-button-kind=em] .bgt-btn:active,
+[data-bgt-button-kind=em] .bgt-btn:focus {
+  background: #555;
+}
+
+.bgt-btn--external,
+[data-bgt-button-kind=external] .bgt-btn {
+  color: #333;
+  border-color: #ccc;
+  background: #fff;
+}
+.bgt-btn--external:hover, .bgt-btn--external:active, .bgt-btn--external:focus,
+[data-bgt-button-kind=external] .bgt-btn:hover,
+[data-bgt-button-kind=external] .bgt-btn:active,
+[data-bgt-button-kind=external] .bgt-btn:focus {
+  background: #e9e9e9;
+}
+.bgt-btn--external::after,
+[data-bgt-button-kind=external] .bgt-btn::after {
+  font-family: FontAwesome, serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  font-size: 1em;
+  color: #999;
+  vertical-align: middle;
+}
+
+.bgt-btn--back,
+[data-bgt-button-kind=back] .bgt-btn {
+  color: #333;
+  border-color: #ddd;
+  background: #ddd;
+}
+.bgt-btn--back:hover, .bgt-btn--back:active, .bgt-btn--back:focus,
+[data-bgt-button-kind=back] .bgt-btn:hover,
+[data-bgt-button-kind=back] .bgt-btn:active,
+[data-bgt-button-kind=back] .bgt-btn:focus {
+  background: #e9e9e9;
+}
+.bgt-btn--back span,
+[data-bgt-button-kind=back] .bgt-btn span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.bgt-btn--back::before,
+[data-bgt-button-kind=back] .bgt-btn::before {
+  font-family: FontAwesome, serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  font-size: 1em;
+  margin-top: -2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bgt-hr {
+  margin: 0 auto;
+}
+
+[data-bgt-hr-kind=dashed] .bgt-hr {
+  height: 0;
+  border: none;
+  background: none;
+  border-bottom: 2px dashed currentColor;
+}
+
+.bgt-hr--bold,
+[data-bgt-hr-kind=bold] .bgt-hr {
+  height: 5px;
+}
+
+.bgt-hr--narrow,
+[data-bgt-hr-kind=narrow] .bgt-hr {
+  height: 1px;
+}
+
+.bgt-hr--short,
+[data-bgt-hr-kind=short] .bgt-hr {
+  width: 60%;
+  height: 1px;
+}
+
+/* ダウンロードファイルタイプ */
+.bgt-download-file__link {
+  color: #333;
+  text-align: left;
+  font-size: 1.08em;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.7em 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  line-height: 1;
+  text-decoration: none;
+}
+.bgt-download-file__link:hover {
+  background-color: #eee;
+}
+.bgt-download-file__link:active, .bgt-download-file__link:focus {
+  -webkit-box-shadow: 0 0 5px 1px #0570c7;
+          box-shadow: 0 0 5px 1px #0570c7;
+  outline: none;
+}
+
+.bgt-link__size {
+  color: #808080;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .bgt-google-maps-link {
+    margin-top: 10px;
+    padding: 1em;
+    text-decoration: none;
+    color: #333;
+    border: solid 1px #999;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .bgt-google-maps-link span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .bgt-google-maps-link::after {
+    font-family: FontAwesome, serif;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "";
+    font-size: 1em;
+    vertical-align: middle;
+  }
+}
+
+[data-bgt=gallery] .bgt-gallery {
+  padding-top: 54%;
+}
+[data-bgt=gallery] .bgt-gallery:hover [data-bgt=gallery] .bgt-gallery-ctrl {
+  opacity: 1;
+}
+[data-bgt=gallery] .bgt-gallery__img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+[data-bgt=gallery] .bgt-gallery__caption {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.7em 1em;
+  text-align: center;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl {
+  top: 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__prev, [data-bgt=gallery] .bgt-gallery-ctrl__next {
+  display: block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: -20px 0 0;
+  padding: 0;
+  background: none;
+  border: none;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__prev:hover, [data-bgt=gallery] .bgt-gallery-ctrl__next:hover {
+  opacity: 0.5;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__prev:focus, [data-bgt=gallery] .bgt-gallery-ctrl__next:focus {
+  outline: none;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__prev span, [data-bgt=gallery] .bgt-gallery-ctrl__next span {
+  display: block;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__prev::after, [data-bgt=gallery] .bgt-gallery-ctrl__next::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: solid #fff;
+  border-width: 5px 5px 0 0;
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__prev {
+  left: 20px;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+[data-bgt=gallery] .bgt-gallery-ctrl__next {
+  right: 20px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+[data-bgt=gallery] [data-gallery-marker=thumbs] + .bgt-gallery-marker {
+  margin-top: 10px;
+}
+[data-bgt=gallery] [data-gallery-marker=thumbs] + .bgt-gallery-marker li {
+  margin: 0 5px;
+  width: 60px;
+  height: 60px;
+}
+[data-bgt=gallery] [data-gallery-marker=dot] + .bgt-gallery-marker {
+  margin-top: 10px;
+}
+[data-bgt=gallery] [data-gallery-marker=dot] + .bgt-gallery-marker li {
+  margin: 0 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #999;
+  border-radius: 100%;
+}
+[data-bgt=gallery] [data-gallery-marker=dot] + .bgt-gallery-marker li.current {
+  background-color: #000;
+}
+
+/* デバイス依存汎用クラス */
+.pc-only {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+}
+
+.sp-only {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .sp-only {
+    display: block;
+  }
+}

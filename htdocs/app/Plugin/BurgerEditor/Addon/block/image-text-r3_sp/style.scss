@@ -1,0 +1,25 @@
+.oval-image3 {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+  flex-wrap: wrap;
+}
+.oval-image3 .item {
+  padding: 2px;
+  width: 33%;
+  background-color: #fff;
+  position: relative;
+}
+@media not all and (min-width: 768px) {
+  .oval-image3 .item {
+    width: 100%;
+  }
+}
+.oval-image3 .item .oval_img img{
+  position: absolute;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+} 

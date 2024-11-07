@@ -47,17 +47,7 @@ $bgCategory = array(
 	),
 	'メイン：背景画像' => array(
 		'back-img1' => '背景画像',
-		// 'back-img2' => '背景画像',
-		// 'back-img3' => '背景画像',
 
-		'slidein-img' => '左からスライドイン',
-		'slidein-img2' => '上からスライドイン',
-		'slidein-img3' => '下からスライドイン',
-		'slidein-img4' => '右からスライドイン',
-
-		// 'image-scrolldown' => 'scrollDown',
-		// 'image-snow' => 'snowFalling',
-		'zoom-img' => 'ズーム',
 	),
 	'ボタン' => array(
 		'button' => 'ボタン',
@@ -102,8 +92,6 @@ $bgCategory = array(
 		'title-dot-line' => '下点線見出し',
 		'title-haikeikage' => '背景影あり見出し',
 		'title-kakoi-kage' => '囲い影あり見出し',
-		// 'title-stripe' => '下斜線模様見出し',
-		// 'title-patch' => '上アーチ見出し',
 		'title-center'=> '中央見出し',
 		'title-keisya'=> '背景傾斜見出し',
 		'title-fukidasi'=> '吹き出し見出し',
@@ -116,10 +104,6 @@ $bgCategory = array(
 		'title-first-letter'=> 'ファーストレター見出し',
 
 	),
-	// 'カスタム見出し / テキスト / テキスト+画像' => array(
-		// 'text-image3' => '画像上寄せ+テキスト',
-		// 'text-image4' => '画像+テキスト',
-	// ),
 	'画像' => array(
 		'image1' => '画像1列',
 		'image2' => '画像2列',
@@ -140,7 +124,7 @@ $bgCategory = array(
 		'trimmed-image-link4' => 'トリミング画像4列<small>リンク付</small>',
 		'trimmed-image-link5' => 'トリミング画像5列<small>リンク付</small>',
 	),
-	'丸画像' => array(
+	'丸画像（スマホ改行表示）' => array(
 		'oval-image1' => '画像1列',
 		'oval-image-link1' => '画像1列<small>リンク付</small>',
 
@@ -153,6 +137,38 @@ $bgCategory = array(
 		'oval-image-link3' => '正丸画像3列<small>リンク付</small>',
 		'oval-image-link4' => '正丸画像4列<small>リンク付</small>',
 		'oval-image-link5' => '正丸画像5列<small>リンク付</small>',
+		
+		'image-text-r2' => '丸画像2列<small>テキスト付</small>',
+		'image-text-r3' => '丸画像3列<small>テキスト付</small>',
+		'image-text-r4' => '丸画像4列<small>テキスト付</small>',
+		'image-text-r5' => '丸画像5列<small>テキスト付</small>',
+
+		'image-link-text-r2' => '丸画像2列<small>リンク・テキスト付</small>',
+		'image-link-text-r3' => '丸画像3列<small>リンク・テキスト付</small>',
+		'image-link-text-r4' => '丸画像4列<small>リンク・テキスト付</small>',
+		'image-link-text-r5' => '丸画像5列<small>リンク・テキスト付</small>',
+
+	),
+	'丸画像（スマホ横並び表示）' => array(
+		'oval-image2_sp' => '正丸画像2列',
+		'oval-image3_sp' => '正丸画像3列',
+		'oval-image4_sp' => '正丸画像4列',
+		'oval-image5_sp' => '正丸画像5列',
+
+		'oval-image-link2_sp' => '正丸画像2列<small>リンク付</small>',
+		'oval-image-link3_sp' => '正丸画像3列<small>リンク付</small>',
+		'oval-image-link4_sp' => '正丸画像4列<small>リンク付</small>',
+		'oval-image-link5_sp' => '正丸画像5列<small>リンク付</small>',
+				
+		'image-text-r2_sp' => '丸画像2列<small>テキスト付</small>',
+		'image-text-r3_sp' => '丸画像3列<small>テキスト付</small>',
+		'image-text-r4_sp' => '丸画像4列<small>テキスト付</small>',
+		'image-text-r5_sp' => '丸画像5列<small>テキスト付</small>',
+
+		'image-link-text-r2_sp' => '丸画像2列<small>リンク・テキスト付</small>',
+		'image-link-text-r3_sp' => '丸画像3列<small>リンク・テキスト付</small>',
+		'image-link-text-r4_sp' => '丸画像4列<small>リンク・テキスト付</small>',
+		'image-link-text-r5_sp' => '丸画像5列<small>リンク・テキスト付</small>',
 	),
 	'画像+テキスト' => array(
 		'image-text2' => '画像2列<small>テキスト付</small>',
@@ -164,17 +180,19 @@ $bgCategory = array(
 		'image-link-text4' => '画像4列<small>リンク・テキスト付</small>',
 		'image-link-text5' => '画像5列<small>リンク・テキスト付</small>',
 
-		'image-text-r2' => '丸画像2列<small>テキスト付</small>',
-		'image-text-r3' => '丸画像3列<small>テキスト付</small>',
-		'image-text-r4' => '丸画像4列<small>テキスト付</small>',
-		'image-text-r5' => '丸画像5列<small>テキスト付</small>',
+	),
+	'アニメーション画像' => array(
+		
+		'slidein-img' => '左からスライドイン',
+		'slidein-img2' => '上からスライドイン',
+		'slidein-img3' => '下からスライドイン',
+		'slidein-img4' => '右からスライドイン',
 
-		'image-link-text-r2' => '丸画像2列<small>リンク・テキスト付</small>',
-		'image-link-text-r3' => '丸画像3列<small>リンク・テキスト付</small>',
-		'image-link-text-r4' => '丸画像4列<small>リンク・テキスト付</small>',
-		'image-link-text-r5' => '丸画像5列<small>リンク・テキスト付</small>',
+		'zoom-img' => 'ズーム',
+		// 'image-scrolldown' => 'scrollDown',
 
-		// 'image-text-btn2' => '画像2列<small>テキスト・ボタン付</small>',
+		'yurayura' => 'ゆらゆら画像',
+
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',
@@ -182,8 +200,6 @@ $bgCategory = array(
 		'text-gallery1' => 'ギャラリー<small>+テキスト(左)</small>',
 		'text-gallery2' => 'ギャラリー<small>+テキスト(右)</small>',
 		'form' => 'メールフォーム',
-		// 'form_2' => 'メールフォーム２',
-		// 'form_3' => 'メールフォーム３',
 		// 'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',
