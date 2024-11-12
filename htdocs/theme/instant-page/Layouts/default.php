@@ -66,6 +66,14 @@
 
 	<!-- MAIN -->
 	<main>
+	<?php
+	/*
+	*
+	*/
+	// ログインユーザーの取得
+	$user = $this->Session->read('Auth');
+	$instantPageUser = !empty($user['Admin']) ? $this->Theme->getInstantPageUser($user['Admin']['id']) : [];
+	?>
 		<!-- CONTENTS -->
 		<div role="main">
 			<?php if ($this->BcBaser->isHome() || $this->BcBaser->getContentsName() == "Home") : ?>
@@ -79,8 +87,19 @@
 									<img src="<?php $this->BcBaser->themeUrl() ?>img/top/kv_catch.svg" alt="ランディングページ制作支援ツール インスタントページ" class="imgFit">
 								</picture>
 								<div class="top-kv-txt-btnWrap">
-									<a href="/signup/" class="top-kv-txt-btn">
-										<span class="btnInner">今すぐはじめる</span>
+									<?php
+									$text = '今すぐはじめる';
+									$href = '/signup/';
+									if (!empty($instantPageUser)) {
+										$text = '今すぐはじめる';
+										$href = '#';
+										//$text = 'マイページ';
+										//$href = '/cmsadmin/instant_page/instant_pages/';
+									}
+									?>
+									<a href="<?php echo $href ?>" class="top-kv-txt-btn">
+										<span class="btnInner"><?php echo $text ?></span>
+										<button type="submit" data-bca-btn-type="login" id="BtnLogin"><?php echo $text ?></button>
 									</a>
 								</div>
 							</div>
@@ -318,7 +337,7 @@
 												月額料金
 											</div>
 										</th>
-										<td><em>無　料</em></td>
+										<td><em>無　料<br>ローカル</em></td>
 										<td><em><span style="font-size: 16px">税抜</span> 2,900円/月<br><span style="font-size: 16px">（税込 3,190円/月）</span></em></td>
 									</tr>
 									<tr>
