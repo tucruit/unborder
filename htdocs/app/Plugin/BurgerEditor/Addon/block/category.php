@@ -40,10 +40,10 @@ $bgCategory = array(
 		'oval-image-text2' => '丸画像（左）+テキスト+ボタン',
 		'zoom-img-text' => 'ズーム画像+見出し',
 
-		//'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
-		//'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
+		// //保留'image-text-blur1' => 'ぼかし画像+テキスト+ボタン',
+		// //保留'image-text-blur_rou1' => '角丸ぼかし画像+テキスト+ボタン',
 		'image-blur1' => '画像+半透明ボタン',
-		// 'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
+		// //保留'image-mix-box' => '複数画像+見出し+テキスト+ボタン',
 	),
 	'メイン：背景画像' => array(
 		'back-img1' => '背景画像',
@@ -67,9 +67,11 @@ $bgCategory = array(
 		'button-rittai-kaku'=> '立体角',
 		'button-rittai-kakumaru'=> '立体角丸',
 
-		'button-custom' => 'ボタン（余白）',
-		'button-custom2' => 'ボタン（余白） x2',
-		'button-custom3' => 'ボタン（余白） x3',
+		// 'button-custom' => 'ボタン（余白）',
+		// 'button-custom2' => 'ボタン（余白） x2',
+		// 'button-custom3' => 'ボタン（余白） x3',
+
+		//追 'button-to-top'=> '右下固定ボタン',
 	),
 	'カスタム区切り線' => array(
 		'hr-tensen' => '点線（区切り線）',
@@ -189,10 +191,24 @@ $bgCategory = array(
 		'slidein-img4' => '右からスライドイン',
 
 		'zoom-img' => 'ズーム',
-		// 'image-scrolldown' => 'scrollDown',
+		// //保留'image-scrolldown' => 'scrollDown',
 
-		'yurayura' => 'ゆらゆら画像',
+		//追 'slidein-img-f' => '左からスライドイン（倍速）',
+		//追 'slidein-img2-f' => '上からスライドイン（倍速）',
+		//追 'slidein-img3-f' => '下からスライドイン（倍速）',
+		//追 'slidein-img4-f' => '右からスライドイン（倍速）',
 
+		//追 'yurayura_l' => 'ゆらゆら画像左下',
+		//追 'yurayura_r' => 'ゆらゆら画像右下',
+
+
+	),
+	'サイト前面アニメーション' => array(
+		//追 'snow_dot' => 'ふわふわ雪アニメ',
+		//追 'confetti' => '紙吹雪アニメ',
+		//追 'fuwafuwa_ud' => 'ふわふわ（上下）',
+		//追 //保留'fuwafuwa_wave' => 'ふわふわ（正弦波）',
+		
 	),
 	'その他' => array(
 		'table' => '2カラムテーブル',
@@ -200,10 +216,14 @@ $bgCategory = array(
 		'text-gallery1' => 'ギャラリー<small>+テキスト(左)</small>',
 		'text-gallery2' => 'ギャラリー<small>+テキスト(右)</small>',
 		'form' => 'メールフォーム',
-		// 'google-maps' => 'GoogleMaps',
+		// //使用禁止'google-maps' => 'GoogleMaps',
 		'youtube' => 'YouTube',
 		'embed' => '埋め込みタグ<small>script / form</small>',
 		'hr' => '区切り線',
 		'medal' => 'メダル',
-	)
+	),	
+	'未分類' => array(
+		//追 'snow_dot' => 'ふわふわ雪アニメ',
+
+	),
 );

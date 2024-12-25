@@ -9,12 +9,9 @@
  * @license			https://market.basercms.net/files/baser_market_license.pdf
  */
 ?>
-<div class="yurayura">
+<div class="yurayura_l">
 	<?php $this->BurgerEditor->type('back-img1') ?>
-	<div class="medal-wrap">
-		<div class="medal-wrap__inner">
-			<?php $this->BurgerEditor->type('medal') ?>
-			<?php $this->BurgerEditor->type('ckeditor') ?>
-		</div>
+	<div class="yura-left">
+		<?php $this->BurgerEditor->type('oval-image') ?>
 	</div>
 </div>
